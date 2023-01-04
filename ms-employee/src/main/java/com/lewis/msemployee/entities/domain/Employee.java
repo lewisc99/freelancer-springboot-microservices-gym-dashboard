@@ -1,0 +1,97 @@
+package com.lewis.msemployee.entities.domain;
+
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.UUID;
+
+
+@Table(name = "tb_employee")
+@Entity
+public class Employee {
+
+    @Id
+    @Column(columnDefinition = "uuid")
+    @NotNull(message = "Id could not be null")
+    private UUID id;
+
+    @NotNull(message = "username cannot be null")
+    private String username;
+
+    @Min(18)
+    private Integer age;
+    @NotNull(message = "Document cannot be null")
+    @Size(min = 8, max = 30,  message = "Document must have minimum 8 and maximum 30 characters")
+    private String doc;
+    @NotNull(message = "Email cannot be null")
+    @Email(message = "Email should be valid")
+    private String email;
+    @NotNull(message = "Password cannot be null")
+    @Size(min = 8, max = 50,  message = "password must have minimum 8 and maximum 50 characters")
+    private String password;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinTable(name = "employee_role",
+        joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"), inverseJoinColumns =  @JoinColumn(name =  "role_id"))
+    private List<Roles> roles;
+    public Employee(){}
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getDoc() {
+        return doc;
+    }
+
+    public void setDoc(String doc) {
+        this.doc = doc;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
+}
