@@ -45,7 +45,7 @@
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.MsEmployeeApplicationTests">
+  <component name="RunManager" selected="JUnit.EmployeeTest">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -55,6 +55,53 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.assertEmployeeIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
+      <option name="METHOD_NAME" value="assertEmployeeIsNotNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeTest.assertEmployeePropertiesNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
+      <option name="METHOD_NAME" value="assertEmployeePropertiesNotNull" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -76,6 +123,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeTest.assertEmployeePropertiesNotNull" />
+        <item itemvalue="JUnit.EmployeeTest.assertEmployeeIsNotNull" />
         <item itemvalue="JUnit.MsEmployeeApplicationTests" />
         <item itemvalue="Application.MsEmployeeApplication" />
       </list>
