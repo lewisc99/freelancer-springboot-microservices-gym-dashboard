@@ -1,4 +1,6 @@
 package com.lewis.msemployee.entities.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -21,6 +23,7 @@ public class Roles {
             joinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name="employee_id")
     )
+    @JsonIgnore
     public List<Employee> employees;
 
     public Roles() {}
