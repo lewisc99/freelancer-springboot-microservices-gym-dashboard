@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
+import java.util.Arrays;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest(classes = MsEmployeeApplication.class)
+@SpringBootTest(classes = Employee.class)
 public class EmployeeTest {
 
     @Autowired
@@ -32,6 +32,11 @@ public class EmployeeTest {
         employee.setEmail("jefferson@example.com");
         employee.setUsername("Jefferson");
         employee.setPassword("vida1234");
+
+        Roles rolesAdmin = new Roles();
+        rolesAdmin.setId(UUID.fromString("1052ba1c-8c5d-11ed-a1eb-0242ac120002"));
+        rolesAdmin.setName("admin");
+        employee.setRoles(Arrays.asList(rolesAdmin));
     }
 
     @Test
@@ -69,8 +74,37 @@ public class EmployeeTest {
         assertNotNull(employeeBean.getPassword());
         assertNotNull(employeeBean.getId());
         assertNotNull(employeeBean.getDoc());
+    }
 
+    @Test
+    @DisplayName("Assert Employee has Role")
+    public void assertEmployeeHasRole()
+    {
+        assertNotNull(employee.getRoles());
+    }
 
+    @Test
+    @DisplayName("Assert Employee Email is invalid")
+    public void assertEmployeeEmailIsInvalid()
+    {
+        Employee employeeBean = applicationContext.getBean("employee",Employee.class);
+
+        employeeBean.setEmail("andersonexample.com");
+
+        var result =  employeeBean.getEmail().contains("@");
+
+        assertTrue(result == false);
+
+    }
+    @Test
+    @DisplayName("Assert Age is greater than 18")
+    public void assertAgeIsGreaterThanEighteen()
+    {
+        Employee employeeBean = applicationContext.getBean("employee",Employee.class);
+
+        employeeBean.setAge(19);
+
+        assertTrue(  employeeBean.getAge() >= 18);
     }
 
 }
