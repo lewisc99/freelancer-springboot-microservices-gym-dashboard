@@ -37,15 +37,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/coverage-report",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/coverage-report&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.EmployeeTest.assertAgeIsGreaterThanEighteen">
+}</component>
+  <component name="RunManager" selected="JUnit.RoleTest">
     <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -61,7 +61,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeTest.assertAgeIsGreaterThanEighteen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -70,67 +70,65 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
-      <option name="METHOD_NAME" value="assertAgeIsGreaterThanEighteen" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeTest.assertEmployeeEmailIsInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
-      <option name="METHOD_NAME" value="assertEmployeeEmailIsInvalid" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeTest.assertEmployeeHasRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
-      <option name="METHOD_NAME" value="assertEmployeeHasRole" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsEmployeeApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplicationTests" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.RoleTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleTest.assertRoleNameSizeIsGreaterThanFive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.RoleTest" />
+      <option name="METHOD_NAME" value="assertRoleNameSizeIsGreaterThanFive" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleTest.assertRolePropertiesNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.RoleTest" />
+      <option name="METHOD_NAME" value="assertRolePropertiesNotNull" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.lewis.msemployee.entities.domain in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EmployeeTest.assertAgeIsGreaterThanEighteen" />
+        <item itemvalue="JUnit.RoleTest" />
         <item itemvalue="JUnit.EmployeeTest" />
-        <item itemvalue="JUnit.EmployeeTest.assertEmployeeEmailIsInvalid" />
-        <item itemvalue="JUnit.EmployeeTest.assertEmployeeHasRole" />
-        <item itemvalue="JUnit.MsEmployeeApplicationTests" />
+        <item itemvalue="JUnit.RoleTest.assertRoleNameSizeIsGreaterThanFive" />
+        <item itemvalue="JUnit.RoleTest.assertRolePropertiesNotNull" />
+        <item itemvalue="JUnit.com.lewis.msemployee.entities.domain in ms-employee" />
       </list>
     </recent_temporary>
   </component>
@@ -149,11 +147,17 @@
     <SUITE FILE_PATH="coverage/gym_project$MsEmployeeApplicationTests.ic" NAME="MsEmployeeApplicationTests Coverage Results" MODIFIED="1672858224612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.lewis.msemployee.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/gym_project$EmployeeTest.ic" NAME="EmployeeTest Coverage Results" MODIFIED="1672858630690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/gym_project$RoleTest_assertRoleNameSizeIsGreaterThanFive.ic" NAME="RoleTest.assertRoleNameSizeIsGreaterThanFive Coverage Results" MODIFIED="1672868119842" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lewis.msemployee.entities.domain.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/gym_project$EmployeeTest.ic" NAME="EmployeeTest Coverage Results" MODIFIED="1672868195482" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.lewis.msemployee.entities.domain.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/gym_project$MsEmployeeApplication.ic" NAME="MsEmployeeApplication Coverage Results" MODIFIED="1672854620876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.lewis.msemployee.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/gym_project$RoleTest.ic" NAME="RoleTest Coverage Results" MODIFIED="1672868346113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lewis.msemployee.entities.domain.*</FILTER>
     </SUITE>
   </component>
 </project>

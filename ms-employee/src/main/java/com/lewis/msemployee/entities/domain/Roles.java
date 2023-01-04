@@ -2,6 +2,8 @@ package com.lewis.msemployee.entities.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,7 +13,11 @@ public class Roles {
 
     @Id
     @Column(columnDefinition = "uuid")
+    @NotNull(message = "Id could not be null")
     private UUID id;
+
+    @NotNull(message = "Name could not be null")
+    @Size(min=5, max = 30, message = "Name must have min 5 max 30")
     private String name;
 
 
@@ -44,11 +50,5 @@ public class Roles {
         this.name = name;
     }
 
-    public List<Employee> getEmployees() {
-        return employees;
-    }
 
-    public void setEmployees(List<Employee> employees) {
-        this.employees = employees;
-    }
 }
