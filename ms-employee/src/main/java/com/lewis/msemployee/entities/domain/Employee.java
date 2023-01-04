@@ -1,5 +1,4 @@
 package com.lewis.msemployee.entities.domain;
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +10,10 @@ public class Employee {
 
 
     @Id
+    @Column(columnDefinition = "uuid")
     private UUID id;
+
+    private String username;
     private Integer age;
     private String doc;
     private String email;
@@ -20,7 +22,7 @@ public class Employee {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "employee_role",
-        joinColumns = @JoinColumn(name = "employee_id"), inverseJoinColumns =  @JoinColumn(name =  "role_id"))
+        joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"), inverseJoinColumns =  @JoinColumn(name =  "role_id"))
     private List<Roles> roles;
 
     public Employee(){}
@@ -31,6 +33,14 @@ public class Employee {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getAge() {

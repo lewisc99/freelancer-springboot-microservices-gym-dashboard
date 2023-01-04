@@ -1,6 +1,4 @@
 package com.lewis.msemployee.entities.domain;
-
-
 import javax.persistence.*;
 import java.util.List;
 import java.util.UUID;
@@ -10,6 +8,7 @@ import java.util.UUID;
 public class Roles {
 
     @Id
+    @Column(columnDefinition = "uuid")
     private UUID id;
     private String name;
 
@@ -19,7 +18,7 @@ public class Roles {
     CascadeType.DETACH, CascadeType.REFRESH})
     @JoinTable(
             name="employee_role",
-            joinColumns = @JoinColumn(name="role_id"),
+            joinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name="employee_id")
     )
     public List<Employee> employees;
