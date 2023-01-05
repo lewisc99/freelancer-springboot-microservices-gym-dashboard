@@ -45,7 +45,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EmployeeServiceImplTest">
+  <component name="RunManager" selected="JUnit.EmployeeServiceImplTest.createEmployee">
     <configuration name="EmployeeServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -61,6 +61,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EmployeeServiceImplTest.createEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
+      <option name="METHOD_NAME" value="createEmployee" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EmployeeServiceImplTest.getThrowAnError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -72,22 +88,6 @@
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
       <option name="METHOD_NAME" value="getThrowAnError" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeServiceImplTest.simpletest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="METHOD_NAME" value="simpletest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,11 +125,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployee" />
         <item itemvalue="JUnit.EmployeeServiceImplTest" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.getThrowAnError" />
         <item itemvalue="JUnit.RoleTest" />
         <item itemvalue="JUnit.EmployeeTest" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest.simpletest" />
       </list>
     </recent_temporary>
   </component>

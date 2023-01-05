@@ -93,10 +93,12 @@ public class EmployeeServiceImplTest {
 
     @Test
     @DisplayName("create employee")
-    public createEmployee()
+    public void createEmployee()
     {
         when(employeeDao.create(employee));
 
-        var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"))
+        var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
+
+        assertNotNull(result);
     }
 }

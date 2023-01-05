@@ -13,7 +13,6 @@ public class Roles {
 
     @Id
     @Column(columnDefinition = "uuid")
-    @NotNull(message = "Id could not be null")
     private UUID id;
 
     @NotNull(message = "Name could not be null")

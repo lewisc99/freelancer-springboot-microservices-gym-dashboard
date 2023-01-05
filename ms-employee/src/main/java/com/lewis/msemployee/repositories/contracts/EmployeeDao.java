@@ -8,4 +8,6 @@ public interface EmployeeDao {
 
     Employee  getById(UUID id);
 
+    void create(Employee employee);
+
 }

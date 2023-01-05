@@ -15,7 +15,6 @@ public class Employee {
 
     @Id
     @Column(columnDefinition = "uuid")
-    @NotNull(message = "Id could not be null")
     private UUID id;
 
     @NotNull(message = "username cannot be null")
