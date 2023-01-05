@@ -1,4 +1,5 @@
 package com.lewis.msemployee.mockclasses;
+import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,8 +20,8 @@ public class classesBeanConfig {
 
     @Bean(name = "employee")
     @Scope(value = "prototype")
-    public Roles getEmployee() {
-        return new Roles();
+    public Employee getEmployee() {
+        return new Employee();
     }
 
 }
