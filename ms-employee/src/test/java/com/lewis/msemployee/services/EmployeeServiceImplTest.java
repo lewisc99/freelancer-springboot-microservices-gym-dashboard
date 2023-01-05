@@ -8,17 +8,15 @@ import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
 import java.util.Arrays;
 import java.util.UUID;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
-
 
 @SpringBootTest(classes = MsEmployeeApplication.class)
 public class EmployeeServiceImplTest {
@@ -45,6 +43,7 @@ public class EmployeeServiceImplTest {
         employee.setUsername("Felipe");
         employee.setEmail("felipe@gmail.com");
         employee.setDoc("929393992");
+        employee.setPassword("vida3788");
 
         roles.setId(UUID.fromString("6125011f-49fd-4cc8-a2d9-69e79ce127ab"));
         roles.setName("admin");
@@ -95,9 +94,9 @@ public class EmployeeServiceImplTest {
     @DisplayName("create employee")
     public void createEmployee()
     {
-        when(employeeDao.create(employee));
+        Mockito.doNothing().when(employeeDao).create(employee);
 
-        var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
+       var result = employeeService.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"));
 
         assertNotNull(result);
     }

@@ -19,6 +19,20 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
 
     @Override
+    public void create(Employee employee)
+    {
+        try
+        {
+            employeeDao.create(employee);
+        }
+        catch (Exception e )
+        {
+            e.getStackTrace();
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
     public Employee getById(UUID id) {
 
         try
