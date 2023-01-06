@@ -6,8 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class DtoConverter {
 
-    public static EmployeeDto convertEmployeeToEmployeeDto( Employee employee)
+    public static EmployeeDto convertEmployeeToEmployeeDto( Employee employee, String url)
     {
-        return new EmployeeDto(employee.getId(), employee.getUsername(), employee.getAge(), employee.getDoc(), employee.getEmail(), employee.getRoles());
+      EmployeeDto employeeDto =  new EmployeeDto(employee.getId(), employee.getUsername(), employee.getAge(), employee.getDoc(), employee.getEmail(), employee.getRoles());
+      employeeDto.addLinks(url);
+      return employeeDto;
     }
 }

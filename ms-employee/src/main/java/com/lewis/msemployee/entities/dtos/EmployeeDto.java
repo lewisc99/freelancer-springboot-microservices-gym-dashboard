@@ -2,6 +2,7 @@ package com.lewis.msemployee.entities.dtos;
 import com.lewis.msemployee.entities.domain.Roles;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -76,4 +77,23 @@ public class EmployeeDto {
     public void setRoles(List<Roles> roles) {
         this.roles = roles;
     }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
+
+    public void addLinks(String url)
+    {
+        Link linkSelf = new Link(url,"SELF");
+        Link linkUpdate = new Link(url , "UPDATE");
+        Link linkDelete = new Link(url, "DELETE");
+
+        links.addAll(Arrays.asList(linkSelf, linkUpdate,linkDelete));
+    }
+
+
 }
