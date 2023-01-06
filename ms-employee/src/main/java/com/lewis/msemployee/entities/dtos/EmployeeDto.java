@@ -1,5 +1,7 @@
 package com.lewis.msemployee.entities.dtos;
 import com.lewis.msemployee.entities.domain.Roles;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +14,8 @@ public class EmployeeDto {
     private String doc;
     private String email;
     private List<Roles> roles;
+
+    private List<Link> links =  new ArrayList<>();
 
     public EmployeeDto() {
     }

@@ -45,7 +45,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MsEmployeeApplication">
+  <component name="RunManager" selected="JUnit.EmployeeTest">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -70,22 +70,6 @@
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeServiceImplTest.createEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="METHOD_NAME" value="createEmployee" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -122,13 +106,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="JUnit.EmployeeTest" />
         <item itemvalue="JUnit.EmployeeServiceImplTest" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeInvalid" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeThrowRuntimeExceptionError" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployee" />
       </list>
     </recent_temporary>
   </component>

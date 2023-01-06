@@ -1,5 +1,4 @@
 package com.lewis.msemployee.controllers;
-
 import com.lewis.msemployee.config.dtos.DtoConverter;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.dtos.EmployeeDto;
@@ -23,7 +22,6 @@ public class EmployeeController {
         employee.setId(UUID.randomUUID());
         employeeService.create(employee);
         return ResponseEntity.status(201).build();
-
     }
 
     @GetMapping("{id}")
@@ -39,8 +37,4 @@ public class EmployeeController {
         EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee);
         return ResponseEntity.ok(employeeDto);
     }
-
-
-
-
 }
