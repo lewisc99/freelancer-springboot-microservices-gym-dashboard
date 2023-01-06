@@ -1,5 +1,4 @@
 package com.lewis.msemployee.services;
-
 import com.lewis.msemployee.MsEmployeeApplication;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
@@ -16,7 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Arrays;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest(classes = MsEmployeeApplication.class)
 public class EmployeeServiceImplTest {
@@ -47,8 +46,32 @@ public class EmployeeServiceImplTest {
 
         roles.setId(UUID.fromString("6125011f-49fd-4cc8-a2d9-69e79ce127ab"));
         roles.setName("admin");
-
         employee.setRoles(Arrays.asList(roles));
+    }
+
+    @Test
+    @DisplayName("get throw an error")
+    public void getThrowAnError()
+    {
+        when(employeeDao.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"))).thenThrow(new RuntimeException());
+
+        assertThrows( RuntimeException.class, () -> {employeeService.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"));});
+    }
+
+    @Test
+    @DisplayName("create employee")
+    public void createEmployee()
+    {
+        Mockito.doNothing().when(employeeDao).create(employee);
+        employeeService.create(employee);
+        verify(employeeDao, times(1)).create(employee);
+    }
+    @Test
+    @DisplayName("create employee throw RuntimeException Error")
+    public void createEmployeeThrowRuntimeExceptionError()
+    {
+        Mockito.doThrow(new RuntimeException()).when(employeeDao).create(employee);
+        assertThrows(RuntimeException.class, () -> employeeDao.create(employee));
     }
 
     @Test
@@ -59,6 +82,7 @@ public class EmployeeServiceImplTest {
 
         assertEquals("Felipe", employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852")).getUsername());
     }
+
 
     @Test
     @DisplayName("get Employee is not null")
@@ -81,23 +105,5 @@ public class EmployeeServiceImplTest {
         assertNotNull(result);
     }
 
-    @Test
-    @DisplayName("get throw an error")
-    public void getThrowAnError()
-    {
-        when(employeeDao.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"))).thenThrow(new RuntimeException());
 
-        assertThrows( RuntimeException.class, () -> {employeeService.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"));});
-    }
-
-    @Test
-    @DisplayName("create employee")
-    public void createEmployee()
-    {
-        Mockito.doNothing().when(employeeDao).create(employee);
-
-       var result = employeeService.getById(UUID.fromString("2413346b-feb3-44c8-8e3d-234dc6235852"));
-
-        assertNotNull(result);
-    }
 }

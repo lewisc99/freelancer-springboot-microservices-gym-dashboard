@@ -1,10 +1,7 @@
 package com.lewis.msemployee.entities.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,18 +15,22 @@ public class Employee {
     private UUID id;
 
     @NotNull(message = "username cannot be null")
+    @NotEmpty(message = "username cannot be Empty")
     private String username;
 
     @Min(18)
     private Integer age;
     @NotNull(message = "Document cannot be null")
     @Size(min = 8, max = 30,  message = "Document must have minimum 8 and maximum 30 characters")
+    @NotEmpty(message = "Document cannot be Empty")
     private String doc;
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
+    @NotEmpty(message = "email cannot be Empty")
     private String email;
     @NotNull(message = "Password cannot be null")
     @Size(min = 8, max = 50,  message = "password must have minimum 8 and maximum 50 characters")
+    @NotEmpty(message = "password cannot be Empty")
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
