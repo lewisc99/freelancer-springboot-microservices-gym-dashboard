@@ -45,7 +45,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EmployeeServiceImplTest">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -124,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="JUnit.EmployeeServiceImplTest" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeInvalid" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeThrowRuntimeExceptionError" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployee" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -144,15 +144,6 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-employee/src/test/java/com/lewis/msemployee/services/EmployeeServiceImplTest.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Employee" memberName="roles" />
