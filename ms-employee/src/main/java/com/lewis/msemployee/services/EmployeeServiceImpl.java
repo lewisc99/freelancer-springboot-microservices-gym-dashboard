@@ -1,6 +1,8 @@
 package com.lewis.msemployee.services;
 
 
+import com.lewis.msemployee.config.exceptions.DatabaseException;
+import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.contracts.EmployeeService;
@@ -39,9 +41,21 @@ public class EmployeeServiceImpl  implements EmployeeService {
         {
           return  employeeDao.getById(id);
         }
-        catch (Exception e)
+        catch (NullPointerException exception)
         {
-            e.getStackTrace();
+            throw new NullPointerException();
+        }
+        catch (ResourceNotFoundException exception)
+        {
+            throw new ResourceNotFoundException(id);
+        }
+        catch (DatabaseException exception)
+        {
+            throw new DatabaseException(exception.getMessage());
+        }
+        catch (Exception exception)
+        {
+            exception.getStackTrace();
             throw new RuntimeException();
         }
     }

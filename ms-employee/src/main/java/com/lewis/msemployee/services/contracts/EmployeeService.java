@@ -7,7 +7,6 @@ import java.util.UUID;
 public interface EmployeeService {
 
     Employee getById(UUID id);
-
     void create(Employee employee);
 
 }

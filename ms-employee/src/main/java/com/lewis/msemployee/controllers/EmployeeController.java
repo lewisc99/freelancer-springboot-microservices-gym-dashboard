@@ -33,12 +33,8 @@ public class EmployeeController {
         {
             return ResponseEntity.badRequest().build();
         }
-        Employee employee = employeeService.getById(id);
 
-        if (employee == null)
-        {
-            return ResponseEntity.notFound().build();
-        }
+        Employee employee = employeeService.getById(id);
 
         EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee);
         return ResponseEntity.ok(employeeDto);

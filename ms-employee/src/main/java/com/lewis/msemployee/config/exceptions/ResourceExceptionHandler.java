@@ -37,4 +37,15 @@ public class ResourceExceptionHandler {
         return ResponseEntity.status(status).body(errorModel);
     }
 
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<StandardError> NullPointException(NullPointerException exception, HttpServletRequest request)
+    {
+        String errorMessage = "Employee Not Found";
+        HttpStatus status = HttpStatus.NOT_FOUND;
+        StandardError errorModel = new StandardError(Instant.now(), status.value(),
+                errorMessage, exception.getMessage(), request.getRequestURI());
+
+        return ResponseEntity.status(status).body(errorModel);
+    }
+
 }
