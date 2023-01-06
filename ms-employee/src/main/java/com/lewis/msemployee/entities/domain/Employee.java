@@ -18,7 +18,7 @@ public class Employee {
     @NotEmpty(message = "username cannot be Empty")
     private String username;
 
-    @Min(18)
+    @Min(value = 18, message = "Age must be at least 18")
     private Integer age;
     @NotNull(message = "Document cannot be null")
     @Size(min = 8, max = 30,  message = "Document must have minimum 8 and maximum 30 characters")
