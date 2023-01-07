@@ -1,7 +1,8 @@
 package com.lewis.msemployee.entities.dtos;
 import com.lewis.msemployee.config.dtos.DtoConverter;
 import com.lewis.msemployee.entities.domain.Employee;
-import org.springframework.data.domain.Page;
+import com.lewis.msemployee.entities.domain.Page;
+
 import java.util.ArrayList;
 import java.util.List;
 
