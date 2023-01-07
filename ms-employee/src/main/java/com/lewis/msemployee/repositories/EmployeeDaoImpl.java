@@ -15,21 +15,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
     private EntityManager entityManager;
 
     @Override
-    public Employee getById(UUID id) {
-
-        try {
-
+    public void create(Employee employee)
+    {
             Session session = entityManager.unwrap(Session.class);
+            session.save(employee);
+    }
 
+    @Override
+    public Employee getById(UUID id) {
+            Session session = entityManager.unwrap(Session.class);
             Employee employee = session.get(Employee.class, id);
 
             return employee;
-
-        } catch (Exception e)
-        {
-            e.getStackTrace();
-            throw new RuntimeException(e.getMessage());
-        }
-
     }
 }
