@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.UUID;
 
-
 @Service
 @Transactional
 public class EmployeeServiceImpl  implements EmployeeService {
@@ -56,6 +55,10 @@ public class EmployeeServiceImpl  implements EmployeeService {
            else
            {
                List<Employee> takeEmployees = employeeList.stream().skip((page.getPagNumber() - 1) * page.getSize()).limit(page.getSize()).toList();
+               int employeeTotalPages = (int) Math.ceil((double) employeeSize / page.getSize());
+               employeesDto.addPage(page.getSize(), employeeSize, employeeTotalPages, page.getPagNumber());
+               employeesDto.addEmployees(takeEmployees, urlEmployee);
+
                return employeesDto;
            }
 
