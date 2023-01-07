@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/employees")
+@RequestMapping("v1/employees")
 public class EmployeeController {
 
     @Autowired
@@ -33,10 +33,12 @@ public class EmployeeController {
         {
             return ResponseEntity.badRequest().build();
         }
+
         Employee employee = employeeService.getById(id);
         String fullUrl = request.getRequestURL().toString();
         EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,fullUrl);
 
         return ResponseEntity.ok(employeeDto);
     }
+
 }

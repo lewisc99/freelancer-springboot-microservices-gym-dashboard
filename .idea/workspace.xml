@@ -37,100 +37,107 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/coverage-report&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/src/test/resources",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.DtoConverterTest">
-    <configuration name="DtoConverterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\test\resources" />
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.EmployeeControllerTest.getByIdNotFoundIdReturnError404">
+    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.dtos.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.dtos.DtoConverterTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DtoConverterTest.assertReturnTypeIsEmployeeDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.getByIdHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.dtos.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.dtos.DtoConverterTest" />
-      <option name="METHOD_NAME" value="assertReturnTypeIsEmployeeDto" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="getByIdHttpRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DtoConverterTest.convertEmployeeToEmployeeDtoNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.getByIdNotFoundIdReturnError404" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.dtos.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.dtos.DtoConverterTest" />
-      <option name="METHOD_NAME" value="convertEmployeeToEmployeeDtoNotNull" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="getByIdNotFoundIdReturnError404" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DtoConverterTest.employeeIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.getStudentHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.dtos.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.dtos.DtoConverterTest" />
-      <option name="METHOD_NAME" value="employeeIsNotNull" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="getStudentHttpRequest" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeDtoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.entities.dtos.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DtoConverterTest" />
-        <item itemvalue="JUnit.DtoConverterTest.assertReturnTypeIsEmployeeDto" />
-        <item itemvalue="JUnit.DtoConverterTest.convertEmployeeToEmployeeDtoNotNull" />
-        <item itemvalue="JUnit.DtoConverterTest.employeeIsNotNull" />
-        <item itemvalue="JUnit.EmployeeDtoTest" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getByIdNotFoundIdReturnError404" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getByIdHttpRequest" />
+        <item itemvalue="JUnit.EmployeeControllerTest" />
+        <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getStudentHttpRequest" />
       </list>
     </recent_temporary>
   </component>
