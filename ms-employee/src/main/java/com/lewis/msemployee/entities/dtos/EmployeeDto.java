@@ -88,12 +88,10 @@ public class EmployeeDto {
 
     public void addLinks(String url)
     {
-        Link linkSelf = new Link(url,"SELF");
-        Link linkUpdate = new Link(url , "UPDATE");
-        Link linkDelete = new Link(url, "DELETE");
+            Link linkSelf = new Link(url,"SELF");
+            Link linkUpdate = new Link(url , "UPDATE");
+            Link linkDelete = new Link(url, "DELETE");
 
-        links.addAll(Arrays.asList(linkSelf, linkUpdate,linkDelete));
+            links.addAll(Arrays.asList(linkSelf, linkUpdate,linkDelete));
     }
-
-
 }

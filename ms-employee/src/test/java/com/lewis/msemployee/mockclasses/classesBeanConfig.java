@@ -1,6 +1,7 @@
 package com.lewis.msemployee.mockclasses;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
+import com.lewis.msemployee.entities.dtos.EmployeeDto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -24,4 +25,10 @@ public class classesBeanConfig {
         return new Employee();
     }
 
+    @Bean(name="employeeDto")
+    @Scope(value="prototype")
+    public EmployeeDto getEmployeeDto()
+    {
+        return new EmployeeDto();
+    }
 }

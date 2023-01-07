@@ -45,7 +45,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EmployeeTest">
+  <component name="RunManager" selected="JUnit.EmployeeDtoTest">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -59,48 +59,48 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeDtoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.entities.dtos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceImplTest.createEmployeeInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeDtoTest.addLinksAssertUrlIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.entities.dtos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="METHOD_NAME" value="createEmployeeInvalid" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
+      <option name="METHOD_NAME" value="addLinksAssertUrlIsNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceImplTest.createEmployeeThrowRuntimeExceptionError" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeDtoTest.assertUrlIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.entities.dtos.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="METHOD_NAME" value="createEmployeeThrowRuntimeExceptionError" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
+      <option name="METHOD_NAME" value="assertUrlIsNotNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,11 +123,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeDtoTest" />
+        <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertUrlIsNull" />
+        <item itemvalue="JUnit.EmployeeDtoTest.assertUrlIsNotNull" />
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="JUnit.EmployeeTest" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeInvalid" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest.createEmployeeThrowRuntimeExceptionError" />
       </list>
     </recent_temporary>
   </component>
