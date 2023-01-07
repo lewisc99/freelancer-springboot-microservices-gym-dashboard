@@ -63,9 +63,18 @@ public class EmployeeServiceImpl  implements EmployeeService {
            }
 
        }
-       catch (Exception e)
+       catch (NullPointerException exception)
        {
-           throw new RuntimeException();
+           throw new NullPointerException(exception.getMessage());
+       }
+       catch (DatabaseException exception)
+       {
+           throw new DatabaseException(exception.getMessage());
+       }
+
+       catch (Exception exception)
+       {
+           throw new RuntimeException(exception.getMessage());
        }
     }
 
