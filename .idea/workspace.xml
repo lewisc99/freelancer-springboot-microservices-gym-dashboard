@@ -54,7 +54,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeControllerTest.getByIdNotFoundIdReturnError404">
+  <component name="RunManager" selected="JUnit.EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -68,7 +68,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.createAValidEmployeeHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -78,12 +78,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="createAValidEmployeeHttpRequest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeControllerTest.getByIdHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.createAnInvalidEmployeeHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -93,7 +94,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="METHOD_NAME" value="getByIdHttpRequest" />
+      <option name="METHOD_NAME" value="createAnInvalidEmployeeHttpRequest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="createInvalidEmployeeValidationErrorPasswordCannotBeNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,29 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeControllerTest.getStudentHttpRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="METHOD_NAME" value="getStudentHttpRequest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EmployeeControllerTest.getByIdNotFoundIdReturnError404" />
-        <item itemvalue="JUnit.EmployeeControllerTest.getByIdHttpRequest" />
-        <item itemvalue="JUnit.EmployeeControllerTest" />
+        <item itemvalue="JUnit.EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull" />
         <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="JUnit.EmployeeControllerTest.getStudentHttpRequest" />
+        <item itemvalue="JUnit.EmployeeControllerTest.createAnInvalidEmployeeHttpRequest" />
+        <item itemvalue="JUnit.EmployeeControllerTest.createAValidEmployeeHttpRequest" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getByIdNotFoundIdReturnError404" />
       </list>
     </recent_temporary>
   </component>
