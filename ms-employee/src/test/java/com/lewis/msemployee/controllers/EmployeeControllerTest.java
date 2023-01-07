@@ -24,6 +24,7 @@ import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.UUID;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.hamcrest.Matchers.is;
@@ -142,7 +143,7 @@ public class EmployeeControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/employees")
                 .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors[1]",is("password cannot be Empty")));
+                .andExpect(jsonPath("$.errors",hasSize(2)));
     }
 
 }

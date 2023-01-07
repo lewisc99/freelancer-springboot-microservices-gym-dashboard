@@ -98,9 +98,10 @@ public class EmployeeDto {
 
             links.addAll(Arrays.asList(linkSelf, linkUpdate,linkDelete));
         }
-
-        Link linkSelf = new Link(url, "SELF");
-        links.add(linkSelf);
-
+        else
+        {
+            Link linkSelf = new Link(url, "SELF");
+            links.add(linkSelf);
+        }
     }
 }
