@@ -1,17 +1,18 @@
 package com.lewis.msemployee.services;
 
-
+import java.util.List;
 import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
 import com.lewis.msemployee.entities.domain.Employee;
+import com.lewis.msemployee.entities.domain.Page;
+import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.UUID;
+
 
 @Service
 @Transactional
@@ -33,6 +34,36 @@ public class EmployeeServiceImpl  implements EmployeeService {
             e.getStackTrace();
             throw new RuntimeException();
         }
+    }
+
+    @Override
+    public EmployeesDto getAll(Page page, String urlEmployee) {
+       try
+       {
+           List<Employee> employeeList = employeeDao.getAll(page, urlEmployee);
+           EmployeesDto employeesDto = new EmployeesDto();
+           int employeeSize = employeeList.size();
+
+           if (page.getPagNumber() < 1 && page.getSize() > 1)
+           {
+               page.setSize(1);
+           }
+           if((page.getPagNumber() <= 0) && (page.getSize() <= 0))
+           {
+               employeesDto.addEmployees(employeeList, urlEmployee);
+               return employeesDto;
+           }
+           else
+           {
+               List<Employee> takeEmployees = employeeList.stream().skip((page.getPagNumber() - 1) * page.getSize()).limit(page.getSize()).toList();
+               return employeesDto;
+           }
+
+       }
+       catch (Exception e)
+       {
+           throw new RuntimeException();
+       }
     }
 
     @Override
@@ -60,4 +91,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
             throw new RuntimeException();
         }
     }
+
+
 }

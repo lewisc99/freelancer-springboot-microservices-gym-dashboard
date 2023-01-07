@@ -54,7 +54,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EmployeeDtoTest">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -133,11 +133,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="JUnit.EmployeeDtoTest" />
         <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertLinkSizeIsThree" />
         <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertLinkSizeIsOne" />
         <item itemvalue="JUnit.EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>

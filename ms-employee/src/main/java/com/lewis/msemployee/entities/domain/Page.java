@@ -16,6 +16,11 @@ public class Page {
         this.pagNumber = pagNumber;
     }
 
+    public Page(int size, int pagNumber) {
+        this.size = size;
+        this.pagNumber = pagNumber;
+    }
+
     public int getSize() {
         return size;
     }
