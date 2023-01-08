@@ -9,7 +9,7 @@ public class DtoConverter {
     public static EmployeeDto convertEmployeeToEmployeeDto( Employee employee, String url, boolean... fromEmployees)
     {
       EmployeeDto employeeDto =  new EmployeeDto(employee.getId(), employee.getUsername(), employee.getAge(), employee.getDoc(), employee.getEmail(), employee.getRoles());
-      employeeDto.addLinks(url, fromEmployees);
+      employeeDto.addLinks(url + "/" + employee.getId(), fromEmployees);
       return employeeDto;
     }
 }
