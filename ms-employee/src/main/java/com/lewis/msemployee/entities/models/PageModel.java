@@ -4,10 +4,12 @@ public class PageModel {
 
     private Integer pagNumber;
     private Integer pagSize;
+    private String sortBy;
 
-    public PageModel(Integer pagNumber, Integer pagSize) {
+    public PageModel(Integer pagNumber, Integer pagSize, String sortBy) {
         this.pagNumber = pagNumber;
         this.pagSize = pagSize;
+        this.sortBy = sortBy;
     }
 
     public Integer getPagNumber() {
@@ -24,5 +26,13 @@ public class PageModel {
 
     public void setPagSize(Integer pagSize) {
         this.pagSize = pagSize;
+    }
+
+    public String getSortBy() {
+        return sortBy;
+    }
+
+    public void setSortBy(String sortBy) {
+        this.sortBy = sortBy;
     }
 }

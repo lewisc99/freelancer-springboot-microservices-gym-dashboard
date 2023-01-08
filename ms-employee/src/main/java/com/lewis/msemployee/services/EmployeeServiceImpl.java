@@ -1,5 +1,4 @@
 package com.lewis.msemployee.services;
-
 import java.util.List;
 import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
@@ -10,11 +9,8 @@ import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import javax.transaction.Transactional;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 @Service
 @Transactional
@@ -42,7 +38,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
     public EmployeesDto getAll(PageModel page, String urlEmployee) {
        try
        {
-           List<Employee> employeeList = employeeDao.getAll();
+           List<Employee> employeeList = employeeDao.getAll(page.getSortBy());
            EmployeesDto employeesDto = new EmployeesDto();
            int employeeSize = employeeList.size();
 
@@ -56,11 +52,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
            }
            else
            {
-               var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
-               List<Employee> takeEmployeesList = List.of(takeEmployeesStream.toArray(Employee[]::new));
-               int employeeTotalPages = (int) Math.ceil((double) employeeSize / page.getPagSize());
-               employeesDto.addPage(page.getPagSize(), employeeSize, employeeTotalPages, page.getPagNumber());
-               employeesDto.addEmployees(takeEmployeesList, urlEmployee);
+               convertToHateoasPagination(page, urlEmployee, employeeList, employeesDto, employeeSize);
            }
            return employeesDto;
        }
@@ -77,6 +69,14 @@ public class EmployeeServiceImpl  implements EmployeeService {
        {
            throw new RuntimeException(exception.getMessage());
        }
+    }
+
+    private  void convertToHateoasPagination(PageModel page, String urlEmployee, List<Employee> employeeList, EmployeesDto employeesDto, int employeeSize) {
+        var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
+        List<Employee> takeEmployeesList = List.of(takeEmployeesStream.toArray(Employee[]::new));
+        int employeeTotalPages = (int) Math.ceil((double) employeeSize / page.getPagSize());
+        employeesDto.addPage(page.getPagSize(), employeeSize, employeeTotalPages, page.getPagNumber());
+        employeesDto.addEmployees(takeEmployeesList, urlEmployee);
     }
 
     @Override
