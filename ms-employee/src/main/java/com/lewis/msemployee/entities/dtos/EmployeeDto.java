@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class EmployeeDto {
-
-
     private UUID id;
     private String username;
     private Integer age;
@@ -86,12 +84,24 @@ public class EmployeeDto {
         this.links = links;
     }
 
-    public void addLinks(String url)
+    public void addLinks(String url, boolean... fromEmployees)
     {
+        boolean isFromEmployees = false;
+        for (boolean fromEmployee : fromEmployees) {
+            isFromEmployees = fromEmployee;
+        }
+        if (!isFromEmployees)
+        {
             Link linkSelf = new Link(url,"SELF");
             Link linkUpdate = new Link(url , "UPDATE");
             Link linkDelete = new Link(url, "DELETE");
 
             links.addAll(Arrays.asList(linkSelf, linkUpdate,linkDelete));
+        }
+        else
+        {
+            Link linkSelf = new Link(url, "SELF");
+            links.add(linkSelf);
+        }
     }
 }

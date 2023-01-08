@@ -37,15 +37,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/coverage-report&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/arquivos/programation/workspace-java/2023/month-1/gym-project/ms-employee/src/test/resources",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.EmployeeDtoTest">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\test\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\test\resources" />
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\ms-employee\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -55,6 +64,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="createInvalidEmployeeValidationErrorPasswordCannotBeNull" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -74,7 +99,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeDtoTest.addLinksAssertUrlIsNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeDtoTest.addLinksAssertLinkSizeIsOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -84,13 +109,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
-      <option name="METHOD_NAME" value="addLinksAssertUrlIsNull" />
+      <option name="METHOD_NAME" value="addLinksAssertLinkSizeIsOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeDtoTest.assertUrlIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeDtoTest.addLinksAssertLinkSizeIsThree" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -100,34 +125,19 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.dtos" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.dtos.EmployeeDtoTest" />
-      <option name="METHOD_NAME" value="assertUrlIsNotNull" />
+      <option name="METHOD_NAME" value="addLinksAssertLinkSizeIsThree" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.entities.domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.entities.domain" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.entities.domain.EmployeeTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.EmployeeDtoTest" />
-        <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertUrlIsNull" />
-        <item itemvalue="JUnit.EmployeeDtoTest.assertUrlIsNotNull" />
         <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="JUnit.EmployeeTest" />
+        <item itemvalue="JUnit.EmployeeDtoTest" />
+        <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertLinkSizeIsThree" />
+        <item itemvalue="JUnit.EmployeeDtoTest.addLinksAssertLinkSizeIsOne" />
+        <item itemvalue="JUnit.EmployeeControllerTest.createInvalidEmployeeValidationErrorPasswordCannotBeNull" />
       </list>
     </recent_temporary>
   </component>
@@ -173,6 +183,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/gym_project$RoleTest.ic" NAME="RoleTest Coverage Results" MODIFIED="1672868346113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.lewis.msemployee.entities.domain.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/gym_project$DtoConverterTest.ic" NAME="DtoConverterTest Coverage Results" MODIFIED="1673094975042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lewis.msemployee.dtos.*</FILTER>
     </SUITE>
   </component>
 </project>
