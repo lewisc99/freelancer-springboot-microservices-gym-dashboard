@@ -10,7 +10,7 @@ public interface EmployeeDao {
     void create(Employee employee);
     Employee  getById(UUID id);
 
-    List<Employee> getAll(Page page, String urlEmployee);
+    List<Employee> getAll( );
 
 
 }

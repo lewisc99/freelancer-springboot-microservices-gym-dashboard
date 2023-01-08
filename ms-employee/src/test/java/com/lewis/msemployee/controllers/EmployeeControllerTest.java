@@ -31,8 +31,8 @@ import static org.hamcrest.Matchers.is;
 
 @SpringBootTest(classes= MsEmployeeApplication.class)
 @AutoConfigureMockMvc
-@Sql(scripts = {"classpath:data-create-test.sql"},executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
-@Sql(scripts = {"classpath:data-delete-test.sql"},executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+@Sql(scripts = {"classpath:create-test.sql"},executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(scripts = {"classpath:delete-test.sql"},executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class EmployeeControllerTest {
 
 

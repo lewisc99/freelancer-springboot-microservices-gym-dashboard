@@ -40,11 +40,16 @@ public class EmployeesDto {
         this.page = page;
     }
 
+    public void addLink(String link, String rel)
+    {
+        links.add(new Link(link, rel));
+    }
+
     public void addEmployees(List<Employee> employees, String url)
     {
         for(Employee employee: employees)
         {
-            EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,"");
+            EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,url, true);
             _embedded.add(employeeDto);
         }
     }

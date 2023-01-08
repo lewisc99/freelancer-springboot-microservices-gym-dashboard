@@ -32,7 +32,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    public List<Employee> getAll(Page page, String urlEmployee) {
+    public List<Employee> getAll() {
          Session session = entityManager.unwrap(Session.class);
          List<Employee> employees = session.createQuery("from Employee order by id").getResultList();
 

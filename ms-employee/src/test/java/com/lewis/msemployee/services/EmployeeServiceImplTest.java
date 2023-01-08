@@ -1,4 +1,4 @@
-package com.lewis.msemployee.config.services;
+package com.lewis.msemployee.services;
 import com.lewis.msemployee.MsEmployeeApplication;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
