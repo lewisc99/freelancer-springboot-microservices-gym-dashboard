@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,7 +13,8 @@ import java.util.UUID;
 public class Roles {
 
     @Id
-    @Column(columnDefinition = "uuid")
+    @Column(columnDefinition = "uuid", unique = true)
+    @NotNull
     private UUID id;
 
     @NotNull(message = "Name could not be null")
@@ -20,18 +22,16 @@ public class Roles {
     private String name;
 
 
-    @ManyToMany(fetch = FetchType.LAZY,
-    cascade =  {CascadeType.PERSIST, CascadeType.MERGE,
-    CascadeType.DETACH, CascadeType.REFRESH})
-    @JoinTable(
-            name="employee_role",
-            joinColumns = @JoinColumn(name="role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name="employee_id")
-    )
+    @ManyToMany(mappedBy = "roles")
     @JsonIgnore
-    public List<Employee> employees;
+    public List<Employee> employees = new ArrayList<>();
 
     public Roles() {}
+
+    public Roles(UUID id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public UUID getId() {
         return id;

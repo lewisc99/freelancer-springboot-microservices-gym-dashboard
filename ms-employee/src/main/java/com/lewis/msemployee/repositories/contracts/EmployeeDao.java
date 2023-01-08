@@ -1,6 +1,5 @@
 package com.lewis.msemployee.repositories.contracts;
 import com.lewis.msemployee.entities.domain.Employee;
-import com.lewis.msemployee.entities.domain.Page;
 
 import java.util.List;
 import java.util.UUID;
