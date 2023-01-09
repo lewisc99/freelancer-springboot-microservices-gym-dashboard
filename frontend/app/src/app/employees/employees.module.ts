@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { EmployeesListComponent } from './employees-list/employees-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import {  RouterModule, Routes } from '@angular/router';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 
 var routes:Routes = [
-    {path:"employee-list",component:EmployeesListComponent}
+    {path:"employee-list",component:EmployeeListComponent}
 ]
 
 @NgModule({
     declarations: [
-        EmployeesListComponent
+        EmployeeListComponent
     ],
     imports: [
         BrowserModule,
