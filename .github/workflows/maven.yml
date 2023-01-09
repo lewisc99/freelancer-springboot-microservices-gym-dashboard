@@ -33,7 +33,7 @@ jobs: #groups set of actions that will be executed.
         cache: maven     
 
      - name: set up java 
-       run: mvn -B test -f ms-employee/pom.xml
+       run: mvn -B test -f backend/ms-employee/pom.xml
 
      - name: Build with Maven
-       run: mvn -B package -f ms-employee/pom.xml #will run this command in maven
+       run: mvn -B package -f backend/ms-employee/pom.xml #will run this command in maven
