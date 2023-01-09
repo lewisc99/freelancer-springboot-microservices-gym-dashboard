@@ -15,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/employees")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class EmployeeController {
 
     @Autowired
