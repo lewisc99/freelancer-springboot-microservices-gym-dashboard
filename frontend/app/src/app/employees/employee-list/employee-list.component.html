@@ -2,7 +2,7 @@
     <div class="row d-flex flex-column">
           <div class="col  col-xxl">
           <button class="btn btn-primary">Create</button>
-            <table class="table table-hover">
+            <table class="table table-hover" >
                 <thead>
                   <tr>
                     <th scope="col">Username</th>
@@ -11,25 +11,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">Mark</th>
-                    <td>18</td>
-                    <td>1939329329</td>
-                    <td class="list-info">
-                        <a >Details</a>
-                        <a>Edit</a>
-                        <a>Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
+                  <tr *ngFor="let employee  of employeesDto._embedded">
+                    <th scope="row">{{employee.username}}</th>
+                    <td colspan="2">{{employee.age}}</td>
+                    <td colspan="2">{{employee.doc}}</td>
                     <td>@twitter</td>
                   </tr>
                 </tbody>

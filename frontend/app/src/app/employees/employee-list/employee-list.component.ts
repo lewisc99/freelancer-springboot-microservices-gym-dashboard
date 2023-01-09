@@ -10,7 +10,10 @@ import { EmployeesDto } from '../domain/dtos/EmployeesDto';
 })
 export class EmployeeListComponent implements OnInit {
 
-      constructor(private employeeService:EmployeeService) {}
+  constructor(private employeeService:EmployeeService) {}
+
+  public employeesDto: EmployeesDto = new EmployeesDto();
+
 
   ngOnInit(): void {
       console.log("employees")
@@ -18,6 +21,7 @@ export class EmployeeListComponent implements OnInit {
         (data:EmployeesDto) =>
         {
           console.log(data);
+          this.employeesDto = data;
         }
       );
   }
