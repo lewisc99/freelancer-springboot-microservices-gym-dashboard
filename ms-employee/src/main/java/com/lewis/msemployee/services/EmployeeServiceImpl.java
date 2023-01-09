@@ -1,11 +1,10 @@
 package com.lewis.msemployee.services;
-
 import java.util.List;
 import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
 import com.lewis.msemployee.entities.domain.Employee;
-import com.lewis.msemployee.entities.domain.Page;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,32 +35,26 @@ public class EmployeeServiceImpl  implements EmployeeService {
     }
 
     @Override
-    public EmployeesDto getAll(Page page, String urlEmployee) {
+    public EmployeesDto getAll(PageModel page, String urlEmployee) {
        try
        {
-           List<Employee> employeeList = employeeDao.getAll(page, urlEmployee);
+           List<Employee> employeeList = employeeDao.getAll(page.getSortBy());
            EmployeesDto employeesDto = new EmployeesDto();
            int employeeSize = employeeList.size();
 
-           if (page.getPagNumber() < 1 && page.getSize() > 1)
+           if (page.getPagNumber() < 1 && page.getPagSize() > 1)
            {
-               page.setSize(1);
+               page.setPagNumber(1);
            }
-           if((page.getPagNumber() <= 0) && (page.getSize() <= 0))
+           if((page.getPagNumber() <= 0) && (page.getPagSize() <= 0))
            {
                employeesDto.addEmployees(employeeList, urlEmployee);
-               return employeesDto;
            }
            else
            {
-               List<Employee> takeEmployees = employeeList.stream().skip((page.getPagNumber() - 1) * page.getSize()).limit(page.getSize()).toList();
-               int employeeTotalPages = (int) Math.ceil((double) employeeSize / page.getSize());
-               employeesDto.addPage(page.getSize(), employeeSize, employeeTotalPages, page.getPagNumber());
-               employeesDto.addEmployees(takeEmployees, urlEmployee);
-
-               return employeesDto;
+               convertToHateoasPagination(page, urlEmployee, employeeList, employeesDto, employeeSize);
            }
-
+           return employeesDto;
        }
        catch (NullPointerException exception)
        {
@@ -76,6 +69,14 @@ public class EmployeeServiceImpl  implements EmployeeService {
        {
            throw new RuntimeException(exception.getMessage());
        }
+    }
+
+    private  void convertToHateoasPagination(PageModel page, String urlEmployee, List<Employee> employeeList, EmployeesDto employeesDto, int employeeSize) {
+        var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
+        List<Employee> takeEmployeesList = List.of(takeEmployeesStream.toArray(Employee[]::new));
+        int employeeTotalPages = (int) Math.ceil((double) employeeSize / page.getPagSize());
+        employeesDto.addPage(page.getPagSize(), employeeSize, employeeTotalPages, page.getPagNumber());
+        employeesDto.addEmployees(takeEmployeesList, urlEmployee);
     }
 
     @Override

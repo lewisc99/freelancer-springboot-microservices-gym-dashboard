@@ -1,4 +1,4 @@
-INSERT INTO tb_employee (id, username, age, doc,email, password ) VALUES ('23304dc3-564e-45b3-b91b-905aa76b74c4','lewis', 22, '92929393', 'lewis@example.com', 'vida1234');
+INSERT INTO tb_employee (id, username, age, doc,email, password ) VALUES ('23304dc3-564e-45b3-b91b-905aa76b74c4','lewis', 23, '92929393', 'lewis@example.com', 'vida1234');
 INSERT INTO tb_employee (id,username, age, doc,email, password ) VALUES ('23a8dbd6-9331-4b12-986b-047c6614c0cd','rick', 21, '44155454', 'rick@example.com', 'vida1234');
 INSERT INTO tb_employee (id,username, age, doc,email, password ) VALUES ('8873543e-7b01-4f89-936b-278e887861a0','gabriel', 24, '441554542', 'gabriel@example.com', 'vida1234');
 INSERT INTO tb_employee (id,username, age, doc,email, password ) VALUES ('b50296b0-7a0c-462b-bf84-41986a4df5ea','mary', 50, '0845857588', 'mary@example.com', 'vida1234');

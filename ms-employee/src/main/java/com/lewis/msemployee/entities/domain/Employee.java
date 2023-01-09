@@ -2,6 +2,7 @@ package com.lewis.msemployee.entities.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,7 +12,8 @@ import java.util.UUID;
 public class Employee {
 
     @Id
-    @Column(columnDefinition = "uuid")
+    @Column(columnDefinition = "uuid",nullable = false)
+    @NotNull
     private UUID id;
 
     @NotNull(message = "username cannot be null")
@@ -33,11 +35,20 @@ public class Employee {
     @NotEmpty(message = "password cannot be Empty")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(name = "employee_role",
         joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"), inverseJoinColumns =  @JoinColumn(name =  "role_id"))
-    private List<Roles> roles;
+    private List<Roles> roles =  new ArrayList<>();
     public Employee(){}
+
+    public Employee(UUID id, String username, Integer age, String doc, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.age = age;
+        this.doc = doc;
+        this.email = email;
+        this.password = password;
+    }
 
     public UUID getId() {
         return id;

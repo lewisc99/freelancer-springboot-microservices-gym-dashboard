@@ -1,4 +1,4 @@
-package com.lewis.msemployee.config.services;
+package com.lewis.msemployee.services;
 import com.lewis.msemployee.MsEmployeeApplication;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
@@ -79,7 +79,6 @@ public class EmployeeServiceImplTest {
     public void getUserHasNameFelipe()
     {
         when(employeeDao.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"))).thenReturn(employee);
-
         assertEquals("Felipe", employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852")).getUsername());
     }
 
@@ -89,7 +88,6 @@ public class EmployeeServiceImplTest {
     public void getEmployeeIsNotNull()
     {
         when(employeeDao.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"))).thenReturn(employee);
-
         var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
 
         assertNotNull(result);
@@ -99,7 +97,6 @@ public class EmployeeServiceImplTest {
     public void getEmployeeRolesNotNull()
     {
         when(employeeDao.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"))).thenReturn(employee);
-
         var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852")).getRoles();
 
         assertNotNull(result);

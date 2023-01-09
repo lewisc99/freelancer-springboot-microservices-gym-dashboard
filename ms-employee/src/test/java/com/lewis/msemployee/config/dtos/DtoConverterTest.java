@@ -1,4 +1,4 @@
-package com.lewis.msemployee.dtos;
+package com.lewis.msemployee.config.dtos;
 import com.lewis.msemployee.config.dtos.DtoConverter;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
