@@ -5,6 +5,7 @@ import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.entities.models.PageModel;
+import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,7 +24,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = MsEmployeeApplication.class)
+@SpringBootTest( classes = {classesBeanConfig.class})
 public class EmployeeServiceImplTest {
 
 
@@ -40,7 +41,7 @@ public class EmployeeServiceImplTest {
     @Autowired
     private Roles roles;
 
-    private List<Employee> employees = new ArrayList<>();
+    private final List<Employee> employees = new ArrayList<>();
 
     @BeforeEach
     public void  beforeEach()
