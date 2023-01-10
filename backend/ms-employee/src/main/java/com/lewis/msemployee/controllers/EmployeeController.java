@@ -37,6 +37,7 @@ public class EmployeeController {
             pageModel.setPagNumber(0);
             pageModel.setPagSize(0);
         }
+
         String fullUrl = request.getRequestURL().toString();
         String urlForEmployees = request.getRequestURI().toString();
 
@@ -55,11 +56,6 @@ public class EmployeeController {
     @GetMapping("{id}")
     public ResponseEntity<EmployeeDto> getById(@PathVariable UUID id, HttpServletRequest request)
     {
-        if (id == null)
-        {
-            return ResponseEntity.badRequest().build();
-        }
-
         Employee employee = employeeService.getById(id);
         String fullUrl = request.getRequestURL().toString();
         EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,fullUrl);

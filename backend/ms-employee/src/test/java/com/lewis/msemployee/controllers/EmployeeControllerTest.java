@@ -25,6 +25,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -98,7 +99,7 @@ public class EmployeeControllerTest {
         employee.setRoles(Arrays.asList(roles));
 
         employee2.setId(UUID.fromString("4013346b-feb3-44c8-8e3d-234dc6235852"));
-        employee2.setAge(22);
+        employee2.setAge(23);
         employee2.setUsername("Gisele");
         employee2.setEmail("gisele@gmail.com");
         employee2.setDoc("055454888");
@@ -162,8 +163,8 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    @DisplayName("getlAll")
-    public void getAll() throws Exception
+    @DisplayName("getAll SortBy Username")
+    public void getAllSortByUsername() throws Exception
     {
         entityManager.persist(employee);
         entityManager.flush();
@@ -172,6 +173,68 @@ public class EmployeeControllerTest {
                 .contentType(APPLICATION_JSON_UTF8).param("sortBy","username"))
                 .andExpect(jsonPath("$._embedded[0].username", is("Felipe")));
     }
+
+    @Test
+    @DisplayName("getAll SortBy Age")
+    public void getAllSortByAge() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.persist(employee2);
+        entityManager.flush();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees")
+                        .contentType(APPLICATION_JSON_UTF8).param("sortBy","age"))
+                .andExpect(jsonPath("$._embedded[1].username", is("Gisele")));
+    }
+
+    @Test
+    @DisplayName("getAll params pagNumber One pagSize Two return size two")
+    public void getAllParamsPagNumberOnePagSizeTwo() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.persist(employee2);
+        entityManager.flush();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees").param("pagSize", "2").param("pagNumber","1")
+                        .contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$._embedded", hasSize(2)));
+    }
+    @Test
+    @DisplayName("getAll params pagNumber One pagSize Two return size three")
+    public void getAllParamsPagNumberOnePagSizeOne() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.persist(employee2);
+        entityManager.flush();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees").param("pagSize", "0").param("pagNumber","0")
+                        .contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$._embedded", hasSize(3)));
+    }
+
+    @Test
+    @DisplayName("getAll params pagSize or PagNumber is Invalid Format")
+    public void getAllParamsPagsizeInvalidFormat() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.persist(employee2);
+        entityManager.flush();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees").param("pagSize", "2a").param("pagNumber","2d")
+                        .contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().isBadRequest());
+    }
+
+
+    @Test
+    @DisplayName("getAll params pagNumber One pagSize Two return size ")
+    public void getAllThrowsExceptionNotFound() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employeess")
+                        .contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().isNotFound());
+    }
+
 
     @Test
     @DisplayName("GetById() Http request")
