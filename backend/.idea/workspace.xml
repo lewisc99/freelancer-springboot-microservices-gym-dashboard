@@ -56,32 +56,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.getAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="getAll" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeServiceImplTest.getAllThrowsErrorException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.getAllInvalidEmployeeValidationErrorPasswordCannotBeNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
-      <option name="METHOD_NAME" value="getAllThrowsErrorException" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="getAllInvalidEmployeeValidationErrorPasswordCannotBeNull" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,10 +106,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ms-employee" />
-        <item itemvalue="JUnit.MsEmployeeApplicationTests" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest" />
         <item itemvalue="JUnit.EmployeeControllerTest" />
-        <item itemvalue="JUnit.EmployeeServiceImplTest.getAllThrowsErrorException" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getAll" />
+        <item itemvalue="JUnit.EmployeeControllerTest.getAllInvalidEmployeeValidationErrorPasswordCannotBeNull" />
+        <item itemvalue="JUnit.MsEmployeeApplicationTests" />
       </list>
     </recent_temporary>
   </component>

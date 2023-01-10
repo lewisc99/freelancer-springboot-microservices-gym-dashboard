@@ -5,20 +5,25 @@ import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
+import com.lewis.msemployee.services.EmployeeServiceImpl;
 import com.lewis.msemployee.services.contracts.EmployeeService;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -53,6 +58,9 @@ public class EmployeeControllerTest {
 
     @Autowired
     private Employee employee;
+
+    @Autowired
+    private  Employee employee2;
     @Autowired
     private Roles roles;
 
@@ -61,7 +69,8 @@ public class EmployeeControllerTest {
 
     private final List<Employee> employees = new ArrayList<>();
 
-    private  final EmployeesDto employeesDto = new EmployeesDto();
+    @Autowired
+    private EmployeesDto employeesDto;
 
     @BeforeAll
     public static void setup()
@@ -69,6 +78,8 @@ public class EmployeeControllerTest {
         request = new MockHttpServletRequest();
     }
 
+    @PersistenceContext
+    private EntityManager entityManager;
 
     @BeforeEach
     public void beforeEach()
@@ -86,7 +97,6 @@ public class EmployeeControllerTest {
         roles.setName("admin");
         employee.setRoles(Arrays.asList(roles));
 
-        Employee employee2 = new Employee();
         employee2.setId(UUID.fromString("4013346b-feb3-44c8-8e3d-234dc6235852"));
         employee2.setAge(22);
         employee2.setUsername("Gisele");
@@ -99,6 +109,7 @@ public class EmployeeControllerTest {
         employee2.setRoles(Arrays.asList(roles));
         employees.addAll(Arrays.asList(employee, employee2));
 
+        employeesDto.addEmployees(employees,"");
     }
 
     @Test
@@ -120,6 +131,7 @@ public class EmployeeControllerTest {
                         .contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isBadRequest());
     }
+
     @Test
     @DisplayName("create Invalid Employee validation Error Password cannot be null")
     public void createInvalidEmployeeValidationErrorPasswordCannotBeNull() throws Exception
@@ -132,7 +144,34 @@ public class EmployeeControllerTest {
                 .andExpect(jsonPath("$.errors",hasSize(2)));
     }
 
+    @Test
+    @DisplayName("getAll HttpRequest")
+    public void getAllHttpRequest() throws Exception
+    {
+        entityManager.persist(employee2);
+        entityManager.flush();
+        employee.setId(UUID.fromString("2013346b-feb3-44c8-8e3d-234dc6235852"));
+        entityManager.persist(employee);
+        entityManager.flush();
 
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees")
+                        .contentType(APPLICATION_JSON_UTF8))
+                .andExpect(jsonPath("$._embedded", hasSize(3)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8));
+    }
+
+    @Test
+    @DisplayName("getlAll")
+    public void getAll() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.flush();
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/employees")
+                .contentType(APPLICATION_JSON_UTF8).param("sortBy","username"))
+                .andExpect(jsonPath("$._embedded[0].username", is("Felipe")));
+    }
 
     @Test
     @DisplayName("GetById() Http request")
@@ -146,9 +185,9 @@ public class EmployeeControllerTest {
                 .andExpect(jsonPath("$.email", is("lewis@example.com")))
                 .andExpect(jsonPath("$.roles[0].name", is("admin")));
 
-
         assertNotNull(employeeDao.getById(UUID.fromString("b5517cd0-7d6a-42e2-a714-7a340f905e38")));
     }
+
     @Test
     @DisplayName("getById() not found Id Return error 404")
     public void getByIdNotFoundIdReturnError404() throws Exception
@@ -161,7 +200,5 @@ public class EmployeeControllerTest {
 
         assertNull(employeeDao.getById(UUID.fromString("43304dc3-564e-45b3-b91b-905aa76b74c4")));
     }
-
-
 
 }
