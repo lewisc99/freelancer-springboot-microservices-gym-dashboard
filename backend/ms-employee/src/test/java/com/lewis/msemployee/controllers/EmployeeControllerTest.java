@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.jdbc.Sql;
@@ -34,7 +35,8 @@ import static org.hamcrest.Matchers.is;
         "classpath:data-create-test.sql"})
 @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = {
         "classpath:data-delete-test.sql"})
-@SpringBootTest(properties = {"spring.profiles.active=test"}, classes = {classesBeanConfig.class})
+@SpringBootTest(properties = {"spring.profiles.active=test"})
+@Import(classesBeanConfig.class)
 public class EmployeeControllerTest {
     private  static MockHttpServletRequest request;
 
