@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { EmployeesDto } from '../domain/dtos/EmployeesDto';
 import { environment } from '../../../environments/environment.test';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,20 @@ export class EmployeeService {
       catchError (
         this.handleError)
      )
+    }
+
+    public getById(id:string): Observable<EmployeeDto>
+    {
+        var getByIdUrl = this.fullUrl + "/" + id;
+        return this.http.get<EmployeeDto>(getByIdUrl).pipe(
+          map(
+            (response:EmployeeDto) =>
+            {
+              return response;
+            },
+            catchError(this.handleError)
+          )
+        );
     }
 
 
