@@ -1,5 +1,4 @@
 import { Roles } from '../entities/roles';
-import { EmployeesDto } from './EmployeesDto';
 
 export class EmployeeDto
 {
