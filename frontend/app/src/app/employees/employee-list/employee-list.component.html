@@ -19,7 +19,7 @@
                     <td >{{employee.age}}</td>
                     <td colspan="2">{{employee.doc}}</td>
                     <td><a [routerLink]="[employee.id]">Details</a></td>
-                    <td><a>Update</a></td>
+                    <td><a [routerLink]="[employee.id,'edit']">Update</a></td>
                     <td><a>Delete</a></td>
                   </tr>
                 </tbody>
