@@ -1,5 +1,4 @@
 package com.lewis.msemployee.repositories;
-
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.repositories.contracts.RolesDao;
 import org.hibernate.Session;
@@ -23,5 +22,15 @@ public class RolesDaoImpl  implements RolesDao {
         query.setParameter("roleName",roleName);
         Roles role = query.getSingleResult();
         return role;
+    }
+
+    @Override
+    public List<Roles> findAll()
+    {
+        Session session = entityManager.unwrap(Session.class);
+
+        Query<Roles> query = session.createQuery("select i from Roles i");
+        List<Roles> roles = query.getResultList();
+        return roles;
     }
 }
