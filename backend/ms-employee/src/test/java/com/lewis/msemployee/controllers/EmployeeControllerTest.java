@@ -282,4 +282,60 @@ public class EmployeeControllerTest {
                         .content(objectMapper.writeValueAsString(employeeModel)))
                 .andExpect(status().is2xxSuccessful());
     }
+
+    @Test
+    @DisplayName("update return 404")
+    public void updateReturn404() throws Exception
+    {
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername() + " Santos",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().is4xxClientError());
+    }
+
+    @Test
+    @DisplayName("update Employee throw a validation error ")
+    public void updateThrowAValidationErrorBadRequest() throws Exception
+    {
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel("",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                .contentType(APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors[0]", is("username cannot be Empty")));
+    }
+
+    @Test
+    @DisplayName("update Employee return two Role")
+    public void updateEmployeeReturnTwoRoles() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.flush();
+
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername(),employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}","3413346b-feb3-44c8-8e3d-234dc6235852")
+                .content(objectMapper.writeValueAsString(employeeModel)).contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().is2xxSuccessful());
+
+        Employee result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
+
+        assertEquals(2, result.getRoles().size());
+    }
+
+
 }
