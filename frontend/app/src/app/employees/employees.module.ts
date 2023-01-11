@@ -9,7 +9,8 @@ import { EmployeeUpdateComponent } from './employee-update/employee-update.compo
 var routes:Routes = [
     {path:"employees",component:EmployeeListComponent},
     {path: 'employees/:id', component:EmployeeByIdComponent},
-    {path: 'employees/:id/edit', component:EmployeeUpdateComponent}
+    {path: 'employees/:id/edit', component:EmployeeUpdateComponent},
+    {path:'', redirectTo: 'employees', pathMatch: 'full'}
 ]
 
 @NgModule({
