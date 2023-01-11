@@ -1,6 +1,4 @@
 package com.lewis.msemployee.services;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
@@ -10,8 +8,8 @@ import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
-import com.lewis.msemployee.repositories.contracts.RolesRepository;
 import com.lewis.msemployee.services.contracts.EmployeeService;
+import com.lewis.msemployee.services.contracts.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +24,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
     private EmployeeDao employeeDao;
 
     @Autowired
-    private RolesRepository rolesRepository;
+    private RoleService roleService;
 
 
     @Override
@@ -139,15 +137,9 @@ public class EmployeeServiceImpl  implements EmployeeService {
         oldEmployee.setAge(updateEmployee.getAge());
         oldEmployee.setEmail(updateEmployee.getEmail());
         oldEmployee.setDoc(updateEmployee.getDoc());
-        List<Roles> rolesList = new ArrayList<>();
 
-        for (var name: updateEmployee.getRoles())
-        {
-            Roles role =   rolesRepository.findRolesByName(name);
-            rolesList.add(role);
-        }
-
-        oldEmployee.setRoles(rolesList);
+        List<Roles> roles =  roleService.findRolesByName(updateEmployee.getRoles());
+        oldEmployee.setRoles(roles);
         return oldEmployee;
 
     }
