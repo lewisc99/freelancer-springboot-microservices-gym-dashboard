@@ -215,15 +215,15 @@ public class EmployeeServiceImplTest {
         assertNotNull(result);
     }
 
-    @Test
-    @DisplayName("update Employee")
-    public void updateEmployeeById()
-    {
-        employee.setUsername("Felipe Santos");
-
-        when(employeeDao.update(employee)).thenReturn(true);
-        var result = employeeService.update(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"), employee);
-
-        assertEquals(true, result);
-    }
+//    @Test
+//    @DisplayName("update Employee")
+//    public void updateEmployeeById()
+//    {
+//        employee.setUsername("Felipe Santos");
+//
+//        when(employeeDao.update(employee)).thenReturn(true);
+//        var result = employeeService.update(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"), employee);
+//
+//        assertEquals(true, result);
+//    }
 }

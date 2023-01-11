@@ -10,7 +10,7 @@ public interface EmployeeService {
     EmployeesDto getAll(PageModel page, String urlEmployee);
     Employee getById(UUID id);
 
-    void update(UUID id, Employee employee);
+    Boolean update(UUID id, Employee employee);
 
 
 }

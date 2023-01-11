@@ -106,5 +106,33 @@ public class EmployeeServiceImpl  implements EmployeeService {
         }
     }
 
+    @Override
+    public Boolean update(UUID id, Employee employee)
+    {
+        Employee employeeById = getById(id);
+
+        if (employeeById == null)
+        {
+            throw new NullPointerException();
+        }
+        Employee updatedEmployee = handleUpdateEmployee(employee, employeeById);
+        Boolean result =  employeeDao.update(updatedEmployee);
+
+        if(!result)
+        {
+            throw new RuntimeException();
+        }
+        return true;
+    }
+
+    public Employee handleUpdateEmployee(Employee updateEmployee, Employee oldEmployee)
+    {
+        oldEmployee.setUsername(updateEmployee.getUsername());
+        oldEmployee.setAge(updateEmployee.getAge());
+        oldEmployee.setEmail(updateEmployee.getEmail());
+        oldEmployee.setDoc(updateEmployee.getDoc());
+
+        return oldEmployee;
+    }
 
 }
