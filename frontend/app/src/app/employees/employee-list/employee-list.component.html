@@ -6,19 +6,25 @@
                 <thead>
                   <tr>
                     <th scope="col">Username</th>
+                    <th scope="col">email</th>
                     <th scope="col">Age</th>
                     <th scope="col">Doc</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let employee  of employeesDto._embedded">
                     <th scope="row">{{employee.username}}</th>
-                    <td colspan="2">{{employee.age}}</td>
+                    <td>{{employee.email}}</td>
+                    <td >{{employee.age}}</td>
                     <td colspan="2">{{employee.doc}}</td>
-                    <td>@twitter</td>
+                    <td><a [routerLink]="[employee.id]">Details</a></td>
+                    <td><a>Update</a></td>
+                    <td><a>Delete</a></td>
                   </tr>
                 </tbody>
               </table>
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

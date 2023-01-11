@@ -16,14 +16,22 @@ export class EmployeeListComponent implements OnInit {
 
 
   ngOnInit(): void {
-      console.log("employees")
-      this.employeeService.getAll().subscribe(
-        (data:EmployeesDto) =>
-        {
-          console.log(data);
-          this.employeesDto = data;
-        }
-      );
+      this.getAll();
   }
+
+    getAll(): void 
+    {
+        this.employeeService.getAll().subscribe(
+          (data:EmployeesDto) =>
+          {
+            console.log(data);
+            this.employeesDto = data;
+          }, 
+          (error:any) =>
+          {
+            console.log(error);
+          }
+        );
+    }
 
 }

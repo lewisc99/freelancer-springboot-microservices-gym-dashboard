@@ -1,0 +1,36 @@
+<div class="container flex">
+    <div class="row flex-row d-flex">
+        <div class="col">
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Username</li>
+            <li class="list-group-item">{{employee.username}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Age</li>
+            <li class="list-group-item">{{employee.age}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Doc</li>
+            <li class="list-group-item">{{employee.doc}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Doc</li>
+            <li class="list-group-item">{{employee.email}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Roles</li>
+            <li class="list-group-item">
+                    <b *ngFor="let role of employee.roles"> {{role.name}}</b>
+            </li>
+          </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3">
+            <div class="justify-content-center align-items-center d-flex">
+                <button class="btn btn-primary mr-3">Update</button>
+                <a [routerLink]="['..']">Back to list</a>
+              </div>
+        </div>
+    </div>
+</div>
