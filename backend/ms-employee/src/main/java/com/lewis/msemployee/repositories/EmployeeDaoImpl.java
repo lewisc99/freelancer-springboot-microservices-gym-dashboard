@@ -47,4 +47,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
          }
          return employees;
     }
+
+    @Override
+    public Boolean update(Employee employee)
+    {
+        Session session = entityManager.unwrap(Session.class);
+        session.createQuery("");
+        return true;
+    }
 }
