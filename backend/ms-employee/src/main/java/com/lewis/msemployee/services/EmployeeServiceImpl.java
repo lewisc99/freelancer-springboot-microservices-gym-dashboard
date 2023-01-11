@@ -123,7 +123,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         }
         Employee updatedEmployee = handleUpdateEmployee(employee, employeeById);
         Boolean result =  employeeDao.update(updatedEmployee);
-
         if(!result)
         {
             throw new RuntimeException();
@@ -141,7 +140,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         List<Roles> roles =  roleService.findRolesByName(updateEmployee.getRoles());
         oldEmployee.setRoles(roles);
         return oldEmployee;
-
     }
 
 }

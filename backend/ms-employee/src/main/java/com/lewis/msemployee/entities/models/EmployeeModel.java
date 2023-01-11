@@ -1,28 +1,38 @@
 package com.lewis.msemployee.entities.models;
-
-import com.lewis.msemployee.entities.domain.Roles;
-
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class EmployeeModel {
 
 
-    @NotNull
+    @NotNull(message = "username cannot be null")
+    @NotEmpty(message = "username cannot be Empty")
     private String username;
-    @NotNull
+    @Min(value = 18, message = "Age must be at least 18")
     private Integer age;
-    @NotNull
+    @NotNull(message = "Document cannot be null")
     private String doc;
-    @NotNull
+    @NotNull(message = "Email cannot be null")
+    @Email(message = "Email should be valid")
+    @NotEmpty(message = "email cannot be Empty")
     private String email;
+
 
     private List<String> roles;
 
     public EmployeeModel() {
     }
 
-
+    public EmployeeModel(String username, Integer age, String doc, String email, List<String> roles) {
+        this.username = username;
+        this.age = age;
+        this.doc = doc;
+        this.email = email;
+        this.roles = roles;
+    }
 
     public String getUsername() {
         return username;

@@ -66,22 +66,14 @@ public class EmployeeController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> update(@PathVariable UUID id,@Valid @RequestBody EmployeeModel employeeModel)
+    public ResponseEntity<Void> update(@Valid @PathVariable UUID id,@Valid @RequestBody EmployeeModel employeeModel)
     {
-
         Boolean employee = employeeService.update(id, employeeModel);
         if(!employee)
         {
             return ResponseEntity.status(400).build();
         }
-
         return ResponseEntity.status(204).build();
 
-    }
-    @GetMapping("name")
-    public ResponseEntity<Employee> get()
-    {
-
-        return ResponseEntity.ok(new Employee());
     }
 }
