@@ -2,20 +2,27 @@ package com.lewis.msemployee.entities.models;
 
 import com.lewis.msemployee.entities.domain.Roles;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public class EmployeeModel {
 
+
+    @NotNull
     private String username;
+    @NotNull
     private Integer age;
+    @NotNull
     private String doc;
+    @NotNull
     private String email;
-    private List<Roles> roles;
+
+    private List<String> roles;
 
     public EmployeeModel() {
     }
 
-    
+
 
     public String getUsername() {
         return username;
@@ -49,11 +56,11 @@ public class EmployeeModel {
         this.email = email;
     }
 
-    public List<Roles> getRoles() {
+    public List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(List<Roles> roles) {
+    public void setRoles(List<String> roles) {
         this.roles = roles;
     }
 }

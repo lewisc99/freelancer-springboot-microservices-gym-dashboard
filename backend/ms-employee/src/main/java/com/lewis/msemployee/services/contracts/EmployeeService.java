@@ -2,6 +2,7 @@ package com.lewis.msemployee.services.contracts;
 
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 
 import java.util.UUID;
@@ -10,7 +11,7 @@ public interface EmployeeService {
     EmployeesDto getAll(PageModel page, String urlEmployee);
     Employee getById(UUID id);
 
-    Boolean update(UUID id, Employee employee);
+    Boolean update(UUID id, EmployeeModel employee);
 
 
 }

@@ -1,11 +1,16 @@
 package com.lewis.msemployee.services;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
 import com.lewis.msemployee.entities.domain.Employee;
+import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
+import com.lewis.msemployee.repositories.contracts.RolesRepository;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +24,9 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Autowired
     private EmployeeDao employeeDao;
+
+    @Autowired
+    private RolesRepository rolesRepository;
 
 
     @Override
@@ -107,7 +115,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
     }
 
     @Override
-    public Boolean update(UUID id, Employee employee)
+    public Boolean update(UUID id, EmployeeModel employee)
     {
         Employee employeeById = getById(id);
 
@@ -125,14 +133,23 @@ public class EmployeeServiceImpl  implements EmployeeService {
         return true;
     }
 
-    public Employee handleUpdateEmployee(Employee updateEmployee, Employee oldEmployee)
+    public Employee handleUpdateEmployee(EmployeeModel updateEmployee, Employee oldEmployee)
     {
         oldEmployee.setUsername(updateEmployee.getUsername());
         oldEmployee.setAge(updateEmployee.getAge());
         oldEmployee.setEmail(updateEmployee.getEmail());
         oldEmployee.setDoc(updateEmployee.getDoc());
+        List<Roles> rolesList = new ArrayList<>();
 
+        for (var name: updateEmployee.getRoles())
+        {
+            Roles role =   rolesRepository.findRolesByName(name);
+            rolesList.add(role);
+        }
+
+        oldEmployee.setRoles(rolesList);
         return oldEmployee;
+
     }
 
 }
