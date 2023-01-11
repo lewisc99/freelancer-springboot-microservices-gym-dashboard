@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.EmployeeServiceImpl;
@@ -18,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import javax.annotation.Resource;
@@ -263,6 +265,21 @@ public class EmployeeControllerTest {
     }
 
     @Test
-    @DisplayName("update ")
+    @DisplayName("update return 204")
+    public void updateReturn204() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.flush();
 
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername() + " Santos",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().is2xxSuccessful());
+    }
 }
