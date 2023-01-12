@@ -3,6 +3,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import com.lewis.msemployee.services.EmployeeServiceImpl;
@@ -18,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import javax.annotation.Resource;
@@ -85,8 +87,6 @@ public class EmployeeControllerTest {
     @BeforeEach
     public void beforeEach()
     {
-
-
         employee.setId(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
         employee.setAge(20);
         employee.setUsername("Felipe");
@@ -263,5 +263,79 @@ public class EmployeeControllerTest {
 
         assertNull(employeeDao.getById(UUID.fromString("43304dc3-564e-45b3-b91b-905aa76b74c4")));
     }
+
+    @Test
+    @DisplayName("update return 204")
+    public void updateReturn204() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.flush();
+
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername() + " Santos",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().is2xxSuccessful());
+    }
+
+    @Test
+    @DisplayName("update return 404")
+    public void updateReturn404() throws Exception
+    {
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername() + " Santos",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                        .contentType(APPLICATION_JSON_UTF8)
+                        .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().is4xxClientError());
+    }
+
+    @Test
+    @DisplayName("update Employee throw a validation error ")
+    public void updateThrowAValidationErrorBadRequest() throws Exception
+    {
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel("",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
+                .contentType(APPLICATION_JSON_UTF8)
+                .content(objectMapper.writeValueAsString(employeeModel)))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.errors[0]", is("username cannot be Empty")));
+    }
+
+    @Test
+    @DisplayName("update Employee return two Role")
+    public void updateEmployeeReturnTwoRoles() throws Exception
+    {
+        entityManager.persist(employee);
+        entityManager.flush();
+
+        List<String> roles = new ArrayList<String>();
+        roles.add("admin");
+        roles.add("coach");
+
+        EmployeeModel employeeModel = new EmployeeModel(employee.getUsername(),employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}","3413346b-feb3-44c8-8e3d-234dc6235852")
+                .content(objectMapper.writeValueAsString(employeeModel)).contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().is2xxSuccessful());
+
+        Employee result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
+
+        assertEquals(2, result.getRoles().size());
+    }
+
 
 }

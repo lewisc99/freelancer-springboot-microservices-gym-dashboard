@@ -52,7 +52,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Boolean update(Employee employee)
     {
         Session session = entityManager.unwrap(Session.class);
-        session.createQuery("");
+        session.update(employee);
         return true;
     }
 }

@@ -4,6 +4,7 @@ import com.lewis.msemployee.config.exceptions.DatabaseException;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
@@ -215,15 +216,33 @@ public class EmployeeServiceImplTest {
         assertNotNull(result);
     }
 
-//    @Test
-//    @DisplayName("update Employee")
-//    public void updateEmployeeById()
-//    {
-//        employee.setUsername("Felipe Santos");
-//
-//        when(employeeDao.update(employee)).thenReturn(true);
-//        var result = employeeService.update(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"), employee);
-//
-//        assertEquals(true, result);
-//    }
+    @Test
+    @DisplayName("update Employee")
+    public void updateEmployee()
+    {
+        employee.setUsername("Felipe Santos");
+        employee.setEmail("felipe@gmail.com");
+        employee.setAge(23);
+        when(employeeDao.update(employee)).thenReturn(true);
+        var result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
+
+        assertEquals("Felipe Santos",employee.getUsername());
+    }
+
+    @Test
+    @DisplayName("update Employee, Return false Then throw Exception")
+    public void updateEmployeeReturnFalseThenThrowException()
+    {
+        when(employeeDao.update(employee)).thenThrow(RuntimeException.class);
+        assertThrows(RuntimeException.class, () -> {employeeService.update(UUID.fromString(""),new EmployeeModel());});
+    }
+
+    @Test
+    @DisplayName("update Employee, EmployeeIdNotFound Throw NullPointerException")
+    public void updateEmployeeEmployeeIdNotFoundThrowNullPointException()
+    {
+        when(employeeDao.update(employee)).thenThrow(NullPointerException.class);
+        assertThrows(RuntimeException.class, () -> {employeeService.update(UUID.fromString(""),new EmployeeModel());});
+    }
+
 }

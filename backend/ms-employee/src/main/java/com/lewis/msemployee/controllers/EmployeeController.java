@@ -3,9 +3,11 @@ import com.lewis.msemployee.config.dtos.DtoConverter;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.dtos.EmployeeDto;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
+import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -63,6 +65,15 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeDto);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<Void> update(@Valid @PathVariable UUID id,@Valid @RequestBody EmployeeModel employeeModel)
+    {
+        Boolean employee = employeeService.update(id, employeeModel);
+        if(!employee)
+        {
+            return ResponseEntity.status(400).build();
+        }
+        return ResponseEntity.status(204).build();
 
-
+    }
 }

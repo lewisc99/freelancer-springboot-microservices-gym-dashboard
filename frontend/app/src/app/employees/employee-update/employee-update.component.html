@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="form-group">
+                    <input type="hidden"  [value]="employee.id"/>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username: </label>
+                    <input class="form-control" type="text" id="username" placeholder="enter username" [value]="employee.username" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input class="form-control" type="text" id="email" placeholder="enter Email" [value]="employee.email" />
+                </div>
+                <div class="form-group">
+                    <label for="age">Age: </label>
+                    <input class="form-control" type="text" id="age" placeholder="enter Age" [value]="employee.age" />
+                </div>
+                <div class="form-group">
+                    <label for="doc">Document: </label>
+                    <input class="form-control" type="text" id="doc" placeholder="enter Document"  [value]="employee.doc"/>
+                </div>
+                <div class="form-group d-flex flex-column">
+                    <label for="roles">Roles: </label>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row mr-3">
+                        <input type="checkbox" id="admin" class="custom-control mr-1 mb-3">
+                        <label for="defaultCheck" form="admin">Default checkbox</label>
+                       </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary mr-4">Update</button>
+                    <a class="hover" [routerLink]="['/..','employees']"  >Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
