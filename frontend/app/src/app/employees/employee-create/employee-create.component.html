@@ -22,8 +22,19 @@
                     <input type="email" id="email" placeholder="enter an Email" class="form-control"/>
                 </div>
 
-
-
+                <div class="form-group">
+                    <label for="roles">Roles: </label>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row mr-3" *ngFor="let role of roles" >
+                        <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name" (change)="onRolesAdded(role.name)" [checked]="checkBoxRoles.get(role.name)" >
+                        <label [for]="role.name"> {{role.name}}</label>
+                       </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Create</button>
+                    <a [routerLink]="'..'" class="ml-3">Back to List</a>
+                </div>
             </form>
         </div>
     </div>
