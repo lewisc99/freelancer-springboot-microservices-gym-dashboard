@@ -1,12 +1,9 @@
 package com.lewis.msemployee.entities.models;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.List;
+import java.util.UUID;
 
 public class EmployeeModel {
-
 
     @NotNull(message = "username cannot be null")
     @NotEmpty(message = "username cannot be Empty")

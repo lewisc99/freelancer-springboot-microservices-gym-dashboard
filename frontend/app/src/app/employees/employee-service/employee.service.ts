@@ -4,6 +4,7 @@ import { EmployeesDto } from '../domain/dtos/EmployeesDto';
 import { environment } from '../../../environments/environment.test';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
+import { EmployeeModel } from '../domain/models/employee.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,22 @@ export class EmployeeService {
             catchError(this.handleError)
           )
         );
+    }
+
+    public updateEmployee(employee:EmployeeModel): Observable<any>
+    {
+        var getByIdUrl = this.fullUrl + "/" + employee.id;
+
+        return this.http.put(getByIdUrl, employee).pipe(
+          map(
+            (response:any) =>
+            {
+              return response;
+            },
+            catchError(this.handleError)
+          )
+        )
+
     }
 
 

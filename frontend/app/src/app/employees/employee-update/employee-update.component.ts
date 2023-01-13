@@ -70,11 +70,11 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
           email: new FormControl(this.employee.email,[Validators.required]),
           age: new FormControl(this.employee.age,[Validators.required]),
           doc: new FormControl(this.employee.doc,[Validators.required]),
-           role: this.fb.array  ([]),
+           roles: this.fb.array  ([]),
         })
       });
 
-     this.rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
+     this.rolesForm = this.formGroup.get("employeeModel")?.get("roles") as FormArray;
     for (var item of this.employee.roles)
     {
        this.rolesForm.push(new FormControl(item.name,[]));
@@ -125,6 +125,13 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
       this.formGroup.markAllAsTouched();
     }
      var rolesModel:EmployeeModel = this.formGroup.controls['employeeModel'].value;
+     console.log(rolesModel);
+     this.employeeService.updateEmployee(rolesModel).subscribe(
+      {
+        next: (result:any) => console.log(result),
+        error: (error:any) => console.log(error)
+      }
+     );
  
   }
   
