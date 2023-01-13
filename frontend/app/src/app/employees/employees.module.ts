@@ -5,10 +5,12 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeByIdComponent } from './employee-by-id/employee-by-id.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 
 
 var routes:Routes = [
     {path:"employees",component:EmployeeListComponent},
+    {path:'employees/create', component: EmployeeCreateComponent},
     {path: 'employees/:id', component:EmployeeByIdComponent},
     {path: 'employees/:id/edit', component:EmployeeUpdateComponent},
     {path:'', redirectTo: 'employees', pathMatch: 'full'}
@@ -18,7 +20,8 @@ var routes:Routes = [
     declarations: [
         EmployeeListComponent,
         EmployeeByIdComponent,
-        EmployeeUpdateComponent
+        EmployeeUpdateComponent,
+        EmployeeCreateComponent
     ],
     imports: [
         BrowserModule,
