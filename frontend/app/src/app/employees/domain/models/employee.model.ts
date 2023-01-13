@@ -5,5 +5,5 @@ export class EmployeeModel
     public age: string;
     public doc:string;
     public email:string;
-    public roles:string[]
+    public roles:string[] = []
 }

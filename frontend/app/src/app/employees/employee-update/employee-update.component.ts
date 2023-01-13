@@ -5,7 +5,7 @@ import { EmployeeService } from '../employee-service/employee.service';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { RolesService } from '../../shared/services/roles.service';
 import { Roles } from '../domain/entities/roles';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EmployeeModel } from '../domain/models/employee.model';
 
 @Component({
@@ -18,7 +18,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   public id:string;
   private getIdSubscription:Subscription = new Subscription();
   public employee:EmployeeDto = new EmployeeDto();
-  public employeeModel:EmployeeModel = new EmployeeModel();
+  public checkBoxRoles:Map<string,boolean> = new Map<string,boolean>();
   public rolesDto: Roles[] = [];
   public formGroup:FormGroup;
 
@@ -39,18 +39,24 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   getAllRoles():void 
   {
     this.rolesService.getAll().subscribe(
-      (result:Roles[]) =>
       {
-        this.rolesDto = result;
-        this.seedFormGroup();
-      },
-      (error:any) =>
-      {
-        console.log(error);
-      }
-    )
+       next: (result:Roles[]) =>
+        {
+          this.rolesDto = result;
+          for (var item of this.rolesDto)
+          {
+            this.checkBoxRoles.set(item.name, false);
+          }
+          this.seedFormGroup();
+        },
+        error: (error:any) =>
+        {
+          console.log(error);
+        }
+        }
+      )
   }
-  
+
   seedFormGroup():void 
   {
     this.formGroup = this.fb.group(
@@ -58,42 +64,68 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
         employeeModel: this.fb.group({
           id: new FormControl(this.employee.id),
           username: new FormControl(this.employee.username,[Validators.required]),
-          email: new FormControl(this.employee.username,[Validators.required]),
+          email: new FormControl(this.employee.email,[Validators.required]),
           age: new FormControl(this.employee.age,[Validators.required]),
           doc: new FormControl(this.employee.doc,[Validators.required]),
-           role: this.fb.group  ({
-           }),
+           role: this.fb.array  ([]),
         })
       });
 
-     const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormGroup;
-     for (let value of this.rolesDto)
-     {
-      rolesForm.addControl(value.name, new FormControl("",[]));
-     }
+    const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
+    for (var item of this.employee.roles)
+    {
+       rolesForm.push(new FormControl(item.name,[]));
+       this.checkBoxRoles.set(item.name,true);
+    };
   }
 
   getEmployeeById(id:string): void
   {
       this.employeeService.getById(id).subscribe
       (
-        (result:EmployeeDto) => 
         {
+          next: (result:EmployeeDto) =>
+          {
           this.employee = result;
           this.seedFormGroup();
-        }, 
-        (error:any) =>
-        {
-          console.log(error);
+          },
+          error: error =>
+          {
+              console.log(error);
+          }
         }
       )
   }
 
 
 
-  updateEmployee()
+  onSubmit()
   {
-    console.log(this.formGroup);
+     var rolesModel = this.formGroup.controls['employeeModel'].value;
+     console.log(rolesModel.role);
+     console.log(this.checkBoxRoles);
+    console.log(rolesModel);
+  }
+
+  onRoleAdded(role:any)
+  {
+    const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
+    const employeeHasRole:string[] = rolesForm.value;
+
+    var getRole = this.checkBoxRoles.get(role);
+    var roleInList =  employeeHasRole.findIndex(s => s == role);
+    if (getRole && (roleInList >= 0))
+    {
+      this.checkBoxRoles.set(role,false);
+      employeeHasRole.splice(roleInList,1);
+    }
+    else
+    {
+      this.checkBoxRoles.set(role,true);
+      employeeHasRole.push(role);
+    }
+     console.log(employeeHasRole);
+   
   }
 
   

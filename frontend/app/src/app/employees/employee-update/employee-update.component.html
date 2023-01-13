@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form   [formGroup]="formGroup" (submit)="updateEmployee()" *ngIf="formGroup">
+            <form   [formGroup]="formGroup" (submit)="onSubmit()" *ngIf="formGroup">
                 <div formGroupName="employeeModel">
                 <div class="form-group">
                     <input type="hidden"  [value]="employee.id" formControlName="id"/>
@@ -26,8 +26,8 @@
                 <div class="form-group d-flex flex-column">
                     <label for="roles">Roles: </label>
                     <div class="d-flex flex-row">
-                        <div class="d-flex flex-row mr-3" *ngFor="let role of rolesDto" formGroupName="role" >
-                        <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name" [formControlName]="role.name"  >
+                        <div class="d-flex flex-row mr-3" *ngFor="let role of rolesDto" >
+                        <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name" (change)="onRoleAdded(role.name)" [checked]="checkBoxRoles.get(role.name)" >
                         <label [for]="role.name"> {{role.name}}</label>
                        </div>
                     </div>
