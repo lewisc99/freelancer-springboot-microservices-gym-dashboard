@@ -4,3 +4,4 @@ export class Roles
     public name:string;
     
 }
+

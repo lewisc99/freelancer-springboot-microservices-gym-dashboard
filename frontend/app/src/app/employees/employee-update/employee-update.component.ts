@@ -6,6 +6,7 @@ import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { RolesService } from '../../shared/services/roles.service';
 import { Roles } from '../domain/entities/roles';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EmployeeModel } from '../domain/models/employee.model';
 
 @Component({
   selector: 'app-employee-update',
@@ -14,13 +15,15 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 })
 export class EmployeeUpdateComponent implements OnInit, OnDestroy{
 
-  constructor(private route:ActivatedRoute, private employeeService:EmployeeService, private rolesService:RolesService, private fb:FormBuilder) {}
-
   public id:string;
   private getIdSubscription:Subscription = new Subscription();
   public employee:EmployeeDto = new EmployeeDto();
-  public rolesDto: any[];
+  public employeeModel:EmployeeModel = new EmployeeModel();
+  public rolesDto: Roles[] = [];
   public formGroup:FormGroup;
+
+  constructor(private route:ActivatedRoute, private employeeService:EmployeeService, private rolesService:RolesService, private fb:FormBuilder) {}
+
   ngOnInit(): void {
 
       this.getIdSubscription = this.route.paramMap.subscribe( 
@@ -33,9 +36,41 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
       this.getAllRoles();
   }
 
-  ngOnDestroy(): void {
+  getAllRoles():void 
+  {
+    this.rolesService.getAll().subscribe(
+      (result:Roles[]) =>
+      {
+        this.rolesDto = result;
+        this.seedFormGroup();
+      },
+      (error:any) =>
+      {
+        console.log(error);
+      }
+    )
+  }
+  
+  seedFormGroup():void 
+  {
+    this.formGroup = this.fb.group(
+      {
+        employeeModel: this.fb.group({
+          id: new FormControl(this.employee.id),
+          username: new FormControl(this.employee.username,[Validators.required]),
+          email: new FormControl(this.employee.username,[Validators.required]),
+          age: new FormControl(this.employee.age,[Validators.required]),
+          doc: new FormControl(this.employee.doc,[Validators.required]),
+           role: this.fb.group  ({
+           }),
+        })
+      });
 
-    this.getIdSubscription.unsubscribe();
+     const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormGroup;
+     for (let value of this.rolesDto)
+     {
+      rolesForm.addControl(value.name, new FormControl("",[]));
+     }
   }
 
   getEmployeeById(id:string): void
@@ -54,41 +89,17 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
       )
   }
 
-  getAllRoles():void 
-  {
-    this.rolesService.getAll().subscribe(
-      (result:Roles[]) =>
-      {
-        this.rolesDto = result;
-        this.seedFormGroup();
-      },
-      (error:any) =>
-      {
-        console.log(error);
-      }
-    )
-  }
 
-  seedFormGroup():void 
-  {
-    this.formGroup = this.fb.group(
-      {
-        employee: this.fb.group({
-          id: new FormControl(this.employee.id),
-          username: new FormControl(this.employee.username,[Validators.required]),
-          email: new FormControl(this.employee.username,[Validators.required]),
-          age: new FormControl(this.employee.age,[Validators.required]),
-          doc: new FormControl(this.employee.doc,[Validators.required]),
-          role: new FormControl("",[Validators.required]),
-        })
-      });
-  }
 
   updateEmployee()
   {
-    console.log(this.formGroup)
+    console.log(this.formGroup);
   }
 
   
+  ngOnDestroy(): void {
+
+    this.getIdSubscription.unsubscribe();
+  }
 
 }
