@@ -24,9 +24,9 @@
                 <div class="form-group d-flex flex-column">
                     <label for="roles">Roles: </label>
                     <div class="d-flex flex-row">
-                        <div class="d-flex flex-row mr-3">
-                        <input type="checkbox" id="admin" class="custom-control mr-1 mb-3">
-                        <label for="defaultCheck" form="admin">Default checkbox</label>
+                        <div class="d-flex flex-row mr-3" *ngFor="let role of rolesDto">
+                        <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name">
+                        <label [for]="role.name" > {{role.name}}</label>
                        </div>
                     </div>
                 </div>

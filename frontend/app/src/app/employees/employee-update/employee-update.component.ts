@@ -18,6 +18,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   public id:string;
   private getIdSubscription:Subscription = new Subscription();
   public employee:EmployeeDto = new EmployeeDto();
+  public rolesDto: any[];
 
   ngOnInit(): void {
 
@@ -53,7 +54,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
     this.rolesService.getAll().subscribe(
       (result:Roles[]) =>
       {
-        console.log(result);
+        this.rolesDto = result;
       },
       (error:any) =>
       {
