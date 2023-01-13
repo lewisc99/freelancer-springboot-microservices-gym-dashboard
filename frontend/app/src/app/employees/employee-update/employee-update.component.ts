@@ -21,6 +21,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   public checkBoxRoles:Map<string,boolean> = new Map<string,boolean>();
   public rolesDto: Roles[] = [];
   public formGroup:FormGroup;
+  private rolesForm:FormArray;
 
   constructor(private route:ActivatedRoute, private employeeService:EmployeeService, private rolesService:RolesService, private fb:FormBuilder) {}
 
@@ -43,10 +44,12 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
        next: (result:Roles[]) =>
         {
           this.rolesDto = result;
-          for (var item of this.rolesDto)
+          
+          for (var role of result)
           {
-            this.checkBoxRoles.set(item.name, false);
+            this.checkBoxRoles.set(role.name, false);
           }
+
           this.seedFormGroup();
         },
         error: (error:any) =>
@@ -71,10 +74,10 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
         })
       });
 
-    const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
+     this.rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
     for (var item of this.employee.roles)
     {
-       rolesForm.push(new FormControl(item.name,[]));
+       this.rolesForm.push(new FormControl(item.name,[]));
        this.checkBoxRoles.set(item.name,true);
     };
   }
@@ -96,38 +99,34 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
         }
       )
   }
-
-
-
-  onSubmit()
-  {
-     var rolesModel = this.formGroup.controls['employeeModel'].value;
-     console.log(rolesModel.role);
-     console.log(this.checkBoxRoles);
-    console.log(rolesModel);
-  }
-
   onRoleAdded(role:any)
   {
-    const rolesForm = this.formGroup.get("employeeModel")?.get("role") as FormArray;
-    const employeeHasRole:string[] = rolesForm.value;
+    const employeeRoles:string[] = this.rolesForm.value;
 
     var getRole = this.checkBoxRoles.get(role);
-    var roleInList =  employeeHasRole.findIndex(s => s == role);
+    var roleInList =  employeeRoles.findIndex(s => s == role);
     if (getRole && (roleInList >= 0))
     {
       this.checkBoxRoles.set(role,false);
-      employeeHasRole.splice(roleInList,1);
+      employeeRoles.splice(roleInList,1);
     }
     else
     {
       this.checkBoxRoles.set(role,true);
-      employeeHasRole.push(role);
+      employeeRoles.push(role);
     }
-     console.log(employeeHasRole);
-   
   }
 
+  onSubmit()
+  {
+
+    if (this.formGroup.invalid)
+    {
+      this.formGroup.markAllAsTouched();
+    }
+     var rolesModel:EmployeeModel = this.formGroup.controls['employeeModel'].value;
+ 
+  }
   
   ngOnDestroy(): void {
 
