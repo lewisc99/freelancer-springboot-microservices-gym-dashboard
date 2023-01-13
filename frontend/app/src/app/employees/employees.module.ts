@@ -4,6 +4,7 @@ import {  RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeByIdComponent } from './employee-by-id/employee-by-id.component';
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 var routes:Routes = [
@@ -21,7 +22,8 @@ var routes:Routes = [
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        ReactiveFormsModule,
     ]
 })
 export class EmployeeModule {}
