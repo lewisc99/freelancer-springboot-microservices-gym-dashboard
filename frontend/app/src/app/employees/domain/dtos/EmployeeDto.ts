@@ -7,5 +7,5 @@ export class EmployeeDto
     public age: string;
     public doc:string;
     public email:string;
-    public roles:Roles[]
+    public roles:Roles[] = []
 }
