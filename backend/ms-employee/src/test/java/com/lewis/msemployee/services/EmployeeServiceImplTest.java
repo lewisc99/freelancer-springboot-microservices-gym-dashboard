@@ -254,10 +254,18 @@ public class EmployeeServiceImplTest {
         assertNull(result);
     }
     @Test
-    @DisplayName("delete employee throws NullPointException")
+    @DisplayName("delete employee throws IllegalArgumentException")
+    public void deleteEmployeeThrowsIllegalArgumentException()
+    {
+        when(employeeDao.delete(employee)).thenThrow(IllegalArgumentException.class);
+        assertThrows(IllegalArgumentException.class, () -> {employeeService.getById(UUID.fromString(""));});
+    }
+
+    @Test
+    @DisplayName("delete employee throws ")
     public void deleteEmployeeThrowsNullPointException()
     {
-        when(employeeDao.delete(employee)).thenThrow(NullPointerException.class);
-        assertThrows(NullPointerException.class, () -> {employeeService.getById(employee.getId());});
+        when(employeeDao.delete(employee)).thenReturn(false);
+        assertThrows(NullPointerException.class, () -> {employeeService.delete(UUID.fromString("528713e2-db53-44fa-8f2f-b1a4aa79bbe6"));});
     }
 }

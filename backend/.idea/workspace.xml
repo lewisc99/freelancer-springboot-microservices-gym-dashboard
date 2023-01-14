@@ -40,7 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in ms-employee">
+  <component name="RunManager" selected="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId">
     <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <option name="PACKAGE_NAME" value="" />
@@ -49,7 +49,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.deleteEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -59,43 +59,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RolesControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.RolesControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RolesControllerTest.findAllReturnEmptyBody" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.RolesControllerTest" />
-      <option name="METHOD_NAME" value="findAllReturnEmptyBody" />
+      <option name="METHOD_NAME" value="deleteEmployee" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RolesControllerTest.findAllThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest.deleteEmployeeInvalidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -104,8 +74,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.RolesControllerTest" />
-      <option name="METHOD_NAME" value="findAllThrowsException" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="deleteEmployeeInvalidId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeControllerTest.deleteEmployeeNotFoundId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="METHOD_NAME" value="deleteEmployeeNotFoundId" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmployeeServiceImplTest.deleteEmployeeThrowsNullPointException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.EmployeeServiceImplTest" />
+      <option name="METHOD_NAME" value="deleteEmployeeThrowsNullPointException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId" />
+        <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeInvalidId" />
+        <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployee" />
         <item itemvalue="JUnit.All in ms-employee" />
-        <item itemvalue="JUnit.RolesControllerTest.findAllReturnEmptyBody" />
-        <item itemvalue="JUnit.RolesControllerTest.findAllThrowsException" />
-        <item itemvalue="JUnit.RolesControllerTest" />
-        <item itemvalue="JUnit.EmployeeControllerTest" />
+        <item itemvalue="JUnit.EmployeeServiceImplTest.deleteEmployeeThrowsNullPointException" />
       </list>
     </recent_temporary>
   </component>

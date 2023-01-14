@@ -133,7 +133,18 @@ public class EmployeeServiceImpl  implements EmployeeService {
     @Override
     public void delete(UUID id)
     {
+       Employee employee = getById(id);
 
+       if (employee == null)
+       {
+           throw new NullPointerException();
+       }
+       Boolean result = employeeDao.delete(employee);
+
+       if(!result)
+       {
+         throw new NullPointerException();
+       }
     }
 
     public Employee handleUpdateEmployee(EmployeeModel updateEmployee, Employee oldEmployee)

@@ -30,6 +30,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import javax.validation.constraints.Size;
+import java.rmi.server.ExportException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -337,6 +338,34 @@ public class EmployeeControllerTest {
         Employee result = employeeService.getById(UUID.fromString("3413346b-feb3-44c8-8e3d-234dc6235852"));
 
         assertEquals(2, result.getRoles().size());
+    }
+
+    @Test
+    @DisplayName("delete Employee")
+    public void deleteEmployee() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/employees/{id}","b5517cd0-7d6a-42e2-a714-7a340f905e38").contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    @DisplayName("delete Employees invalid Id")
+    public void deleteEmployeeInvalidId() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/employees/{id}","ab").contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().is5xxServerError());
+    }
+
+
+    @Test
+    @DisplayName("delete Employees invalid Id")
+    public void deleteEmployeeNotFoundId() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/employees/{id}","a5517cd0-7d6a-42e2-a714-7a340f905e37").contentType(APPLICATION_JSON_UTF8))
+                .andExpect(status().isNotFound())
+                .andExpect(jsonPath("$.error", is("Employee Not Found")))
+                .andExpect(jsonPath("$.status",is(404)))
+                .andExpect(content().contentType(APPLICATION_JSON_UTF8));
     }
 
 

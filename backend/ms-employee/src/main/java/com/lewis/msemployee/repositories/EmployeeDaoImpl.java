@@ -59,8 +59,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public Boolean delete(Employee employee)
     {
+        boolean deleted = false;
         Session session = entityManager.unwrap(Session.class);
         session.delete(employee);
-        return true;
+        return deleted = true;
     }
 }

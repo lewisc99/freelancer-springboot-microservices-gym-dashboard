@@ -75,5 +75,10 @@ public class EmployeeController {
         }
         return ResponseEntity.status(204).build();
     }
-
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@Valid @PathVariable UUID id)
+    {
+        employeeService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
 }
