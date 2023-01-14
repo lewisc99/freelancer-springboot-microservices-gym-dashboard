@@ -245,5 +245,19 @@ public class EmployeeServiceImplTest {
         assertThrows(RuntimeException.class, () -> {employeeService.update(UUID.fromString(""),new EmployeeModel());});
     }
 
-
+    @Test
+    @DisplayName("delete Employee")
+    public void deleteEmployee()
+    {
+        when(employeeDao.delete(employee).thenReturn(true));
+        Employee result = employeeService.getById(employee.getId());
+        assertNull(result);
+    }
+    @Test
+    @DisplayName("delete employee throws NullPointException")
+    public void deleteEmployeeThrowsNullPointException()
+    {
+        when(employeeDao.delete(employee.getId())).thenThrow(NullPointerException.class);
+        assertThrows(NullPointerException.class, () -> {employeeService.getById(employee.getId());});
+    }
 }
