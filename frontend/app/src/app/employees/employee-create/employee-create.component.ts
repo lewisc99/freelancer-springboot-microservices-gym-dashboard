@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, FormArray } from '@angular/forms';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee-service/employee.service';
+import { Employee } from '../domain/entities/employee';
 
 @Component({
   selector: 'app-employee-create',
@@ -85,7 +86,7 @@ export class EmployeeCreateComponent implements OnInit {
   onSubmit():void
   {
       var employeeForm:any= this.formGroup.value.employeeModel;
-      var employeeDto: EmployeeDto = new EmployeeDto();
+      var employee: Employee = new Employee();
       var roles:Roles[] = [];
 
       for(let i =0; i < this.employeeRoles.length;i++)
@@ -97,13 +98,14 @@ export class EmployeeCreateComponent implements OnInit {
 
           roles.push(role);
        }
-     employeeDto.username = employeeForm.username;
-     employeeDto.age = employeeForm.age;
-     employeeDto.email = employeeForm.email;
-     employeeDto.doc = employeeForm.doc;
-     employeeDto.roles = roles;
+     employee.username = employeeForm.username;
+     employee.age = employeeForm.age;
+     employee.email = employeeForm.email;
+     employee.doc = employeeForm.doc;
+     employee.roles = roles;
+     employee.password = employeeForm.password;
 
-     this.employeeService.create(employeeDto).subscribe({
+     this.employeeService.create(employee).subscribe({
         error: error => console.log(error)
      });
 

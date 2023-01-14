@@ -6,6 +6,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { EmployeeModel } from '../domain/models/employee.model';
 import { Router } from '@angular/router';
+import { Employee } from '../domain/entities/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -18,9 +19,9 @@ export class EmployeeService {
 
 
 
-    public create(employee:EmployeeDto): Observable<any>
+    public create(employee:Employee): Observable<any>
     {
-      return this.http.post<EmployeeDto>(this.fullUrl,employee)
+      return this.http.post<Employee>(this.fullUrl,employee)
       .pipe(
         map(
           (response:any) => 
