@@ -45,7 +45,7 @@ import static org.hamcrest.Matchers.is;
         "classpath:data-create-test.sql"})
 @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = {
         "classpath:data-delete-test.sql"})
-@SpringBootTest(properties = {"spring.profiles.active=test"}, classes = MsEmployeeApplication.class)
+@SpringBootTest(properties = {"spring.profiles.active="}, classes = MsEmployeeApplication.class)
 @Import(classesBeanConfig.class)
 public class EmployeeControllerTest {
     private  static MockHttpServletRequest request;

@@ -62,18 +62,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DtoConverterTest.convertRolesToRolesDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmployeeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.config.dtos.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.config.dtos" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.config.dtos.DtoConverterTest" />
-      <option name="METHOD_NAME" value="convertRolesToRolesDto" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,10 +111,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ms-employee" />
+        <item itemvalue="JUnit.EmployeeControllerTest" />
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="JUnit.RolesControllerTest.findAllReturnRoles" />
         <item itemvalue="JUnit.RolesControllerTest" />
-        <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="JUnit.DtoConverterTest.convertRolesToRolesDto" />
       </list>
     </recent_temporary>
   </component>

@@ -19,7 +19,6 @@ import javax.transaction.Transactional;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest(properties = {"spring.profiles.active=test"})
 @AutoConfigureMockMvc
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {
         "classpath:data-create-test.sql"})
@@ -27,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         "classpath:data-delete-test.sql"})
 @Import(classesBeanConfig.class)
 @Transactional
+@SpringBootTest(properties = {"spring.profiles.active="})
 public class RolesControllerTest {
 
     public static final MediaType APPLICATION_JSON_UTF8 =
@@ -44,4 +44,6 @@ public class RolesControllerTest {
                 .andExpect(jsonPath("$",hasSize(3)))
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8));
     }
+
+
 }
