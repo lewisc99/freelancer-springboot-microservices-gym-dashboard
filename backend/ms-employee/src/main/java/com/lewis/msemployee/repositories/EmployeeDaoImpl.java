@@ -55,4 +55,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
         session.update(employee);
         return true;
     }
+
+    @Override
+    public Boolean delete(Employee employee)
+    {
+        Session session = entityManager.unwrap(Session.class);
+        session.delete(employee);
+        return true;
+    }
 }

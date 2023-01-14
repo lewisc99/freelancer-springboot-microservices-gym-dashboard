@@ -249,7 +249,7 @@ public class EmployeeServiceImplTest {
     @DisplayName("delete Employee")
     public void deleteEmployee()
     {
-        when(employeeDao.delete(employee).thenReturn(true));
+        when(employeeDao.delete(employee)).thenReturn(true);
         Employee result = employeeService.getById(employee.getId());
         assertNull(result);
     }
@@ -257,7 +257,7 @@ public class EmployeeServiceImplTest {
     @DisplayName("delete employee throws NullPointException")
     public void deleteEmployeeThrowsNullPointException()
     {
-        when(employeeDao.delete(employee.getId())).thenThrow(NullPointerException.class);
+        when(employeeDao.delete(employee)).thenThrow(NullPointerException.class);
         assertThrows(NullPointerException.class, () -> {employeeService.getById(employee.getId());});
     }
 }

@@ -12,5 +12,6 @@ public interface EmployeeDao {
 
     Boolean update(Employee employee);
 
+    Boolean delete(Employee delete);
 
 }
