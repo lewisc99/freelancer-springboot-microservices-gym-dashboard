@@ -13,8 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -38,7 +37,7 @@ public class RolesServiceImplTest {
         role.setName("admin");
 
         roleTwo.setId(UUID.fromString("5a177d82-dba4-4150-bdef-ff1d26371582"));
-        role.setName("coach");
+        roleTwo.setName("coach");
         rolesList.addAll(Arrays.asList(role,roleTwo));
     }
 
@@ -71,6 +70,17 @@ public class RolesServiceImplTest {
     {
         when(rolesDao.findAll()).thenReturn(rolesList);
 
+        List<Roles> roles = roleService.findAll();
+        assertNotNull(roles);
+        assertEquals(2,roles.size());
+    }
+    @Test
+    @DisplayName("findAll throws NullPointException")
+    public void findAllThrowsNullPointException()
+    {
+        when(rolesDao.findAll()).thenThrow(NullPointerException.class);
+
+        assertThrows(NullPointerException.class, () -> {roleService.findAll();});
     }
 
 }
