@@ -16,6 +16,19 @@ export class EmployeeService {
 
   constructor(private http:HttpClient, private route:Router) { }
 
+
+
+    public create(employee:EmployeeDto): Observable<any>
+    {
+      return this.http.post<EmployeeDto>(this.fullUrl,employee)
+      .pipe(
+        map(
+          (response:any) => 
+          {}
+        ),catchError(this.handleError)
+      )
+    }
+
     public getAll(): Observable<EmployeesDto>
     {
       

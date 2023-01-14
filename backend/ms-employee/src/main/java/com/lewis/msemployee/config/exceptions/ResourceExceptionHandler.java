@@ -77,7 +77,6 @@ public class ResourceExceptionHandler {
                 errorMessage, exception.getMessage(), request.getRequestURI());
 
         return ResponseEntity.status(status).body(errorModel);
-
     }
 
 
