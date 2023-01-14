@@ -40,7 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId">
+  <component name="RunManager" selected="JUnit.All in ms-employee">
     <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <option name="PACKAGE_NAME" value="" />
@@ -115,10 +115,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeInvalidId" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployee" />
-        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="JUnit.EmployeeServiceImplTest.deleteEmployeeThrowsNullPointException" />
       </list>
     </recent_temporary>
