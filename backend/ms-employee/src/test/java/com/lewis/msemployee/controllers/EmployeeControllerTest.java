@@ -1,5 +1,6 @@
 package com.lewis.msemployee.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lewis.msemployee.MsEmployeeApplication;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
@@ -15,6 +16,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.jdbc.Sql;
@@ -43,7 +45,7 @@ import static org.hamcrest.Matchers.is;
         "classpath:data-create-test.sql"})
 @Sql(executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD, scripts = {
         "classpath:data-delete-test.sql"})
-@SpringBootTest(properties = {"spring.profiles.active=test"})
+@SpringBootTest(properties = {"spring.profiles.active=test"}, classes = MsEmployeeApplication.class)
 @Import(classesBeanConfig.class)
 public class EmployeeControllerTest {
     private  static MockHttpServletRequest request;
