@@ -1,0 +1,8 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html {
+    background-color: rgb(26, 26, 26);
+}
+.col-sm-7 {
+    height: 400px;
+}
