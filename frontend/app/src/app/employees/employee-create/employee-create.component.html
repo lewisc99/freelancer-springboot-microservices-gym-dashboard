@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row d-flex align-items-center justify-content-center">
+        <div class="col col-lg-8 ">
+            <form [formGroup]="formGroup" *ngIf="formGroup"  (ngSubmit)="onSubmit()">
+                <div formGroupName="employeeModel">
+                <div class="form-group">
+                    <label for="username">Username: </label>
+                    <input type="text" id="username"  placeholder="enter a username" class="form-control" formControlName="username" />
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age: </label>
+                    <input type="text" id="age"  placeholder="enter an Age" class="form-control" formControlName="age"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="doc">Document: </label>
+                    <input type="text"  id="doc" placeholder="enter a Doc" class="form-control" formControlName="doc"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" placeholder="enter an Email" class="form-control" formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="roles">Roles: </label>
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-row mr-3" *ngFor="let role of roles" >
+                        <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name" (change)="onRolesAdded(role.name)" [checked]="checkBoxRoles.get(role.name)" >
+                        <label [for]="role.name"> {{role.name}}</label>
+                       </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Create</button>
+                    <a [routerLink]="'..'" class="ml-3">Back to List</a>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
