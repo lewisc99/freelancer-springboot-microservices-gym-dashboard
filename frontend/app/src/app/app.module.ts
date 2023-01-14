@@ -4,20 +4,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employees/employees.module';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-
+import { SharedModule } from './shared/shared.module';
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-  ],
-  imports: [
-    BrowserModule,
-    EmployeeModule,
-    HttpClientModule,
-    RouterModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        EmployeeModule,
+        HttpClientModule,
+        RouterModule,
+        SharedModule
+    ]
 })
 export class AppModule { }
