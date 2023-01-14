@@ -2,6 +2,7 @@ package com.lewis.msemployee.config.dtos;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeeDto;
+import com.lewis.msemployee.entities.dtos.RolesDto;
 import com.lewis.msemployee.mockclasses.classesBeanConfig;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,6 +27,15 @@ public class DtoConverterTest {
 
     @Autowired
     private EmployeeDto employeeDto;
+
+    @Autowired
+    private Roles roleOne;
+
+    @Autowired
+    private Roles roleTwo;
+
+    @Autowired
+    private List<Roles> rolesList;
 
 
     @BeforeEach
@@ -47,6 +60,15 @@ public class DtoConverterTest {
         employeeDto.setUsername("Jefferson");
 
         employeeDto.addLinks("http://localhost:8001/api/employees/23304dc3-564e-45b3-b91b-905aa76b74c4");
+
+        roleOne.setId(UUID.fromString("ab7f3c91-6a92-429e-b090-b2e8754feb4a"));
+        roleOne.setName("admin");
+
+        roleTwo.setId(UUID.fromString("5a177d82-dba4-4150-bdef-ff1d26371582"));
+        roleTwo.setName("coach");
+        rolesList = new ArrayList<Roles>();
+        rolesList.addAll(Arrays.asList(roleOne,roleTwo));
+
     }
 
     @DisplayName("employeeDto is not null")
@@ -76,5 +98,24 @@ public class DtoConverterTest {
         assertEquals(result.getEmail(), employeeDto.getEmail());
         assertEquals(result.getId(), employeeDto.getId());
         assertEquals(result.getAge(), employeeDto.getAge());
+    }
+
+    @DisplayName("convertRolesToRolesDto() assert Returns List<RolesDto>")
+    @Test
+    public void convertRolesToRolesDtoReturnsListOfRolesDto()
+    {
+        List<RolesDto> result = DtoConverter.convertRolesToRolesDto(rolesList);
+
+        assertNotNull(result);
+        assertEquals(2, result.size());
+    }
+
+    @DisplayName("converRolesToRolesDto() throws Error")
+    @Test
+    public void convertRolesToRolesDto()
+    {
+        List<RolesDto> result = DtoConverter.convertRolesToRolesDto(new ArrayList<>());
+
+        assertNull(result);
     }
 }

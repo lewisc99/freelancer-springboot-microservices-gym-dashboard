@@ -40,20 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.RolesServiceImplTest.findAllThrowsNullPointException">
-    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.DtoConverterTest.convertRolesToRolesDto">
     <configuration name="DtoConverterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -69,6 +56,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DtoConverterTest.convertRolesToRolesDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.config.dtos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.config.dtos" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.config.dtos.DtoConverterTest" />
+      <option name="METHOD_NAME" value="convertRolesToRolesDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DtoConverterTest.convertRolesToRolesDtoReturnsListOfRolesDto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.config.dtos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.config.dtos" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.config.dtos.DtoConverterTest" />
+      <option name="METHOD_NAME" value="convertRolesToRolesDtoReturnsListOfRolesDto" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RolesServiceImplTest.findAllThrowsNullPointException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -80,22 +99,6 @@
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.RolesServiceImplTest" />
       <option name="METHOD_NAME" value="findAllThrowsNullPointException" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RolesServiceImplTest.findRoleByNameReturnRole" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.services.RolesServiceImplTest" />
-      <option name="METHOD_NAME" value="findRoleByNameReturnRole" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,11 +120,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DtoConverterTest.convertRolesToRolesDto" />
+        <item itemvalue="JUnit.DtoConverterTest" />
+        <item itemvalue="JUnit.DtoConverterTest.convertRolesToRolesDtoReturnsListOfRolesDto" />
         <item itemvalue="JUnit.RolesServiceImplTest.findAllThrowsNullPointException" />
         <item itemvalue="JUnit.com.lewis.msemployee.services in ms-employee" />
-        <item itemvalue="JUnit.RolesServiceImplTest.findRoleByNameReturnRole" />
-        <item itemvalue="JUnit.DtoConverterTest" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -137,6 +140,15 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-employee/src/test/java/com/lewis/msemployee/config/dtos/DtoConverterTest.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
