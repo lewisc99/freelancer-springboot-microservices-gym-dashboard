@@ -13,11 +13,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.web.servlet.function.RequestPredicates.contentType;
 
 @AutoConfigureMockMvc
 @Sql(executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {
@@ -35,6 +36,9 @@ public class RolesControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Test
     @DisplayName("findAll Return Roles")
     public void findAllReturnRoles() throws Exception
@@ -43,6 +47,14 @@ public class RolesControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$",hasSize(3)))
                 .andExpect(content().contentType(APPLICATION_JSON_UTF8));
+    }
+    @Test
+    @DisplayName("findAllRoles Return Empty Body")
+    @Sql(executionPhase =  Sql.ExecutionPhase.BEFORE_TEST_METHOD, scripts = {"classpath:data-delete-test.sql"})
+    public void findAllReturnEmptyBody() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/roles").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
 

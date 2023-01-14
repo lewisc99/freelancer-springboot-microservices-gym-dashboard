@@ -41,19 +41,6 @@
   }
 }</component>
   <component name="RunManager" selected="JUnit.All in ms-employee">
-    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <option name="PACKAGE_NAME" value="" />
@@ -92,7 +79,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RolesControllerTest.findAllReturnRoles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RolesControllerTest.findAllReturnEmptyBody" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
@@ -102,7 +89,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.RolesControllerTest" />
-      <option name="METHOD_NAME" value="findAllReturnRoles" />
+      <option name="METHOD_NAME" value="findAllReturnEmptyBody" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RolesControllerTest.findAllThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.RolesControllerTest" />
+      <option name="METHOD_NAME" value="findAllThrowsException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -111,10 +114,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ms-employee" />
-        <item itemvalue="JUnit.EmployeeControllerTest" />
-        <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="JUnit.RolesControllerTest.findAllReturnRoles" />
+        <item itemvalue="JUnit.RolesControllerTest.findAllReturnEmptyBody" />
+        <item itemvalue="JUnit.RolesControllerTest.findAllThrowsException" />
         <item itemvalue="JUnit.RolesControllerTest" />
+        <item itemvalue="JUnit.EmployeeControllerTest" />
       </list>
     </recent_temporary>
   </component>
