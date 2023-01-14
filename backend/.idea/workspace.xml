@@ -40,7 +40,15 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.DtoConverterTest.convertRolesToRolesDto">
+  <component name="RunManager" selected="JUnit.All in ms-employee">
+    <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DtoConverterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-employee" />
       <extension name="coverage">
@@ -104,27 +112,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.lewis.msemployee.services in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.services" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="JUnit.DtoConverterTest.convertRolesToRolesDto" />
         <item itemvalue="JUnit.DtoConverterTest" />
         <item itemvalue="JUnit.DtoConverterTest.convertRolesToRolesDtoReturnsListOfRolesDto" />
         <item itemvalue="JUnit.RolesServiceImplTest.findAllThrowsNullPointException" />
-        <item itemvalue="JUnit.com.lewis.msemployee.services in ms-employee" />
       </list>
     </recent_temporary>
   </component>
@@ -140,15 +134,6 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-employee/src/test/java/com/lewis/msemployee/config/dtos/DtoConverterTest.java</url>
-          <line>106</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
