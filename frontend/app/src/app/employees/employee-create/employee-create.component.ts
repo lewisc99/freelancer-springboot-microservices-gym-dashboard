@@ -58,7 +58,12 @@ export class EmployeeCreateComponent implements OnInit {
 
   onRolesAdded(roleName:string)
   {
-   
+    
+  }
+
+  onSubmit():void
+  {
+      console.log(this.formGroup);
   }
 
 }
