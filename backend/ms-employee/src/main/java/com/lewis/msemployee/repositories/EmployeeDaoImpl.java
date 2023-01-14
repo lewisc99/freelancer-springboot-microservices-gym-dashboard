@@ -60,8 +60,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public Boolean delete(Employee employee)
     {
         boolean deleted = false;
-        Session session = entityManager.unwrap(Session.class);
-        session.delete(employee);
-        return deleted = true;
+        try
+        {
+            Session session = entityManager.unwrap(Session.class);
+            employee.getRoles().clear();
+            session.delete(employee);
+           return deleted = true;
+        }
+        catch (RuntimeException e)
+        {
+            throw new RuntimeException();
+        }
     }
 }

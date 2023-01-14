@@ -134,16 +134,10 @@ public class EmployeeServiceImpl  implements EmployeeService {
     public void delete(UUID id)
     {
        Employee employee = getById(id);
-
-       if (employee == null)
+       Boolean result = employeeDao.delete(employee);
+       if (!result)
        {
            throw new NullPointerException();
-       }
-       Boolean result = employeeDao.delete(employee);
-
-       if(!result)
-       {
-         throw new NullPointerException();
        }
     }
 
