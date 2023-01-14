@@ -3,7 +3,6 @@ import { RolesService } from '../../shared/services/roles.service';
 import { Roles } from '../domain/entities/roles';
 import { FormBuilder, FormControl, FormGroup, FormArray } from '@angular/forms';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
-import { EmployeeModel } from '../domain/models/employee.model';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee-service/employee.service';
 
@@ -37,6 +36,7 @@ export class EmployeeCreateComponent implements OnInit {
           email: new FormControl(),
           age: new FormControl(),
           doc: new FormControl(),
+          password: new FormControl(),
            roles: this.fb.array  ([])
         })
       }
@@ -97,7 +97,6 @@ export class EmployeeCreateComponent implements OnInit {
 
           roles.push(role);
        }
-     employeeDto.id = employeeForm.id;
      employeeDto.username = employeeForm.username;
      employeeDto.age = employeeForm.age;
      employeeDto.email = employeeForm.email;

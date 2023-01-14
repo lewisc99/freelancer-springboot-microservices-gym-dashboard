@@ -13,7 +13,6 @@ public class Employee {
 
     @Id
     @Column(columnDefinition = "uuid",nullable = false)
-    @NotNull
     private UUID id;
 
     @NotNull(message = "username cannot be null")
