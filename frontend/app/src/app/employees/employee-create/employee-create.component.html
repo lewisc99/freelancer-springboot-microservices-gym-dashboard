@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col col-lg-8 ">
-            <form>
+            <form [formGroup]="formGroup" *ngIf="formGroup" >
                 <div class="form-group">
                     <label for="username">Username: </label>
                     <input type="text" id="username"  placeholder="enter a username" class="form-control"/>
