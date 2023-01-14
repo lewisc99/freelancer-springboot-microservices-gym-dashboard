@@ -60,7 +60,7 @@ public class EmployeeController {
     {
         Employee employee = employeeService.getById(id);
         String fullUrl = request.getRequestURL().toString();
-        EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,fullUrl);
+        EmployeeDto employeeDto = DtoConverter.ToEmployeeDto(employee,fullUrl);
 
         return ResponseEntity.ok(employeeDto);
     }

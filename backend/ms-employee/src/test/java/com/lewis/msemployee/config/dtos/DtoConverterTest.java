@@ -82,7 +82,7 @@ public class DtoConverterTest {
     @Test
     public void convertEmployeeToEmployeeDtoNotNull()
     {
-        EmployeeDto employeeDtoTwo = DtoConverter.convertEmployeeToEmployeeDto(employee,"http://localhost:8001/api/employees/23304dc3-564e-45b3-b91b-905aa76b74c4");
+        EmployeeDto employeeDtoTwo = DtoConverter.ToEmployeeDto(employee,"http://localhost:8001/api/employees/23304dc3-564e-45b3-b91b-905aa76b74c4");
 
         assertNotNull(employeeDtoTwo);
     }
@@ -91,7 +91,7 @@ public class DtoConverterTest {
     @Test
     public void assertReturnTypeIsEmployeeDto()
     {
-        EmployeeDto result = DtoConverter.convertEmployeeToEmployeeDto(employee,"http://localhost:8001/api/employees/23304dc3-564e-45b3-b91b-905aa76b74c4");
+        EmployeeDto result = DtoConverter.ToEmployeeDto(employee,"http://localhost:8001/api/employees/23304dc3-564e-45b3-b91b-905aa76b74c4");
 
         assertEquals(result.getUsername(), employeeDto.getUsername());
         assertEquals(result.getDoc(), employeeDto.getDoc());
@@ -104,7 +104,7 @@ public class DtoConverterTest {
     @Test
     public void convertRolesToRolesDtoReturnsListOfRolesDto()
     {
-        List<RolesDto> result = DtoConverter.convertRolesToRolesDto(rolesList);
+        List<RolesDto> result = DtoConverter.ToRolesDto(rolesList);
 
         assertNotNull(result);
         assertEquals(2, result.size());
@@ -114,7 +114,7 @@ public class DtoConverterTest {
     @Test
     public void convertRolesToRolesDto()
     {
-        List<RolesDto> result = DtoConverter.convertRolesToRolesDto(new ArrayList<>());
+        List<RolesDto> result = DtoConverter.ToRolesDto(new ArrayList<>());
 
         assertNull(result);
     }

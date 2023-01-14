@@ -49,7 +49,7 @@ public class EmployeesDto {
     {
         for(Employee employee: employees)
         {
-            EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,url, true);
+            EmployeeDto employeeDto = DtoConverter.ToEmployeeDto(employee,url, true);
             _embedded.add(employeeDto);
         }
     }

@@ -12,14 +12,14 @@ import java.util.List;
 @Component
 public class DtoConverter {
 
-    public static EmployeeDto convertEmployeeToEmployeeDto( Employee employee, String url, boolean... fromEmployees)
+    public static EmployeeDto ToEmployeeDto( Employee employee, String url, boolean... fromEmployees)
     {
             EmployeeDto employeeDto =  new EmployeeDto(employee.getId(), employee.getUsername(), employee.getAge(), employee.getDoc(), employee.getEmail(), employee.getRoles());
             employeeDto.addLinks(url + "/" + employee.getId(), fromEmployees);
             return employeeDto;
     }
 
-    public static List<RolesDto> convertRolesToRolesDto(List<Roles> roles)
+    public static List<RolesDto> ToRolesDto(List<Roles> roles)
     {
             if(roles.size() <= 0)
             {
