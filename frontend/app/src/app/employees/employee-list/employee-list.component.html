@@ -1,4 +1,6 @@
-<app-delete-modal [message]="messageDeleteModal" [id]="id" *ngIf="showModal" (close)="closeModal()"></app-delete-modal>
+<app-delete-modal [message]="messageDeleteModal" [id]="id" *ngIf="showModal" 
+(close)="closeModal()" (employeeDeleted)="closeModal()"></app-delete-modal>
+
 <div class="container">
     <div class="row d-flex flex-column">
           <div class="col  col-xxl">

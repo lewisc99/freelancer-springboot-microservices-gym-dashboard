@@ -23,6 +23,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   public showModal:boolean = false;
   public messageDeleteModal:string = "";
   public id:string = "";
+  private employeeDeleted:Subscription;
 
   ngOnInit(): void {
 
@@ -63,6 +64,15 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           hostViewContainerRef.clear();
         }
       )
+        this.employeeDeleted = componentRef.instance.employeeDeleted.subscribe(
+          () =>
+          {
+       
+            this.employeeDeleted.unsubscribe();
+            hostViewContainerRef.clear();
+          }
+        )
+
     }
 
     showDeleteModal(id:string, username:string) 
@@ -74,10 +84,12 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
     
     closeModal()
     {
+        this.getAll();
         this.messageDeleteModal = "";
         this.id = "";
         this.showModal = false;
     }
+
 
     ngOnDestroy(): void {
         if (this.closeSub)

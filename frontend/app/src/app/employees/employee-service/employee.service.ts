@@ -75,6 +75,19 @@ export class EmployeeService {
         )
     }
 
+    public delete(id:string): Observable<any>
+    {
+        var getByIdUrl = this.fullUrl  + "/" + id;
+
+        return this.http.delete(getByIdUrl).pipe(
+          map(
+            () => {},
+             catchError(this.handleError)
+          )
+        )
+
+    }
+
 
     private handleError(errorRes: HttpErrorResponse) {
       let errorMessage = 'An unknown error occurred!';
