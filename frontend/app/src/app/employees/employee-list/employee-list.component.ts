@@ -14,9 +14,9 @@ import { Subscription } from 'rxjs';
 })
 export class EmployeeListComponent implements OnInit, OnDestroy {
 
+
   public employeesDto: EmployeesDto = new EmployeesDto();
   private closeSub:Subscription;
-  private employeeDeleted:Subscription;
   public showModal:boolean = false;
   public messageDeleteModal:string = "";
   public id:string = "";
@@ -63,5 +63,4 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           this.closeSub.unsubscribe();
         }
     }
-
 }
