@@ -13,7 +13,6 @@ import { Employee } from '../domain/entities/employee';
   styleUrls: ['./employee-create.component.css']
 })
 export class EmployeeCreateComponent implements OnInit {
-
   
   public roles:Roles[] = [];
   public checkBoxRoles:Map<string,boolean> = new Map<string,boolean>();
@@ -42,9 +41,7 @@ export class EmployeeCreateComponent implements OnInit {
         })
       }
     )
-
  }
-
 
   getRoles()
   {
@@ -66,8 +63,6 @@ export class EmployeeCreateComponent implements OnInit {
   {
       const formArray:any = this.formGroup.get('employeeModel')?.get("roles") as FormArray;
       this.employeeRoles =  formArray.value;
-
-
       var getRole = this.checkBoxRoles.get(roleName);
       var roleInList = this.employeeRoles.findIndex((s:any) => s == roleName);
 
@@ -95,7 +90,6 @@ export class EmployeeCreateComponent implements OnInit {
           var role:Roles = new Roles();
           role.id = getRole[0].id;
           role.name = getRole[0].name;
-
           roles.push(role);
        }
        
