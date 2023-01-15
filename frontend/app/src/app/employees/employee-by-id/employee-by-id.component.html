@@ -20,7 +20,7 @@
           <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
             <li class="list-group-item">Roles</li>
             <li class="list-group-item">
-                    <b *ngFor="let role of employee.roles;index as i"> {{role.name}},</b>
+                    <b *ngFor="let role of employee.roles"> {{role.name}},</b>
             </li>
           </ul>
         </div>
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col mt-3">
             <div class="justify-content-center align-items-center d-flex">
-                <button class="btn btn-primary mr-3">Update</button>
+                <button class="btn btn-primary mr-3" [routerLink]="['..',employee.id, 'edit']">Update</button>
                 <a [routerLink]="['..']">Back to list</a>
               </div>
         </div>

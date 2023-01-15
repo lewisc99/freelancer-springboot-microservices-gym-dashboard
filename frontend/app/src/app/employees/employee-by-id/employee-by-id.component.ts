@@ -17,29 +17,18 @@ export class EmployeeByIdComponent implements OnInit, OnDestroy{
   public employee:EmployeeDto = new EmployeeDto();
 
   ngOnInit(): void {
-
    this.getByIdSubscription = this.route.paramMap.subscribe(
       params =>  this.getById(params.get('id')!)
     )
-
-
   }
 
   private getById(id: string):void
   {
-      this.employeeService.getById(id).subscribe(
-        (result:EmployeeDto) =>
-        {
-            this.employee = result;
-        },
-        (error:any) =>
-        {
-          console.log(error);
-        }
-      )
+      this.employeeService.getById(id).subscribe({
+        next:(result:EmployeeDto) => {this.employee = result},
+        error: (error:any) => {console.log(error)}
+        })
   }
-
-
 
   ngOnDestroy(): void {
     this.getByIdSubscription.unsubscribe();

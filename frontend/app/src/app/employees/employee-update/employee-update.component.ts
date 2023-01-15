@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EmployeeService } from '../employee-service/employee.service';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
@@ -23,11 +23,11 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   public formGroup:FormGroup;
   private rolesForm:FormArray;
 
-  constructor(private route:ActivatedRoute, private employeeService:EmployeeService, private rolesService:RolesService, private fb:FormBuilder) {}
+  constructor(private activatedRoute:ActivatedRoute, private employeeService:EmployeeService, private rolesService:RolesService, private fb:FormBuilder, private route:Router) {}
 
   ngOnInit(): void {
 
-      this.getIdSubscription = this.route.paramMap.subscribe( 
+      this.getIdSubscription = this.activatedRoute.paramMap.subscribe( 
         (params:any) =>
         {
           var id = params.get('id');
@@ -128,7 +128,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
      console.log(rolesModel);
      this.employeeService.updateEmployee(rolesModel).subscribe(
       {
-        next: (result:any) => console.log(result),
+        next: () =>  this.route.navigate(['..']),
         error: (error:any) => console.log(error)
       }
      );

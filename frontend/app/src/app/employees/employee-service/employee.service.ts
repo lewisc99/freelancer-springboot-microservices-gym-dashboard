@@ -5,7 +5,6 @@ import { environment } from '../../../environments/environment.test';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { EmployeeModel } from '../domain/models/employee.model';
-import { Router } from '@angular/router';
 import { Employee } from '../domain/entities/employee';
 
 @Injectable({
@@ -15,48 +14,33 @@ export class EmployeeService {
 
   private fullUrl = environment.employees_URL;
 
-  constructor(private http:HttpClient, private route:Router) { }
-
-
+  constructor(private http:HttpClient) { }
 
     public create(employee:Employee): Observable<any>
     {
       return this.http.post<Employee>(this.fullUrl,employee)
       .pipe(
-        map(
-          (response:any) => 
-          {}
-        ),catchError(this.handleError)
-      )
-    }
+        catchError(this.handleError)
+      )}
 
     public getAll(): Observable<EmployeesDto>
     {
       
      return this.http.get<EmployeesDto>(this.fullUrl).pipe(
       map(
-        (response:EmployeesDto) =>
-        {
-          return response;
-        }
-      ),
-      catchError (
-        this.handleError)
-     )
-    }
+        (response:EmployeesDto) =>  response
+        ),
+        catchError ( this.handleError)
+     )}
 
     public getById(id:string): Observable<EmployeeDto>
     {
         var getByIdUrl = this.fullUrl + "/" + id;
         return this.http.get<EmployeeDto>(getByIdUrl).pipe(
           map(
-            (response:EmployeeDto) =>
-            {
-              return response;
-            },
-            catchError(this.handleError)
-          )
-        );
+            (response:EmployeeDto) => response,
+             catchError(this.handleError)
+          ));
     }
 
     public updateEmployee(employee:EmployeeModel): Observable<any>
@@ -65,14 +49,21 @@ export class EmployeeService {
 
         return this.http.put(getByIdUrl, employee).pipe(
           map(
-            (response:any) =>
-            {
-              this.route.navigate(['..'])
-              return response;
-            },
+            () => {},
             catchError(this.handleError)
           )
         )
+    }
+
+    public delete(id:string): Observable<any>
+    {
+        var getByIdUrl = this.fullUrl  + "/" + id;
+
+        return this.http.delete(getByIdUrl).pipe(
+          map(
+            () => {},
+             catchError(this.handleError)
+          ))
     }
 
 
