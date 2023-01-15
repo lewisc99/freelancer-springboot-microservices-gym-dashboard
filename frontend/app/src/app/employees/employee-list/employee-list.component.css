@@ -10,3 +10,6 @@ button.btn-primary {
     margin-bottom: 10px;
 }
 
+a.btn-delete {
+    cursor: pointer;
+}

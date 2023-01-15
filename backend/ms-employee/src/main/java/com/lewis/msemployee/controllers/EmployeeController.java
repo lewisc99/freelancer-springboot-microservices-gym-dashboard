@@ -60,7 +60,7 @@ public class EmployeeController {
     {
         Employee employee = employeeService.getById(id);
         String fullUrl = request.getRequestURL().toString();
-        EmployeeDto employeeDto = DtoConverter.convertEmployeeToEmployeeDto(employee,fullUrl);
+        EmployeeDto employeeDto = DtoConverter.ToEmployeeDto(employee,fullUrl);
 
         return ResponseEntity.ok(employeeDto);
     }
@@ -74,5 +74,11 @@ public class EmployeeController {
             return ResponseEntity.status(400).build();
         }
         return ResponseEntity.status(204).build();
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@Valid @PathVariable UUID id)
+    {
+        employeeService.delete(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }

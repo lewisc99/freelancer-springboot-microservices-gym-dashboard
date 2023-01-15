@@ -6,6 +6,7 @@ import { EmployeeByIdComponent } from './employee-by-id/employee-by-id.component
 import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 var routes:Routes = [
@@ -27,6 +28,7 @@ var routes:Routes = [
         BrowserModule,
         RouterModule.forRoot(routes),
         ReactiveFormsModule,
+        SharedModule
     ]
 })
 export class EmployeeModule {}

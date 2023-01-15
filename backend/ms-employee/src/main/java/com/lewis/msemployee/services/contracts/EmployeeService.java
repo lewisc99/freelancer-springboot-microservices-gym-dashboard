@@ -13,5 +13,6 @@ public interface EmployeeService {
 
     Boolean update(UUID id, EmployeeModel employee);
 
+    void delete(UUID id);
 
 }

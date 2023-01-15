@@ -245,4 +245,27 @@ public class EmployeeServiceImplTest {
         assertThrows(RuntimeException.class, () -> {employeeService.update(UUID.fromString(""),new EmployeeModel());});
     }
 
+    @Test
+    @DisplayName("delete Employee")
+    public void deleteEmployee()
+    {
+        when(employeeDao.delete(employee)).thenReturn(true);
+        Employee result = employeeService.getById(employee.getId());
+        assertNull(result);
+    }
+    @Test
+    @DisplayName("delete employee throws IllegalArgumentException")
+    public void deleteEmployeeThrowsIllegalArgumentException()
+    {
+        when(employeeDao.delete(employee)).thenThrow(IllegalArgumentException.class);
+        assertThrows(IllegalArgumentException.class, () -> {employeeService.getById(UUID.fromString(""));});
+    }
+
+    @Test
+    @DisplayName("delete employee throws ")
+    public void deleteEmployeeThrowsNullPointException()
+    {
+        when(employeeDao.delete(employee)).thenReturn(false);
+        assertThrows(NullPointerException.class, () -> {employeeService.delete(UUID.fromString("528713e2-db53-44fa-8f2f-b1a4aa79bbe6"));});
+    }
 }

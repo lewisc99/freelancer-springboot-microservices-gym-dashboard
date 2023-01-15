@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.UUID;
 
 @Configuration
-@Profile("prod")
+@Profile("test")
 public class SeedDataTestConfig implements CommandLineRunner {
     @Autowired
     private EmployeeService employeeDao;

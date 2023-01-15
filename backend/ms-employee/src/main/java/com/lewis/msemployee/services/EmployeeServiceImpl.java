@@ -130,6 +130,17 @@ public class EmployeeServiceImpl  implements EmployeeService {
         return true;
     }
 
+    @Override
+    public void delete(UUID id)
+    {
+       Employee employee = getById(id);
+       Boolean result = employeeDao.delete(employee);
+       if (!result)
+       {
+           throw new NullPointerException();
+       }
+    }
+
     public Employee handleUpdateEmployee(EmployeeModel updateEmployee, Employee oldEmployee)
     {
         oldEmployee.setUsername(updateEmployee.getUsername());
@@ -141,5 +152,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         oldEmployee.setRoles(roles);
         return oldEmployee;
     }
+
 
 }

@@ -26,7 +26,7 @@ public class RolesController {
     public ResponseEntity<List<RolesDto>> getAll()
     {
         List<Roles> roles = roleService.findAll();
-        List<RolesDto> rolesDto =  DtoConverter.convertRolesToRolesDto(roles);
+        List<RolesDto> rolesDto =  DtoConverter.ToRolesDto(roles);
         return ResponseEntity.ok(rolesDto);
     }
 }
