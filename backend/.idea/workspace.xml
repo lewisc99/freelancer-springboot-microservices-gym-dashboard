@@ -112,8 +112,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeInvalidId" />
         <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployee" />

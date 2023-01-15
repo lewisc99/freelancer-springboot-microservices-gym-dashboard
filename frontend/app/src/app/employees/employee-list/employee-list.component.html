@@ -1,3 +1,4 @@
+<app-delete-modal [message]="messageDeleteModal" [id]="id" *ngIf="showModal" (close)="closeModal()"></app-delete-modal>
 <div class="container">
     <div class="row d-flex flex-column">
           <div class="col  col-xxl">
@@ -20,7 +21,7 @@
                     <td colspan="2">{{employee.doc}}</td>
                     <td><a [routerLink]="[employee.id]">Details</a></td>
                     <td><a [routerLink]="[employee.id,'edit']">Update</a></td>
-                    <td><a>Delete</a></td>
+                    <td><a (click)="showDeleteModal(employee.id, employee.username)" class="link btn-delete">Delete</a></td>
                   </tr>
                 </tbody>
               </table>

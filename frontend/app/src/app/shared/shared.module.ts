@@ -3,14 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NavbarComponent } from "./navbar/navbar.component";
 import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { Routes, RouterModule } from '@angular/router';
+import { PlaceholderDirective } from './directives/placeholder/placeholder.directive';
 
 const routes:Routes = [
-    {path: "employees/:id/delete", component: DeleteModalComponent}
 ]
 
 
 @NgModule({
-    declarations: [NavbarComponent, DeleteModalComponent],
+    declarations: [NavbarComponent, DeleteModalComponent, PlaceholderDirective],
     imports: [BrowserModule, RouterModule.forChild(routes)],
     exports: [NavbarComponent, DeleteModalComponent]
 })
