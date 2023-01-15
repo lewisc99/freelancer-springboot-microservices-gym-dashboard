@@ -14,22 +14,20 @@ import { Subscription } from 'rxjs';
 })
 export class EmployeeListComponent implements OnInit, OnDestroy {
 
-  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute,
-    private componentFactoryResolver:ComponentFactoryResolver) {}
 
-  public employeesDto: EmployeesDto = new EmployeesDto();
   @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
+  public employeesDto: EmployeesDto = new EmployeesDto();
   private closeSub:Subscription;
+  private employeeDeleted:Subscription;
   public showModal:boolean = false;
   public messageDeleteModal:string = "";
   public id:string = "";
-  private employeeDeleted:Subscription;
+
+  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute,
+    private componentFactoryResolver:ComponentFactoryResolver) {}
 
   ngOnInit(): void {
-
-    this.activatedRoute.paramMap.subscribe(
-      () => {this.getAll();}
-    );
+    this.activatedRoute.paramMap.subscribe( () => this.getAll());
   }
 
     getAll(): void 
@@ -44,7 +42,22 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           {
             console.log(error);
           }
-    });
+       });
+    }
+
+    showDeleteModal(id:string, username:string) 
+    {
+        this.messageDeleteModal = `Are you sure you want to delete ${username}?`;
+        this.id = id;
+        this.showModal = true;
+    }
+    
+    closeModal()
+    {
+        this.getAll();
+        this.messageDeleteModal = "";
+        this.id = "";
+        this.showModal = false;
     }
 
     private deleteModal(message:string, id:string)
@@ -67,27 +80,11 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
         this.employeeDeleted = componentRef.instance.employeeDeleted.subscribe(
           () =>
           {
-       
             this.employeeDeleted.unsubscribe();
             hostViewContainerRef.clear();
           }
         )
 
-    }
-
-    showDeleteModal(id:string, username:string) 
-    {
-        this.messageDeleteModal =  `Are you sure you want to delete ${username}?`;
-        this.id = id;
-        this.showModal = true;
-    }
-    
-    closeModal()
-    {
-        this.getAll();
-        this.messageDeleteModal = "";
-        this.id = "";
-        this.showModal = false;
     }
 
 

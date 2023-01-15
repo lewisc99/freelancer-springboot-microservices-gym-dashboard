@@ -98,6 +98,7 @@ export class EmployeeCreateComponent implements OnInit {
 
           roles.push(role);
        }
+       
      employee.username = employeeForm.username;
      employee.age = employeeForm.age;
      employee.email = employeeForm.email;
@@ -106,11 +107,9 @@ export class EmployeeCreateComponent implements OnInit {
      employee.password = employeeForm.password;
 
      this.employeeService.create(employee).subscribe({
+        next: () => {this.route.navigate(['/..','employees'])},
         error: error => console.log(error)
      });
-
-     this.route.navigate(['..']);
-     
   }
 
 
