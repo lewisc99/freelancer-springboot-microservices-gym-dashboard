@@ -14,8 +14,6 @@ import { Subscription } from 'rxjs';
 })
 export class EmployeeListComponent implements OnInit, OnDestroy {
 
-
-  @ViewChild(PlaceholderDirective) deleteModalHost: PlaceholderDirective;
   public employeesDto: EmployeesDto = new EmployeesDto();
   private closeSub:Subscription;
   private employeeDeleted:Subscription;
@@ -23,8 +21,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   public messageDeleteModal:string = "";
   public id:string = "";
 
-  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute,
-    private componentFactoryResolver:ComponentFactoryResolver) {}
+  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe( () => this.getAll());
