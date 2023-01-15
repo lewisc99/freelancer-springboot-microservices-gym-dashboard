@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 export class EmployeeListComponent implements OnInit, OnDestroy {
 
 
-  @ViewChild(PlaceholderDirective) alertHost: PlaceholderDirective;
+  @ViewChild(PlaceholderDirective) deleteModalHost: PlaceholderDirective;
   public employeesDto: EmployeesDto = new EmployeesDto();
   private closeSub:Subscription;
   private employeeDeleted:Subscription;
@@ -52,41 +52,13 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
         this.showModal = true;
     }
     
-    closeModal()
+    closeDeleteModal()
     {
         this.getAll();
         this.messageDeleteModal = "";
         this.id = "";
         this.showModal = false;
     }
-
-    private deleteModal(message:string, id:string)
-    {
-      const deleteModalComponentFactory = this.componentFactoryResolver.resolveComponentFactory(DeleteModalComponent);
-      const hostViewContainerRef = this.alertHost.viewContainerRef;
-      hostViewContainerRef.clear();
-
-      const componentRef = hostViewContainerRef.createComponent(deleteModalComponentFactory);
-      componentRef.instance.message = message;
-      componentRef.instance.id = id;
-
-      this.closeSub = componentRef.instance.close.subscribe(
-        () => 
-        {
-          this.closeSub.unsubscribe();
-          hostViewContainerRef.clear();
-        }
-      )
-        this.employeeDeleted = componentRef.instance.employeeDeleted.subscribe(
-          () =>
-          {
-            this.employeeDeleted.unsubscribe();
-            hostViewContainerRef.clear();
-          }
-        )
-
-    }
-
 
     ngOnDestroy(): void {
         if (this.closeSub)
