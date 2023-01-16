@@ -17,7 +17,7 @@ jobs: #groups set of actions that will be executed.
           distribution: 'temurin'
           cache: maven  
           
-  java-test:
+  java-test-ms-employee:
      runs-on: ubuntu-latest
      environment: java-test
      needs: build
@@ -37,3 +37,24 @@ jobs: #groups set of actions that will be executed.
 
      - name: Build with Maven
        run: mvn -B package -f backend/ms-employee/pom.xml #will run this command in maven
+  java-test-ms-user:
+     runs-on: ubuntu-latest
+     environment: java-test
+     needs: java-test-ms-employee
+     steps:
+     
+     - uses: actions/checkout@v3 #will checkout the repository in github first
+     
+     - name: Set up JDK 11 
+       uses: actions/setup-java@v3 #prepares the environment with java 
+       with:
+        java-version: '11' #java version used in this project.
+        distribution: 'temurin'
+        cache: maven     
+
+     - name: set up java 
+       run: mvn -B test -f backend/ms-user/pom.xml
+
+     - name: Build with Maven
+       run: mvn -B package -f backend/ms-user/pom.xml #will run this command in maven
+ 

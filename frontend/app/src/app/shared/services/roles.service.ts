@@ -19,28 +19,22 @@ export class RolesService {
       map(
         (response:any) => response
       ),
-      catchError(this.handleError)
-    )
+      catchError(error => throwError(() => this.handleErrorException(error)))
+    );
   }
 
-  
-  private handleError(errorRes: HttpErrorResponse) {
-    let errorMessage = 'An unknown error occurred!';
-    if (!errorRes.error || !errorRes.error.error) {
-      return throwError(errorMessage);
+  private handleErrorException(error:HttpErrorResponse): string
+  {
+    var errorMessage = "";
+    switch (error.status)
+    {
+      case 404:
+        errorMessage = "Role Not found";
+        break;
+      case 500:
+        errorMessage = "Unknown error was thrown";
     }
-    switch (errorRes.error.error.message) {
-      case 'EMAIL_EXISTS':
-        errorMessage = 'This email exists already';
-        break;
-      case 'EMAIL_NOT_FOUND':
-        errorMessage = 'This email does not exist.';
-        break;
-      case 'INVALID_PASSWORD':
-        errorMessage = 'This password is not correct.';
-        break;
-    }
-    return throwError(errorMessage);
+    return errorMessage;
   }
 
 

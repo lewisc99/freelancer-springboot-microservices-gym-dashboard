@@ -145,7 +145,7 @@ public class EmployeeControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/employees")
                         .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors",hasSize(2)));
+                .andExpect(jsonPath("$.errors",hasSize(3)));
     }
 
     @Test
@@ -315,7 +315,7 @@ public class EmployeeControllerTest {
                 .contentType(APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(employeeModel)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors[0]", is("username cannot be Empty")));
+                .andExpect(jsonPath("$.errors[0]", is("username cannot be empty")));
     }
 
     @Test

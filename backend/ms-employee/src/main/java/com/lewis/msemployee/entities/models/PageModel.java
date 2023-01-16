@@ -1,15 +1,17 @@
 package com.lewis.msemployee.entities.models;
 
+import org.springframework.lang.Nullable;
+
 import javax.validation.constraints.Null;
 
 public class PageModel {
 
 
-    @Null
+    @Nullable
     private Integer pagNumber;
-    @Null
+    @Nullable
     private Integer pagSize;
-    @Null
+    @Nullable
     private String sortBy;
 
     public PageModel(Integer pagNumber, Integer pagSize, String sortBy) {

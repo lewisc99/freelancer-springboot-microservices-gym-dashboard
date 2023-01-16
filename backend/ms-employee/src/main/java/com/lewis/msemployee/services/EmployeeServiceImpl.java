@@ -1,7 +1,6 @@
 package com.lewis.msemployee.services;
 import java.util.List;
-import com.lewis.msemployee.config.exceptions.DatabaseException;
-import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
+
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
@@ -36,48 +35,35 @@ public class EmployeeServiceImpl  implements EmployeeService {
         }
         catch (Exception e )
         {
-            e.getStackTrace();
             throw new RuntimeException();
         }
     }
 
     @Override
     public EmployeesDto getAll(PageModel page, String urlEmployee) {
-       try
-       {
+
            List<Employee> employeeList = employeeDao.getAll(page.getSortBy());
            EmployeesDto employeesDto = new EmployeesDto();
            int employeeSize = employeeList.size();
 
-           if (page.getPagNumber() < 1 && page.getPagSize() > 1)
-           {
-               page.setPagNumber(1);
-           }
+           setDefaultPageModel(page);
+
            if((page.getPagNumber() <= 0) && (page.getPagSize() <= 0))
-           {
                employeesDto.addEmployees(employeeList, urlEmployee);
-           }
            else
-           {
                convertToHateoasPagination(page, urlEmployee, employeeList, employeesDto, employeeSize);
-           }
+
            return employeesDto;
-       }
-       catch (NullPointerException exception)
-       {
-           throw new NullPointerException(exception.getMessage());
-       }
-       catch (DatabaseException exception)
-       {
-           throw new DatabaseException(exception.getMessage());
-       }
-
-       catch (Exception exception)
-       {
-           throw new RuntimeException(exception.getMessage());
-       }
     }
-
+    private static void setDefaultPageModel(PageModel page) {
+        if (page.getPagNumber() == null || page.getPagSize() == null)
+        {
+            page.setPagNumber(0);
+            page.setPagSize(0);
+        }
+        if (page.getPagNumber() < 1 && page.getPagSize() > 1)
+            page.setPagNumber(1);
+    }
     private  void convertToHateoasPagination(PageModel page, String urlEmployee, List<Employee> employeeList, EmployeesDto employeesDto, int employeeSize) {
         var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
         List<Employee> takeEmployeesList = List.of(takeEmployeesStream.toArray(Employee[]::new));
@@ -88,27 +74,13 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public Employee getById(UUID id) {
-
         try
         {
-          return  employeeDao.getById(id);
+            return  employeeDao.getById(id);
         }
-        catch (NullPointerException exception)
+        catch (NullPointerException e)
         {
             throw new NullPointerException();
-        }
-        catch (ResourceNotFoundException exception)
-        {
-            throw new ResourceNotFoundException(id);
-        }
-        catch (DatabaseException exception)
-        {
-            throw new DatabaseException(exception.getMessage());
-        }
-        catch (Exception exception)
-        {
-            exception.getStackTrace();
-            throw new RuntimeException();
         }
     }
 
@@ -118,15 +90,13 @@ public class EmployeeServiceImpl  implements EmployeeService {
         Employee employeeById = getById(id);
 
         if (employeeById == null)
-        {
             throw new NullPointerException();
-        }
+
         Employee updatedEmployee = handleUpdateEmployee(employee, employeeById);
         Boolean result =  employeeDao.update(updatedEmployee);
         if(!result)
-        {
             throw new RuntimeException();
-        }
+
         return true;
     }
 
@@ -134,11 +104,12 @@ public class EmployeeServiceImpl  implements EmployeeService {
     public void delete(UUID id)
     {
        Employee employee = getById(id);
+       if(employee == null)
+           throw new NullPointerException();
+
        Boolean result = employeeDao.delete(employee);
        if (!result)
-       {
            throw new NullPointerException();
-       }
     }
 
     public Employee handleUpdateEmployee(EmployeeModel updateEmployee, Employee oldEmployee)

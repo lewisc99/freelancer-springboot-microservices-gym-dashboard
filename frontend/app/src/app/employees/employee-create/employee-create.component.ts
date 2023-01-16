@@ -53,7 +53,7 @@ export class EmployeeCreateComponent implements OnInit {
           },
           error: (error:any) =>
           {
-            console.log(error);
+            alert(error);
           }
         }
       )
@@ -102,7 +102,7 @@ export class EmployeeCreateComponent implements OnInit {
 
      this.employeeService.create(employee).subscribe({
         next: () => {this.route.navigate(['/..','employees'])},
-        error: error => console.log(error)
+        error: error => alert(error)
      });
   }
 
