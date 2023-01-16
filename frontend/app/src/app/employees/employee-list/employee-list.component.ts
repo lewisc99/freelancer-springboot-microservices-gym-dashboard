@@ -37,7 +37,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           }, 
           error: (error:any) =>
           {
-            console.log(error);
+             alert(error);
           }
        });
     }

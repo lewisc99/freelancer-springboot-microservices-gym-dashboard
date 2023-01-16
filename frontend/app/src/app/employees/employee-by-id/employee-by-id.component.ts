@@ -26,7 +26,7 @@ export class EmployeeByIdComponent implements OnInit, OnDestroy{
   {
       this.employeeService.getById(id).subscribe({
         next:(result:EmployeeDto) => {this.employee = result},
-        error: (error:any) => {console.log(error)}
+        error: (error:any) => { alert(error)}
         })
   }
 

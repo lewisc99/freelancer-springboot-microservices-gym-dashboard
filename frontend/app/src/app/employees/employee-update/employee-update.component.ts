@@ -53,7 +53,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
         },
         error: (error:any) =>
         {
-          console.log(error);
+          alert(error);
         }
         }
       )
@@ -93,7 +93,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
           },
           error: error =>
           {
-              console.log(error);
+              alert(error);
           }
         }
       )
