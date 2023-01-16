@@ -23,10 +23,15 @@ export class EmployeeService {
         catchError(this.handleError)
       )}
 
-    public getAll(): Observable<EmployeesDto>
+    public getAll(sortBy?:string): Observable<EmployeesDto>
     {
-      
-     return this.http.get<EmployeesDto>(this.fullUrl).pipe(
+      var getAllURL = this.fullUrl;
+      if (sortBy != null)
+      {
+        getAllURL  += "?sortBy=" + sortBy;
+      }
+
+      return this.http.get<EmployeesDto>(getAllURL).pipe(
       map(
         (response:EmployeesDto) =>  response
         ),

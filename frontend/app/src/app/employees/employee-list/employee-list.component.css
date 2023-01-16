@@ -13,3 +13,11 @@ button.btn-primary {
 a.btn-delete {
     cursor: pointer;
 }
+
+th.th-sort {
+    cursor: pointer;
+}
+th :hover{
+    background-color: #8a8bb9;
+    background: blue;
+}

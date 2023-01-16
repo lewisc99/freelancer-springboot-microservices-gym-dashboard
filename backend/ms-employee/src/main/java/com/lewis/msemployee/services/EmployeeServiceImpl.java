@@ -55,7 +55,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
            return employeesDto;
     }
-
     private static void setDefaultPageModel(PageModel page) {
         if (page.getPagNumber() == null || page.getPagSize() == null)
         {
@@ -65,8 +64,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         if (page.getPagNumber() < 1 && page.getPagSize() > 1)
             page.setPagNumber(1);
     }
-
-
     private  void convertToHateoasPagination(PageModel page, String urlEmployee, List<Employee> employeeList, EmployeesDto employeesDto, int employeeSize) {
         var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
         List<Employee> takeEmployeesList = List.of(takeEmployeesStream.toArray(Employee[]::new));

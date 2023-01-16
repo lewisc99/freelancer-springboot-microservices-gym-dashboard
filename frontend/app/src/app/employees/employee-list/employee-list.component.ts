@@ -27,9 +27,9 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
     this.activatedRoute.paramMap.subscribe( () => this.getAll());
   }
 
-    getAll(): void 
+    getAll(sortBy?:string,): void 
     {
-        this.employeeService.getAll().subscribe({
+        this.employeeService.getAll(sortBy).subscribe({
          next: (data:EmployeesDto) =>
           {
             console.log(data);
