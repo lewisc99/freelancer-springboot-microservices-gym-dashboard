@@ -78,7 +78,14 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public Employee getById(UUID id) {
-          return  employeeDao.getById(id);
+        try
+        {
+            return  employeeDao.getById(id);
+        }
+        catch (NullPointerException e)
+        {
+            throw new NullPointerException();
+        }
     }
 
     @Override
@@ -101,6 +108,9 @@ public class EmployeeServiceImpl  implements EmployeeService {
     public void delete(UUID id)
     {
        Employee employee = getById(id);
+       if(employee == null)
+           throw new NullPointerException();
+
        Boolean result = employeeDao.delete(employee);
        if (!result)
            throw new NullPointerException();

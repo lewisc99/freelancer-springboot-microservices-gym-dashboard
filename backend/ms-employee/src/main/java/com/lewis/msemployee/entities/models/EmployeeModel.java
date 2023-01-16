@@ -1,16 +1,17 @@
 package com.lewis.msemployee.entities.models;
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.*;
 import java.util.List;
 
 public class EmployeeModel {
 
     @NotNull(message = "username cannot be null")
-    @NotEmpty(message = "username cannot be Empty")
+    @NotEmpty(message = "username cannot be empty")
     @NotBlank(message = "username cannot be empty")
     private String username;
-    @NotBlank(message = "username cannot be Age")
-    @NotEmpty(message = "username cannot be Age")
     @Min(value = 18, message = "Age must be at least 18")
+    @Range(min=0, max=90)
     private Integer age;
     @NotNull(message = "Document cannot be null")
     @NotEmpty(message = "doc cannot be Empty")
