@@ -36,7 +36,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         }
         catch (Exception e )
         {
-            e.getStackTrace();
             throw new RuntimeException();
         }
     }
@@ -51,13 +50,10 @@ public class EmployeeServiceImpl  implements EmployeeService {
            setDefaultPageModel(page);
 
            if((page.getPagNumber() <= 0) && (page.getPagSize() <= 0))
-           {
                employeesDto.addEmployees(employeeList, urlEmployee);
-           }
            else
-           {
                convertToHateoasPagination(page, urlEmployee, employeeList, employeesDto, employeeSize);
-           }
+
            return employeesDto;
     }
 
@@ -68,9 +64,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
             page.setPagSize(0);
         }
         if (page.getPagNumber() < 1 && page.getPagSize() > 1)
-        {
             page.setPagNumber(1);
-        }
     }
 
 
@@ -84,27 +78,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public Employee getById(UUID id) {
-
-        try
-        {
           return  employeeDao.getById(id);
-        }
-        catch (NullPointerException exception)
-        {
-            throw new NullPointerException();
-        }
-        catch (ResourceNotFoundException exception)
-        {
-            throw new ResourceNotFoundException(id);
-        }
-        catch (DatabaseException exception)
-        {
-            throw new DatabaseException(exception.getMessage());
-        }
-        catch (Exception exception)
-        {
-            throw new RuntimeException();
-        }
     }
 
     @Override
@@ -113,15 +87,13 @@ public class EmployeeServiceImpl  implements EmployeeService {
         Employee employeeById = getById(id);
 
         if (employeeById == null)
-        {
             throw new NullPointerException();
-        }
+
         Employee updatedEmployee = handleUpdateEmployee(employee, employeeById);
         Boolean result =  employeeDao.update(updatedEmployee);
         if(!result)
-        {
             throw new RuntimeException();
-        }
+
         return true;
     }
 
@@ -131,9 +103,7 @@ public class EmployeeServiceImpl  implements EmployeeService {
        Employee employee = getById(id);
        Boolean result = employeeDao.delete(employee);
        if (!result)
-       {
            throw new NullPointerException();
-       }
     }
 
     public Employee handleUpdateEmployee(EmployeeModel updateEmployee, Employee oldEmployee)

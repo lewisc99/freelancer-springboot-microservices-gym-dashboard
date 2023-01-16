@@ -39,8 +39,6 @@ public class EmployeeController {
             pageModel.setPagNumber(0);
             pageModel.setPagSize(0);
         }
-
-
         String fullUrl = request.getRequestURL().toString();
         String urlForEmployees = request.getRequestURI().toString();
 
