@@ -18,10 +18,8 @@ export class EmployeeService {
 
     public create(employee:Employee): Observable<any>
     {
-      return this.http.post<Employee>(this.fullUrl,employee)
-      .pipe(
-        catchError(this.handleError)
-      )}
+      return this.http.post<Employee>(this.fullUrl,employee);
+    }
 
     public getAll(sortBy?:string): Observable<EmployeesDto>
     {
@@ -30,12 +28,10 @@ export class EmployeeService {
       {
         getAllURL  += "?sortBy=" + sortBy;
       }
-
       return this.http.get<EmployeesDto>(getAllURL).pipe(
       map(
         (response:EmployeesDto) =>  response
-        ),
-        catchError ( this.handleError)
+        )
      )}
 
     public getById(id:string): Observable<EmployeeDto>
@@ -43,8 +39,7 @@ export class EmployeeService {
         var getByIdUrl = this.fullUrl + "/" + id;
         return this.http.get<EmployeeDto>(getByIdUrl).pipe(
           map(
-            (response:EmployeeDto) => response,
-             catchError(this.handleError)
+            (response:EmployeeDto) => response
           ));
     }
 
@@ -52,43 +47,13 @@ export class EmployeeService {
     {
         var getByIdUrl = this.fullUrl + "/" + employee.id;
 
-        return this.http.put(getByIdUrl, employee).pipe(
-          map(
-            () => {},
-            catchError(this.handleError)
-          )
-        )
+        return this.http.put(getByIdUrl, employee);
     }
 
     public delete(id:string): Observable<any>
     {
         var getByIdUrl = this.fullUrl  + "/" + id;
-
-        return this.http.delete(getByIdUrl).pipe(
-          map(
-            () => {},
-             catchError(this.handleError)
-          ))
-    }
-
-
-    private handleError(errorRes: HttpErrorResponse) {
-      let errorMessage = 'An unknown error occurred!';
-      if (!errorRes.error || !errorRes.error.error) {
-        return throwError(errorMessage);
-      }
-      switch (errorRes.error.error.message) {
-        case 'EMAIL_EXISTS':
-          errorMessage = 'This email exists already';
-          break;
-        case 'EMAIL_NOT_FOUND':
-          errorMessage = 'This email does not exist.';
-          break;
-        case 'INVALID_PASSWORD':
-          errorMessage = 'This password is not correct.';
-          break;
-      }
-      return throwError(errorMessage);
+        return this.http.delete(getByIdUrl);
     }
     
 }
