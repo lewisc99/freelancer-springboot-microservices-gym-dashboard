@@ -1,7 +1,6 @@
 package com.lewis.msemployee.services;
 import java.util.List;
-import com.lewis.msemployee.config.exceptions.DatabaseException;
-import com.lewis.msemployee.config.exceptions.ResourceNotFoundException;
+
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
