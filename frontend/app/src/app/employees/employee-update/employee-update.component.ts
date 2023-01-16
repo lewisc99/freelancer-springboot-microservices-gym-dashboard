@@ -49,7 +49,6 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
           {
             this.checkBoxRoles.set(role.name, false);
           }
-
           this.seedFormGroup();
         },
         error: (error:any) =>
@@ -119,7 +118,6 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
 
   onSubmit()
   {
-
     if (this.formGroup.invalid)
     {
       this.formGroup.markAllAsTouched();

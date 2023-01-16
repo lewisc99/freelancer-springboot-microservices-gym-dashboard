@@ -1,7 +1,6 @@
 package com.lewis.msemployee.repositories;
 
 import com.lewis.msemployee.entities.domain.Employee;
-import com.lewis.msemployee.entities.domain.Page;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;

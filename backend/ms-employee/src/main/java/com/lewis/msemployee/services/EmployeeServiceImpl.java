@@ -43,16 +43,13 @@ public class EmployeeServiceImpl  implements EmployeeService {
 
     @Override
     public EmployeesDto getAll(PageModel page, String urlEmployee) {
-       try
-       {
+
            List<Employee> employeeList = employeeDao.getAll(page.getSortBy());
            EmployeesDto employeesDto = new EmployeesDto();
            int employeeSize = employeeList.size();
 
-           if (page.getPagNumber() < 1 && page.getPagSize() > 1)
-           {
-               page.setPagNumber(1);
-           }
+           setDefaultPageModel(page);
+
            if((page.getPagNumber() <= 0) && (page.getPagSize() <= 0))
            {
                employeesDto.addEmployees(employeeList, urlEmployee);
@@ -62,21 +59,20 @@ public class EmployeeServiceImpl  implements EmployeeService {
                convertToHateoasPagination(page, urlEmployee, employeeList, employeesDto, employeeSize);
            }
            return employeesDto;
-       }
-       catch (NullPointerException exception)
-       {
-           throw new NullPointerException(exception.getMessage());
-       }
-       catch (DatabaseException exception)
-       {
-           throw new DatabaseException(exception.getMessage());
-       }
-
-       catch (Exception exception)
-       {
-           throw new RuntimeException(exception.getMessage());
-       }
     }
+
+    private static void setDefaultPageModel(PageModel page) {
+        if (page.getPagNumber() == null || page.getPagSize() == null)
+        {
+            page.setPagNumber(0);
+            page.setPagSize(0);
+        }
+        if (page.getPagNumber() < 1 && page.getPagSize() > 1)
+        {
+            page.setPagNumber(1);
+        }
+    }
+
 
     private  void convertToHateoasPagination(PageModel page, String urlEmployee, List<Employee> employeeList, EmployeesDto employeesDto, int employeeSize) {
         var takeEmployeesStream = employeeList.stream().skip( (page.getPagNumber() - 1) * page.getPagSize()).limit(page.getPagSize());
@@ -107,7 +103,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
         }
         catch (Exception exception)
         {
-            exception.getStackTrace();
             throw new RuntimeException();
         }
     }

@@ -1,16 +1,20 @@
 package com.lewis.msemployee.entities.models;
 import javax.validation.constraints.*;
 import java.util.List;
-import java.util.UUID;
 
 public class EmployeeModel {
 
     @NotNull(message = "username cannot be null")
     @NotEmpty(message = "username cannot be Empty")
+    @NotBlank(message = "username cannot be empty")
     private String username;
+    @NotBlank(message = "username cannot be Age")
+    @NotEmpty(message = "username cannot be Age")
     @Min(value = 18, message = "Age must be at least 18")
     private Integer age;
     @NotNull(message = "Document cannot be null")
+    @NotEmpty(message = "doc cannot be Empty")
+    @NotBlank(message = "doc cannot be empty")
     private String doc;
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
