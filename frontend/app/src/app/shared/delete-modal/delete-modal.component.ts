@@ -23,7 +23,7 @@ export class DeleteModalComponent {
   {
     this.EmployeeService.delete(this.id).subscribe({
       next: () => {this.employeeDeleted.emit()},
-      error: error => console.log(error)
+      error: error => alert(error)
     });
 
   }

@@ -18,7 +18,9 @@ export class EmployeeService {
 
     public create(employee:Employee): Observable<any>
     {
-      return this.http.post<Employee>(this.fullUrl,employee);
+      return this.http.post<Employee>(this.fullUrl,employee).pipe(
+        catchError( error => throwError(() => this.handleErrorException(error)))
+      );
     }
 
     public getAll(sortBy?:string): Observable<EmployeesDto>
@@ -30,7 +32,8 @@ export class EmployeeService {
       }
       return this.http.get<EmployeesDto>(getAllURL).pipe(
       map(
-        (response:EmployeesDto) =>  response
+        (response:EmployeesDto) =>  response,
+        catchError(error => throwError(() => this.handleErrorException(error)))
         )
      )}
 
@@ -39,8 +42,11 @@ export class EmployeeService {
         var getByIdUrl = this.fullUrl + "/" + id;
         return this.http.get<EmployeeDto>(getByIdUrl).pipe(
           map(
-            (response:EmployeeDto) => response
-          ));
+            (response:EmployeeDto) => response,
+          ),
+          catchError( (error:HttpErrorResponse) => {
+            return throwError( () =>  this.handleErrorException(error));
+          }));
     }
 
     public updateEmployee(employee:EmployeeModel): Observable<any>
@@ -53,7 +59,26 @@ export class EmployeeService {
     public delete(id:string): Observable<any>
     {
         var getByIdUrl = this.fullUrl  + "/" + id;
-        return this.http.delete(getByIdUrl);
+        return this.http.delete(getByIdUrl).pipe
+        (
+          catchError( error => throwError(() => this.handleErrorException(error)))
+        );
     }
+
+    private handleErrorException(error:HttpErrorResponse): string
+    {
+      var errorMessage = "";
+      switch (error.status)
+      {
+        case 404:
+          errorMessage = "Employee Not found";
+          break;
+        case 500:
+          errorMessage = "Unknown error was thrown";
+      }
+      return errorMessage;
+    }
+
+    
     
 }
