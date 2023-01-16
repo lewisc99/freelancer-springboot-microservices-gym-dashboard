@@ -37,13 +37,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
          List<Employee> employees = new ArrayList<>();
 
          if(sortBy == null)
-         {
              employees = session.createQuery("from Employee order by id").getResultList();
-         }
          else
-         {
              employees = session.createQuery("from Employee order by " + sortBy).getResultList();
-         }
+         
          return employees;
     }
 
