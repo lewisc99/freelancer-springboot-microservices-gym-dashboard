@@ -29,7 +29,7 @@ export class RolesService {
     switch (error.status)
     {
       case 404:
-        errorMessage = "Employee Not found";
+        errorMessage = "Role Not found";
         break;
       case 500:
         errorMessage = "Unknown error was thrown";
