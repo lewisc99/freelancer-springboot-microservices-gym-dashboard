@@ -19,6 +19,7 @@ import org.springframework.data.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -79,6 +80,13 @@ public class UserServiceTests {
         planTwo.setFinish(date2);
         planTwo.setCategory(categoryTwo);
 
+        user.setId(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
+        user.setUsername("Lewis");
+        user.setAge(23);
+        user.setDoc("454575888");
+        user.setEmail("lewis.souza@gmail.com");
+        user.setPlan(plan);
+
         userTwo.setId(UUID.fromString("7f1d4cca-37eb-4dd8-a0ca-2c6331c80d2a"));
         userTwo.setUsername("Rick");
         userTwo.setAge(22);
@@ -102,9 +110,80 @@ public class UserServiceTests {
         Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
         when(userRepository.findAll(paging)).thenReturn(page);
 
-        List<User> result = userService.findAll(1,1,sortBy);
+        List<User> result = userService.findAll(pagNumber,pagSize,sortBy);
 
         assertEquals(2,result.size());
     }
+
+    @Test
+    @DisplayName("GetAll Returns RuntimeException")
+    public void getAllReturnsRuntimeException()
+    {
+        int pagNumber = 10;
+        int pagSize = 1;
+        String sortBy = "username";
+
+        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        when(userRepository.findAll(paging)).thenThrow(RuntimeException.class);
+
+        assertThrows( RuntimeException.class, () -> {userService.findAll(pagNumber,pagSize, sortBy);});
+    }
+    @Test
+    @DisplayName("GetAll Returns SortByUsername")
+    public void getAllReturnsSortByUsername()
+    {
+        int pagNumber = 1;
+        int pagSize = 2;
+        String sortBy = "username";
+
+        Page<User> page = new PageImpl<>(users);
+        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        when(userRepository.findAll(paging)).thenReturn(page);
+
+        List<User> result = userService.findAll(pagNumber,pagSize,sortBy);
+
+        assertEquals("Lewis", result.get(0).getUsername());
+    }
+
+    @Test
+    @DisplayName("GetAll throws IllegalArgumentException")
+    public void getAllThrowsIllegalArgumentException()
+    {
+        int pagNumber = 0;
+        int pagSize = 1;
+        String sortBy = "username";
+
+        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        when(userRepository.findAll(paging)).thenThrow(IllegalArgumentException.class);
+        assertThrows(IllegalArgumentException.class, () -> {userService.findAll(pagNumber,pagSize,sortBy);});
+    }
+
+    @Test
+    @DisplayName("getById Return User")
+    public void getByIdReturnUser()
+    {
+        Optional<User> userOptional = Optional.ofNullable(user);
+        when(userRepository.findById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"))).thenReturn(userOptional);
+
+        User result = userService.findById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
+
+        assertNotNull(result);
+        assertEquals("Lewis",result.getUsername());
+        assertEquals(23,result.getAge());
+        assertEquals("454575888",result.getDoc());
+        assertEquals("lewis.souza@gmail.com",result.getEmail());
+    }
+
+    @Test
+    @DisplayName("getById Return User")
+    public void getByIdThrowNullPointException()
+    {
+        Optional<User> userOptional = Optional.ofNullable(user);
+        when(userRepository.findById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"))).thenReturn(userOptional);
+
+        assertThrows(NullPointerException.class, () -> {userService.findById(UUID.fromString("7fbe5a34-54c0-438c-875e-660d3935f7b8"));});
+    }
+    
+
 
 }

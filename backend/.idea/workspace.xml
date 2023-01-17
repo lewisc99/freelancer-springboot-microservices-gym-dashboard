@@ -40,20 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.All in ms-user">
-    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserServiceTests.getByIdThrowNullPointException">
     <configuration name="All in ms-user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <option name="PACKAGE_NAME" value="" />
@@ -62,22 +49,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsUserApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTests.getAllReturns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
@@ -87,12 +59,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="getAllReturns" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTests.getAllReturnUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserServiceTests.getAllThrowsIllegalArgumentException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
@@ -102,7 +75,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
-      <option name="METHOD_NAME" value="getAllReturnUsers" />
+      <option name="METHOD_NAME" value="getAllThrowsIllegalArgumentException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTests.getById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
+      <option name="METHOD_NAME" value="getById" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTests.getByIdThrowNullPointException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
+      <option name="METHOD_NAME" value="getByIdThrowNullPointException" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -110,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTests.getByIdThrowNullPointException" />
+        <item itemvalue="JUnit.UserServiceTests.getById" />
+        <item itemvalue="JUnit.UserServiceTests.getAllThrowsIllegalArgumentException" />
         <item itemvalue="JUnit.All in ms-user" />
-        <item itemvalue="JUnit.UserServiceTests.getAllReturnUsers" />
-        <item itemvalue="JUnit.UserServiceTests" />
-        <item itemvalue="JUnit.MsUserApplicationTests" />
-        <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="JUnit.UserServiceTests.getAllReturns" />
       </list>
     </recent_temporary>
   </component>
@@ -138,8 +143,14 @@
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/backend$UserServiceTests_getById.ic" NAME="UserServiceTests.getById Coverage Results" MODIFIED="1673968352595" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lewis.msuser.services.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/backend$MsEmployeeApplication.ic" NAME="MsEmployeeApplication Coverage Results" MODIFIED="1673701530175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.lewis.msemployee.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/backend$UserServiceTests_getByIdThrowNullPointException.ic" NAME="UserServiceTests.getByIdThrowNullPointException Coverage Results" MODIFIED="1673968499380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.lewis.msuser.services.*</FILTER>
     </SUITE>
   </component>
 </project>
