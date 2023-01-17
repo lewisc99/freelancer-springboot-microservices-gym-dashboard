@@ -1,30 +1,23 @@
 package com.lewis.msuser.config;
 import com.lewis.msuser.entities.domain.User;
-import com.lewis.msuser.entities.dto.CategoryDTO;
-import com.lewis.msuser.entities.dto.PlanDTO;
 import com.lewis.msuser.entities.dto.UserDTO;
-import org.springframework.beans.BeanUtils;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class UserConvert {
 
-    public  List<UserDTO> toListUserDTO(List<User> usersEntity) {
-        List<UserDTO> usersDTO = new ArrayList<>();
-        for (User user : usersEntity) {
-            UserDTO userDTO = new UserDTO();
-            PlanDTO planDTO = new PlanDTO();
-            CategoryDTO categoryDTO = new CategoryDTO();
+    @Autowired
+    private ModelMapper modelMapper;
 
-            BeanUtils.copyProperties( user,userDTO);
-            BeanUtils.copyProperties(user.getPlan(), planDTO);
-            BeanUtils.copyProperties(user.getPlan().getCategory(), categoryDTO);
-            planDTO.setCategory(categoryDTO);
-            userDTO.setPlan(planDTO);
+    public List<UserDTO> toUsersDTO(List<User> usersEntity) {
+        List<UserDTO> usersDTO = new ArrayList<>();
+        for(User user: usersEntity)
+        {
+            UserDTO userDTO = modelMapper.map(user, UserDTO.class);
             usersDTO.add(userDTO);
         }
         return usersDTO;
