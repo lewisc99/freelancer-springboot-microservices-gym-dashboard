@@ -1,7 +1,9 @@
 package com.lewis.msuser.entities.domain;
 
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,20 +15,24 @@ import java.util.UUID;
 public class Plan {
 
     @Id
-    @Column(name="id", insertable = false, updatable = false, nullable = false)
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    @Column(name = "ID", updatable = false, nullable = false)
+    @ColumnDefault("random_uuid()")
+    @Type(type = "uuid-char")
     private UUID id;
-
     private Date start;
-
     private Date finish;
-    @OneToMany(mappedBy = "plan")
-    private List<User> users;
+    @Column(name = "category_name")
+    private Category categoryName;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.DETACH,
-            CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
-    private Category category;
+    @OneToOne(mappedBy = "plan")
+    private  User user;
+
+
 
     public UUID getId() {
         return id;
@@ -52,19 +58,19 @@ public class Plan {
         this.finish = finish;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public Category getCategoryName() {
+        return categoryName;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setCategoryName(Category categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public Category getCategory() {
-        return category;
+    public User getUser() {
+        return user;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
