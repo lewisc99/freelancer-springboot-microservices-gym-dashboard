@@ -111,8 +111,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ms-user" />
-        <item itemvalue="JUnit.UserServiceTests" />
         <item itemvalue="JUnit.UserServiceTests.getAllReturnUsers" />
+        <item itemvalue="JUnit.UserServiceTests" />
         <item itemvalue="JUnit.MsUserApplicationTests" />
         <item itemvalue="Application.MsEmployeeApplication" />
       </list>
@@ -133,6 +133,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
+        <PinnedItemInfo parentTag="org.springframework.data.domain.PageRequest" memberName="page" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

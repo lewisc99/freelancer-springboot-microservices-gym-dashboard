@@ -15,10 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -33,10 +31,19 @@ public class UserServiceTests {
     private User user;
 
     @Autowired
+    private User userTwo;
+
+    @Autowired
     private Plan plan;
 
     @Autowired
+    private Plan planTwo;
+
+    @Autowired
     private Category category;
+
+    @Autowired
+    private  Category categoryTwo;
 
     @MockBean
     private UserRepository userRepository;
@@ -54,6 +61,9 @@ public class UserServiceTests {
         category.setId(UUID.fromString("bf892ce4-d7a2-4ab2-aaa7-65b4119f36fe"));
         category.setName("VIP");
 
+        categoryTwo.setId(UUID.fromString("334e494f-8fdd-46bc-87f3-8e45e6e37cfb"));
+        categoryTwo.setName("PREMIUM");
+
         java.util.Date date = new java.util.Date("2022/1/1");
         java.util.Date date2 = new java.util.Date("2022/1/1");
 
@@ -63,29 +73,38 @@ public class UserServiceTests {
         plan.setFinish(date2);
         plan.setCategory(category);
 
-        user.setId(UUID.fromString("37044977-af9b-41af-9d22-700ae3dd2406"));
-        user.setUsername("Lewis");
-        user.setAge(20);
-        user.setDoc("199239393");
-        user.setEmail("lewis.carlos@gmail.com");
-        user.setPlan(plan);
+        planTwo.setId(UUID.fromString("4dca5b67-0565-4d0c-b380-b096b64407de"));
+        planTwo.setStatus(Status.valueOf(2));
+        planTwo.setStart(date);
+        planTwo.setFinish(date2);
+        planTwo.setCategory(categoryTwo);
+
+        userTwo.setId(UUID.fromString("7f1d4cca-37eb-4dd8-a0ca-2c6331c80d2a"));
+        userTwo.setUsername("Rick");
+        userTwo.setAge(22);
+        userTwo.setDoc("554848777");
+        userTwo.setEmail("rick.souza@gmail.com");
+        userTwo.setPlan(planTwo);
 
         users.add(user);
+        users.add(userTwo);
     }
 
     @Test
     @DisplayName("GetAll return Users")
     public void getAllReturnUsers()
     {
-        var pagNumber = 1;
-        var pagSize = 1;
+        int pagNumber = 1;
+        int pagSize = 1;
+        String sortBy = "username";
+
         Page<User> page = new PageImpl<>(users);
-        Pageable paging = PageRequest.of(pagNumber, pagSize);
+        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
         when(userRepository.findAll(paging)).thenReturn(page);
 
-        List<User> result = userService.findAll(1,1);
+        List<User> result = userService.findAll(1,1,sortBy);
 
-        assertEquals(1,result.size());
-
+        assertEquals(2,result.size());
     }
+
 }
