@@ -26,13 +26,12 @@ public class Plan {
     private UUID id;
     private Date start;
     private Date finish;
-    @Column(name = "category_name")
-    private Category categoryName;
-
+    @ManyToOne(cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
+    private Category category;
     @OneToOne(mappedBy = "plan")
     private  User user;
 
-
+    private Status status;
 
     public UUID getId() {
         return id;
@@ -58,12 +57,11 @@ public class Plan {
         this.finish = finish;
     }
 
-    public Category getCategoryName() {
-        return categoryName;
+    public Category getCategory() {
+        return category;
     }
-
-    public void setCategoryName(Category categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public User getUser() {
