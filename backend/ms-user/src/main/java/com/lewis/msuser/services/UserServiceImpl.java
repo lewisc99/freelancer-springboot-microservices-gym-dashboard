@@ -20,6 +20,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+
+    @Override
+    public void create(User user)
+    {
+        userRepository.save(user);
+    }
     @Override
     public List<User> findAll(int pagNumber, int pagSize,String sortBy)
     {

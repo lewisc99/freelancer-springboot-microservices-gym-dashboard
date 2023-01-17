@@ -6,7 +6,7 @@ import java.util.UUID;
 public interface UserService {
      List<User> findAll(int pagNumber, int pagSize, String sortBy);
      User findById(UUID id);
-//     void  create(User user);
+     void  create(User user);
 //     void update(User user);
 //     void delete(UUID id);
 }

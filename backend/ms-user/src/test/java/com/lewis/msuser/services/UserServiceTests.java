@@ -23,7 +23,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+
 @SpringBootTest(classes = {MsUserApplication.class} )
 @Import(ConfigBeans.class)
 public class UserServiceTests {
@@ -99,6 +100,15 @@ public class UserServiceTests {
     }
 
     @Test
+    @DisplayName("create User")
+    public void createUser()
+    {
+        when(userRepository.save(user)).thenReturn(user);
+        userService.create(user);
+        verify(userRepository, times(1)).save(user);
+    }
+
+    @Test
     @DisplayName("GetAll return Users")
     public void getAllReturnUsers()
     {
@@ -109,7 +119,6 @@ public class UserServiceTests {
         Page<User> page = new PageImpl<>(users);
         Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
         when(userRepository.findAll(paging)).thenReturn(page);
-
         List<User> result = userService.findAll(pagNumber,pagSize,sortBy);
 
         assertEquals(2,result.size());
@@ -183,7 +192,6 @@ public class UserServiceTests {
 
         assertThrows(NullPointerException.class, () -> {userService.findById(UUID.fromString("7fbe5a34-54c0-438c-875e-660d3935f7b8"));});
     }
-    
 
 
 }
