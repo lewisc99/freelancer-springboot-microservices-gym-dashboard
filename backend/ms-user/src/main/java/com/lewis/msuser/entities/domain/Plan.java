@@ -4,10 +4,10 @@ package com.lewis.msuser.entities.domain;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,7 +24,10 @@ public class Plan {
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     private UUID id;
+
+    @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date start;
+    @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
     @ManyToOne(cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
     private Category category;
@@ -70,5 +73,13 @@ public class Plan {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

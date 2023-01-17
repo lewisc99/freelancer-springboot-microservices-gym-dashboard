@@ -40,7 +40,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MsEmployeeApplication">
+  <component name="RunManager" selected="JUnit.All in ms-user">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -54,8 +54,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
+    <configuration name="All in ms-user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MsUserApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
@@ -63,45 +70,39 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="EmployeeControllerTest.deleteEmployeeNotFoundId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
+    <configuration name="UserServiceTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="PATTERN" value="com.lewis.msuser.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="METHOD_NAME" value="deleteEmployeeNotFoundId" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmployeeControllerTest.updateThrowAValidationErrorBadRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-employee" />
+    <configuration name="UserServiceTests.getAllReturnUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
+          <option name="PATTERN" value="com.lewis.msuser.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
-      <option name="METHOD_NAME" value="updateThrowAValidationErrorBadRequest" />
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
+      <option name="METHOD_NAME" value="getAllReturnUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -109,11 +110,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ms-user" />
+        <item itemvalue="JUnit.UserServiceTests" />
+        <item itemvalue="JUnit.UserServiceTests.getAllReturnUsers" />
+        <item itemvalue="JUnit.MsUserApplicationTests" />
         <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="JUnit.All in ms-employee" />
-        <item itemvalue="JUnit.EmployeeControllerTest.updateThrowAValidationErrorBadRequest" />
-        <item itemvalue="JUnit.EmployeeControllerTest.deleteEmployeeNotFoundId" />
       </list>
     </recent_temporary>
   </component>
