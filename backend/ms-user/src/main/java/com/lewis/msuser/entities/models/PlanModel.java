@@ -1,11 +1,12 @@
-package com.lewis.msuser.entities.dto;
+package com.lewis.msuser.entities.models;
+
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 import java.util.Date;
 import java.util.UUID;
 
-public class PlanDTO {
+public class PlanModel {
     @Nullable
     @Type(type = "uuid-char")
     private UUID id;
@@ -13,8 +14,8 @@ public class PlanDTO {
     private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
-    private CategoryDTO category;
-    private UserDTO user;
+    private CategoryModel category;
+    private UserModel user;
 
     @Nullable
     public UUID getId() {
@@ -41,19 +42,19 @@ public class PlanDTO {
         this.finish = finish;
     }
 
-    public CategoryDTO getCategory() {
+    public CategoryModel getCategory() {
         return category;
     }
 
-    public void setCategory(CategoryDTO category) {
+    public void setCategory(CategoryModel category) {
         this.category = category;
     }
 
-    public UserDTO getUser() {
+    public UserModel getUser() {
         return user;
     }
 
-    public void setUser(UserDTO user) {
+    public void setUser(UserModel user) {
         this.user = user;
     }
 }

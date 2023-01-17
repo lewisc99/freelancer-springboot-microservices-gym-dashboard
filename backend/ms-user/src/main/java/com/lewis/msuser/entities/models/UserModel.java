@@ -1,19 +1,19 @@
 package com.lewis.msuser.entities.models;
 
-import com.lewis.msuser.entities.dto.PlanDTO;
+import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
-
 import java.util.UUID;
 
 public class UserModel {
+
     @Nullable
+    @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;
     public String doc;
     public String email;
-    private PlanDTO plan;
-
+    private PlanModel plan;
 
     public UserModel(){}
 
@@ -58,10 +58,11 @@ public class UserModel {
         this.email = email;
     }
 
-    public PlanDTO getPlan() {
+    public PlanModel getPlan() {
         return plan;
     }
-    public void setPlan(PlanDTO plan) {
+
+    public void setPlan(PlanModel plan) {
         this.plan = plan;
     }
 }

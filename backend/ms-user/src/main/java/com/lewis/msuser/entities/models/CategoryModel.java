@@ -1,16 +1,16 @@
-package com.lewis.msuser.entities.dto;
+package com.lewis.msuser.entities.models;
+
 import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
 import java.util.List;
 import java.util.UUID;
 
-public class CategoryDTO {
-
+public class CategoryModel {
     @Nullable
     @Type(type = "uuid-char")
     private UUID id;
     private String name;
-    private List<PlanDTO> plans;
+    private List<PlanModel> plans;
 
     @Nullable
     public UUID getId() {
@@ -29,11 +29,11 @@ public class CategoryDTO {
         this.name = name;
     }
 
-    public List<PlanDTO> getPlans() {
+    public List<PlanModel> getPlans() {
         return plans;
     }
 
-    public void setPlans(List<PlanDTO> plans) {
+    public void setPlans(List<PlanModel> plans) {
         this.plans = plans;
     }
 }

@@ -74,7 +74,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void update(UserModel user) {
+    public void update(UserModel userModel) {
+         User oldUser = findById(userModel.id);
+         availablePropertiesToUpdate(oldUser, userModel);
+    }
+
+    public void availablePropertiesToUpdate(User oldUser, UserModel userUpdate)
+    {
 
     }
 
