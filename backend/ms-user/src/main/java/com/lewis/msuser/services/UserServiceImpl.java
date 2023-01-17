@@ -1,6 +1,7 @@
 package com.lewis.msuser.services;
 
 import com.lewis.msuser.entities.domain.User;
+import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,6 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException();
         }
     }
-
     @Override
     public void delete(UUID id) {
         try
@@ -72,6 +72,13 @@ public class UserServiceImpl implements UserService {
             throw new NullPointerException();
         }
     }
+
+    @Override
+    public void update(UserModel user) {
+
+    }
+
+
 
 
 }

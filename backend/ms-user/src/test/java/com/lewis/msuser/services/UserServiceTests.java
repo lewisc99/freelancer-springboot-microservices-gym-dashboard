@@ -202,5 +202,5 @@ public class UserServiceTests {
         userService.delete(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
         verify(userRepository,times(1)).deleteById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
     }
-    
+
 }
