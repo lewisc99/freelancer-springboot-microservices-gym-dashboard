@@ -22,18 +22,13 @@ public class User {
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     public UUID id;
-
     public String username;
-
     public Integer age;
-
     public String doc;
-
     public String email;
-    @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH,CascadeType.DETACH,
+    @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.DETACH,
             CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     private  Plan plan;
-
     public User(){}
 
 

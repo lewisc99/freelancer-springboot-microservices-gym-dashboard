@@ -41,16 +41,8 @@ public class PlanDTO {
         this.finish = finish;
     }
 
-    public CategoryDTO getCategory() {
-        return category;
-    }
-
     public void setCategory(CategoryDTO category) {
         this.category = category;
-    }
-
-    public UserDTO getUser() {
-        return user;
     }
 
     public void setUser(UserDTO user) {

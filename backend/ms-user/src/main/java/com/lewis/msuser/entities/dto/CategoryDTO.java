@@ -29,9 +29,6 @@ public class CategoryDTO {
         this.name = name;
     }
 
-    public List<PlanDTO> getPlans() {
-        return plans;
-    }
 
     public void setPlans(List<PlanDTO> plans) {
         this.plans = plans;

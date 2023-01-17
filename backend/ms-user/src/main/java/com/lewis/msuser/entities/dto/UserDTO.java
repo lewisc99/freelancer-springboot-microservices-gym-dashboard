@@ -10,7 +10,6 @@ public class UserDTO {
     public String email;
     private PlanDTO plan;
 
-
     public UserDTO(){}
 
 

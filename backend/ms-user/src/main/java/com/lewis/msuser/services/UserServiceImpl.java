@@ -21,7 +21,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-
     @Override
     public void create(User user)
     {

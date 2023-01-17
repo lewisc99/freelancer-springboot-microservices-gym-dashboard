@@ -140,19 +140,6 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/ms-user/src/main/java/com/lewis/msuser/controllers/UsersController.java</url>
-          <line>18</line>
-          <properties class="com.lewis.msuser.controllers.UsersController" method="get">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />

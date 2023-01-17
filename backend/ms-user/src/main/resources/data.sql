@@ -27,7 +27,7 @@ INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Chad',18, '87
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Victor',23, '564787884','victor.math@gmail.com','d89f5906-3ec7-4e6e-8c3a-b5139badd112');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Cardi',35, '5587878777','cardi@outlook.com','6cf96107-7a8d-49c3-9768-bbb006506008');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Bruno',32, '8488884844','bruno.mars@gmail.com','e44a4515-c836-4f00-8700-f394c725a48d');
-INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('David',42, '4444577577','david.boah@gmail.com','4f556324-f00d-4f96-b8cd-2174f726d2cc');
+INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('David',42, '4444577577','david.boah@gmail.com','76f95ca9-4904-4df5-88c0-fa1081503ef4');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Miguel',26, '684848888','miguel@gmail.com','4f556324-f00d-4f96-b8cd-2174f726d2cc');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Nicolas',48, '58588777','nicolas.cage@gmail.com','bf892ce4-d7a2-4ab2-aaa7-65b4119f36fe');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Django',36, '485888888','django.free@gmail.com','be0b48bf-6b84-4ee2-af28-aa84ba1df81b');

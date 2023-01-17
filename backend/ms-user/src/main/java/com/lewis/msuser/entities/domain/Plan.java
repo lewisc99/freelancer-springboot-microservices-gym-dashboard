@@ -13,7 +13,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "tb_plan")
 public class Plan {
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
