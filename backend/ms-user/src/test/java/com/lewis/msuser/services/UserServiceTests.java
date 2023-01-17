@@ -11,6 +11,7 @@ import com.lewis.msuser.services.contracts.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -193,5 +194,13 @@ public class UserServiceTests {
         assertThrows(NullPointerException.class, () -> {userService.findById(UUID.fromString("7fbe5a34-54c0-438c-875e-660d3935f7b8"));});
     }
 
-
+    @Test
+    @DisplayName("delete User")
+    public void deleteUser()
+    {
+        Mockito.doNothing().when(userRepository).deleteById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
+        userService.delete(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
+        verify(userRepository,times(1)).deleteById(UUID.fromString("8fbe5a34-54c0-438c-875e-660d3935f7b8"));
+    }
+    
 }
