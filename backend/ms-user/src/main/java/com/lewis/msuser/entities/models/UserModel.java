@@ -1,35 +1,21 @@
-package com.lewis.msuser.entities.domain;
+package com.lewis.msuser.entities.models;
 
-
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
+import org.springframework.lang.Nullable;
 import java.util.UUID;
 
-@Entity
-@Table(name = "tb_user")
-public class User {
+public class UserModel {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "ID", updatable = false, nullable = false)
-    @ColumnDefault("random_uuid()")
+    @Nullable
     @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;
     public String doc;
     public String email;
-    @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.DETACH,
-            CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
-    private  Plan plan;
-    public User(){}
+    private PlanModel plan;
+
+    public UserModel(){}
 
 
     public UUID getId() {
@@ -72,13 +58,11 @@ public class User {
         this.email = email;
     }
 
-    public Plan getPlan() {
+    public PlanModel getPlan() {
         return plan;
     }
 
-    public void setPlan(Plan plan) {
+    public void setPlan(PlanModel plan) {
         this.plan = plan;
     }
-
-
 }

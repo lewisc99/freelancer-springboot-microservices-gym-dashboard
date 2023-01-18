@@ -1,35 +1,16 @@
-package com.lewis.msuser.entities.domain;
-
-
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
+package com.lewis.msuser.entities.dto;
 import java.util.UUID;
 
-@Entity
-@Table(name = "tb_user")
-public class User {
+public class UserDTO {
 
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(
-            name = "UUID",
-            strategy = "org.hibernate.id.UUIDGenerator"
-    )
-    @Column(name = "ID", updatable = false, nullable = false)
-    @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;
     public String doc;
     public String email;
-    @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.DETACH,
-            CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
-    private  Plan plan;
-    public User(){}
+    private PlanDTO plan;
+
+    public UserDTO(){}
 
 
     public UUID getId() {
@@ -72,13 +53,10 @@ public class User {
         this.email = email;
     }
 
-    public Plan getPlan() {
+    public PlanDTO getPlan() {
         return plan;
     }
-
-    public void setPlan(Plan plan) {
+    public void setPlan(PlanDTO plan) {
         this.plan = plan;
     }
-
-
 }

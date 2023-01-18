@@ -4,16 +4,15 @@ package com.lewis.msuser.entities.domain;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Table(name = "tb_plan")
 public class Plan {
-
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -24,15 +23,17 @@ public class Plan {
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     private UUID id;
-    private Date start;
-    private Date finish;
-    @Column(name = "category_name")
-    private Category categoryName;
 
+    @DateTimeFormat(pattern="yyyy/dd/MM")
+    private Date start;
+    @DateTimeFormat(pattern="yyyy/dd/MM")
+    private Date finish;
+    @ManyToOne(cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
+    private Category category;
     @OneToOne(mappedBy = "plan")
     private  User user;
 
-
+    private Status status;
 
     public UUID getId() {
         return id;
@@ -58,12 +59,11 @@ public class Plan {
         this.finish = finish;
     }
 
-    public Category getCategoryName() {
-        return categoryName;
+    public Category getCategory() {
+        return category;
     }
-
-    public void setCategoryName(Category categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public User getUser() {
@@ -72,5 +72,13 @@ public class Plan {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
