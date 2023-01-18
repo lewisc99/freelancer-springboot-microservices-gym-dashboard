@@ -26,12 +26,13 @@ public class ResourceExceptionHandler {
         @ExceptionHandler(value= NullPointerException.class)
         protected  ResponseEntity<StandardError> NullPointException(NullPointerException exception, HttpServletRequest request)
         {
-            String messageError = "Invalid ID user Not Found:";
+            String messageError = "Invalid  User ID Not Found: " + exception.getMessage();
+            String error = "not found ID";
             HttpStatus status = HttpStatus.NOT_FOUND;
             StandardError standardError = new StandardError(
-                    Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
+                    Instant.now(), status.value(), error, messageError, request.getRequestURI()
             );
-            
+
             return ResponseEntity.status(status).body(standardError);
         }
 

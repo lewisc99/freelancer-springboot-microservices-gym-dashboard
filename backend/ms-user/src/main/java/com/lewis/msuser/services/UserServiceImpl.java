@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
         List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
 
         return userConvert.toUsersWithPagination(pageModel, page, usersConvertedToDTO);
+
     }
 
 
@@ -49,22 +50,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findById(UUID id)
     {
-        try
-        {
         Optional<User> user = userRepository.findById(id);
         if (user.isEmpty())
-            throw new NullPointerException();
+            throw new NullPointerException(id + "");
 
         return user.get();
-        }
-        catch (NullPointerException e)
-        {
-            throw new NullPointerException();
-        }
-        catch (Exception e)
-        {
-            throw new RuntimeException();
-        }
     }
     @Override
     public void delete(UUID id) {
