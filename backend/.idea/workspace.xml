@@ -49,20 +49,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in ms-user">
-    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UsersControllerTests.getByIdThrowsException">
     <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
       <module name="ms-user" />
@@ -115,13 +102,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsersControllerTests.getByIdThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
+      <option name="METHOD_NAME" value="getByIdThrowsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UsersControllerTests.getByIdThrowsException" />
         <item itemvalue="JUnit.All in ms-user" />
         <item itemvalue="JUnit.UsersControllerTests" />
         <item itemvalue="JUnit.UsersControllerTests.getByIdReturnsUserDTO" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>

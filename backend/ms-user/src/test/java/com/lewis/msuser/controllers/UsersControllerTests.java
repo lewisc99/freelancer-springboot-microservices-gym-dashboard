@@ -63,4 +63,14 @@ public class UsersControllerTests {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.username",is("Lewis")));
     }
+
+    @Test
+    @DisplayName("GetById throws Exception")
+    public void getByIdThrowsException() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/users/{id}","72f3e5f0-83be-4a8e-88db-fc124230f022")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is5xxServerError())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
 }
