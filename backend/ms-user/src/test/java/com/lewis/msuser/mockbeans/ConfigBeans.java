@@ -1,6 +1,7 @@
 package com.lewis.msuser.mockbeans;
 
 
+import com.lewis.msuser.config.UserConvert;
 import com.lewis.msuser.entities.domain.Category;
 import com.lewis.msuser.entities.domain.Plan;
 import com.lewis.msuser.entities.domain.User;
@@ -32,5 +33,4 @@ public class ConfigBeans {
     {
         return new Category();
     }
-
 }

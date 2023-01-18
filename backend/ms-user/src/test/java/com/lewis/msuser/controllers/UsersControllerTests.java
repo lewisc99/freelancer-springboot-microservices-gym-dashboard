@@ -1,5 +1,6 @@
 package com.lewis.msuser.controllers;
 import com.lewis.msuser.MsUserApplication;
+import com.lewis.msuser.config.UserConvert;
 import com.lewis.msuser.mockbeans.ConfigBeans;
 import com.lewis.msuser.services.contracts.UserService;
 import org.junit.jupiter.api.DisplayName;
@@ -32,6 +33,9 @@ public class UsersControllerTests {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserConvert userConvert;
 
     @Test
     @DisplayName("getAll Return UsersDTO")
@@ -70,7 +74,7 @@ public class UsersControllerTests {
     {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/users/{id}","72f3e5f0-83be-4a8e-88db-fc124230f022")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is5xxServerError())
+                .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
     }
 }

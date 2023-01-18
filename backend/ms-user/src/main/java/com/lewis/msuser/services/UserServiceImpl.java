@@ -13,11 +13,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.server.mvc.*;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @Service
 @Transactional
@@ -25,8 +28,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private UserConvert userConvert;
+
 
     @Override
     public void create(User user)
@@ -35,17 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UsersDTO findAll(PageModel pageModel)
+    public Page<User> findAll(PageModel pageModel)
     {
         Pageable paging = PageRequest.of(pageModel.getPagNumber(),pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
-        Page<User> page =  userRepository.findAll(paging);
-        List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
-
-        return userConvert.toUsersWithPagination(pageModel, page, usersConvertedToDTO);
-
+        return userRepository.findAll(paging);
     }
-
-
 
     @Override
     public User findById(UUID id)

@@ -7,9 +7,11 @@ import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -25,15 +27,19 @@ public class UsersController {
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
-        UsersDTO usersDTO = userService.findAll(pageModel);
+        Page<User> page = userService.findAll(pageModel);
+        List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
+        UsersDTO usersDTO = userConvert.toUsersWithPagination(pageModel, page, usersConvertedToDTO);
+
         UsersDTO  usersHATEOAS = userConvert.toHateoas(usersDTO, pageModel);
         return ResponseEntity.ok(usersHATEOAS);
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<User> getById(@PathVariable String id)
+    public ResponseEntity<UserDTO> getById(@PathVariable String id)
     {
-        User userDTO =  userService.findById(UUID.fromString(id));
+        User user =  userService.findById(UUID.fromString(id));
+        UserDTO userDTO = userConvert.toUserHATEOAS(user);
         return ResponseEntity.ok(userDTO);
     }
 

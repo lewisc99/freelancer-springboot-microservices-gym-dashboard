@@ -3,10 +3,12 @@ import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.entities.models.PageModel;
+import org.springframework.data.domain.Page;
+
 import java.util.UUID;
 
 public interface UserService {
-     UsersDTO findAll(PageModel page);
+     Page<User> findAll(PageModel page);
      User findById(UUID id);
      void  create(User user);
      void update(UserModel user);
