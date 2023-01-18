@@ -19,7 +19,6 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
-
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
@@ -27,8 +26,5 @@ public class UsersController {
         UsersDTO  usersHATEOAS = userConvert.toHateoas(usersDTO, pageModel);
         return ResponseEntity.ok(usersHATEOAS);
     }
-
-
-
 
 }

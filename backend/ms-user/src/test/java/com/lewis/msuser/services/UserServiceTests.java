@@ -116,12 +116,12 @@ public class UserServiceTests {
     public void getAllReturnUsers()
     {
         PageModel pageModel = new PageModel();
-        pageModel.setNumber(1);
-        pageModel.setSize(2);
+        pageModel.setPagNumber(1);
+        pageModel.setPagSize(2);
         pageModel.setSortBy("username");
 
         Page<User> page = new PageImpl<>(users);
-        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
         UsersDTO result = userService.findAll(pageModel);
 
@@ -133,11 +133,11 @@ public class UserServiceTests {
     public void getAllReturnsRuntimeException()
     {
         PageModel pageModel = new PageModel();
-        pageModel.setNumber(1);
-        pageModel.setSize(2);
+        pageModel.setPagNumber(1);
+        pageModel.setPagSize(2);
         pageModel.setSortBy("username");
 
-        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenThrow(RuntimeException.class);
 
         assertThrows( RuntimeException.class, () -> {userService.findAll(pageModel);});
@@ -147,12 +147,12 @@ public class UserServiceTests {
     public void getAllReturnsSortByUsername()
     {
         PageModel pageModel = new PageModel();
-        pageModel.setNumber(1);
-        pageModel.setSize(2);
+        pageModel.setPagNumber(1);
+        pageModel.setPagSize(2);
         pageModel.setSortBy("username");
 
         Page<User> page = new PageImpl<>(users);
-        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
 
         UsersDTO result = userService.findAll(pageModel);
@@ -165,11 +165,11 @@ public class UserServiceTests {
     public void getAllThrowsIllegalArgumentException()
     {
         PageModel pageModel = new PageModel();
-        pageModel.setNumber(1);
-        pageModel.setSize(2);
+        pageModel.setPagNumber(1);
+        pageModel.setPagSize(2);
         pageModel.setSortBy("username");
 
-        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenThrow(IllegalArgumentException.class);
         assertThrows(IllegalArgumentException.class, () -> {userService.findAll(pageModel);});
     }

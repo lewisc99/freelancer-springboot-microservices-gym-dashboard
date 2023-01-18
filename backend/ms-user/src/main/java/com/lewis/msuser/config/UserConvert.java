@@ -34,8 +34,8 @@ public class UserConvert {
 
     public  UsersDTO toUsersWithPagination(PageModel pageModel, Page<User> page, List<UserDTO> usersConvertedToDTO) {
         UsersDTO usersDTO = new UsersDTO();
-        usersDTO.getPage().setNumber(pageModel.getNumber());
-        usersDTO.getPage().setSize(pageModel.getSize());
+        usersDTO.getPage().setNumber(pageModel.getPagNumber());
+        usersDTO.getPage().setSize(pageModel.getPagSize());
         usersDTO.getPage().setTotalPages(page.getTotalPages());
         usersDTO.getPage().setTotalElements(page.getTotalElements());
         usersDTO.set_embedded(usersConvertedToDTO);

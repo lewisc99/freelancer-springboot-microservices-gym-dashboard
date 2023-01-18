@@ -39,13 +39,12 @@ public class UserServiceImpl implements UserService {
     {
         try
         {
-        Pageable paging = PageRequest.of(pageModel.getNumber(),pageModel.getSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(),pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         Page<User> page =  userRepository.findAll(paging);
         List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
 
         return userConvert.toUsersWithPagination(pageModel, page, usersConvertedToDTO);
         }
-
         catch (IllegalArgumentException exception)
         {
             throw new IllegalArgumentException();

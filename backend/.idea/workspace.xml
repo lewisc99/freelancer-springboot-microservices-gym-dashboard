@@ -33,13 +33,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/arquivos/programation/workspace-java/2023/month-1/gym-project/backend/ms-user/src/test/resources",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.All in ms-user">
     <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
@@ -62,49 +71,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTests.createUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
+    <configuration name="EmployeeControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.services.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
-      <option name="METHOD_NAME" value="createUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.lewis.msemployee.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.controllers.EmployeeControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTests.deleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.services.*" />
+          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
-      <option name="METHOD_NAME" value="deleteUser" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserServiceTests.getByIdThrowNullPointException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersControllerTests.getAllReturnUsersDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.services.*" />
+          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser.services" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.services.UserServiceTests" />
-      <option name="METHOD_NAME" value="getByIdThrowNullPointException" />
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
+      <option name="METHOD_NAME" value="getAllReturnUsersDTO" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -113,10 +120,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in ms-user" />
+        <item itemvalue="JUnit.EmployeeControllerTest" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="JUnit.UserServiceTests.deleteUser" />
-        <item itemvalue="JUnit.UserServiceTests.createUser" />
-        <item itemvalue="JUnit.UserServiceTests.getByIdThrowNullPointException" />
+        <item itemvalue="JUnit.UsersControllerTests.getAllReturnUsersDTO" />
+        <item itemvalue="JUnit.UsersControllerTests" />
       </list>
     </recent_temporary>
   </component>
