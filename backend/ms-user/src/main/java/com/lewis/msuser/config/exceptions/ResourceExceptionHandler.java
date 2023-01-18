@@ -1,5 +1,6 @@
 package com.lewis.msuser.config.exceptions;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -31,6 +32,17 @@ public class ResourceExceptionHandler {
             HttpStatus status = HttpStatus.NOT_FOUND;
             StandardError standardError = new StandardError(
                     Instant.now(), status.value(), error, messageError, request.getRequestURI()
+            );
+
+            return ResponseEntity.status(status).body(standardError);
+        }
+        @ExceptionHandler(value= EmptyResultDataAccessException.class)
+        protected  ResponseEntity<StandardError> EmptyResultDataAccessException(EmptyResultDataAccessException exception, HttpServletRequest request)
+        {
+            String messageError = "Invalid  User ID Not Found.";
+            HttpStatus status = HttpStatus.NOT_FOUND;
+            StandardError standardError = new StandardError(
+                    Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
             );
 
             return ResponseEntity.status(status).body(standardError);

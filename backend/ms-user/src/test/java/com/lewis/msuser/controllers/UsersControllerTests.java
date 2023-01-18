@@ -49,8 +49,8 @@ public class UsersControllerTests {
     }
 
     @Test
-    @DisplayName("getAll throws IllegalArgumentException")
-    public void getAllThrowsIllegalArgumentException() throws Exception
+    @DisplayName("getAll returns IllegalArgumentException")
+    public void getAllReturnsIllegalArgumentException() throws Exception
     {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/users")
                 .param("pagNumber","1").contentType(MediaType.APPLICATION_JSON))
@@ -69,12 +69,30 @@ public class UsersControllerTests {
     }
 
     @Test
-    @DisplayName("GetById throws Exception")
-    public void getByIdThrowsException() throws Exception
+    @DisplayName("GetById return NotFoundId")
+    public void getByIdReturnNotFoundId() throws Exception
     {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/users/{id}","72f3e5f0-83be-4a8e-88db-fc124230f022")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+    }
+
+    @Test
+    @DisplayName("Delete returns 204")
+    public void deleteReturns204() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/users/{id}", "82f3e5f0-83be-4a8e-88db-fc124230f022"))
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
+    @DisplayName("GetById Returns NotFoundId")
+    public void deleteReturnsNotFoundId() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/v1/users/{id}","62f3e5f0-83be-4a8e-88db-fc124230f022"))
+                .andExpect(status().isNotFound())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.message",is("Invalid  User ID Not Found.")));
     }
 }

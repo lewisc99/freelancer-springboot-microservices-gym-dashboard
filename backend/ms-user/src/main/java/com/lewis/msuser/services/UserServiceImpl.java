@@ -54,13 +54,7 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public void delete(UUID id) {
-        try
-        {
-            userRepository.deleteById(id);
-        } catch (NullPointerException e)
-        {
-            throw new NullPointerException();
-        }
+          userRepository.deleteById(id);
     }
 
     @Override

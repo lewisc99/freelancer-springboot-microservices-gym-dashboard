@@ -43,4 +43,14 @@ public class UsersController {
         return ResponseEntity.ok(userDTO);
     }
 
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id)
+    {
+        userService.delete(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
+    }
+
+
+
+
 }
