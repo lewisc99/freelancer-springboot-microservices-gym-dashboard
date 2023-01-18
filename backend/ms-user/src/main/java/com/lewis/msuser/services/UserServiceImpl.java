@@ -1,9 +1,6 @@
 package com.lewis.msuser.services;
 
-import com.lewis.msuser.config.UserConvert;
 import com.lewis.msuser.entities.domain.User;
-import com.lewis.msuser.entities.dto.UserDTO;
-import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.repositories.UserRepository;
@@ -13,22 +10,16 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.mvc.*;
 import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
-
-
 
     @Override
     public void create(User user)

@@ -26,7 +26,7 @@ public class Category {
     private UUID id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL})
     @JsonIgnore
     private List<Plan> plans;
     public UUID getId() {

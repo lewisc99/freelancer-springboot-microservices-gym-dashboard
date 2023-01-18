@@ -1,8 +1,12 @@
 package com.lewis.msuser.controllers;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lewis.msuser.MsUserApplication;
 import com.lewis.msuser.config.UserConvert;
+import com.lewis.msuser.entities.domain.Status;
+import com.lewis.msuser.entities.models.CategoryModel;
+import com.lewis.msuser.entities.models.PlanModel;
+import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.mockbeans.ConfigBeans;
-import com.lewis.msuser.services.contracts.UserService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +15,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import javax.transaction.Transactional;
+import java.util.UUID;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -32,10 +38,43 @@ public class UsersControllerTests {
     private MockMvc mockMvc;
 
     @Autowired
-    private UserService userService;
+    private UserConvert userConvert;
 
     @Autowired
-    private UserConvert userConvert;
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private CategoryModel categoryModel;
+
+    @Autowired
+    private PlanModel planModel;
+
+    @Autowired
+    private UserModel userModel;
+
+    @Test
+    @DisplayName("create return status 204")
+    @Rollback(value = false)
+    public void createReturnStatus204() throws Exception
+    {
+
+        categoryModel.setId(UUID.fromString("a76bbf8f-0f0b-4963-8bce-cabac88f667e"));
+        categoryModel.setName("BASIC");
+
+        userModel.setId(UUID.fromString("80433975-6f43-4426-9783-a5c833cd37e3"));
+        userModel.setUsername("Matthew");
+        userModel.setAge(19);
+        userModel.setDoc("09393933");
+        userModel.setEmail("matthew.js@gmail.com");
+        planModel.setCategory(categoryModel);
+        planModel.setStatus(Status.valueOf(1));
+        userModel.setPlan(planModel);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/v1/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(userModel)))
+                .andExpect(status().isCreated());
+    }
 
     @Test
     @DisplayName("getAll Return UsersDTO")

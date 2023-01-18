@@ -26,8 +26,7 @@ public class User {
     public Integer age;
     public String doc;
     public String email;
-    @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.DETACH,CascadeType.DETACH,
-            CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private  Plan plan;
     public User(){}
 

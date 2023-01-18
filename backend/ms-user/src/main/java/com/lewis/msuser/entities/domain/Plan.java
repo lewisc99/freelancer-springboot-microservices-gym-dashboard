@@ -29,7 +29,7 @@ public class Plan {
     private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     private Category category;
     @OneToOne(mappedBy = "plan")
     @JsonIgnore

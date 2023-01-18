@@ -5,7 +5,9 @@ import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.PageModel;
+import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.services.contracts.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +26,22 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ModelMapper mapper;
 
+    @PostMapping
+    public ResponseEntity<Void> create(@RequestBody UserModel userModel)
+    {
+        User user = mapper.map(userModel,User.class);
+        userService.create(user);
+        return ResponseEntity.accepted().build();
+    }
+
+    @GetMapping("/usermodel")
+    public ResponseEntity<UserModel> get()
+    {
+        return ResponseEntity.ok(new UserModel());
+    }
 
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
