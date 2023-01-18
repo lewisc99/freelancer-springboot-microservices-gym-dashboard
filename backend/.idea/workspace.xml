@@ -49,7 +49,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.com.lewis.msuser.controllers in ms-user">
+  <component name="RunManager" selected="JUnit.UsersControllerTests.patchReturnsRequestMethodNotSupported">
     <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
       <module name="ms-user" />
@@ -71,7 +71,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersControllerTests.deleteReturnsNot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
@@ -81,12 +81,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="deleteReturnsNot" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersControllerTests.getByIdThrowsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UsersControllerTests.patchReturnsRequestMethodNotSupported" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
         <pattern>
@@ -96,7 +97,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
       <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
-      <option name="METHOD_NAME" value="getByIdThrowsException" />
+      <option name="METHOD_NAME" value="patchReturnsRequestMethodNotSupported" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -118,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UsersControllerTests.patchReturnsRequestMethodNotSupported" />
+        <item itemvalue="JUnit.UsersControllerTests.deleteReturnsNot" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="JUnit.com.lewis.msuser.controllers in ms-user" />
         <item itemvalue="JUnit.All in ms-user" />
-        <item itemvalue="JUnit.UsersControllerTests" />
-        <item itemvalue="JUnit.UsersControllerTests.getByIdThrowsException" />
+        <item itemvalue="JUnit.com.lewis.msuser.controllers in ms-user" />
       </list>
     </recent_temporary>
   </component>

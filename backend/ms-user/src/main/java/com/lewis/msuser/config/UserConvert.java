@@ -50,7 +50,7 @@ public class UserConvert {
     public UsersDTO toHateoas(UsersDTO usersDTO, PageModel pageModel) {
         List<EntityModel<UserDTO>> usersAddLink = StreamSupport.stream(usersDTO.get_embedded().spliterator(), false)
                 .map(user -> EntityModel.of(user,
-                  linkTo(methodOn(UsersController.class).get(pageModel)).withRel("GET-ALL-USERS")))
+                  linkTo(methodOn(UsersController.class).getById(String.valueOf(user.getId()))).withRel("GET-BY-ID")))
                 .collect(Collectors.toList());
 
         usersDTO.get_embedded().clear();
@@ -63,7 +63,6 @@ public class UserConvert {
         }
         return usersDTO;
     }
-
     public UserDTO toUserHATEOAS(User user)
     {
         EntityModel<User> entityModel = EntityModel.of(user);

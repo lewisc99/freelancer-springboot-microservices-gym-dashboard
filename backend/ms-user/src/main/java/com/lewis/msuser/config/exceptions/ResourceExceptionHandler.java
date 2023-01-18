@@ -54,8 +54,8 @@ public class ResourceExceptionHandler {
         protected  ResponseEntity<StandardError> HttpRequestMethodNotSupportedException
                 (HttpRequestMethodNotSupportedException exception, HttpServletRequest request)
         {
-            String messageError = "Method Not Supported";
-            HttpStatus status = HttpStatus.NOT_FOUND;
+            String messageError = "Request Method Not Supported";
+            HttpStatus status = HttpStatus.BAD_REQUEST;
             StandardError standardError = new StandardError(
                     Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
             );

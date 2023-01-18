@@ -95,4 +95,15 @@ public class UsersControllerTests {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.message",is("Invalid  User ID Not Found.")));
     }
+
+    @Test
+    @DisplayName("Patch Returns Request Method Not Supported")
+    public void patchReturnsRequestMethodNotSupported() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.patch("/v1/users/{id}","62f3e5f0-83be-4a8e-88db-fc124230f022"))
+                .andExpect(status().isBadRequest())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.message",is("Request Method Not Supported")));
+    }
+
 }

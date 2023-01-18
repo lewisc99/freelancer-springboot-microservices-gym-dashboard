@@ -24,6 +24,8 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
+
+
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
@@ -49,8 +51,5 @@ public class UsersController {
         userService.delete(UUID.fromString(id));
         return ResponseEntity.noContent().build();
     }
-
-
-
 
 }
