@@ -1,25 +1,25 @@
 package com.lewis.msuser.entities.models;
 
-public class pageModel {
+public class PageModel {
 
-    private  int pagNumber;
-    private int pagSize;
+    private  int Number;
+    private int Size;
     private String sortBy;
 
-    public int getPagNumber() {
-        return pagNumber;
+    public int getNumber() {
+        return Number;
     }
 
-    public void setPagNumber(int pagNumber) {
-        this.pagNumber = pagNumber;
+    public void setNumber(int number) {
+        Number = number;
     }
 
-    public int getPagSize() {
-        return pagSize;
+    public int getSize() {
+        return Size;
     }
 
-    public void setPagSize(int pagSize) {
-        this.pagSize = pagSize;
+    public void setSize(int size) {
+        Size = size;
     }
 
     public String getSortBy() {

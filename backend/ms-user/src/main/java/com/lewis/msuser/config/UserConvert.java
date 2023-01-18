@@ -3,7 +3,7 @@ import com.lewis.msuser.controllers.UsersController;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
-import com.lewis.msuser.entities.models.pageModel;
+import com.lewis.msuser.entities.models.PageModel;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
-
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -33,17 +32,17 @@ public class UserConvert {
         return usersDTO;
     }
 
-    public  UsersDTO toUsersWithPagination(pageModel pageModel, Page<User> page, List<UserDTO> usersConvertedToDTO) {
+    public  UsersDTO toUsersWithPagination(PageModel pageModel, Page<User> page, List<UserDTO> usersConvertedToDTO) {
         UsersDTO usersDTO = new UsersDTO();
-        usersDTO.getPage().setNumber(pageModel.getPagNumber());
-        usersDTO.getPage().setSize(pageModel.getPagSize());
+        usersDTO.getPage().setNumber(pageModel.getNumber());
+        usersDTO.getPage().setSize(pageModel.getSize());
         usersDTO.getPage().setTotalPages(page.getTotalPages());
         usersDTO.getPage().setTotalElements(page.getTotalElements());
         usersDTO.set_embedded(usersConvertedToDTO);
         return usersDTO;
     }
 
-    public UsersDTO toHateoas(UsersDTO usersDTO, pageModel pageModel) {
+    public UsersDTO toHateoas(UsersDTO usersDTO, PageModel pageModel) {
         List<EntityModel<UserDTO>> usersAddLink = StreamSupport.stream(usersDTO.get_embedded().spliterator(), false)
                 .map(user -> EntityModel.of(user,
                   linkTo(methodOn(UsersController.class).get(pageModel)).withRel("GET-ALL-USERS")))

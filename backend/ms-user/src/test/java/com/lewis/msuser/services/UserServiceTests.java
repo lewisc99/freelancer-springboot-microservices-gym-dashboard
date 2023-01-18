@@ -5,6 +5,8 @@ import com.lewis.msuser.entities.domain.Category;
 import com.lewis.msuser.entities.domain.Plan;
 import com.lewis.msuser.entities.domain.Status;
 import com.lewis.msuser.entities.domain.User;
+import com.lewis.msuser.entities.dto.UsersDTO;
+import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.mockbeans.ConfigBeans;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.UserService;
@@ -113,59 +115,63 @@ public class UserServiceTests {
     @DisplayName("GetAll return Users")
     public void getAllReturnUsers()
     {
-        int pagNumber = 1;
-        int pagSize = 1;
-        String sortBy = "username";
+        PageModel pageModel = new PageModel();
+        pageModel.setNumber(1);
+        pageModel.setSize(2);
+        pageModel.setSortBy("username");
 
         Page<User> page = new PageImpl<>(users);
-        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
-        List<User> result = userService.findAll(pagNumber,pagSize,sortBy);
+        UsersDTO result = userService.findAll(pageModel);
 
-        assertEquals(2,result.size());
+        assertEquals(2,result.get_embedded().size());
     }
 
     @Test
     @DisplayName("GetAll Returns RuntimeException")
     public void getAllReturnsRuntimeException()
     {
-        int pagNumber = 10;
-        int pagSize = 1;
-        String sortBy = "username";
+        PageModel pageModel = new PageModel();
+        pageModel.setNumber(1);
+        pageModel.setSize(2);
+        pageModel.setSortBy("username");
 
-        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenThrow(RuntimeException.class);
 
-        assertThrows( RuntimeException.class, () -> {userService.findAll(pagNumber,pagSize, sortBy);});
+        assertThrows( RuntimeException.class, () -> {userService.findAll(pageModel);});
     }
     @Test
     @DisplayName("GetAll Returns SortByUsername")
     public void getAllReturnsSortByUsername()
     {
-        int pagNumber = 1;
-        int pagSize = 2;
-        String sortBy = "username";
+        PageModel pageModel = new PageModel();
+        pageModel.setNumber(1);
+        pageModel.setSize(2);
+        pageModel.setSortBy("username");
 
         Page<User> page = new PageImpl<>(users);
-        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
 
-        List<User> result = userService.findAll(pagNumber,pagSize,sortBy);
+        UsersDTO result = userService.findAll(pageModel);
 
-        assertEquals("Lewis", result.get(0).getUsername());
+        assertEquals("Lewis", result.get_embedded().get(0).getUsername());
     }
 
     @Test
     @DisplayName("GetAll throws IllegalArgumentException")
     public void getAllThrowsIllegalArgumentException()
     {
-        int pagNumber = 0;
-        int pagSize = 1;
-        String sortBy = "username";
+        PageModel pageModel = new PageModel();
+        pageModel.setNumber(1);
+        pageModel.setSize(2);
+        pageModel.setSortBy("username");
 
-        Pageable paging = PageRequest.of(pagNumber, pagSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(pageModel.getNumber(), pageModel.getSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenThrow(IllegalArgumentException.class);
-        assertThrows(IllegalArgumentException.class, () -> {userService.findAll(pagNumber,pagSize,sortBy);});
+        assertThrows(IllegalArgumentException.class, () -> {userService.findAll(pageModel);});
     }
 
     @Test

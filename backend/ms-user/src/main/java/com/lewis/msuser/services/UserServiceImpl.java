@@ -5,7 +5,7 @@ import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.UserModel;
-import com.lewis.msuser.entities.models.pageModel;
+import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +35,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UsersDTO findAll(pageModel pageModel)
+    public UsersDTO findAll(PageModel pageModel)
     {
         try
         {
-        Pageable paging = PageRequest.of(pageModel.getPagNumber(),pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
+        Pageable paging = PageRequest.of(pageModel.getNumber(),pageModel.getSize(), Sort.by(pageModel.getSortBy()));
         Page<User> page =  userRepository.findAll(paging);
         List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
 
