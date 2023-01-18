@@ -118,9 +118,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="JUnit.com.lewis.msuser.controllers in ms-user" />
         <item itemvalue="JUnit.All in ms-user" />
-        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="JUnit.UsersControllerTests" />
         <item itemvalue="JUnit.UsersControllerTests.getByIdThrowsException" />
       </list>

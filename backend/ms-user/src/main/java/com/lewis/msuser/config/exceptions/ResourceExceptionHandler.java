@@ -3,6 +3,7 @@ package com.lewis.msuser.config.exceptions;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,7 @@ public class ResourceExceptionHandler {
 
             return ResponseEntity.status(status).body(standardError);
         }
+
         @ExceptionHandler(value= EmptyResultDataAccessException.class)
         protected  ResponseEntity<StandardError> EmptyResultDataAccessException(EmptyResultDataAccessException exception, HttpServletRequest request)
         {
@@ -45,6 +47,18 @@ public class ResourceExceptionHandler {
                     Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
             );
 
+            return ResponseEntity.status(status).body(standardError);
+        }
+
+        @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
+        protected  ResponseEntity<StandardError> HttpRequestMethodNotSupportedException
+                (HttpRequestMethodNotSupportedException exception, HttpServletRequest request)
+        {
+            String messageError = "Method Not Supported";
+            HttpStatus status = HttpStatus.NOT_FOUND;
+            StandardError standardError = new StandardError(
+                    Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
+            );
             return ResponseEntity.status(status).body(standardError);
         }
 
