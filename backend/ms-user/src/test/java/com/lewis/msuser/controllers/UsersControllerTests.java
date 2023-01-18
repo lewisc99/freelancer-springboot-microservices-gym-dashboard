@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import javax.transaction.Transactional;
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Profile("test")
@@ -44,11 +45,22 @@ public class UsersControllerTests {
     }
 
     @Test
-    @DisplayName("getAll return Exception")
-    public void getAllReturnException() throws Exception
+    @DisplayName("getAll throws IllegalArgumentException")
+    public void getAllThrowsIllegalArgumentException() throws Exception
     {
         mockMvc.perform(MockMvcRequestBuilders.get("/v1/users")
                 .param("pagNumber","1").contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message",is("Invalid Input please verify!")));
+    }
+
+    @Test
+    @DisplayName("getById returns UserDTO")
+    public void getByIdReturnsUserDTO() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/users/{id}","82f3e5f0-83be-4a8e-88db-fc124230f022")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.username",is("Lewis")));
     }
 }

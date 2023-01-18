@@ -1,5 +1,6 @@
 package com.lewis.msuser.entities.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -26,6 +27,7 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Plan> plans;
     public UUID getId() {
         return id;
