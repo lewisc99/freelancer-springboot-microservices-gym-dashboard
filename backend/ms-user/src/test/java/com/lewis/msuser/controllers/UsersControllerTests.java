@@ -43,4 +43,12 @@ public class UsersControllerTests {
                 .andExpect(jsonPath("$._embedded",hasSize(2)));
     }
 
+    @Test
+    @DisplayName("getAll return Exception")
+    public void getAllReturnException() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/users")
+                .param("pagNumber","1").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 }
