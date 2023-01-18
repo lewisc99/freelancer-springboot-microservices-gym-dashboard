@@ -123,9 +123,9 @@ public class UserServiceTests {
         Page<User> page = new PageImpl<>(users);
         Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
-        UsersDTO result = userService.findAll(pageModel);
+        Page<User> result = userService.findAll(pageModel);
 
-        assertEquals(2,result.get_embedded().size());
+        assertEquals(2,result.toList().size());
     }
 
     @Test
@@ -155,9 +155,9 @@ public class UserServiceTests {
         Pageable paging = PageRequest.of(pageModel.getPagNumber(), pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         when(userRepository.findAll(paging)).thenReturn(page);
 
-        UsersDTO result = userService.findAll(pageModel);
+        Page<User> result = userService.findAll(pageModel);
 
-        assertEquals("Lewis", result.get_embedded().get(0).getUsername());
+        assertEquals("Lewis", result.toList().get(0).getUsername());
     }
 
     @Test
