@@ -1,4 +1,6 @@
 package com.lewis.msuser.entities.dto;
+import org.springframework.hateoas.Links;
+
 import java.util.UUID;
 
 public class UserDTO {
@@ -9,6 +11,8 @@ public class UserDTO {
     public String doc;
     public String email;
     private PlanDTO plan;
+
+    private Links links;
 
     public UserDTO(){}
 
@@ -58,5 +62,13 @@ public class UserDTO {
     }
     public void setPlan(PlanDTO plan) {
         this.plan = plan;
+    }
+
+    public Links getLinks() {
+        return links;
+    }
+
+    public void setLinks(Links links) {
+        this.links = links;
     }
 }

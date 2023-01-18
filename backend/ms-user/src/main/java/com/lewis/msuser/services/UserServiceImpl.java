@@ -1,7 +1,11 @@
 package com.lewis.msuser.services;
 
+import com.lewis.msuser.config.UserConvert;
 import com.lewis.msuser.entities.domain.User;
+import com.lewis.msuser.entities.dto.UserDTO;
+import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.UserModel;
+import com.lewis.msuser.entities.models.pageModel;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,25 +25,34 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UserConvert userConvert;
+
     @Override
     public void create(User user)
     {
         userRepository.save(user);
     }
+
     @Override
-    public List<User> findAll(int pagNumber, int pagSize,String sortBy)
+    public UsersDTO findAll(pageModel pageModel)
     {
         try
         {
-        Pageable paging = PageRequest.of(pagNumber,pagSize, Sort.by(sortBy));
+        Pageable paging = PageRequest.of(pageModel.getPagNumber(),pageModel.getPagSize(), Sort.by(pageModel.getSortBy()));
         Page<User> page =  userRepository.findAll(paging);
-        return page.toList();
+        List<UserDTO> usersConvertedToDTO = userConvert.toUsersDTO(page.toList());
+
+        return userConvert.toUsersWithPagination(pageModel, page, usersConvertedToDTO);
         }
+
         catch (IllegalArgumentException exception)
         {
             throw new IllegalArgumentException();
         }
     }
+
+
 
     @Override
     public User findById(UUID id)
