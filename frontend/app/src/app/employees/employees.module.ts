@@ -7,8 +7,6 @@ import { EmployeeUpdateComponent } from './employee-update/employee-update.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { SharedModule } from '../shared/shared.module';
-import { UserListComponent } from './user-list/user-list.component';
-
 
 var routes:Routes = [
     {path:"employees",component:EmployeeListComponent},
@@ -24,7 +22,6 @@ var routes:Routes = [
         EmployeeByIdComponent,
         EmployeeUpdateComponent,
         EmployeeCreateComponent,
-        UserListComponent
     ],
     imports: [
         BrowserModule,
