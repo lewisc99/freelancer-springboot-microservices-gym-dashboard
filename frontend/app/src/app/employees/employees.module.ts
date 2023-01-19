@@ -7,6 +7,7 @@ import { EmployeeUpdateComponent } from './employee-update/employee-update.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { SharedModule } from '../shared/shared.module';
+import { UserListComponent } from './user-list/user-list.component';
 
 
 var routes:Routes = [
@@ -22,11 +23,12 @@ var routes:Routes = [
         EmployeeListComponent,
         EmployeeByIdComponent,
         EmployeeUpdateComponent,
-        EmployeeCreateComponent
+        EmployeeCreateComponent,
+        UserListComponent
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes),
+        RouterModule.forChild(routes),
         ReactiveFormsModule,
         SharedModule
     ]
