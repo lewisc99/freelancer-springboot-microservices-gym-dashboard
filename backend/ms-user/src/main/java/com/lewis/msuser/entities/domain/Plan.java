@@ -1,6 +1,7 @@
 package com.lewis.msuser.entities.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -19,7 +20,7 @@ public class Plan {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     private UUID id;
@@ -28,9 +29,10 @@ public class Plan {
     private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
-    @ManyToOne(cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
+    @ManyToOne
     private Category category;
     @OneToOne(mappedBy = "plan")
+    @JsonIgnore
     private  User user;
 
     private Status status;

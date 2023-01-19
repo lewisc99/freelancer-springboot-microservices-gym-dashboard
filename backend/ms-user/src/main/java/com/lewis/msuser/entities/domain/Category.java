@@ -1,10 +1,12 @@
 package com.lewis.msuser.entities.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,14 +21,12 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     private UUID id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Plan> plans;
     public UUID getId() {
         return id;
     }

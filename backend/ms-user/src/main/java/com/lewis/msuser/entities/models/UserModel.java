@@ -5,7 +5,6 @@ import org.springframework.lang.Nullable;
 import java.util.UUID;
 
 public class UserModel {
-
     @Nullable
     @Type(type = "uuid-char")
     public UUID id;
@@ -16,7 +15,6 @@ public class UserModel {
     private PlanModel plan;
 
     public UserModel(){}
-
 
     public UUID getId() {
         return id;

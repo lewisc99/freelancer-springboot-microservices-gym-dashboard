@@ -1,5 +1,6 @@
 package com.lewis.msuser.entities.models;
 
+import com.lewis.msuser.entities.domain.Status;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
@@ -11,9 +12,11 @@ public class PlanModel {
     @Type(type = "uuid-char")
     private UUID id;
     @DateTimeFormat(pattern="yyyy/dd/MM")
-    private Date start;
+    private Date start  ;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
+
+    private Status status;
     private CategoryModel category;
     private UserModel user;
 
@@ -44,6 +47,14 @@ public class PlanModel {
 
     public CategoryModel getCategory() {
         return category;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public void setCategory(CategoryModel category) {
