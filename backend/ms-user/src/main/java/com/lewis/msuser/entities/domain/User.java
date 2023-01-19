@@ -18,13 +18,17 @@ public class User {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false)
+    @Column(name = "ID", updatable = false, nullable = false, unique = true)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;
+
+    @Column(unique = true)
     public String doc;
+
+    @Column(unique = true)
     public String email;
     @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private  Plan plan;

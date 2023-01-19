@@ -20,7 +20,7 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true)
     @ColumnDefault("random_uuid()")
     @Type(type = "uuid-char")
     private UUID id;

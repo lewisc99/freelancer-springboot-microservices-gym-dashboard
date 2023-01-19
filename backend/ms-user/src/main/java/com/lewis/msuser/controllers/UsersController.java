@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.servlet.http.HttpServletRequest;
+import java.net.URI;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,11 +33,12 @@ public class UsersController {
     private ModelMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody UserModel userModel)
+    public ResponseEntity<Void> create(@RequestBody UserModel userModel, HttpServletRequest request)
     {
         User user = mapper.map(userModel,User.class);
         userService.create(user);
-        return ResponseEntity.accepted().build();
+
+        return ResponseEntity.status(201).build();
     }
 
     @GetMapping("/usermodel")

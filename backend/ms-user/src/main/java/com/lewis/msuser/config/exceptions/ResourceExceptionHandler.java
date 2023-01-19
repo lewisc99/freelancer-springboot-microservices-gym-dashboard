@@ -1,5 +1,6 @@
 package com.lewis.msuser.config.exceptions;
 
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +60,21 @@ public class ResourceExceptionHandler {
             StandardError standardError = new StandardError(
                     Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
             );
+            return ResponseEntity.status(status).body(standardError);
+        }
+
+        @ExceptionHandler(value = ConstraintViolationException.class)
+        protected ResponseEntity<StandardError>  ConstraintViolationException
+                (ConstraintViolationException exception, HttpServletRequest request)
+        {
+            String messageError = "Please certify if the data is correct" +
+                    "Another User With same data have been found";
+
+            HttpStatus status = HttpStatus.BAD_REQUEST;
+            StandardError standardError = new StandardError(
+                    Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
+            );
+
             return ResponseEntity.status(status).body(standardError);
         }
 

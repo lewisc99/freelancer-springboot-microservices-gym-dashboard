@@ -63,6 +63,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in ms-user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <option name="PACKAGE_NAME" value="" />
@@ -102,29 +110,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersControllerTests.patchReturnsRequestMethodNotSupported" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
-      <option name="METHOD_NAME" value="patchReturnsRequestMethodNotSupported" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsUserApplication" />
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="JUnit.UsersControllerTests.createReturnStatus204" />
         <item itemvalue="JUnit.All in ms-user" />
         <item itemvalue="JUnit.UsersControllerTests" />
-        <item itemvalue="JUnit.UsersControllerTests.patchReturnsRequestMethodNotSupported" />
       </list>
     </recent_temporary>
   </component>

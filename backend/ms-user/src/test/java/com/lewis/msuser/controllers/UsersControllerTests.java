@@ -19,6 +19,8 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.UUID;
 import static org.hamcrest.Matchers.hasSize;
@@ -52,6 +54,9 @@ public class UsersControllerTests {
     @Autowired
     private UserModel userModel;
 
+    @Autowired
+    private PersistenceContext context;
+
     @Test
     @DisplayName("create return status 204")
     @Rollback(value = false)
@@ -60,7 +65,6 @@ public class UsersControllerTests {
 
         categoryModel.setId(UUID.fromString("a76bbf8f-0f0b-4963-8bce-cabac88f667e"));
         categoryModel.setName("BASIC");
-
         userModel.setId(UUID.fromString("80433975-6f43-4426-9783-a5c833cd37e3"));
         userModel.setUsername("Matthew");
         userModel.setAge(19);
