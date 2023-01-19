@@ -5,7 +5,6 @@ import com.lewis.msuser.entities.domain.Category;
 import com.lewis.msuser.entities.domain.Plan;
 import com.lewis.msuser.entities.domain.Status;
 import com.lewis.msuser.entities.domain.User;
-import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.mockbeans.ConfigBeans;
 import com.lewis.msuser.repositories.UserRepository;

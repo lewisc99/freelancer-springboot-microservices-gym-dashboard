@@ -1,8 +1,8 @@
 package com.lewis.msuser.services;
 
 import com.lewis.msuser.entities.domain.User;
-import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.entities.models.PageModel;
+import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
