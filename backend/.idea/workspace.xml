@@ -79,21 +79,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UsersControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UsersControllerTests.createReturnStatus204" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ms-user" />
       <extension name="coverage">
@@ -110,13 +95,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="com.lewis.msuser in ms-user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="JUnit.All in ms-employee" />
-        <item itemvalue="JUnit.UsersControllerTests.createReturnStatus204" />
         <item itemvalue="JUnit.All in ms-user" />
-        <item itemvalue="JUnit.UsersControllerTests" />
+        <item itemvalue="JUnit.com.lewis.msuser in ms-user" />
+        <item itemvalue="JUnit.UsersControllerTests.createReturnStatus204" />
+        <item itemvalue="JUnit.All in ms-employee" />
       </list>
     </recent_temporary>
   </component>

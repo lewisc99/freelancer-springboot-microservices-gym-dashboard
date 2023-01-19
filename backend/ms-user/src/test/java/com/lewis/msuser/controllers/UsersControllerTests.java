@@ -54,8 +54,6 @@ public class UsersControllerTests {
     @Autowired
     private UserModel userModel;
 
-    @Autowired
-    private PersistenceContext context;
 
     @Test
     @DisplayName("create return status 204")
@@ -72,7 +70,7 @@ public class UsersControllerTests {
         userModel.setEmail("matthew.js@gmail.com");
         planModel.setCategory(categoryModel);
         planModel.setStatus(Status.valueOf(1));
-        userModel.setPlan(planModel);
+        planModel.setCategory(categoryModel);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/users")
                         .contentType(MediaType.APPLICATION_JSON)

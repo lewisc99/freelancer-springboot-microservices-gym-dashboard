@@ -6,6 +6,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,9 +27,6 @@ public class Category {
     private UUID id;
     private String name;
 
-    @OneToMany(mappedBy = "category",cascade = {CascadeType.ALL})
-    @JsonIgnore
-    private List<Plan> plans;
     public UUID getId() {
         return id;
     }

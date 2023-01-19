@@ -32,8 +32,8 @@ public class User {
     public String email;
     @OneToOne(fetch = FetchType.EAGER,cascade = {CascadeType.ALL})
     private  Plan plan;
-    public User(){}
 
+    public User(){}
 
     public UUID getId() {
         return id;

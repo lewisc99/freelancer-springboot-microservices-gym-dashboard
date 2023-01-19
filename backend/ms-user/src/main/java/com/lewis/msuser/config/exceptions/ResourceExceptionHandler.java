@@ -67,7 +67,7 @@ public class ResourceExceptionHandler {
         protected ResponseEntity<StandardError>  ConstraintViolationException
                 (ConstraintViolationException exception, HttpServletRequest request)
         {
-            String messageError = "Please certify if the data is correct" +
+            String messageError = "Please certify if the data is correct " +
                     "Another User With same data have been found";
 
             HttpStatus status = HttpStatus.BAD_REQUEST;
