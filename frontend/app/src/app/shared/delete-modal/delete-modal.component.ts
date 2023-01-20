@@ -9,7 +9,6 @@ export class DeleteModalComponent {
 
 
   @Input() message:string;
-  @Input() id:string;
   @Output() close = new EventEmitter<void>();
   @Output() emitDeleted = new EventEmitter<void>();
 
