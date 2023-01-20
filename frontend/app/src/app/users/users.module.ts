@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserByIdComponent } from './user-by-id/user-by-id.component';
 import { SharedModule } from '../shared/shared.module';
+import { UserUpdateComponent } from './user-update/user-update.component';
 
 
 var routes:Routes = [
@@ -16,7 +17,8 @@ var routes:Routes = [
 @NgModule({
     declarations: [
             UserListComponent,
-            UserByIdComponent
+            UserByIdComponent,
+            UserUpdateComponent
     ],
     imports: 
     [
