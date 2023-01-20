@@ -19,7 +19,17 @@ export class UserCreateComponent implements OnInit{
             username: new FormControl(),
             email: new FormControl(),
             age: new FormControl(),
-            doc: new FormControl()
+            doc: new FormControl(),
+            plan: this.fb.group({
+                id: new FormControl(),
+                start: new FormControl(),
+                finish: new FormControl(),
+                category: this.fb.group({
+                  id: new FormControl(),
+                  name: new FormControl()
+                }),
+                status: new FormControl()
+            })
           })
       })
   }
