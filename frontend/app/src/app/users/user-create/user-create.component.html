@@ -1,8 +1,11 @@
 <div class="container">
     <div class="row d-flex align-items-center justify-content-center">
         <div class="col col-lg-8 ">
+            <h3>User Create: </h3>
+            <hr/>
             <form [formGroup]="userGroup" *ngIf="userGroup"  (ngSubmit)="onSubmit()">
-                <div formGroupName="userModel">
+                <div formGroupName="user">
+                    <p>User Information: </p>
                 <div class="form-group">
                     <label for="username">Username: </label>
                     <input type="text" id="username"  placeholder="enter a username" class="form-control" formControlName="username" />
@@ -20,6 +23,24 @@
                 <div class="form-group">
                     <label for="email">Email: </label>
                     <input type="email" id="email" placeholder="enter an Email" class="form-control" formControlName="email"/>
+                </div>
+            </div>
+
+            <div formGroupName="plan">
+                <p>Plan Information: </p>
+                <div class="form-group">
+                    <label for="start">Start: </label>
+                    <input type="text" id="start"  placeholder="enter a Data to user Start in the Gym" class="form-control" formControlName="start" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="finish">Finish: </label>
+                    <input type="text" id="finish"  placeholder="enter a Data to user Finish in the Gym" class="form-control" formControlName="finish" />
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status: </label>
+                    <input type="text" id="status"  placeholder="enter a Status" class="form-control" formControlName="status" />
                 </div>
 
             </div>
