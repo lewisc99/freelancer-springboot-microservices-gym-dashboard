@@ -7,7 +7,8 @@ import { UserByIdComponent } from './user-by-id/user-by-id.component';
 
 
 var routes:Routes = [
-    {path: 'users',component: UserListComponent  }
+    {path: 'users',component: UserListComponent  },
+    {path: 'users/:id',component: UserByIdComponent  }
 ]
 
 

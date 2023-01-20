@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit{
 
 
   public usersDTO:UsersDTO = new UsersDTO();
+  public sortBy = "";
 
   constructor(private activatedRoute:ActivatedRoute, private userService:UserService){}
   ngOnInit(): void {
@@ -24,7 +25,11 @@ export class UserListComponent implements OnInit{
 
   public getAll(sortBy?:string) : void
   {     
-  
+    if (sortBy == null || sortBy == "")
+    {
+      sortBy = "username";
+    }
+    this.sortBy = sortBy;
        this.userService.getAll(sortBy).subscribe(
          { 
           next: response => {this.usersDTO = response

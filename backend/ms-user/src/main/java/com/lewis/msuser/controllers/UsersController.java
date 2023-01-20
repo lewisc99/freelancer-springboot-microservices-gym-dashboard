@@ -40,12 +40,6 @@ public class UsersController {
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/usermodel")
-    public ResponseEntity<UserModel> get()
-    {
-        return ResponseEntity.ok(new UserModel());
-    }
-
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
