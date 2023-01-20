@@ -6,6 +6,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { UserByIdComponent } from './user-by-id/user-by-id.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 
 var routes:Routes = [
@@ -18,7 +19,8 @@ var routes:Routes = [
     declarations: [
             UserListComponent,
             UserByIdComponent,
-            UserUpdateComponent
+            UserUpdateComponent,
+            UserCreateComponent
     ],
     imports: 
     [
