@@ -25,6 +25,7 @@
                     <input type="email" id="email" placeholder="enter an Email" class="form-control" formControlName="email"/>
                 </div>
             </div>
+            <hr/>
 
             <div formGroupName="plan">
                 <p>Plan Information: </p>
@@ -38,20 +39,16 @@
                     <input type="text" id="finish"  placeholder="enter a Data to user Finish in the Gym" class="form-control" formControlName="finish" />
                 </div>
 
-                <div class="form-group">
-                    <label for="status">Status: </label>
-                    <input type="text" id="status"  placeholder="enter a Status" class="form-control" formControlName="status" />
-                </div>
-
-                <div class="form-check" *ngFor="let value of status">
+                <div class="form-check form-check-inline" *ngFor="let value of status">
                     <input class="form-check-input" type="radio"  [id]="value" [value]="value"  formControlName="status">
                     <label class="form-check-label" [for]="value">
                         {{value}}
                     </label>
                   </div>
-
+                 <br/>
+                 <br/>
                 <div class="form-group" formGroupName="category">
-                    <label for="category">Example select</label>
+                    <label for="category">Category: </label>
                     <select class="form-control" id="category" formControlName="name">
                       <option *ngFor="let category of categories" [value]="category.name" [selected]="category.name">
                         {{category.name}}
@@ -59,12 +56,13 @@
                     </select>
                   </div>
             </div>
-            
+            <br>
             <div class="form-group">
                 <button class="btn btn-success">Create</button>
                 <a [routerLink]="['/..','users']" class="ml-3">Back to List</a>
             </div>
-
+            <br/>
+            <br/>
             </form>
         </div>
     </div>
