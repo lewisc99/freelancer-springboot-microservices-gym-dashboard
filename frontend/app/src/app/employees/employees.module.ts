@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { SharedModule } from '../shared/shared.module';
 
-
 var routes:Routes = [
     {path:"employees",component:EmployeeListComponent},
     {path:'employees/create', component: EmployeeCreateComponent},
@@ -22,7 +21,7 @@ var routes:Routes = [
         EmployeeListComponent,
         EmployeeByIdComponent,
         EmployeeUpdateComponent,
-        EmployeeCreateComponent
+        EmployeeCreateComponent,
     ],
     imports: [
         BrowserModule,
