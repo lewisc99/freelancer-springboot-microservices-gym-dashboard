@@ -4,6 +4,7 @@ import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.repositories.UserRepository;
+import com.lewis.msuser.services.contracts.CategoryService;
 import com.lewis.msuser.services.contracts.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -52,9 +53,18 @@ public class UserServiceImpl implements UserService {
     public void update(UserModel userModel) {
          User oldUser = findById(userModel.id);
          availablePropertiesToUpdate(oldUser, userModel);
+         userRepository.save(oldUser);
     }
     public void availablePropertiesToUpdate(User oldUser, UserModel userUpdate)
     {
-
+        oldUser.setDoc(userUpdate.getDoc());
+        oldUser.setUsername(userUpdate.getUsername());
+        oldUser.setAge(userUpdate.getAge());
+        oldUser.setEmail(userUpdate.getEmail());
+        oldUser.getPlan().setStart(userUpdate.getPlan().getStart());
+        oldUser.getPlan().setFinish(userUpdate.getPlan().getFinish());
+        oldUser.getPlan().setStatus(userUpdate.getPlan().getStatus());
+        oldUser.getPlan().getCategory().setId(userUpdate.getPlan().getCategory().getId());
+        oldUser.getPlan().getCategory().setName(userUpdate.getPlan().getCategory().getName());
     }
 }
