@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserByIdComponent } from './user-by-id/user-by-id.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 var routes:Routes = [
@@ -21,7 +22,8 @@ var routes:Routes = [
     [
         BrowserModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        SharedModule
     ]
 })
 export class UsersModule {}
