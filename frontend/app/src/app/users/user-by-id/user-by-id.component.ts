@@ -29,11 +29,7 @@ export class UserByIdComponent implements OnInit{
   getById(id:string)
   {
     this.userService.getById(id).subscribe({
-      next: (result: UserDTO) =>
-      {
-        this.user = result;
-        console.log(this.user);
-      },
+      next: (result: UserDTO) => this.user = result,
       error: error => console.log(error)
     });
   }

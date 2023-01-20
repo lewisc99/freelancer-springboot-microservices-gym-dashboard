@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
-import { EmployeeService } from '../../employees/employee-service/employee.service';
+import { Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-delete-modal',
@@ -8,24 +7,19 @@ import { EmployeeService } from '../../employees/employee-service/employee.servi
 })
 export class DeleteModalComponent {
 
-  constructor(private EmployeeService:EmployeeService){}
 
   @Input() message:string;
   @Input() id:string;
   @Output() close = new EventEmitter<void>();
-  @Output() employeeDeleted = new EventEmitter<void>();
+  @Output() emitDeleted = new EventEmitter<void>();
 
   onClose() {
     this.close.emit();
   }
 
-  deleteEmployee()
+  onDelete()
   {
-    this.EmployeeService.delete(this.id).subscribe({
-      next: () => {this.employeeDeleted.emit()},
-      error: error => alert(error)
-    });
-
+      this.emitDeleted.emit();
   }
 
 }
