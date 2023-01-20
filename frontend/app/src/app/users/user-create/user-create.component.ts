@@ -12,6 +12,7 @@ export class UserCreateComponent implements OnInit{
 
   userGroup: FormGroup;
   categories:CategoryDTO[] = [];
+  status:string[] = ["WAITING_PAYMENT","PAID","CANCELED"];
 
   constructor(private fb: FormBuilder, private categoryService:CategoryService){}
 
@@ -35,7 +36,6 @@ export class UserCreateComponent implements OnInit{
             }),
         })
       })
-      
       this.categoryService.getAll().subscribe(
         {
           next: response => this.categories = response,
