@@ -58,7 +58,11 @@ export class UserListComponent implements OnInit{
   {
     this.closeModal();
     this.messageModal = "";
-    console.log(this.userIdToDelete);
+    
+    this.userService.delete(this.userIdToDelete).subscribe({
+      next: () => this.getAll(),
+      error: error => console.log(error)
+    })
   }
 
 }

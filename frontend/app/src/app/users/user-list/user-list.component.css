@@ -1,1 +1,23 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+td.list-info > a {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+button.btn-primary {
+    background-color: #696cff;
+    margin-bottom: 10px;
+}
+
+a.btn-delete {
+    cursor: pointer;
+}
+
+th.th-sort {
+    cursor: pointer;
+}
+th :hover{
+    background-color: #8a8bb9;
+    background: blue;
+}
