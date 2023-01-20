@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { CategoryService } from '../services/category-service/category.service';
+import { CategoryDTO } from '../domain/dtos/categoryDTO';
 
 @Component({
   selector: 'app-user-create',
@@ -9,8 +11,9 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class UserCreateComponent implements OnInit{
 
   userGroup: FormGroup;
+  categories:CategoryDTO[] = [];
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder, private categoryService:CategoryService){}
 
   ngOnInit(): void {
       this.userGroup = this.fb.group({
@@ -32,6 +35,14 @@ export class UserCreateComponent implements OnInit{
             }),
         })
       })
+      
+      this.categoryService.getAll().subscribe(
+        {
+          next: response => this.categories = response,
+          error: error => console.log(error)
+        }
+      )
+
   }
 
   onSubmit()
