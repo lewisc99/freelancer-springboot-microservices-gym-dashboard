@@ -36,4 +36,13 @@ export class UserService {
       catchError( error => throwError(() => error))
     )
   }
+
+  delete(id:string) : Observable<any>
+  {
+    let getByIdURL = this.fullURL + "/" + id;
+    return this.httpClient.delete(getByIdURL).pipe
+    (
+      catchError(error => throwError(() => error))
+    )
+  }
 }
