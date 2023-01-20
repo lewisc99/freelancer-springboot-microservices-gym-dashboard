@@ -53,13 +53,8 @@ public class UserServiceImpl implements UserService {
          User oldUser = findById(userModel.id);
          availablePropertiesToUpdate(oldUser, userModel);
     }
-
     public void availablePropertiesToUpdate(User oldUser, UserModel userUpdate)
     {
 
     }
-
-
-
-
 }
