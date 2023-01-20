@@ -17,16 +17,20 @@ export class UserListComponent implements OnInit{
   ngOnInit(): void {
 
     this.activatedRoute.paramMap.subscribe(
-      params => 
-      {
-        this.getAll();
-      }
+      () => this.getAll()
     )
+    
   }
 
   public getAll(sortBy?:string) : void
-  {
-       
+  {     
+  
+       this.userService.getAll(sortBy).subscribe(
+         { 
+          next: response => {this.usersDTO = response
+          console.log(this.usersDTO)},
+          error: error => error}
+       )
   }
 
 }

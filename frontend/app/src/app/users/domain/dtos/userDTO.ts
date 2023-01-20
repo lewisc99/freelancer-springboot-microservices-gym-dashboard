@@ -1,5 +1,6 @@
 import { Links } from './links';
-import { PlanDTO } from './planDto';
+import { PlanDTO } from './planDTO';
+
 export class UserDTO
 {
     public id:string;
@@ -7,7 +8,6 @@ export class UserDTO
     public age:number;
     public doc: string;
     public email:string;
-    public planDto:PlanDTO;
+    public plan:PlanDTO;
     public links:Links;
-
 }

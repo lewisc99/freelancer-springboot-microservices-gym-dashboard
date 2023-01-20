@@ -1,5 +1,5 @@
 import { PageDTO } from './pageDTO';
-import { UserDTO } from './userDto';
+import { UserDTO } from './userDTO';
 
 export class UsersDTO
 {

@@ -18,7 +18,7 @@ var routes:Routes = [
     [
         BrowserModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forRoot(routes)
     ]
 })
 export class UsersModule {}
