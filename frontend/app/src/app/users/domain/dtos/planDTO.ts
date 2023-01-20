@@ -7,6 +7,6 @@ export class PlanDTO
     public start:Date;
     public finish:Date;
     public status:string = "";
-    public category:CategoryDTO;
+    public category:CategoryDTO = new CategoryDTO();
     public user:UserDTO;
 }

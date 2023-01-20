@@ -10,7 +10,7 @@ import { UserDTO } from '../domain/dtos/userDTO';
 })
 export class UserByIdComponent implements OnInit{
 
-  public user:UserDTO;
+  public user:UserDTO = new UserDTO();
 
   constructor(private activatedRoute:ActivatedRoute, private userService:UserService){}
 

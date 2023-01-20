@@ -8,6 +8,6 @@ export class UserDTO
     public age:number;
     public doc: string;
     public email:string;
-    public plan:PlanDTO ;
+    public plan:PlanDTO = new PlanDTO();
     public links:Links;
 }
