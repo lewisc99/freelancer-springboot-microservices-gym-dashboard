@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from '../../../../environments/environment.test';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { UsersDTO } from '../../domain/dtos/usersDTO';
@@ -13,6 +13,14 @@ export class UserService {
   private fullURL = environment.users_URL;
 
   constructor(private httpClient:HttpClient) { }
+
+  create(user: UserDTO): Observable<any>
+  {
+      return this.httpClient.post<UserDTO>(this.fullURL, user).pipe(
+        map( response => response),
+        catchError(error => throwError(() => error))
+      )
+  }
 
   getAll(sortBy?:string) :Observable<UsersDTO>
   {

@@ -16,7 +16,7 @@ export class UserCreateComponent implements OnInit{
   categories:CategoryDTO[] = [];
   status:string[] = ["WAITING_PAYMENT","PAID","CANCELED"];
 
-  constructor(private fb: FormBuilder, private categoryService:CategoryService){}
+  constructor(private fb: FormBuilder, private categoryService:CategoryService,){}
 
   ngOnInit(): void {
       this.userGroup = this.fb.group({
@@ -50,15 +50,14 @@ export class UserCreateComponent implements OnInit{
 
   onSubmit()
   {
-      let userForm: UserDTO = this.userGroup.value.user;
-      let plan:PlanDTO = this.userGroup.value.plan;
-      let categoryName = this.userGroup.value.plan.category.name;
-      let category:CategoryDTO = this.categories.find(category => category.name == categoryName)!;
-      
-      plan.category = category;
-      userForm.plan = plan;
+    let userForm: UserDTO = this.userGroup.value.user;
+    let plan:PlanDTO = this.userGroup.value.plan;
+    let categoryName = this.userGroup.value.plan.category.name;
+    let category:CategoryDTO = this.categories.find(category => category.name == categoryName)!;
+    
+    plan.category = category;
+    userForm.plan = plan;
 
-       console.log(userForm);
   }
 
 }
