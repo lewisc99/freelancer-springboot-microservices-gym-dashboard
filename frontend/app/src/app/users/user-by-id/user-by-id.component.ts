@@ -10,7 +10,7 @@ import { UserDTO } from '../domain/dtos/userDTO';
 })
 export class UserByIdComponent implements OnInit{
 
-  public userDTO:UserDTO;
+  public user:UserDTO;
 
   constructor(private activatedRoute:ActivatedRoute, private userService:UserService){}
 
@@ -31,8 +31,8 @@ export class UserByIdComponent implements OnInit{
     this.userService.getById(id).subscribe({
       next: (result: UserDTO) =>
       {
-        this.userDTO = result;
-        console.log(this.userDTO);
+        this.user = result;
+        console.log(this.user);
       },
       error: error => console.log(error)
     });
