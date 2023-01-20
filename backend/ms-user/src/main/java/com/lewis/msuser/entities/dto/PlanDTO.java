@@ -1,4 +1,5 @@
 package com.lewis.msuser.entities.dto;
+import com.lewis.msuser.entities.domain.Status;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
@@ -13,6 +14,8 @@ public class PlanDTO {
     private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
+
+    private Status status;
     private CategoryDTO category;
     private UserDTO user;
 
@@ -39,6 +42,14 @@ public class PlanDTO {
 
     public void setFinish(Date finish) {
         this.finish = finish;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public CategoryDTO getCategory() {
