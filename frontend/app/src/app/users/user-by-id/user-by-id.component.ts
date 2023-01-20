@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user-service/user.service';
+import { UserDTO } from '../domain/dtos/userDTO';
 
 @Component({
   selector: 'app-user-by-id',
@@ -9,19 +10,32 @@ import { UserService } from '../services/user-service/user.service';
 })
 export class UserByIdComponent implements OnInit{
 
-  public id:string = "";
+  public userDTO:UserDTO;
 
-  constructor(private activatedRoute:ActivatedRoute, userService:UserService){}
+  constructor(private activatedRoute:ActivatedRoute, private userService:UserService){}
 
   ngOnInit(): void {
       this.activatedRoute.paramMap.subscribe(
         {
           next: param => {
-            this.id = param.get("id")!
-
-          }
+            let id =  param.get("id")!;
+            this.getById(id);
+          },
+          error: error => console.log(error)
         }
       )
+  }
+
+  getById(id:string)
+  {
+    this.userService.getById(id).subscribe({
+      next: (result: UserDTO) =>
+      {
+        this.userDTO = result;
+        console.log(this.userDTO);
+      },
+      error: error => console.log(error)
+    });
   }
 
 }

@@ -28,7 +28,7 @@ export class UserService {
   getById(id:string) : Observable<UserDTO>
   {
     let getByIdURL = this.fullURL  + "/" + id;
-    return this.httpClient.get<UserDTO>(this.fullURL).pipe
+    return this.httpClient.get<UserDTO>(getByIdURL).pipe
     (
       map(
           (response:UserDTO) => response
