@@ -17,7 +17,7 @@
                     <th scope="row">{{user.username}}</th>
                     <td>{{user.email}}</td>
                     <td >{{user.age}}</td>
-                    <td colspan="2">{{user.status}}</td>
+                    <td colspan="2">{{user.planDto.status}}</td>
                     <td><a [routerLink]="[user.id]">Details</a></td>
                     <td><a [routerLink]="[user.id,'edit']">Update</a></td>
                     <td><a  class="link btn-delete">Delete</a></td>
