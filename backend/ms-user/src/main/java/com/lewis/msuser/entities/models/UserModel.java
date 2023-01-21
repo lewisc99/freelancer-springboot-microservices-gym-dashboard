@@ -8,7 +8,7 @@ import javax.validation.constraints.*;
 import java.util.UUID;
 
 public class UserModel {
-    
+
     @Nullable
     @Type(type = "uuid-char")
     public UUID id;

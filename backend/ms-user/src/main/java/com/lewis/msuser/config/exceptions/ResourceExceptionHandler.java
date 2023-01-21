@@ -4,6 +4,7 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -81,7 +82,21 @@ public class ResourceExceptionHandler {
             return ResponseEntity.status(status).body(standardError);
         }
 
-        @ExceptionHandler(MethodArgumentNotValidException.class)
+        @ExceptionHandler(value = HttpMessageNotReadableException.class)
+        protected ResponseEntity<StandardError>  ConstraintViolationException
+                (HttpMessageNotReadableException exception, HttpServletRequest request)
+        {
+            String messageError = "Please certify the data sent is correct, because the message is not readable";
+
+            HttpStatus status = HttpStatus.BAD_REQUEST;
+            StandardError standardError = new StandardError(
+                    Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
+            );
+
+            return ResponseEntity.status(status).body(standardError);
+        }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
         public ResponseEntity<ValidationError> ValidationBodyException(MethodArgumentNotValidException exception, HttpServletRequest request)
         {
             HttpStatus status = HttpStatus.BAD_REQUEST;
