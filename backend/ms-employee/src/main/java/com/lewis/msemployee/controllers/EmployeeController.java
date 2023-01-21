@@ -9,6 +9,7 @@ import com.lewis.msemployee.services.contracts.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +24,20 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private BCryptPasswordEncoder  passwordEncoder;
+
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody Employee employee)
     {
-        employee.setId(UUID.randomUUID());
+//        passwordEncoder(employee);
         employeeService.create(employee);
         return ResponseEntity.status(201).build();
+    }
+
+    private void passwordEncoder(Employee employee) {
+        String PasswordEncoded = passwordEncoder.encode(employee.getPassword());
+        employee.setPassword(PasswordEncoded);
     }
 
     @GetMapping
@@ -80,4 +89,6 @@ public class EmployeeController {
         employeeService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+
 }

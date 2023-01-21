@@ -49,7 +49,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsEurekaServerApplication">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -107,9 +107,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="JUnit.All in ms-user (2)" />
         <item itemvalue="JUnit.All in backend" />
       </list>
@@ -127,6 +127,15 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-employee/src/main/java/com/lewis/msemployee/controllers/EmployeeController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
