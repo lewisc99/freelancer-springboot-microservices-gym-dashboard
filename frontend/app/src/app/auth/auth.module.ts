@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 
 
 const routes:Routes = [
+  {path:"login", component:LoginComponent}
 
 ]
 
