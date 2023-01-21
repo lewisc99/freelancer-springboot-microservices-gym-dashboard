@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes:Routes = [
@@ -13,7 +14,8 @@ const routes:Routes = [
     LoginComponent
   ],
     imports: [
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        ReactiveFormsModule
     ],
     exports: []
 })
