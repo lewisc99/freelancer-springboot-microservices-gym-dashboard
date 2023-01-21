@@ -38,7 +38,7 @@ export class UserCreateComponent implements OnInit{
             finish: this.fb.control("", [Validators.required]),
             status: this.fb.control("", [Validators.required]),
             category: this.fb.group({
-              id: this.fb.control("", [Validators.required]),
+              id: this.fb.control(""),
               name: this.fb.control(""),
             }),
         })

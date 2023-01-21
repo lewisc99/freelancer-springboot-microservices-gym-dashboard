@@ -33,10 +33,10 @@
                         <div *ngIf="(age?.errors?.required) || (age?.errors?.notOnlyWhitespace) ">
                             Age is required
                         </div>
-                        <div *ngIf="username?.errors?.min">
+                        <div *ngIf="age?.errors?.min">
                             Age must be at least 18 characters Long
                         </div>
-                        <div *ngIf="username?.errors?.max">
+                        <div *ngIf="age?.errors?.max">
                             Age must be at Maximum 90 characters Long
                         </div>
                     </div>
