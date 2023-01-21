@@ -20,15 +20,14 @@ public class MyEmployeeDetailsService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Employee employee = findByEmail(username);
-
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Employee employee = findByEmail(email);
         return employee;
     }
 
     public Employee findByEmail(String email)
     {
-        Employee employee = employeeFeignClient.findByEmail(email).getBody();
+        var employee = employeeFeignClient.findByEmail(email).getBody();
 
         if(employee == null)
         {

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value="v1/auth")
+@RequestMapping(value="v1/employees")
 public class EmployeeController {
 
     @Autowired

@@ -140,6 +140,11 @@
           <line>78</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-authentication/src/main/java/com/lewis/msauthentication/filters/JWTAuthenticationFilter.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
