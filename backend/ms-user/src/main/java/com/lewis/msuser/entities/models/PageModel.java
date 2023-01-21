@@ -8,7 +8,7 @@ public class PageModel {
     @Nullable
     private int pagSize;
     @Nullable
-    private String sortBy = "username";
+    private String sortBy;
 
     public int getPagNumber() {
         return pagNumber;

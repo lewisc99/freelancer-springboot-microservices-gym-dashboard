@@ -5,6 +5,9 @@
       <list>
         <option value="$PROJECT_DIR$/ms-employee/pom.xml" />
         <option value="$PROJECT_DIR$/ms-user/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-authorization/pom.xml" />
       </list>
     </option>
   </component>

@@ -40,12 +40,6 @@ public class UsersController {
         return ResponseEntity.status(201).build();
     }
 
-    @GetMapping("/usermodel")
-    public ResponseEntity<UserModel> get()
-    {
-        return ResponseEntity.ok(new UserModel());
-    }
-
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
@@ -63,6 +57,14 @@ public class UsersController {
         User user =  userService.findById(UUID.fromString(id));
         UserDTO userDTO = userConvert.toUserHATEOAS(user);
         return ResponseEntity.ok(userDTO);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserModel userModel)
+    {
+        userModel.setId(UUID.fromString(id));
+        userService.update(userModel);
+        return ResponseEntity.status(204).build();
     }
 
     @DeleteMapping("{id}")

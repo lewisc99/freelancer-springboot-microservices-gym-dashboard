@@ -1,0 +1,53 @@
+<div class="container flex">
+    <div class="row flex-row d-flex">
+        <div class="col">
+            <h1>User Details: </h1>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Username</li>
+            <li class="list-group-item">{{user.username}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Age</li>
+            <li class="list-group-item">{{user.age}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Doc</li>
+            <li class="list-group-item">{{user.doc}}</li>
+          </ul>
+          <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+            <li class="list-group-item">Email</li>
+            <li class="list-group-item">{{user.email}}</li>
+          </ul>
+          <div>
+            <hr>
+            <p>User Plan: </p>
+            
+            <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+                <li class="list-group-item">Status: </li>
+                <li class="list-group-item">{{user.plan.status}}</li>
+              </ul>
+
+            <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+                <li class="list-group-item">Start: </li>
+                <li class="list-group-item">{{user.plan.start | date}}</li>
+              </ul>
+              <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+                <li class="list-group-item">Finish: </li>
+                <li class="list-group-item">{{user.plan.finish | date}}</li>
+              </ul>
+              <ul class="list-group  list-group-horizontal justify-content-center d-flex ">
+                <li class="list-group-item">Category: </li>
+                <li class="list-group-item">{{user.plan.category.name}}</li>
+              </ul>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-3">
+            <div class="justify-content-center align-items-center d-flex">
+                <button class="btn btn-primary mr-3" [routerLink]="['..',user.id, 'edit']">Update</button>
+                <a [routerLink]="['..']">Back to list</a>
+              </div>
+        </div>
+    </div>
+</div>

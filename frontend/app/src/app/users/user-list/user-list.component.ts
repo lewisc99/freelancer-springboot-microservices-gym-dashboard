@@ -12,6 +12,10 @@ export class UserListComponent implements OnInit{
 
 
   public usersDTO:UsersDTO = new UsersDTO();
+  public sortBy = "";
+  public callModal = false;
+  public messageModal = "";
+  public userIdToDelete = "";
 
   constructor(private activatedRoute:ActivatedRoute, private userService:UserService){}
   ngOnInit(): void {
@@ -24,13 +28,41 @@ export class UserListComponent implements OnInit{
 
   public getAll(sortBy?:string) : void
   {     
-  
+    if (sortBy == null || sortBy == "")
+    {
+      sortBy = "username";
+    }
+
+    this.sortBy = sortBy;
        this.userService.getAll(sortBy).subscribe(
          { 
           next: response => {this.usersDTO = response
           console.log(this.usersDTO)},
           error: error => error}
        )
+  }
+
+  public onDeleteModal(id:string,username:string)
+  {
+      this.callModal = true;
+      this.userIdToDelete = id;
+      this.messageModal = "Are you sure you want to Delete " + username + "?"
+  }
+
+  public closeModal()
+  {
+    this.callModal = false;
+  }
+
+  onDeleteUser()
+  {
+    this.closeModal();
+    this.messageModal = "";
+    
+    this.userService.delete(this.userIdToDelete).subscribe({
+      next: () => this.getAll(),
+      error: error => console.log(error)
+    })
   }
 
 }

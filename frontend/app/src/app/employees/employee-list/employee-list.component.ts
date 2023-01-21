@@ -63,4 +63,14 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
           this.closeSub.unsubscribe();
         }
     }
+
+
+    deleteEmployee()
+  {
+    this.employeeService.delete(this.id).subscribe({
+      next: () => this.closeDeleteModal(),
+      error: (error) => alert(error)
+    });
+  }
+
 }

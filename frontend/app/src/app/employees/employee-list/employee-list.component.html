@@ -1,5 +1,5 @@
 <app-delete-modal [message]="messageDeleteModal" [id]="id" *ngIf="showModal" 
-(close)="closeDeleteModal()" (employeeDeleted)="closeDeleteModal()"></app-delete-modal>
+(close)="closeDeleteModal()" (emitDeleted)="deleteEmployee()"></app-delete-modal>
 
 <div class="container">
     <div class="row d-flex flex-column">
