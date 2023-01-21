@@ -17,7 +17,7 @@ public class UserModel {
     @Size(min = 5,max = 20, message = "Username must have minimum 10 and max 20 characters")
     public String username;
     @Min(value = 18, message = "Age must be at least 18")
-    @Range(min=0, max=90)
+    @Range(min=0, max=90, message = "Age must between 18 and 90")
     public Integer age;
     @NotNull(message = "Document cannot be null")
     @NotBlank(message = "doc cannot be empty")

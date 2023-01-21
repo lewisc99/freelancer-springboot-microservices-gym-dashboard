@@ -6,6 +6,7 @@ import { UserDTO } from '../domain/dtos/userDTO';
 import { PlanDTO } from '../domain/dtos/planDTO';
 import { UserService } from '../services/user-service/user.service';
 import { Router } from '@angular/router';
+import { LewisModulesValidators } from '../../shared/validators/lewis-modules-validators';
 
 @Component({
   selector: 'app-user-create',
@@ -24,19 +25,20 @@ export class UserCreateComponent implements OnInit{
       this.userGroup = this.fb.group({
           user : this.fb.group({
             id: this.fb.control(""),
-            username: this.fb.control(""),
-            email:this.fb.control(""),
-            age: this.fb.control(""),
-            doc: this.fb.control(""),
+            username: this.fb.control("",[Validators.required,Validators.minLength(5),
+               LewisModulesValidators.notOnlyWhiteSpace,  Validators.maxLength(20)]),
+            email:this.fb.control("", [Validators.required, Validators.email]),
+            age: this.fb.control("", [Validators.required, Validators.min(18), Validators.max(90)]),
+            doc: this.fb.control("", [Validators.required]),
           }),
           plan: this.fb.group({
             id: this.fb.control(""),
-            start: this.fb.control(""),
-            finish: this.fb.control(""),
-            status: this.fb.control(""),
+            start: this.fb.control("", [Validators.required]),
+            finish: this.fb.control("", [Validators.required]),
+            status: this.fb.control("", [Validators.required]),
             category: this.fb.group({
-              id: this.fb.control(""),
-              name: this.fb.control(""),
+              id: this.fb.control("", [Validators.required]),
+              name: this.fb.control("", [Validators.required]),
             }),
         })
       })

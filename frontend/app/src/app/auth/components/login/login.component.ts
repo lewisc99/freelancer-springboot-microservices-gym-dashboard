@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     this.loginSubscription.unsubscribe();
   }
-
   
  get email()
   {
@@ -61,22 +60,9 @@ export class LoginComponent implements OnInit, OnDestroy{
     {
       const email = this.loginForm.get("login")?.get("email")?.value;
       const password = this.loginForm.get("login")?.get("password")?.value;
-       this.login = new Login(email,password);
+      this.login = new Login(email,password);
        
        console.log(this.login);
-    //   this.loginSubscription = this.authService.loginUser(this.login).subscribe({
-         
-    //     next: (data) =>  {
-    //         console.log(JSON.stringify(data))
-    //         this.router.navigateByUrl("/message");
-    //      },
-    //     error: error =>  
-    //      {
-    //        console.log(error);
-    //        this.errorsHandle(error);
-    //      }
-    //      } )
-    // }
   }
 }
 
