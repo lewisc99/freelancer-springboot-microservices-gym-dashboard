@@ -7,24 +7,22 @@ import java.util.List;
 public class EmployeeModel {
 
     @NotNull(message = "username cannot be null")
-    @NotEmpty(message = "username cannot be empty")
     @NotBlank(message = "username cannot be empty")
+    @Size(message = "Document must have min size 5 and Max size 20", min = 5, max = 20)
     private String username;
     @Min(value = 18, message = "Age must be at least 18")
     @Range(min=0, max=90)
     private Integer age;
     @NotNull(message = "Document cannot be null")
-    @NotEmpty(message = "doc cannot be Empty")
     @NotBlank(message = "doc cannot be empty")
+    @Size(message = "Document must have min size 10 and Max size 20", min = 10, max = 20)
     private String doc;
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
-    @NotEmpty(message = "email cannot be Empty")
     private String email;
 
     @NotNull(message = "Roles cannot be null")
     @Email(message = "Email should be valid")
-    @NotEmpty(message = "Roles cannot be Empty")
     private List<String> roles;
 
     public EmployeeModel() {
