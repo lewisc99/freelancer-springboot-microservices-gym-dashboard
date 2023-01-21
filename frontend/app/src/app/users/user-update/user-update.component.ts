@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../services/user-service/user.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { UserDTO } from '../domain/dtos/userDTO';
 import { CategoryService } from '../services/category-service/category.service';
 import { CategoryDTO } from '../domain/dtos/categoryDTO';
+import { PlanDTO } from '../domain/dtos/planDTO';
 
 @Component({
   selector: 'app-user-update',
@@ -20,7 +21,7 @@ export class UserUpdateComponent implements OnInit{
 
 
   constructor(private activatedRoute:ActivatedRoute, private userService: UserService, private fb:FormBuilder,
-    private categoryService: CategoryService){}
+    private categoryService: CategoryService, private route: Router){}
 
   ngOnInit(): void {
       this.activatedRoute.paramMap.subscribe({
@@ -62,9 +63,9 @@ export class UserUpdateComponent implements OnInit{
         category: this.fb.group({
           id: this.fb.control(this.user.plan.category.id),
           name: this.fb.control(this.user.plan.category.name),
-        }),
+          }),
+      })
     })
-  })
   }
 
   getCategories()
@@ -79,8 +80,20 @@ export class UserUpdateComponent implements OnInit{
 
   onSubmit()
   {
-    console.log(this.userGroup)
-  }
+    let userForm: UserDTO = this.userGroup.value.user;
+    let plan:PlanDTO = this.userGroup.value.plan;
+    let categoryName = this.userGroup.value.plan.category.name;
+    let category:CategoryDTO = this.categories.find(category => category.name == categoryName)!;
+    
+    plan.category = category;
+    userForm.plan = plan;
 
+    this.userService.update(userForm).subscribe({
+      next: () => this.route.navigate(["..","users"]),
+      error: error => console.log(error)
+    });
+    
+   }
+  
 
 }
