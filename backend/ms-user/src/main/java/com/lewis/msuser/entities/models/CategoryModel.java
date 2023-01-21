@@ -15,7 +15,6 @@ public class CategoryModel {
     private UUID id;
 
     @NotNull(message = "name cannot be null")
-    @NotEmpty(message = "name  cannot be empty")
     @NotBlank(message = "name  cannot be empty")
     private String name;
     private List<PlanModel> plans;

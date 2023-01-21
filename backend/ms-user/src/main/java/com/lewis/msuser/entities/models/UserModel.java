@@ -13,8 +13,8 @@ public class UserModel {
     public UUID id;
 
     @NotNull(message = "username cannot be null")
-    @NotEmpty(message = "username cannot be empty")
     @NotBlank(message = "username cannot be empty")
+    @Size(min = 5,max = 20, message = "Username must have minimum 10 and max 20 characters")
     public String username;
 
     @Min(value = 18, message = "Age must be at least 18")
@@ -22,16 +22,14 @@ public class UserModel {
     public Integer age;
 
     @NotNull(message = "Document cannot be null")
-    @NotEmpty(message = "doc cannot be Empty")
     @NotBlank(message = "doc cannot be empty")
+    @Size(min = 10,max = 20, message = "Document must have minimum 10 and max 20 characters")
     public String doc;
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
-    @NotEmpty(message = "email cannot be Empty")
     public String email;
 
     @NotNull(message = "Plan cannot be null")
-    @NotEmpty(message = "Plan cannot be Empty")
     private PlanModel plan;
 
     public UserModel(){}

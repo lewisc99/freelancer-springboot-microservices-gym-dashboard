@@ -17,17 +17,14 @@ public class PlanModel {
     private UUID id;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     @NotNull(message = "Start data cannot be null")
-    @NotEmpty(message = "Start data cannot be empty")
     @NotBlank(message = "Start data cannot be empty")
-    private Date start  ;
+    private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     @NotNull(message = "Finish data cannot be null")
-    @NotEmpty(message = "Finish data cannot be empty")
     @NotBlank(message = "Finish data cannot be empty")
     private Date finish;
 
     @NotNull(message = "Status cannot be null")
-    @NotEmpty(message = "Status data cannot be empty")
     @NotBlank(message = "Status data cannot be empty")
     private Status status;
 
