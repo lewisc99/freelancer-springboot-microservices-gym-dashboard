@@ -21,7 +21,9 @@ public class MyEmployeeDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        Employee employee = findByEmail(username);
+
+        return employee;
     }
 
     public Employee findByEmail(String email)
