@@ -4,6 +4,10 @@ import com.lewis.msuser.entities.domain.Status;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,11 +16,21 @@ public class PlanModel {
     @Type(type = "uuid-char")
     private UUID id;
     @DateTimeFormat(pattern="yyyy/dd/MM")
+    @NotNull(message = "Start data cannot be null")
+    @NotEmpty(message = "Start data cannot be empty")
+    @NotBlank(message = "Start data cannot be empty")
     private Date start  ;
     @DateTimeFormat(pattern="yyyy/dd/MM")
+    @NotNull(message = "Finish data cannot be null")
+    @NotEmpty(message = "Finish data cannot be empty")
+    @NotBlank(message = "Finish data cannot be empty")
     private Date finish;
 
+    @NotNull(message = "Status cannot be null")
+    @NotEmpty(message = "Status data cannot be empty")
+    @NotBlank(message = "Status data cannot be empty")
     private Status status;
+
     private CategoryModel category;
     private UserModel user;
 

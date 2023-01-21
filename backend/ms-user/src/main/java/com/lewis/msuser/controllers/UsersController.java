@@ -27,7 +27,6 @@ public class UsersController {
     private UserConvert userConvert;
     @Autowired
     private UserService userService;
-
     @Autowired
     private ModelMapper mapper;
 

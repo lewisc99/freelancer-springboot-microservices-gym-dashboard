@@ -22,7 +22,9 @@ public class EmployeeModel {
     @NotEmpty(message = "email cannot be Empty")
     private String email;
 
-
+    @NotNull(message = "Roles cannot be null")
+    @Email(message = "Email should be valid")
+    @NotEmpty(message = "Roles cannot be Empty")
     private List<String> roles;
 
     public EmployeeModel() {

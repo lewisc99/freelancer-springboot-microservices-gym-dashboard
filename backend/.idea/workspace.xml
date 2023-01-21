@@ -136,11 +136,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-employee/src/main/java/com/lewis/msemployee/controllers/EmployeeController.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ms-authentication/src/main/java/com/lewis/msauthentication/filters/JWTAuthenticationFilter.java</url>
           <line>34</line>
           <option name="timeStamp" value="14" />
