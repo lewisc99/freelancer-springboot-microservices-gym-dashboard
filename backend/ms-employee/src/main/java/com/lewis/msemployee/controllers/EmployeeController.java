@@ -73,6 +73,13 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeDto);
     }
 
+    @GetMapping("search")
+    public ResponseEntity<Employee> getByEmail(@RequestParam(value = "email") String email)
+    {
+        Employee employee = employeeService.getByEmail(email);
+        return ResponseEntity.ok(employee);
+    }
+
     @PutMapping("{id}")
     public ResponseEntity<Void> update(@Valid @PathVariable UUID id,@Valid @RequestBody EmployeeModel employeeModel)
     {

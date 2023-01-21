@@ -50,7 +50,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsAuthenticationApplication">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
       <module name="ms-authentication" />
@@ -113,9 +113,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MsAuthenticationApplication" />
-        <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="Application.MsEurekaServerApplication" />
+        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="JUnit.All in ms-user (2)" />
       </list>
