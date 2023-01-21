@@ -14,7 +14,7 @@ body {
  
  div.container {
      display: flex;
-     background-color:rgb(208, 208, 208);
+     background-color:#86C6F0;
      align-items: center;
      justify-content: center;
      height: 937px;
@@ -129,13 +129,13 @@ body {
       width: 60%;
       height: 65%;
       color: white;
-      background-color: rgb(49, 49, 49);
+      background-color: #1d7a8c;
       border-radius: 7px;
       text-transform: uppercase;
   }
  button:hover
  {
-     background-color: black;
+     background-color: #3c4752;
  }
  
  
