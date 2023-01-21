@@ -14,7 +14,7 @@ public class MyEmployeeDetailsService implements UserDetailsService {
     @Autowired
     private EmployeeFeignClient employeeFeignClient;
 
-    private static Logger logger = LoggerFactory.getLogger(UserService.class);
+    private static Logger logger = LoggerFactory.getLogger(MyEmployeeDetailsService.class);
 
 
     @Override
