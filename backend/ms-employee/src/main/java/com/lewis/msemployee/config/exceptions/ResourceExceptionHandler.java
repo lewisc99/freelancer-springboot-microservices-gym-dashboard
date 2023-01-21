@@ -53,6 +53,7 @@ public class ResourceExceptionHandler {
 
         return ResponseEntity.status(status).body(errorModel);
     }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<StandardError> GlobalRuntimeException(RuntimeException exception, HttpServletRequest request)
     {
