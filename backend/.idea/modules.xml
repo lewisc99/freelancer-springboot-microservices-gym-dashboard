@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/backend.iml" filepath="$PROJECT_DIR$/.idea/backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/ms-employee/ms-employee.iml" filepath="$PROJECT_DIR$/ms-employee/ms-employee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ms-eureka-server/ms-eureka-server.iml" filepath="$PROJECT_DIR$/ms-eureka-server/ms-eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/ms-user/ms-user.iml" filepath="$PROJECT_DIR$/ms-user/ms-user.iml" />
     </modules>
   </component>
