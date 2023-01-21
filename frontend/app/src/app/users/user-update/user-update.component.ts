@@ -50,22 +50,22 @@ export class UserUpdateComponent implements OnInit{
   {
     this.userGroup = this.fb.group({
       user : this.fb.group({
-        id: this.fb.control(""),
-        username: this.fb.control("",[Validators.required,Validators.minLength(5),
+        id: this.fb.control(this.user.id),
+        username: this.fb.control(this.user.username,[Validators.required,Validators.minLength(5),
            LewisModulesValidators.notOnlyWhiteSpace,  Validators.maxLength(20)]),
 
-        email:this.fb.control("", [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-        age: this.fb.control("", [Validators.required, Validators.min(18), Validators.max(90)]),
-        doc: this.fb.control("", [Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
+        email:this.fb.control(this.user.email, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+        age: this.fb.control(this.user.age, [Validators.required, Validators.min(18), Validators.max(90)]),
+        doc: this.fb.control(this.user.doc, [Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
       }),
         plan: this.fb.group({
-            id: this.fb.control(""),
-            start: this.fb.control("", [Validators.required]),
-            finish: this.fb.control("", [Validators.required]),
-            status: this.fb.control("", [Validators.required]),
+            id: this.fb.control(this.user.plan.id),
+            start: this.fb.control(this.user.plan.start, [Validators.required]),
+            finish: this.fb.control(this.user.plan.finish, [Validators.required]),
+            status: this.fb.control(this.user.plan.status, [Validators.required]),
             category: this.fb.group({
-              id: this.fb.control(""),
-              name: this.fb.control(""),
+              id: this.fb.control(this.user.plan.category.id),
+              name: this.fb.control(this.user.plan.category.name),
             }),
       })
     })
@@ -89,12 +89,6 @@ export class UserUpdateComponent implements OnInit{
   get start() {return this.userGroup.get("plan.start")}
   get finish() {return this.userGroup.get("plan.finish")}
   get getStatus() {return this.userGroup.get("plan.status")}
-
-  get categoryId() { return this.userGroup.get("category.id")}
-  get categoryName() { return this.userGroup.get("category.name")}
-
-
-
 
   onSubmit()
   {
