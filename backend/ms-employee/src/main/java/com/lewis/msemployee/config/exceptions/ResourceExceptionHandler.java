@@ -2,6 +2,7 @@ package com.lewis.msemployee.config.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -52,6 +53,20 @@ public class ResourceExceptionHandler {
                 errors, request.getRequestURI());
 
         return ResponseEntity.status(status).body(errorModel);
+    }
+
+    @ExceptionHandler(value = HttpMessageNotReadableException.class)
+    protected ResponseEntity<StandardError>  MessageNotReadableException
+            (HttpMessageNotReadableException exception, HttpServletRequest request)
+    {
+        String messageError = "Please certify the data sent is correct, because the message is not readable";
+
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        StandardError standardError = new StandardError(
+                Instant.now(), status.value(), exception.getMessage(), messageError, request.getRequestURI()
+        );
+
+        return ResponseEntity.status(status).body(standardError);
     }
 
     @ExceptionHandler(RuntimeException.class)

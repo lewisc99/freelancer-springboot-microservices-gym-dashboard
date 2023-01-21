@@ -83,7 +83,7 @@ public class ResourceExceptionHandler {
         }
 
         @ExceptionHandler(value = HttpMessageNotReadableException.class)
-        protected ResponseEntity<StandardError>  ConstraintViolationException
+        protected ResponseEntity<StandardError>  MessageNotReadableException
                 (HttpMessageNotReadableException exception, HttpServletRequest request)
         {
             String messageError = "Please certify the data sent is correct, because the message is not readable";
