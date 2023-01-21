@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public class Employee implements UserDetails {
 
+
     private UUID id;
     private String username;
     private String email;

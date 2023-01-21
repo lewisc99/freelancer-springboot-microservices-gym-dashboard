@@ -1,6 +1,5 @@
 package com.lewis.msauthentication.feignclients;
 
-
 import com.lewis.msauthentication.entities.domain.Employee;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface EmployeeFeignClient {
 
     @GetMapping(value="/search")
-    ResponseEntity<Employee> findByEmail(@RequestParam String email);
+    ResponseEntity<Employee> findByEmail(@RequestParam(value="email") String email);
 
 }

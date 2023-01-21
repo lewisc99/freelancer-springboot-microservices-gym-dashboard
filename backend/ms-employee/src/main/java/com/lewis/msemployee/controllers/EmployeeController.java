@@ -77,6 +77,7 @@ public class EmployeeController {
     public ResponseEntity<Employee> getByEmail(@RequestParam(value = "email") String email)
     {
         Employee employee = employeeService.getByEmail(email);
+        System.out.println("Employee by email called");
         return ResponseEntity.ok(employee);
     }
 
