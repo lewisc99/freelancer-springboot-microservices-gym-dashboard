@@ -3,6 +3,7 @@ package com.lewis.msemployee.repositories;
 import com.lewis.msemployee.entities.domain.Employee;
 import com.lewis.msemployee.repositories.contracts.EmployeeDao;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
@@ -29,6 +30,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
             Employee employee = session.get(Employee.class, id);
 
             return employee;
+    }
+
+
+    @Override
+    public Employee getByEmail(String email) {
+        Session session = entityManager.unwrap(Session.class);
+        Query<Employee> query = session.createQuery("select i from Employee i  WHERE email=:email", Employee.class);
+        query.setParameter("email",email);
+        Employee employee = query.getSingleResult();
+        return employee;
     }
 
     @Override
@@ -68,4 +79,5 @@ public class EmployeeDaoImpl implements EmployeeDao {
             throw new RuntimeException();
         }
     }
+
 }
