@@ -12,7 +12,8 @@ import { UserCreateComponent } from './user-create/user-create.component';
 var routes:Routes = [
     {path: 'users/create',component: UserCreateComponent},
     {path: 'users',component: UserListComponent  },
-    {path: 'users/:id',component: UserByIdComponent  }
+    {path: 'users/:id',component: UserByIdComponent  },
+    {path: 'users/:id/edit',component: UserUpdateComponent  }
 ]
 
 

@@ -45,6 +45,15 @@ export class UserService {
     )
   }
 
+  update(user:UserDTO) : Observable<any>
+  {
+    let getBydIdURL = this.fullURL + "/" + user.id;
+    return this.httpClient.put<UserDTO>(getBydIdURL, user).pipe
+    (
+      catchError(error => throwError(() => error))
+    )
+  }
+
   delete(id:string) : Observable<any>
   {
     let getByIdURL = this.fullURL + "/" + id;
