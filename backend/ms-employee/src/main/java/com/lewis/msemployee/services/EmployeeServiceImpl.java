@@ -85,6 +85,12 @@ public class EmployeeServiceImpl  implements EmployeeService {
     }
 
     @Override
+    public Employee getByEmail(String email) {
+         return employeeDao.getByEmail(email);
+    }
+
+
+    @Override
     public Boolean update(UUID id, EmployeeModel employee)
     {
         Employee employeeById = getById(id);
