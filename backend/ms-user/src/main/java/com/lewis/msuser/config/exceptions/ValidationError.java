@@ -2,7 +2,6 @@ package com.lewis.msuser.config.exceptions;
 
 import java.time.Instant;
 import java.util.List;
-
 public class ValidationError {
 
     private static final long serialVersionUID = 1L;
@@ -13,10 +12,8 @@ public class ValidationError {
     private String message;
     private String path;
 
-
     public ValidationError() {
     }
-
     public ValidationError(Instant timestamp, Integer status, List<String> error, String message, String path) {
         this.timestamp = timestamp;
         this.status = status;
