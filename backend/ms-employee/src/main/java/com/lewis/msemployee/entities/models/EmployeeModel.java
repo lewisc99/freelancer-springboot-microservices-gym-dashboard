@@ -8,7 +8,7 @@ public class EmployeeModel {
 
     @NotNull(message = "username cannot be null")
     @NotBlank(message = "username cannot be empty")
-    @Size(message = "Document must have min size 5 and Max size 20", min = 5, max = 20)
+    @Size(message = "username must have min size 5 and Max size 20", min = 5, max = 20)
     private String username;
     @Min(value = 18, message = "Age must be at least 18")
     @Range(min=0, max=90)

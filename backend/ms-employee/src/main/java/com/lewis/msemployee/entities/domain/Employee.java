@@ -1,5 +1,6 @@
 package com.lewis.msemployee.entities.domain;
 
+import org.hibernate.validator.constraints.Range;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.ArrayList;
@@ -15,14 +16,24 @@ public class Employee {
     @Column(columnDefinition = "uuid",nullable = false)
     private UUID id;
 
+    @NotNull(message = "username cannot be null")
+    @NotBlank(message = "username cannot be empty")
+    @Size(message = "username must have min size 5 and Max size 20", min = 5, max = 20)
     private String username;
 
+    @Min(value = 18, message = "Age must be at least 18")
+    @Range(min=0, max=90)
     private Integer age;
 
+    @NotNull(message = "Document cannot be null")
+    @NotBlank(message = "doc cannot be empty")
+    @Size(message = "Document must have min size 10 and Max size 20", min = 10, max = 20)
     private String doc;
 
+    @NotNull(message = "Email cannot be null")
+    @Email(message = "Email should be valid")
     private String email;
-
+    @NotNull(message = "Roles cannot be null")
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
