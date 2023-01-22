@@ -18,7 +18,6 @@ public class Employee {
 
     @NotNull(message = "username cannot be null")
     @NotBlank(message = "username cannot be empty")
-    @Size(message = "username must have min size 5 and Max size 20", min = 5, max = 20)
     private String username;
 
     @Min(value = 18, message = "Age must be at least 18")
@@ -27,14 +26,12 @@ public class Employee {
 
     @NotNull(message = "Document cannot be null")
     @NotBlank(message = "doc cannot be empty")
-    @Size(message = "Document must have min size 10 and Max size 20", min = 10, max = 20)
     private String doc;
 
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
     private String email;
     @NotNull(message = "Password cannot be null")
-    @Size(message = "Document must have min size 10 and Max size 20", min = 8, max = 20)
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
