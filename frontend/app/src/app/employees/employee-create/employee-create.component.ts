@@ -39,7 +39,7 @@ export class EmployeeCreateComponent implements OnInit {
           email: new FormControl("",[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$") ]),
           age: new FormControl("", [Validators.required, Validators.min(18), Validators.max(90)]),
           doc: new FormControl("",[Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
-          password: new FormControl(),
+          password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
            roles: this.fb.array  ([], Validators.required)
         })
       }
@@ -50,6 +50,7 @@ export class EmployeeCreateComponent implements OnInit {
  get email() {return this.formGroup.get("employeeModel.email")}
  get age() {return this.formGroup.get("employeeModel.age")}
  get doc() {return this.formGroup.get("employeeModel.doc")}
+ get password() {return this.formGroup.get("employeeModel.password")}
  get role() {return this.formGroup.get("employeeModel.roles")}
 
 
@@ -90,6 +91,9 @@ export class EmployeeCreateComponent implements OnInit {
 
   onSubmit():void
   {
+    if (!this.formGroup.invalid)
+    {
+     
       var employeeForm:any= this.formGroup.value.employeeModel;
       var employee: Employee = new Employee();
       var roles:Roles[] = [];
@@ -114,8 +118,7 @@ export class EmployeeCreateComponent implements OnInit {
         next: () => {this.route.navigate(['/..','employees'])},
         error: error => alert(error)
      });
+    }
+     this.formGroup.markAllAsTouched();
   }
-
-
-
 }

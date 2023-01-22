@@ -6,25 +6,89 @@
                 <div class="form-group">
                     <label for="username">Username: </label>
                     <input type="text" id="username"  placeholder="enter a username" class="form-control" formControlName="username" />
+
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert-form-control">
+                        <div *ngIf="(username?.errors?.required) || (username?.errors?.notOnlyWhitespace) ">
+                            Username name is required
+                        </div>
+                        <div *ngIf="username?.errors?.minlength">
+                            Username must be at least 5 characters Long
+                        </div>
+                        <div *ngIf="username?.errors?.maxlength">
+                            Username must be at Maximum 20 characters Long
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-group">
                     <label for="age">Age: </label>
                     <input type="text" id="age"  placeholder="enter an Age" class="form-control" formControlName="age"/>
+
+                    
+                    <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="alert-form-control">
+                        <div *ngIf="(age?.errors?.required) || (age?.errors?.notOnlyWhitespace) ">
+                            Age is required
+                        </div>
+                        <div *ngIf="age?.errors?.min">
+                            Age must be at least 18 characters Long
+                        </div>
+                        <div *ngIf="age?.errors?.max">
+                            Age must be at Maximum 90 characters Long
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-group">
                     <label for="doc">Document: </label>
                     <input type="text"  id="doc" placeholder="enter a Doc" class="form-control" formControlName="doc"/>
+
+                    <div *ngIf="doc?.invalid && (doc?.dirty || doc?.touched)" class="alert-form-control">
+                        <div *ngIf="(doc?.errors?.required) || (doc?.errors?.notOnlyWhitespace) ">
+                            Document is required
+                        </div>
+                        <div *ngIf="doc?.errors?.minlength">
+                            Document must be at least 10 characters Long
+                        </div>
+                        <div *ngIf="doc?.errors?.maxlength">
+                            Document must be at least 20 characters Long
+                        </div>
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label for="email">Email: </label>
                     <input type="email" id="email" placeholder="enter an Email" class="form-control" formControlName="email"/>
+
+                    
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-form-control">
+                        <div *ngIf="email?.errors?.required">
+                            Email is required
+                        </div>
+                            <div *ngIf="email?.errors?.pattern">
+                             Email must be a valid email address format.
+                            </div>
+                     </div>
+
                 </div>
 
                 <div class="form-group">
                     <label for="password">Password: </label>
                     <input type="text" id="password" placeholder="enter a Password" class="form-control" formControlName="password"/>
+
+                    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="alert-form-control">
+                        <div *ngIf="(password?.errors?.required) || (password?.errors?.notOnlyWhitespace) ">
+                            Password is required
+                        </div>
+                        <div *ngIf="password?.errors?.minlength">
+                            Password must be at least 8 characters Long
+                        </div>
+                        <div *ngIf="password?.errors?.maxlength">
+                            Password must be at least 20 characters Long
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-group">
@@ -34,6 +98,12 @@
                         <input type="checkbox" [id]="role.name" class="custom-control mr-1 mb-3" [value]="role.name" (change)="onRolesAdded(role.name)" [checked]="checkBoxRoles.get(role.name)" >
                         <label [for]="role.name"> {{role.name}}</label>
                        </div>
+                       <div *ngIf="role?.invalid && (role?.dirty || role?.touched)" class="alert-form-control">
+
+                        <div *ngIf="role?.errors?.required">
+                            Role  is required
+                        </div>
+                     </div>
                     </div>
                 </div>
                 <div class="form-group">
