@@ -50,7 +50,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsEmployeeApplication">
+  <component name="RunManager" selected="JUnit.All in ms-employee">
     <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
       <module name="ms-authentication" />
@@ -103,8 +103,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in ms-user (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
+    <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
@@ -113,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
-        <item itemvalue="JUnit.All in ms-user (2)" />
       </list>
     </recent_temporary>
   </component>

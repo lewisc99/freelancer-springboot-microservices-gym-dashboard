@@ -33,7 +33,8 @@ public class Employee {
     @NotNull(message = "Email cannot be null")
     @Email(message = "Email should be valid")
     private String email;
-    @NotNull(message = "Roles cannot be null")
+    @NotNull(message = "Password cannot be null")
+    @Size(message = "Document must have min size 10 and Max size 20", min = 8, max = 20)
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
