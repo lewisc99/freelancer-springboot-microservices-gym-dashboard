@@ -2,6 +2,7 @@ package com.lewis.msauthentication.controller;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.lewis.msauthentication.entities.domain.Employee;
 import com.lewis.msauthentication.entities.models.LoginModel;
 import com.lewis.msauthentication.filters.SecurityConstants;
 import com.lewis.msauthentication.services.MyEmployeeDetailsService;
@@ -13,15 +14,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
-@RequestMapping("v1/account")
+@RequestMapping("v1/account/")
 public class AccountController {
 
     @Autowired
@@ -29,6 +27,7 @@ public class AccountController {
 
     @Autowired
     private MyEmployeeDetailsService userDetailsService;
+
 
     @PostMapping(value="login")
     public ResponseEntity<String> logIn(@RequestBody LoginModel login) throws Exception
@@ -47,16 +46,12 @@ public class AccountController {
             throw new Exception("Incorrect username or password",e);
         }
 
-        final UserDetails userDetails = userDetailsService.loadUserByUsername(login.getEmail());
         String token = JWT.create()
                 .withSubject(login.getEmail())
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
 
-        System.out.println("Token decode: ");
-        System.out.println(JWT.decode(token));
-
         return ResponseEntity.ok().body(token);
-
     }
+
 }

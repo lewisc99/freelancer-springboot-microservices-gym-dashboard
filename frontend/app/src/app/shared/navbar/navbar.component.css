@@ -3,3 +3,17 @@
 nav {
     margin-bottom: 40px;
 }
+
+nav.bg-primary {
+    background-color: rgb(91, 162, 255);
+}
+
+li > a {
+    color: white;
+}
+
+
+
+li.nav-item {
+    font-size: calc(5px + 1vw);
+}

@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Component
-@FeignClient(name="ms-employee", path ="v1/employees")
+@FeignClient(name="ms-employee")
 public interface EmployeeFeignClient {
 
-    @GetMapping(value="/search")
+    @GetMapping(value="v1/employees/search")
     ResponseEntity<Employee> findByEmail(@RequestParam(value="email") String email);
 
 }

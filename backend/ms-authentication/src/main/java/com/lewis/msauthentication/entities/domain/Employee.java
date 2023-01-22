@@ -15,7 +15,7 @@ public class Employee implements UserDetails {
     private String username;
     private String email;
     private String password;
-    private boolean active;
+    private boolean active = true;
 
     private List<Roles> roles =  new ArrayList<>();
 

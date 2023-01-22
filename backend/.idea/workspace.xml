@@ -50,7 +50,7 @@
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsEmployeeApplication">
+  <component name="RunManager" selected="Application.MsAuthenticationApplication">
     <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
       <module name="ms-authentication" />
@@ -113,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsAuthenticationApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -133,15 +133,6 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-authentication/src/main/java/com/lewis/msauthentication/filters/JWTAuthenticationFilter.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
