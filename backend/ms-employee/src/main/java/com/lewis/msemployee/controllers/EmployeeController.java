@@ -30,11 +30,12 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody Employee employee)
     {
-//        passwordEncoder(employee);
+        passwordEncoder(employee);
+        UUID uuid = UUID.randomUUID();
+        employee.setId(uuid);
         employeeService.create(employee);
         return ResponseEntity.status(201).build();
     }
-
     private void passwordEncoder(Employee employee) {
         String PasswordEncoded = passwordEncoder.encode(employee.getPassword());
         employee.setPassword(PasswordEncoded);
@@ -71,6 +72,14 @@ public class EmployeeController {
         EmployeeDto employeeDto = DtoConverter.ToEmployeeDto(employee,fullUrl);
 
         return ResponseEntity.ok(employeeDto);
+    }
+
+    @GetMapping("search")
+    public ResponseEntity<Employee> getByEmail(@RequestParam(value = "email") String email)
+    {
+        Employee employee = employeeService.getByEmail(email);
+        System.out.println("Employee by email called");
+        return ResponseEntity.ok(employee);
     }
 
     @PutMapping("{id}")

@@ -6,6 +6,7 @@ import { EmployeeModule } from './employees/employees.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 @NgModule({
     declarations: [
         AppComponent,
@@ -18,7 +19,8 @@ import { UsersModule } from './users/users.module';
         HttpClientModule,
         RouterModule,
         SharedModule,
-        UsersModule
+        UsersModule,
+        AuthModule
     ]
 })
 export class AppModule { }

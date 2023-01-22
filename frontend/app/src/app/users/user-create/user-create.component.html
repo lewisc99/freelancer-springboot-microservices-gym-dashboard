@@ -9,20 +9,71 @@
                 <div class="form-group">
                     <label for="username">Username: </label>
                     <input type="text" id="username"  placeholder="enter a username" class="form-control" formControlName="username" />
+
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert-form-control">
+
+                        <div *ngIf="(username?.errors?.required) || (username?.errors?.notOnlyWhitespace) ">
+                            Username name is required
+                        </div>
+                        <div *ngIf="username?.errors?.minlength">
+                            Username must be at least 5 characters Long
+                        </div>
+                        <div *ngIf="username?.errors?.maxlength">
+                            Username must be at Maximum 20 characters Long
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group">
                     <label for="age">Age: </label>
                     <input type="text" id="age"  placeholder="enter an Age" class="form-control" formControlName="age"/>
+
+                    <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="alert-form-control">
+
+                        <div *ngIf="(age?.errors?.required) || (age?.errors?.notOnlyWhitespace) ">
+                            Age is required
+                        </div>
+                        <div *ngIf="age?.errors?.min">
+                            Age must be at least 18 characters Long
+                        </div>
+                        <div *ngIf="age?.errors?.max">
+                            Age must be at Maximum 90 characters Long
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-group">
                     <label for="doc">Document: </label>
                     <input type="text"  id="doc" placeholder="enter a Doc" class="form-control" formControlName="doc"/>
+
+                    <div *ngIf="doc?.invalid && (doc?.dirty || doc?.touched)" class="alert-form-control">
+                        <div *ngIf="(doc?.errors?.required) || (doc?.errors?.notOnlyWhitespace) ">
+                            Document is required
+                        </div>
+                        <div *ngIf="doc?.errors?.minlength">
+                            Document must be at least 10 characters Long
+                        </div>
+                        <div *ngIf="doc?.errors?.maxlength">
+                            Document must be at least 20 characters Long
+                        </div>
+                    </div>
                 </div>
+
                 <div class="form-group">
                     <label for="email">Email: </label>
                     <input type="email" id="email" placeholder="enter an Email" class="form-control" formControlName="email"/>
+
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-form-control">
+
+                        <div *ngIf="email?.errors?.required">
+                            Email is required
+                        </div>
+                            <div *ngIf="email?.errors?.pattern">
+                             Email must be a valid email address format.
+                            </div>
+                     </div>
+
                 </div>
             </div>
             <hr/>
@@ -32,11 +83,23 @@
                 <div class="form-group">
                     <label for="start">Start: </label>
                     <input type="date" id="start"  placeholder="enter a Data to user Start in the Gym" class="form-control" formControlName="start" />
+
+                    <div *ngIf="start?.invalid && (start?.dirty || start?.touched)" class="alert-form-control">
+                        <div *ngIf="start?.errors?.required">
+                            Start Data is required
+                        </div>
+                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="finish">Finish: </label>
                     <input type="date" id="finish"  placeholder="enter a Data to user Finish in the Gym" class="form-control" formControlName="finish" />
+
+                    <div *ngIf="finish?.invalid && (finish?.dirty || finish?.touched)" class="alert-form-control">
+                        <div *ngIf="finish?.errors?.required">
+                            Finish Data is required
+                        </div>
+                     </div>
                 </div>
 
                 <div class="form-check form-check-inline" *ngFor="let value of status">
@@ -45,6 +108,12 @@
                         {{value}}
                     </label>
                   </div>
+                  <div *ngIf="getStatus?.invalid && (getStatus?.dirty || getStatus?.touched)" class="alert-form-control">
+                    <div *ngIf="getStatus?.errors?.required">
+                        You must choose a Status
+                    </div>
+                 </div>
+
                  <br/>
                  <br/>
                 <div class="form-group" formGroupName="category">

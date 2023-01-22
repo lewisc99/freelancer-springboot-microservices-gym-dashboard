@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RolesService } from '../../shared/services/roles.service';
 import { Roles } from '../domain/entities/roles';
-import { FormBuilder, FormControl, FormGroup, FormArray } from '@angular/forms';
-import { EmployeeDto } from '../domain/dtos/EmployeeDto';
+import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee-service/employee.service';
 import { Employee } from '../domain/entities/employee';
+import { LewisModulesValidators } from 'src/app/shared/validators/lewis-modules-validators';
 
 @Component({
   selector: 'app-employee-create',
@@ -32,16 +32,26 @@ export class EmployeeCreateComponent implements OnInit {
       {
         employeeModel: this.fb.group({
           id: new FormControl(),
-          username: new FormControl(),
-          email: new FormControl(),
-          age: new FormControl(),
-          doc: new FormControl(),
-          password: new FormControl(),
+          username: new FormControl("",[Validators.required,Validators.minLength(5),
+            LewisModulesValidators.notOnlyWhiteSpace,  Validators.maxLength(20)]),
+
+          email: new FormControl("",[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$") ]),
+          age: new FormControl("", [Validators.required, Validators.min(18), Validators.max(90)]),
+          doc: new FormControl("",[Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
+          password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
            roles: this.fb.array  ([])
         })
       }
     )
  }
+
+ get username() {return this.formGroup.get("employeeModel.username")}
+ get email() {return this.formGroup.get("employeeModel.email")}
+ get age() {return this.formGroup.get("employeeModel.age")}
+ get doc() {return this.formGroup.get("employeeModel.doc")}
+ get password() {return this.formGroup.get("employeeModel.password")}
+ get role() {return this.formGroup.get("employeeModel.roles")}
+
 
   getRoles()
   {
@@ -80,6 +90,9 @@ export class EmployeeCreateComponent implements OnInit {
 
   onSubmit():void
   {
+    if (!this.formGroup.invalid)
+    {
+     
       var employeeForm:any= this.formGroup.value.employeeModel;
       var employee: Employee = new Employee();
       var roles:Roles[] = [];
@@ -104,8 +117,7 @@ export class EmployeeCreateComponent implements OnInit {
         next: () => {this.route.navigate(['/..','employees'])},
         error: error => alert(error)
      });
+    }
+     this.formGroup.markAllAsTouched();
   }
-
-
-
 }

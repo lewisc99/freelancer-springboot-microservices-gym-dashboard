@@ -84,7 +84,7 @@ public class EmployeeControllerTest {
         employee.setAge(20);
         employee.setUsername("Felipe");
         employee.setEmail("felipe@gmail.com");
-        employee.setDoc("929393992");
+        employee.setDoc("92939399211");
         employee.setPassword("vida3788");
 
         roles.setId(UUID.fromString("6125011f-49fd-4cc8-a2d9-69e79ce127ab"));
@@ -119,7 +119,7 @@ public class EmployeeControllerTest {
     @DisplayName("create Invalid Employee Http Request")
     public void createInvalidEmployeeHttpRequest() throws Exception
     {
-        employee.setEmail("");
+        employee.setEmail(null);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/employees")
                         .contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(employee)))
@@ -130,12 +130,12 @@ public class EmployeeControllerTest {
     @DisplayName("create Invalid Employee validation Error Password cannot be null")
     public void createInvalidEmployeeValidationErrorPasswordCannotBeNull() throws Exception
     {
-        employee.setPassword("");
+        employee.setPassword(null);
 
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/employees")
                         .contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors",hasSize(3)));
+                .andExpect(jsonPath("$.errors",hasSize(1)));
     }
 
     @Test

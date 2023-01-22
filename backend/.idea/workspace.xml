@@ -37,7 +37,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/arquivos/programation/workspace-java/2023/month-1/gym-project/backend/ms-user/src/test/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/arquivos/programation/workspace-java/2023/month-1/gym-project/backend/ms-authentication/src/main/java/com/lewis/msauthentication/entities/domain&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -46,10 +46,24 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-authentication\src\main\java\com\lewis\msauthentication\entities\domain" />
       <recent name="D:\arquivos\programation\workspace-java\2023\month-1\gym-project\backend\ms-user\src\test\resources" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MsEmployeeApplication">
+    <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
+      <module name="ms-authentication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msauthentication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
       <module name="ms-employee" />
@@ -89,16 +103,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in backend" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in ms-user (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-user" />
+    <configuration name="All in ms-employee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-employee" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
@@ -109,9 +115,9 @@
       <list>
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
+        <item itemvalue="JUnit.All in ms-employee" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="JUnit.All in ms-user (2)" />
-        <item itemvalue="JUnit.All in backend" />
+        <item itemvalue="Application.MsAuthenticationApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -127,6 +133,15 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-authentication/src/main/java/com/lewis/msauthentication/filters/JWTAuthenticationFilter.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />

@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,12 +28,11 @@ public class UsersController {
     private UserConvert userConvert;
     @Autowired
     private UserService userService;
-
     @Autowired
     private ModelMapper mapper;
 
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody UserModel userModel, HttpServletRequest request)
+    public ResponseEntity<Void> create(@Valid @RequestBody UserModel userModel, HttpServletRequest request)
     {
         User user = mapper.map(userModel,User.class);
         userService.create(user);
@@ -52,7 +52,7 @@ public class UsersController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<UserDTO> getById(@PathVariable String id)
+    public ResponseEntity<UserDTO> getById( @PathVariable(required = true) String id)
     {
         User user =  userService.findById(UUID.fromString(id));
         UserDTO userDTO = userConvert.toUserHATEOAS(user);
@@ -60,7 +60,7 @@ public class UsersController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Void> update(@PathVariable String id, @RequestBody UserModel userModel)
+    public ResponseEntity<Void> update(@Valid @PathVariable(required = true) String id, @Valid @RequestBody UserModel userModel)
     {
         userModel.setId(UUID.fromString(id));
         userService.update(userModel);
@@ -68,7 +68,7 @@ public class UsersController {
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id)
+    public ResponseEntity<Void> delete(@Valid  @PathVariable(required = true) String id)
     {
         userService.delete(UUID.fromString(id));
         return ResponseEntity.noContent().build();

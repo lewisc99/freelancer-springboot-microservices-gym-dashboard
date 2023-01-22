@@ -11,6 +11,8 @@ public interface EmployeeService {
     EmployeesDto getAll(PageModel page, String urlEmployee);
     Employee getById(UUID id);
 
+    Employee getByEmail(String email);
+
     Boolean update(UUID id, EmployeeModel employee);
 
     void delete(UUID id);

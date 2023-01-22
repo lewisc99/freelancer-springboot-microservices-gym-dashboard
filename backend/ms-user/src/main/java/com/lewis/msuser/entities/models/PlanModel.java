@@ -4,19 +4,27 @@ import com.lewis.msuser.entities.domain.Status;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.UUID;
-
+@Valid
 public class PlanModel {
     @Nullable
     @Type(type = "uuid-char")
     private UUID id;
     @DateTimeFormat(pattern="yyyy/dd/MM")
-    private Date start  ;
+    @NotNull(message = "Start data cannot be null")
+    private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
+    @NotNull(message = "Finish data cannot be null")
     private Date finish;
 
+    @NotNull(message = "Status cannot be null")
     private Status status;
+
+    @Valid
+    @NotNull(message = "category cannot be null")
     private CategoryModel category;
     private UserModel user;
 

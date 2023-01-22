@@ -2,13 +2,17 @@ package com.lewis.msuser.entities.models;
 
 import org.hibernate.annotations.Type;
 import org.springframework.lang.Nullable;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.UUID;
-
 public class CategoryModel {
     @Nullable
     @Type(type = "uuid-char")
     private UUID id;
+
+    @NotNull(message = "name cannot be null")
+    @NotBlank(message = "name  cannot be empty")
     private String name;
     private List<PlanModel> plans;
 
