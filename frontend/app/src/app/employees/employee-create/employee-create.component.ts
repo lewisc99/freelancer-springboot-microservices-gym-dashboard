@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RolesService } from '../../shared/services/roles.service';
 import { Roles } from '../domain/entities/roles';
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
-import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee-service/employee.service';
 import { Employee } from '../domain/entities/employee';

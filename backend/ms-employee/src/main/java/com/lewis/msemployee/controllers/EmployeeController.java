@@ -30,7 +30,9 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody Employee employee)
     {
-//        passwordEncoder(employee);
+//      passwordEncoder(employee);
+        UUID uuid = UUID.randomUUID();
+        employee.setId(uuid);
         employeeService.create(employee);
         return ResponseEntity.status(201).build();
     }
