@@ -13,10 +13,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.servlet.http.HttpServletResponse;
-import static com.lewis.msauthentication.filters.SecurityConstants.AUTH_WHITELIST;
+import static com.lewis.msauthentication.config.SecurityConstants.AUTH_WHITELIST;
 
 @EnableWebSecurity
-public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private MyEmployeeDetailsService myEmployeeDetailsService;
 
@@ -31,6 +31,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll();
         http.cors().and().httpBasic().and().csrf().disable().authorizeRequests();
 
+        http.authorizeRequests().antMatchers("/v1/employees/**").permitAll();
         http.authorizeRequests().antMatchers("/v1/auth/logout").permitAll()
                 .antMatchers("/v1/auth/login").permitAll().anyRequest()
                 .authenticated().and().sessionManagement()

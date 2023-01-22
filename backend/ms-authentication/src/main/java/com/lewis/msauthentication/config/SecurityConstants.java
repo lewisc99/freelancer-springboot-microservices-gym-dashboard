@@ -1,4 +1,4 @@
-package com.lewis.msauthentication.filters;
+package com.lewis.msauthentication.config;
 
 public class SecurityConstants {
     public static final String SECRET = "LEWIS-GYM-PROJECT-KEY";
