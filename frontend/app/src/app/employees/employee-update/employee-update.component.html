@@ -81,9 +81,9 @@
                         <label [for]="role.name"> {{role.name}}</label>
                        </div>
                     </div>
-                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-form-control">
+                    <div *ngIf="roles?.invalid && (roles?.dirty || roles?.touched)" class="alert-form-control">
 
-                        <div *ngIf="email?.errors?.required">
+                        <div *ngIf="roles?.errors?.required">
                             Role  is required
                         </div>
                      </div>

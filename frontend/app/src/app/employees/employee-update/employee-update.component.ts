@@ -66,6 +66,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
   get email() {return this.formGroup.get("employeeModel.email")}
   get age() {return this.formGroup.get("employeeModel.age")}
   get doc() {return this.formGroup.get("employeeModel.doc")}
+  get roles() {return this.formGroup.get("employeeModel.roles")}
 
 
   getAllRoles():void 
@@ -130,7 +131,6 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
     if (!this.formGroup.invalid)
     {
       var rolesModel:EmployeeModel = this.formGroup.controls['employeeModel'].value;
-      console.log(rolesModel);
       this.employeeService.updateEmployee(rolesModel).subscribe(
        {
          next: () =>  this.route.navigate(['..']),
