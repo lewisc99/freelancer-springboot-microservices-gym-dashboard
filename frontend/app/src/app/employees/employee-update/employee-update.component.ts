@@ -50,7 +50,7 @@ export class EmployeeUpdateComponent implements OnInit, OnDestroy{
           email: new FormControl(this.employee.email,[Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$") ]),
           age: new FormControl(this.employee.age, [Validators.required, Validators.min(18), Validators.max(90)]),
           doc: new FormControl(this.employee.doc,[Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
-           roles: this.fb.array  ([]),
+           roles: this.fb.array  ([], [Validators.required]),
         })
       });
 

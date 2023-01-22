@@ -9,18 +9,68 @@
                 <div class="form-group">
                     <label for="username">Username: </label>
                     <input class="form-control" type="text" id="username" placeholder="enter username" [value]="employee.username" formControlName="username"/>
+
+                    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="alert-form-control">
+                        <div *ngIf="(username?.errors?.required) || (username?.errors?.notOnlyWhitespace) ">
+                            Username name is required
+                        </div>
+                        <div *ngIf="username?.errors?.minlength">
+                            Username must be at least 5 characters Long
+                        </div>
+                        <div *ngIf="username?.errors?.maxlength">
+                            Username must be at Maximum 20 characters Long
+                        </div>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="email">Email: </label>
                     <input class="form-control" type="text" id="email" placeholder="enter Email" [value]="employee.email"  formControlName="email"/>
+
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-form-control">
+
+                        <div *ngIf="email?.errors?.required">
+                            Email is required
+                        </div>
+                            <div *ngIf="email?.errors?.pattern">
+                             Email must be a valid email address format.
+                            </div>
+                     </div>
+
                 </div>
                 <div class="form-group">
                     <label for="age">Age: </label>
                     <input class="form-control" type="text" id="age" placeholder="enter Age" [value]="employee.age" formControlName="age"/>
+
+                    <div *ngIf="age?.invalid && (age?.dirty || age?.touched)" class="alert-form-control">
+                        <div *ngIf="(age?.errors?.required) || (age?.errors?.notOnlyWhitespace) ">
+                            Age is required
+                        </div>
+                        <div *ngIf="age?.errors?.min">
+                            Age must be at least 18 characters Long
+                        </div>
+                        <div *ngIf="age?.errors?.max">
+                            Age must be at Maximum 90 characters Long
+                        </div>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="doc">Document: </label>
                     <input class="form-control" type="text" id="doc" placeholder="enter Document"  [value]="employee.doc" formControlName="doc"/>
+                   
+                    <div *ngIf="doc?.invalid && (doc?.dirty || doc?.touched)" class="alert-form-control">
+                        <div *ngIf="(doc?.errors?.required) || (doc?.errors?.notOnlyWhitespace) ">
+                            Document is required
+                        </div>
+                        <div *ngIf="doc?.errors?.minlength">
+                            Document must be at least 10 characters Long
+                        </div>
+                        <div *ngIf="doc?.errors?.maxlength">
+                            Document must be at least 20 characters Long
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="form-group d-flex flex-column">
@@ -31,6 +81,12 @@
                         <label [for]="role.name"> {{role.name}}</label>
                        </div>
                     </div>
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert-form-control">
+
+                        <div *ngIf="email?.errors?.required">
+                            Role  is required
+                        </div>
+                     </div>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary mr-4">Update</button>
