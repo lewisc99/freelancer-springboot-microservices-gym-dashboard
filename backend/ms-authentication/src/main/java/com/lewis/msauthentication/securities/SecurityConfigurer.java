@@ -1,6 +1,5 @@
 package com.lewis.msauthentication.securities;
 
-import com.lewis.msauthentication.filters.JWTAuthenticationFilter;
 import com.lewis.msauthentication.services.MyEmployeeDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,12 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import javax.servlet.http.HttpServletResponse;
 import static com.lewis.msauthentication.filters.SecurityConstants.AUTH_WHITELIST;
-
 
 @EnableWebSecurity
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
-
     @Autowired
     private MyEmployeeDetailsService myEmployeeDetailsService;
 
@@ -32,8 +30,15 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll();
         http.cors().and().httpBasic().and().csrf().disable().authorizeRequests();
-        http.authorizeRequests().antMatchers("/v1/account/login").permitAll()
-        ;
+
+        http.authorizeRequests().antMatchers("/logout").permitAll()
+                .antMatchers("/v1/account/login").permitAll().anyRequest()
+                .authenticated().and().sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
+                .exceptionHandling().authenticationEntryPoint(
+                        (request,response,ex) -> {
+                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
+                        });
     }
 
     @Override
@@ -43,8 +48,6 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
         web.ignoring().antMatchers(AUTH_WHITELIST);
     }
-
-
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception
