@@ -31,8 +31,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll();
         http.cors().and().httpBasic().and().csrf().disable().authorizeRequests();
 
-        http.authorizeRequests().antMatchers("/logout").permitAll()
-                .antMatchers("/v1/account/login").permitAll().anyRequest()
+        http.authorizeRequests().antMatchers("/v1/auth/logout").permitAll()
+                .antMatchers("/v1/auth/login").permitAll().anyRequest()
                 .authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
                 .exceptionHandling().authenticationEntryPoint(
@@ -43,9 +43,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // TODO Auto-generated method stub
         super.configure(web);
-
         web.ignoring().antMatchers(AUTH_WHITELIST);
     }
     @Override
