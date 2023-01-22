@@ -32,8 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.cors().and().httpBasic().and().csrf().disable().authorizeRequests();
 
         http.authorizeRequests().antMatchers("/v1/employees/**").permitAll();
-        http.authorizeRequests().antMatchers("/v1/auth/logout").permitAll()
-                .antMatchers("/v1/auth/login").permitAll().anyRequest()
+        http.authorizeRequests().antMatchers("/v1/logout").permitAll()
+                .antMatchers("/v1/login").permitAll().anyRequest()
                 .authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and()
                 .exceptionHandling().authenticationEntryPoint(
