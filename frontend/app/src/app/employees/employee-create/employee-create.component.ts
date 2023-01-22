@@ -40,7 +40,7 @@ export class EmployeeCreateComponent implements OnInit {
           age: new FormControl("", [Validators.required, Validators.min(18), Validators.max(90)]),
           doc: new FormControl("",[Validators.required, Validators.minLength(10),Validators.maxLength(20)]),
           password: new FormControl("",[Validators.required, Validators.minLength(8),Validators.maxLength(20)]),
-           roles: this.fb.array  ([], Validators.required)
+           roles: this.fb.array  ([])
         })
       }
     )
