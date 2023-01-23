@@ -6,6 +6,7 @@ import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.services.contracts.EmployeeService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +28,10 @@ public class EmployeeController {
     @Autowired
     private BCryptPasswordEncoder  passwordEncoder;
 
+    @ApiOperation(value="create a new Employee",
+            notes = "will create a new Employee, you must add valid properties",
+            response = Void.class, code = 201
+    )
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody Employee employee)
     {
@@ -41,6 +46,10 @@ public class EmployeeController {
         employee.setPassword(PasswordEncoded);
     }
 
+    @ApiOperation(value="get all Employees",
+            notes = "you must add parameters pagNumber and pagSize and sortBy",
+            response = EmployeesDto.class, code = 200
+    )
     @GetMapping
     public ResponseEntity<EmployeesDto> getAll(@ModelAttribute  PageModel pageModel, HttpServletRequest request)
     {
@@ -64,6 +73,10 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employeesDto);
     }
 
+    @ApiOperation(value="get Employee By Id",
+            notes = "you must add a valid Id of type UUID",
+            response = EmployeeDto.class, code = 200
+    )
     @GetMapping("{id}")
     public ResponseEntity<EmployeeDto> getById(@PathVariable UUID id, HttpServletRequest request)
     {
@@ -74,6 +87,10 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeDto);
     }
 
+    @ApiOperation(value="to get Employees By Email",
+            notes = "This method is called by another microservices to get information about the Employee By Email",
+            response = Void.class, code = 200
+    )
     @GetMapping("search")
     public ResponseEntity<Employee> getByEmail(@RequestParam(value = "email") String email)
     {
@@ -82,6 +99,10 @@ public class EmployeeController {
         return ResponseEntity.ok(employee);
     }
 
+    @ApiOperation(value="to Update an Employee",
+            notes = "you must add a valid Id in the URl and valid properties, it's not necessary to add the IDS in the body",
+            response = Void.class, code = 204
+    )
     @PutMapping("{id}")
     public ResponseEntity<Void> update(@Valid @PathVariable UUID id,@Valid @RequestBody EmployeeModel employeeModel)
     {
@@ -92,6 +113,11 @@ public class EmployeeController {
         }
         return ResponseEntity.status(204).build();
     }
+
+    @ApiOperation(value="to Delete an Employee",
+            notes = "you must add a valid Id type of UUID",
+            response = Void.class, code = 204
+    )
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@Valid @PathVariable UUID id)
     {
