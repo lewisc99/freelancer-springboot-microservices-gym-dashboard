@@ -53,7 +53,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsUserApplication">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -121,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>
