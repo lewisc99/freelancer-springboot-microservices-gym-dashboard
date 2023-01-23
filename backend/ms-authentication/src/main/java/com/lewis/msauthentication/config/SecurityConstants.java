@@ -7,7 +7,6 @@ public class SecurityConstants {
     public static final String HEADER_STRING = "Authorization";
     public static final String SIGN_UP_URL = "/v1/account/login";
     public static final String[] AUTH_WHITELIST = {
-            // -- Swagger UI v2
             "/v2/api-docs",
             "/swagger-resources",
             "/swagger-resources/**",
@@ -20,5 +19,6 @@ public class SecurityConstants {
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-ui/",
-            "/swagger-ui"};
+            "/swagger-ui",
+            "/swagger-ui/index.html"};
 }
