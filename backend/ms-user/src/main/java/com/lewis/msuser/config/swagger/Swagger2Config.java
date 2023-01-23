@@ -19,7 +19,7 @@ public class Swagger2Config {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("com.lewis.msuser.controllers")) //or com.springsecurityroles
+                        .basePackage("com.lewis.msuser.controllers"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiDetails());
