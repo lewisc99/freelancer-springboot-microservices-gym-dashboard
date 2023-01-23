@@ -1,5 +1,6 @@
-package com.lewis.msapigateway.config;
+package com.lewis.msapigateway.filters;
 
+import com.lewis.msapigateway.config.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 @Component
 @RefreshScope
 public class AuthenticationFilter implements GatewayFilter {
@@ -30,7 +30,6 @@ public class AuthenticationFilter implements GatewayFilter {
                 Map<String, List<String>> claims =
                         jwtUtil.validateTokenAndRetrieveSubject(jwt);
 
-
                 if (claims != null)
                 {
                     List<String> getRoles = new ArrayList<String>();
@@ -39,10 +38,9 @@ public class AuthenticationFilter implements GatewayFilter {
                     getRoles = claims.get("roles");
 
                    var result = getRoles.stream().filter(f -> {
-                    var admin = f.contains("admin");
-                    var manager = f.contains("manager");
-                       return manager || admin;
-
+                        var admin = f.contains("admin");
+                        var manager = f.contains("manager");
+                           return manager || admin;
                    }).collect(Collectors.toList());
 
                    if(!result.isEmpty())
@@ -50,9 +48,9 @@ public class AuthenticationFilter implements GatewayFilter {
                        return chain.filter(exchange);
                    }
                 }
-
                 throw new NullPointerException();
             }
-            throw new NullPointerException();
+                throw new NullPointerException();
+
     }
 }
