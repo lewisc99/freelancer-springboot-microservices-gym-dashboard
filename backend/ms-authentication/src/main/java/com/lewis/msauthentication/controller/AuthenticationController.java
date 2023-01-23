@@ -4,6 +4,7 @@ import com.lewis.msauthentication.config.util.jwtUtil;
 import com.lewis.msauthentication.entities.dtos.TokenResponseDTO;
 import com.lewis.msauthentication.entities.models.LoginModel;
 import com.lewis.msauthentication.services.MyEmployeeDetailsService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -29,6 +30,12 @@ public class AuthenticationController {
     private MyEmployeeDetailsService userDetailsService;
 
 
+
+
+    @ApiOperation(value="Login Employees in the dashboard",
+            notes = "it's only avaiable to use Employee credentials",
+            response = TokenResponseDTO.class, code = 200
+    )
     @PostMapping(value="login")
     public ResponseEntity<TokenResponseDTO> logIn(@RequestBody LoginModel login) throws Exception
     {
@@ -70,7 +77,10 @@ public class AuthenticationController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
     }
 
-
+    @ApiOperation(value="Logout Employees in the dashboard",
+            notes = "will only work when you are  LogIn",
+            response = Void.class, code = 200
+    )
     @PostMapping(value="logout")
     public ResponseEntity<Void> logout()
     {
