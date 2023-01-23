@@ -53,7 +53,20 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsAuthenticationApplication">
+  <component name="RunManager" selected="Application.MsApiGatewayApplication">
+    <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
+      <module name="ms-api-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msapigateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
       <module name="ms-authentication" />
@@ -106,28 +119,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsAuthenticationApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-authentication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msauthentication.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msauthentication" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MsAuthenticationApplication" />
+        <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="JUnit.MsAuthenticationApplicationTests" />
+        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsUserApplication" />
+        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>
