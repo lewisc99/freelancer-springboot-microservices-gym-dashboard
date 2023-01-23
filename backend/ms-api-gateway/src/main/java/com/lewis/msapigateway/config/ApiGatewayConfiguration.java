@@ -1,6 +1,7 @@
 package com.lewis.msapigateway.config;
 
-import com.lewis.msapigateway.filters.AuthenticationFilter;
+import com.lewis.msapigateway.filters.AdminAuthenticationFilter;
+import com.lewis.msapigateway.filters.RolesAuthenticationFilter;
 import io.netty.resolver.DefaultAddressResolverGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.route.RouteLocator;
@@ -13,7 +14,10 @@ import reactor.netty.http.client.HttpClient;
 public class ApiGatewayConfiguration {
 
     @Autowired
-    AuthenticationFilter filter;
+    AdminAuthenticationFilter adminFilter;
+
+    @Autowired
+    RolesAuthenticationFilter rolesFilter;
 
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder builder)
@@ -23,8 +27,12 @@ public class ApiGatewayConfiguration {
                         .uri("lb://ms-authentication"))
 
                 .route("ms-employee", r -> r.path("/ms-employee/**")
-                        .filters(f -> f.stripPrefix(1).filter(filter))
+                        .filters(f -> f.stripPrefix(1).filter(adminFilter))
                         .uri("lb://ms-employee"))
+
+                .route("ms-employee", r -> r.path("/ms-user/**")
+                        .filters(f -> f.stripPrefix(1).filter(rolesFilter))
+                        .uri("lb://ms-user"))
                 .build();
     }
 

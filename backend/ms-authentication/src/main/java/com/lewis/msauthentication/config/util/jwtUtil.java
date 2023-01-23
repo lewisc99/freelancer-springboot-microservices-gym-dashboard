@@ -20,7 +20,6 @@ public class jwtUtil {
                 .withClaim("roles", roles)
                 .withIssuedAt(new Date())
                 .withIssuer("lewis.com")
-
                 .sign(Algorithm.HMAC256(SecurityConstants.SECRET.getBytes()));
     }
 }

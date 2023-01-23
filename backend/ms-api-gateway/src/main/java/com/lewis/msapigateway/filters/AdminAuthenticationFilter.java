@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 @Component
 @RefreshScope
-public class AuthenticationFilter implements GatewayFilter {
+public class AdminAuthenticationFilter implements GatewayFilter {
 
     @Autowired
     private JwtUtil jwtUtil;
