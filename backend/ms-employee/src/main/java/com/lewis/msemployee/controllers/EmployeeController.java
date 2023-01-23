@@ -7,12 +7,13 @@ import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.services.contracts.EmployeeService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.UUID;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("v1/employees")
 @CrossOrigin(origins = "http://localhost:4200/")
+@OpenAPIDefinition(info = @Info(title = "EmployeeController", version = "1", description = "This an Employee Controller to get all information about Employees"))
 public class EmployeeController {
 
     @Autowired
