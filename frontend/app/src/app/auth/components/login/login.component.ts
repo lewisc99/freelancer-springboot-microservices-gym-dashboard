@@ -64,7 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy{
       this.login = new Login(email,password);
       
       this.authService.login(this.login).subscribe({
-        next: result => console.log(result),
+        next: result => this.router.navigate(['/..','employees']),
         error: error => console.log(error)
       })
         

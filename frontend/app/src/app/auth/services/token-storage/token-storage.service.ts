@@ -24,8 +24,7 @@ export class TokenStorageService {
   public getToken():string 
   {
     let getObject  = JSON.parse( this.storageToken.getItem("token")!);
-
-    let token = getObject['token'];
+    let token = getObject['roken'];
     if ( token == "")
     {
         return "";
