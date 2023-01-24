@@ -53,7 +53,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsApiGatewayApplication">
+  <component name="RunManager" selected="Application.MsAuthenticationApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -121,8 +121,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
+        <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
@@ -141,8 +141,18 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-authentication/src/main/java/com/lewis/msauthentication/config/util/jwtUtil.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="java.time.LocalTime" memberName="hour" />
         <PinnedItemInfo parentTag="com.lewis.msemployee.entities.domain.Roles" memberName="name" />
         <PinnedItemInfo parentTag="org.springframework.data.domain.PageRequest" memberName="page" />
       </pinned-members>
