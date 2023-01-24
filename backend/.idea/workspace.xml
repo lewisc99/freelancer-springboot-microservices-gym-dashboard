@@ -122,9 +122,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsApiGatewayApplication" />
+        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
       </list>
     </recent_temporary>

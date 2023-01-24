@@ -34,7 +34,6 @@ public class AdminAuthenticationFilter implements GatewayFilter {
                 {
                     List<String> getRoles = new ArrayList<String>();
                     List<String> getUsername = new ArrayList<String>();
-                    getUsername = claims.get("email");
                     getRoles = claims.get("roles");
 
                    var result = getRoles.stream().filter(f -> {
