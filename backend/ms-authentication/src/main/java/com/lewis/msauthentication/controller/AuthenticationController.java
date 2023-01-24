@@ -68,6 +68,7 @@ public class AuthenticationController {
         TokenResponseDTO  tokenResponse = new TokenResponseDTO();
         tokenResponse.setToken(token);
         setIssueAtAndExpirationToken(tokenResponse);
+        tokenResponse.setRoles(getRoles);
         return tokenResponse;
     }
 

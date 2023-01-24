@@ -34,7 +34,6 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
          next: (data:EmployeesDto) =>
           {
             console.log(this.tokenStorage.getToken())
-            console.log(data);
             this.employeesDto = data;
           }, 
           error: (error:any) =>

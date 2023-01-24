@@ -5,13 +5,14 @@ import { Observable, map, catchError, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment.test';
 import { Token } from '../../models/token';
 import { TokenStorageService } from '../token-storage/token-storage.service';
+import { RolesService } from '../../../shared/services/roles.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient, private tokenStorage:TokenStorageService) { }
+  constructor(private http:HttpClient, private tokenStorage:TokenStorageService, private RolesService: RolesService) { }
 
   private fullUrl = environment.login_URL;
 
@@ -21,8 +22,8 @@ export class AuthService {
       (
           map(
             response => {
-              this.tokenStorage.saveToken(response.token);
-              return response
+              this.tokenStorage.saveToken(response);
+              return response;
             }
           ),catchError(error => throwError(() => error) )
       )

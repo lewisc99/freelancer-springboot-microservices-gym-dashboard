@@ -3,4 +3,5 @@ export class Token {
     token:string;
     created:string;
     expirationToken:string;
+    roles:string[];
 }
