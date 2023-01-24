@@ -22,7 +22,7 @@ public class jwtUtil {
         Date issuedAt = new Date();
         Date expiresAt = new Date();
         LocalDateTime localTime = LocalDateTime.ofInstant(expiresAt.toInstant(), ZoneId.systemDefault());
-        LocalDateTime calculateExpiresAt = localTime.plusMinutes(2);
+        LocalDateTime calculateExpiresAt = localTime.plusMinutes(15);
         expiresAt = Date.from(calculateExpiresAt.atZone(ZoneId.systemDefault()).toInstant());
 
         return JWT.create()
