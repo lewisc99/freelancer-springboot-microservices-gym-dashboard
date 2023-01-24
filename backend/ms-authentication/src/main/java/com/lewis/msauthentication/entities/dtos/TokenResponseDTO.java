@@ -10,11 +10,9 @@ public class TokenResponseDTO {
 
     private  String token;
 
-    @DateTimeFormat(pattern="yyyy/dd/MM hh:mm")
-    private Date created;
+    private String created;
 
-    @DateTimeFormat(pattern="yyyy/dd/MM hh:mm")
-    private Date expirationToken;
+    private String expirationToken;
 
     public String getFormat() {
         return format;
@@ -32,19 +30,19 @@ public class TokenResponseDTO {
         this.token = token;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 
-    public Date getExpirationToken() {
+    public String getExpirationToken() {
         return expirationToken;
     }
 
-    public void setExpirationToken(Date expirationToken) {
+    public void setExpirationToken(String expirationToken) {
         this.expirationToken = expirationToken;
     }
 }

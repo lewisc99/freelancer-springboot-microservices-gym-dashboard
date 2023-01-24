@@ -14,6 +14,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -61,12 +64,21 @@ public class AuthenticationController {
             String newRole = role.getAuthority();
             getRoles.add(newRole);
         }
-        System.out.println(roles);
         String token =  jwtUtil.generateToken(login.getEmail(), getRoles);
         TokenResponseDTO  tokenResponse = new TokenResponseDTO();
         tokenResponse.setToken(token);
-        tokenResponse.setCreated(new Date());
+        setIssueAtAndExpirationToken(tokenResponse);
         return tokenResponse;
+    }
+
+    private static void setIssueAtAndExpirationToken(TokenResponseDTO tokenResponse) {
+        LocalDateTime issuedAt = LocalDateTime.now();
+        LocalDateTime expiresAt = issuedAt.plusMinutes(5);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
+        String  issuedAtString = issuedAt.format(dateTimeFormatter);
+        String  expiresAtString = expiresAt.format(dateTimeFormatter);
+        tokenResponse.setCreated(issuedAtString);
+        tokenResponse.setExpirationToken(expiresAtString);
     }
 
     private void authenticate(LoginModel login) {
