@@ -13,7 +13,7 @@ import java.util.Map;
 @Component
 public class JwtUtil {
 
-    public  Map<String, List<String>> validateTokenAndRetrieveSubject(String token) throws JWTVerificationException
+    public  Map<String, List<String>> validateTokenAndRetrieveSubject(String token) throws RuntimeException
     {
         Map<String, List<String>> claims = new HashMap<String, List<String>>();
 
