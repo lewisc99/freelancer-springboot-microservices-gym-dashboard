@@ -33,7 +33,7 @@ public class SeedDataTestConfig implements CommandLineRunner {
         employee2.setRoles(Arrays.asList(role3));
         employee3.setRoles(Arrays.asList(role3));
         employee4.setRoles(Arrays.asList(role2));
-        employee5.setRoles(Arrays.asList(role1,role4));
+        employee5.setRoles(Arrays.asList(role1));
 
         employeeDao.create(employee1);
         employeeDao.create(employee2);

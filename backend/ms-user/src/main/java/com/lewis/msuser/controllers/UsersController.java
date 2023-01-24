@@ -7,6 +7,7 @@ import com.lewis.msuser.entities.dto.UsersDTO;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.services.contracts.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +32,11 @@ public class UsersController {
     @Autowired
     private ModelMapper mapper;
 
+
+    @ApiOperation(value="create a new user",
+            notes = "will create a new User, you must add valid properties",
+            response = Void.class, code = 201
+           )
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserModel userModel, HttpServletRequest request)
     {
@@ -40,6 +46,10 @@ public class UsersController {
         return ResponseEntity.status(201).build();
     }
 
+    @ApiOperation(value="get all users",
+            notes = "you must add parameters pagNumber and pagSize and sortBy",
+            response = UsersDTO.class, code = 200
+    )
     @GetMapping
     public ResponseEntity<UsersDTO> get(@ModelAttribute PageModel pageModel)
     {
@@ -51,6 +61,11 @@ public class UsersController {
         return ResponseEntity.ok(usersHATEOAS);
     }
 
+
+    @ApiOperation(value="get user By Id",
+            notes = "you must add a valid Id of type UUID",
+            response = UserDTO.class, code = 200
+    )
     @GetMapping("{id}")
     public ResponseEntity<UserDTO> getById( @PathVariable(required = true) String id)
     {
@@ -59,6 +74,10 @@ public class UsersController {
         return ResponseEntity.ok(userDTO);
     }
 
+    @ApiOperation(value="to Update an User",
+            notes = "you must add a valid Id and valid properties to update the Ids it's not require only the categoryId it is",
+            response = Void.class, code = 204
+    )
     @PutMapping("{id}")
     public ResponseEntity<Void> update(@Valid @PathVariable(required = true) String id, @Valid @RequestBody UserModel userModel)
     {
@@ -67,6 +86,10 @@ public class UsersController {
         return ResponseEntity.status(204).build();
     }
 
+    @ApiOperation(value="to Delete an User",
+            notes = "you must add a valid Id type of UUID",
+            response = Void.class, code = 204
+    )
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@Valid  @PathVariable(required = true) String id)
     {

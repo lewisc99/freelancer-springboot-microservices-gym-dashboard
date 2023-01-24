@@ -3,6 +3,7 @@ package com.lewis.msauthentication.filters;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lewis.msauthentication.config.SecurityConstants;
 import com.lewis.msauthentication.entities.domain.Employee;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
