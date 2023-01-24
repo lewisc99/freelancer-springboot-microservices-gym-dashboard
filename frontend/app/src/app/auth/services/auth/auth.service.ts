@@ -18,7 +18,8 @@ export class AuthService {
 
   public login(login:Login): Observable<Token>
   {
-      return this.http.post<Token>(this.fullUrl, login).pipe
+     let loginURL = this.fullUrl + "login"
+      return this.http.post<Token>(loginURL, login).pipe
       (
           map(
             response => {
@@ -31,7 +32,8 @@ export class AuthService {
 
   public logout(): Observable<any>
   {
-    return this.http.post(this.fullUrl,{}).pipe(
+    let logoutURL = this.fullUrl + "logout";
+    return this.http.post(logoutURL,{}).pipe(
       catchError(error => throwError(() => error))
     )
   }

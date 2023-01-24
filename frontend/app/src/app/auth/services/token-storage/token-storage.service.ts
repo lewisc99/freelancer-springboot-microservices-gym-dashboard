@@ -7,7 +7,7 @@ import { Token } from '../../models/token';
 })
 export class TokenStorageService {
 
-  public roles:Storage = localStorage;
+  public storageRoles:Storage = localStorage;
   private storageToken:Storage = localStorage;
 
   constructor() { 
@@ -20,7 +20,7 @@ export class TokenStorageService {
     this.storageToken.removeItem("token");
     this.storageToken.removeItem("roles");
     this.storageToken.setItem("token",JSON.stringify(token.token));
-    this.roles.setItem("roles",  JSON.stringify(token.roles));
+    this.storageRoles.setItem("roles",  JSON.stringify(token.roles));
     this.isTokenValid.next(true);
   }
 
@@ -39,7 +39,8 @@ export class TokenStorageService {
 
   public cleanToken():void
   {
-      this.storageToken.removeItem("token");
+     this.storageToken.removeItem("token");
+     this.storageRoles.removeItem("roles");
      this.isTokenValid.next(false);
   }
 
