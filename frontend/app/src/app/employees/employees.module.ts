@@ -7,12 +7,14 @@ import { EmployeeUpdateComponent } from './employee-update/employee-update.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { SharedModule } from '../shared/shared.module';
+import { AuthGuard } from '../shared/auth-guards/auth-guard/auth.guard';
+import { RoleGuard } from '../shared/auth-guards/role-guard/role.guard';
 
 var routes:Routes = [
-    {path:"employees",component:EmployeeListComponent},
-    {path:'employees/create', component: EmployeeCreateComponent},
-    {path: 'employees/:id', component:EmployeeByIdComponent},
-    {path: 'employees/:id/edit', component:EmployeeUpdateComponent},
+    {path:"employees",component:EmployeeListComponent, canActivate:[AuthGuard, RoleGuard]},
+    {path:'employees/create', component: EmployeeCreateComponent, canActivate:[AuthGuard, RoleGuard]},
+    {path: 'employees/:id', component:EmployeeByIdComponent, canActivate:[AuthGuard, RoleGuard]},
+    {path: 'employees/:id/edit', component:EmployeeUpdateComponent, canActivate:[AuthGuard, RoleGuard]},
     {path:'', redirectTo: 'employees', pathMatch: 'full'}
 ]
 

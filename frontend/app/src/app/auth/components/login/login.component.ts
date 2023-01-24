@@ -64,7 +64,16 @@ export class LoginComponent implements OnInit, OnDestroy{
       this.login = new Login(email,password);
       
       this.authService.login(this.login).subscribe({
-        next: result => this.router.navigate(['/..','employees']),
+        next: result => {
+        console.log(result.roles);
+        var hasAdminRole = result.roles.findIndex(role => role == "admin" || role == "manager");
+        if (hasAdminRole < 0)
+        {
+          this.router.navigate(['/..', 'users']);
+          return;
+        }
+        this.router.navigate(['/..','employees']);
+        },
         error: error => console.log(error)
       })
         
