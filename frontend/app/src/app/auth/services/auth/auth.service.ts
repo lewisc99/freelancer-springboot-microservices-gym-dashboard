@@ -28,4 +28,11 @@ export class AuthService {
           ),catchError(error => throwError(() => error) )
       )
   }
+
+  public logout(): Observable<any>
+  {
+    return this.http.post(this.fullUrl,{}).pipe(
+      catchError(error => throwError(() => error))
+    )
+  }
 }
