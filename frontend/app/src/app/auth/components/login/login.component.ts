@@ -6,6 +6,7 @@ import { UserService } from 'src/app/users/services/user-service/user.service';
 import { Login } from '../../models/login';
 import { LewisModulesValidators } from '../../../shared/validators/lewis-modules-validators';
 import { AuthService } from '../../services/auth/auth.service';
+import { TokenStorageService } from '../../services/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   errorMessage:string = "";
   loginSubscription:Subscription;
 
-  constructor(private formBuilder:FormBuilder, private userService: UserService , private router:Router, private authService: AuthService) { }
+  constructor(private formBuilder:FormBuilder, private userService: UserService , private router:Router, private authService: AuthService, private tokenStorageService:TokenStorageService) { }
  
 
   ngOnInit(): void {
@@ -72,6 +73,7 @@ export class LoginComponent implements OnInit, OnDestroy{
           this.router.navigate(['/..', 'users']);
           return;
         }
+        this.tokenStorageService.isAdminRoleValid.next(true);
         this.router.navigate(['/..','employees']);
         },
         error: error => console.log(error)

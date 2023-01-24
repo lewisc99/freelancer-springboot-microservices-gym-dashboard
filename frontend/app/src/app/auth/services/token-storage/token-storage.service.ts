@@ -9,11 +9,13 @@ export class TokenStorageService {
 
   public storageRoles:Storage = localStorage;
   private storageToken:Storage = localStorage;
+  public isTokenValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public isAdminRoleValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+
 
   constructor() { 
     this.isTokenValid.next(false);
   }
-  public isTokenValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   public saveToken(token:Token)
   {
@@ -42,6 +44,7 @@ export class TokenStorageService {
      this.storageToken.removeItem("token");
      this.storageRoles.removeItem("roles");
      this.isTokenValid.next(false);
+     this.isAdminRoleValid.next(false);
   }
 
   public getRoles(): string[]

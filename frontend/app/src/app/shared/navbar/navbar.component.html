@@ -1,10 +1,18 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-light justify-content-center">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" *ngIf="isAdminRole">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['users']">Users</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['employees']">Employees</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav" *ngIf="!isAdminRole">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['users']">Users</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>
