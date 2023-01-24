@@ -59,7 +59,6 @@ public class AdminAuthenticationFilter implements GatewayFilter {
 
     private Mono<Void> onError(ServerWebExchange exchange, String error, HttpStatus status) {
         ServerHttpResponse response = exchange.getResponse();
-
         response.setStatusCode(status);
         return response.setComplete();
     }

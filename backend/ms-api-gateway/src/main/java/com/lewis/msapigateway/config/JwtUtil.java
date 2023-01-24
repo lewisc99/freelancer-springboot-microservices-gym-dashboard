@@ -4,9 +4,12 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.stereotype.Component;
+
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,7 +21,6 @@ public class JwtUtil {
     {
 
         Map<String, List<String>> claims = new HashMap<String, List<String>>();
-
         List<String> usernameList = new ArrayList<>();
         Claim roleClaim;
 
@@ -27,7 +29,6 @@ public class JwtUtil {
                         .withIssuer("lewis.com")
                         .withSubject("UserDetails")
                         .build();
-
         try
         {
         DecodedJWT jwt = verifier.verify(token);
