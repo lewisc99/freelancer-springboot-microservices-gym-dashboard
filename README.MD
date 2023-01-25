@@ -57,7 +57,7 @@
 <p>User Update</p><img src="images/user-update.JPG">
 <br/>
 <br/>
-<p>User Delete</p><img src="images/user-Delete.JPG">
+<p>User Delete</p><img src="images/user-delete.JPG">
 <br/>
 <br/>
 
