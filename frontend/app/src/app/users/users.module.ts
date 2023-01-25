@@ -7,15 +7,15 @@ import { UserByIdComponent } from './user-by-id/user-by-id.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserCreateComponent } from './user-create/user-create.component';
-
+import { AuthGuard } from '../shared/auth-guards/auth-guard/auth.guard';
 
 var routes:Routes = [
-    {path: 'users/create',component: UserCreateComponent},
-    {path: 'users',component: UserListComponent  },
-    {path: 'users/:id',component: UserByIdComponent  },
-    {path: 'users/:id/edit',component: UserUpdateComponent  }
+    {path: 'users/create',component: UserCreateComponent, canActivate:[AuthGuard]},
+    {path: 'users',component: UserListComponent  , canActivate:[AuthGuard] },
+    {path: 'users/:id',component: UserByIdComponent  , canActivate:[AuthGuard]},
+    {path: 'users/:id/edit',component: UserUpdateComponent , canActivate:[AuthGuard] },
+    {path:'', redirectTo: 'users', pathMatch: 'full'}
 ]
-
 
 @NgModule({
     declarations: [

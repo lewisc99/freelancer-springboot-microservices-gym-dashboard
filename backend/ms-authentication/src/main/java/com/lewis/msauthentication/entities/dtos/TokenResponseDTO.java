@@ -1,8 +1,11 @@
 package com.lewis.msauthentication.entities.dtos;
 
+import com.lewis.msauthentication.entities.domain.Roles;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TokenResponseDTO {
 
@@ -10,11 +13,11 @@ public class TokenResponseDTO {
 
     private  String token;
 
-    @DateTimeFormat(pattern="yyyy/dd/MM hh:mm")
-    private Date created;
+    private String created;
 
-    @DateTimeFormat(pattern="yyyy/dd/MM hh:mm")
-    private Date expirationToken;
+    private String expirationToken;
+
+    private List<String> roles = new ArrayList<>();
 
     public String getFormat() {
         return format;
@@ -32,19 +35,27 @@ public class TokenResponseDTO {
         this.token = token;
     }
 
-    public Date getCreated() {
+    public String getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    public void setCreated(String created) {
         this.created = created;
     }
 
-    public Date getExpirationToken() {
+    public String getExpirationToken() {
         return expirationToken;
     }
 
-    public void setExpirationToken(Date expirationToken) {
+    public void setExpirationToken(String expirationToken) {
         this.expirationToken = expirationToken;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 }

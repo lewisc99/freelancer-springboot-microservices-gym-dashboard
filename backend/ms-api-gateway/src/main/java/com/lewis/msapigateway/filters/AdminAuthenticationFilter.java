@@ -26,39 +26,39 @@ public class AdminAuthenticationFilter implements GatewayFilter {
             List<String> bearer = new ArrayList<>();
             bearer = exchange.getRequest().getHeaders().get("Authorization");
 
-            if(bearer != null)
-            {
+            if(bearer != null) {
                 String jwt = bearer.get(0).substring(7);
 
                 Map<String, List<String>> claims =
                         jwtUtil.validateTokenAndRetrieveSubject(jwt);
 
-                if (claims != null)
-                {
+                if (claims.get("invalid-token").size() == 0) {
                     List<String> getRoles = new ArrayList<String>();
-                    List<String> getUsername = new ArrayList<String>();
                     getRoles = claims.get("roles");
 
-                   var result = getRoles.stream().filter(f -> {
+                    var result = getRoles.stream().filter(f -> {
                         var admin = f.contains("admin");
                         var manager = f.contains("manager");
-                           return manager || admin;
-                   }).collect(Collectors.toList());
+                        return manager || admin;
+                    }).collect(Collectors.toList());
 
-                   if(!result.isEmpty())
-                   {
-                       return chain.filter(exchange);
+                    if (!result.isEmpty()) {
+                        return chain.filter(exchange);
 
-                   }
+                    } else {
+                        return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
+
+                    }
+                } else {
+                    return onError(exchange, "No authorization in header", HttpStatus.UNAUTHORIZED);
+
                 }
-                return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
             }
-             return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
-
+        return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
     }
+
     private Mono<Void> onError(ServerWebExchange exchange, String error, HttpStatus status) {
         ServerHttpResponse response = exchange.getResponse();
-
         response.setStatusCode(status);
         return response.setComplete();
     }

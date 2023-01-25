@@ -1,11 +1,11 @@
 export class Login{
 
-    Email:string;
-    Password:string;
+    email:string;
+    password:string;
 
     constructor(email:string, password:string)
      {
-         this.Email = email;
-         this.Password = password;
+         this.email = email;
+         this.password = password;
      }
 }

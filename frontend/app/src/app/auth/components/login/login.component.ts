@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/users/services/user-service/user.service';
 import { Login } from '../../models/login';
 import { LewisModulesValidators } from '../../../shared/validators/lewis-modules-validators';
+import { AuthService } from '../../services/auth/auth.service';
+import { TokenStorageService } from '../../services/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy{
   errorMessage:string = "";
   loginSubscription:Subscription;
 
-  constructor(private formBuilder:FormBuilder, private userService: UserService , private router:Router) { }
+  constructor(private formBuilder:FormBuilder, private userService: UserService , private router:Router, private authService: AuthService, private tokenStorageService:TokenStorageService) { }
  
 
   ngOnInit(): void {
@@ -61,8 +63,22 @@ export class LoginComponent implements OnInit, OnDestroy{
       const email = this.loginForm.get("login")?.get("email")?.value;
       const password = this.loginForm.get("login")?.get("password")?.value;
       this.login = new Login(email,password);
-       
-       console.log(this.login);
+      
+      this.authService.login(this.login).subscribe({
+        next: result => {
+        console.log(result.roles);
+        var hasAdminRole = result.roles.findIndex(role => role == "admin" || role == "manager");
+        if (hasAdminRole < 0)
+        {
+          this.router.navigate(['/..', 'users']);
+          return;
+        }
+        this.tokenStorageService.isAdminRoleValid.next(true);
+        this.router.navigate(['/..','employees']);
+        },
+        error: error => console.log(error)
+      })
+        
   }
 }
 

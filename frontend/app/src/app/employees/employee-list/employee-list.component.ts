@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DeleteModalComponent } from '../../shared/delete-modal/delete-modal.component';
 import { PlaceholderDirective } from 'src/app/shared/directives/placeholder/placeholder.directive';
 import { Subscription } from 'rxjs';
+import { TokenStorageService } from '../../auth/services/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -21,7 +22,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
   public messageDeleteModal:string = "";
   public id:string = "";
 
-  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute) {}
+  constructor(private employeeService:EmployeeService, private activatedRoute:ActivatedRoute, private tokenStorage:TokenStorageService) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe( () => this.getAll());
@@ -32,7 +33,7 @@ export class EmployeeListComponent implements OnInit, OnDestroy {
         this.employeeService.getAll(sortBy).subscribe({
          next: (data:EmployeesDto) =>
           {
-            console.log(data);
+            console.log(this.tokenStorage.getToken())
             this.employeesDto = data;
           }, 
           error: (error:any) =>

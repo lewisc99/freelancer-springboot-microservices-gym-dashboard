@@ -9,10 +9,14 @@ nav.bg-primary {
 }
 
 li > a {
-    color: white;
+    cursor: pointer;
+    color: rgb(255, 249, 249) !important;
 }
 
-
+li > a:hover {
+    cursor: pointer;
+    color: rgb(62, 76, 156) !important;
+}
 
 li.nav-item {
     font-size: calc(5px + 1vw);
