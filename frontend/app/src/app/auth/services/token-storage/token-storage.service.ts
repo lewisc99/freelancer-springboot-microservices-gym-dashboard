@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Token } from '../../models/token';
-import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class TokenStorageService {
   {
     this.storageToken.setItem("token",JSON.stringify(token));
     var hasAdminRole = token.roles.findIndex(role => role == "admin" || role == "manager");
-    if (hasAdminRole == 0)
+    if (hasAdminRole >= 0)
     {
         this.storageToken.setItem("isRoleAdmin","true");
         this.hasRoleAdmin$.next(true);

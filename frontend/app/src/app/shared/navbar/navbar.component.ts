@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../../auth/services/auth/auth.service';
 import { TokenStorageService } from '../../auth/services/token-storage/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
