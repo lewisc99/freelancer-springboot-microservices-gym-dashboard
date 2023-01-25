@@ -15,7 +15,7 @@ var routes:Routes = [
     {path:'employees/create', component: EmployeeCreateComponent, canActivate:[AuthGuard, RoleGuard]},
     {path: 'employees/:id', component:EmployeeByIdComponent, canActivate:[AuthGuard, RoleGuard]},
     {path: 'employees/:id/edit', component:EmployeeUpdateComponent, canActivate:[AuthGuard, RoleGuard]},
-    {path:'', redirectTo: 'employees', pathMatch: 'full'}
+    {path:'', redirectTo: 'employees', pathMatch: 'full'},
 ]
 
 @NgModule({
@@ -27,7 +27,7 @@ var routes:Routes = [
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes),
+        RouterModule.forChild(routes),
         ReactiveFormsModule,
         SharedModule
     ]
