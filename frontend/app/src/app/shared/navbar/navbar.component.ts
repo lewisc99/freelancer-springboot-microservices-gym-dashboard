@@ -14,12 +14,13 @@ export class NavbarComponent  implements OnInit{
   isAdminRole: boolean = false;
 
   ngOnInit(): void {
-    this.setNavBar();
   }
 
   setNavBar()
   {
-    this.isAdminRole = this.tokenStorageService.hasRoleAdmin();
+     this.tokenStorageService.hasRoleAdmin$.subscribe(
+      result => this.isAdminRole = result
+     )
   }
 
   public logout():void

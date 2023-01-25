@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { Token } from '../../models/token';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,35 +10,53 @@ export class TokenStorageService {
 
   private storageToken:Storage = localStorage;
   public isTokenValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public hasRoleAdmin$:Subject<boolean> = new Subject<boolean>();
+  public timeout:any;
 
   constructor() { 
-    
   }
 
   public saveToken(token:Token)
   {
-    this.storageToken.setItem("token",JSON.stringify(token.token));
+
+    this.storageToken.setItem("token",JSON.stringify(token));
     var hasAdminRole = token.roles.findIndex(role => role == "admin" || role == "manager");
     if (hasAdminRole == 0)
     {
+        this.hasRoleAdmin$.next(true);
         this.storageToken.setItem("isRoleAdmin","true");
     }
     this.isTokenValid.next(true);
   }
 
+  private autoLogout(token:Token)
+  {
+    let currentDate = Date.now();
+    let expirationDate = Date.parse(token.expirationToken);
+    if (currentDate >= expirationDate)
+    {
+        this.cleanToken();
+    }
+  }
+
+
   public getToken():string 
   {
-    
-    let token = JSON.parse( this.storageToken.getItem("token")!);
-    if ( token == "")
+
+    let token:Token = JSON.parse( this.storageToken.getItem("token")!);
+    if ( token == null)
     {
+        console.log(token);
         this.isTokenValid.next(false);
         return "";
     }
-    this.isTokenValid.next(true);
-    return token;
+    else
+    {
+      this.autoLogout(token);
+      this.isTokenValid.next(true);
+      return token.token;
+    }
   }
-
 
   public cleanToken():void
   {
@@ -53,7 +72,6 @@ export class TokenStorageService {
     {
         return false;
     }
-    console.log(roleAdmin);
     return true;
   }
 
