@@ -66,14 +66,12 @@ export class LoginComponent implements OnInit, OnDestroy{
       
       this.authService.login(this.login).subscribe({
         next: result => {
-        console.log(result.roles);
         var hasAdminRole = result.roles.findIndex(role => role == "admin" || role == "manager");
         if (hasAdminRole < 0)
         {
           this.router.navigate(['/..', 'users']);
           return;
         }
-        this.tokenStorageService.isAdminRoleValid.next(true);
         this.router.navigate(['/..','employees']);
         },
         error: error => console.log(error)

@@ -27,7 +27,7 @@ var routes:Routes = [
     ],
     imports: [
         BrowserModule,
-        RouterModule.forChild(routes),
+        RouterModule.forRoot(routes),
         ReactiveFormsModule,
         SharedModule
     ]

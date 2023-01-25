@@ -7,7 +7,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
+
+const routes:Routes = [
+    {path:'not-found', component: NotFoundComponent},
+    {path:"**", redirectTo:'not-found',pathMatch:'full'}
+]
 
 @NgModule({
     declarations: [
@@ -19,7 +25,7 @@ import { AuthModule } from './auth/auth.module';
         BrowserModule,
         EmployeeModule,
         HttpClientModule,
-        RouterModule,
+        RouterModule.forRoot(routes),
         SharedModule,
         UsersModule,
         AuthModule,

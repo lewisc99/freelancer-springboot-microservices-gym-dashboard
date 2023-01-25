@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, O
 import { EmployeeService } from '../employee-service/employee.service';
 import { EmployeesDto } from '../domain/dtos/EmployeesDto';
 import { ActivatedRoute } from '@angular/router';
-import { DeleteModalComponent } from '../../shared/delete-modal/delete-modal.component';
+import { DeleteModalComponent } from '../../shared/components/delete-modal/delete-modal.component';
 import { PlaceholderDirective } from 'src/app/shared/directives/placeholder/placeholder.directive';
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from '../../auth/services/token-storage/token-storage.service';

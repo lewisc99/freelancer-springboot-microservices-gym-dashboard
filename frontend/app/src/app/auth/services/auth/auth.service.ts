@@ -34,6 +34,7 @@ export class AuthService {
   {
     let logoutURL = this.fullUrl + "logout";
     return this.http.post(logoutURL,{}).pipe(
+      
       catchError(error => throwError(() => error))
     )
   }

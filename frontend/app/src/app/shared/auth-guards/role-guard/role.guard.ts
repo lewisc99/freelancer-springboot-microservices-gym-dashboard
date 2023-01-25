@@ -10,9 +10,9 @@ export class RoleGuard implements CanActivate
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         
-       var hasAdminRole = this.tokenStorage.getRoles().findIndex(role => role == "admin" || role == "manager");
+       let hasAdminRole = this.tokenStorage.hasRoleAdmin();
 
-       if (hasAdminRole < 0)
+       if (!hasAdminRole)
        {
         this.router.navigate(["/..","users"]);
          return false;

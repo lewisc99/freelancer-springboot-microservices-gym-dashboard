@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Token } from '../../models/token';
 
 @Injectable({
@@ -7,22 +7,21 @@ import { Token } from '../../models/token';
 })
 export class TokenStorageService {
 
-  public storageRoles:Storage = localStorage;
   private storageToken:Storage = localStorage;
   public isTokenValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  public isAdminRoleValid:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
 
   constructor() { 
-    this.isTokenValid.next(false);
+    
   }
 
   public saveToken(token:Token)
   {
-    this.storageToken.removeItem("token");
-    this.storageToken.removeItem("roles");
     this.storageToken.setItem("token",JSON.stringify(token.token));
-    this.storageRoles.setItem("roles",  JSON.stringify(token.roles));
+    var hasAdminRole = token.roles.findIndex(role => role == "admin" || role == "manager");
+    if (hasAdminRole == 0)
+    {
+        this.storageToken.setItem("isRoleAdmin","true");
+    }
     this.isTokenValid.next(true);
   }
 
@@ -32,6 +31,7 @@ export class TokenStorageService {
     let token = JSON.parse( this.storageToken.getItem("token")!);
     if ( token == "")
     {
+        this.isTokenValid.next(false);
         return "";
     }
     this.isTokenValid.next(true);
@@ -42,19 +42,19 @@ export class TokenStorageService {
   public cleanToken():void
   {
      this.storageToken.removeItem("token");
-     this.storageRoles.removeItem("roles");
+     this.storageToken.removeItem("isRoleAdmin");
      this.isTokenValid.next(false);
-     this.isAdminRoleValid.next(false);
   }
 
-  public getRoles(): string[]
+  public hasRoleAdmin()
   {
-    let roles = JSON.parse( this.storageToken.getItem("roles")!);
-    if ( roles == "")
+    let roleAdmin = JSON.parse( this.storageToken.getItem("isRoleAdmin")!);
+    if ( roleAdmin == ""  || roleAdmin == null)
     {
-        return [];
+        return false;
     }
-    return roles;
+    console.log(roleAdmin);
+    return true;
   }
 
 }
