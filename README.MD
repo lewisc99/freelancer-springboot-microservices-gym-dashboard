@@ -9,6 +9,8 @@
 - Spring Boot<br/>
 - Spring Cloud Microserviços <br/>
 - HTML and CSS typescript<br/>
+- HATEOAS<br/>
+- Clean Code<br/>
 - Angular 2<br/>
 -   Bootstrap<br/>
 -   Unit testing, mocking and Integration Tests
@@ -28,7 +30,7 @@
 
 
 ## 🖼 Screenshot APPLICATION SCREENS <br/>
-<p>Whole application</p><img src="images/gym-corpus.gif">
+<p>Whole application click below to the run video</p><img src="images/gym-corpus.gif">
 <br/>
 <br/>
 <p>Login Page</p><img src="images/login-page.JPG">
@@ -37,22 +39,25 @@
 <p>chat-screen-page</p><img src="images/employee-list.JPG">
 <br/>
 <br/>
-<p>Login Page</p><img src="images/login-page.JPG">
+<p>Employee Update</p><img src="images/employee-update.JPG">
 <br/>
 <br/>
-<p>home Page</p><img src="images/home.JPG">
+<p>Employee Details</p><img src="images/employee-details.JPG">
 <br/>
 <br/>
-<p>DATABASE</p><img src="images/database.JPG">
+<p>Employee Delete</p><img src="images/employee-delete.JPG">
 <br/>
 <br/>
-<p>Swagger</p><img src="images/swagger.JPG">
+<p>User Details</p><img src="images/user-details.JPG">
 <br/>
 <br/>
-<p>backend-page</p><img src="images/tests.JPG">
+<p>User List</p><img src="images/user-list.JPG">
 <br/>
 <br/>
-<p>Frontend</p><img src="images/front-end.JPG">
+<p>User Update</p><img src="images/user-update.JPG">
+<br/>
+<br/>
+<p>User Delete</p><img src="images/user-Delete.JPG">
 <br/>
 <br/>
 
