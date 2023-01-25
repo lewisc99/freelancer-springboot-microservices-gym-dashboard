@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate
     var isAuthenticated = false;
 
     this.tokenStorage.getToken();
-    this.tokenStorage.isTokenValid.subscribe(
+    this.tokenStorage.isTokenValid$.subscribe(
         result => isAuthenticated = result
     )
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AuthService } from '../../auth/services/auth/auth.service';
 import { TokenStorageService } from '../../auth/services/token-storage/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,16 +11,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class NavbarComponent  implements OnInit{
 
   constructor(private authService:AuthService, private tokenStorageService: TokenStorageService, private router:Router, private activatedRoute:ActivatedRoute) {}
+
+
   isAdminRole: boolean = false;
 
   ngOnInit(): void {
+    this.setNavBar();
   }
 
   setNavBar()
   {
-     this.tokenStorageService.hasRoleAdmin$.subscribe(
-      result => this.isAdminRole = result
-     )
+      this.tokenStorageService.hasRoleAdmin$.subscribe(
+       result =>  this.isAdminRole = result
+      )
   }
 
   public logout():void
