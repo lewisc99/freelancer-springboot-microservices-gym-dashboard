@@ -10,7 +10,7 @@
         <a class="nav-link" (click)="logout()">Logout</a>
       </li>
     </ul>
-    <ul class="navbar-nav" *ngIf="!isAdminRole">
+    <ul class="navbar-nav" *ngIf="isAdminRole == false">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['users']">Users</a>
       </li>

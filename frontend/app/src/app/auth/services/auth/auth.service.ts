@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Login } from '../../models/login';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import { environment } from '../../../../environments/environment.test';
@@ -26,15 +26,36 @@ export class AuthService {
               this.tokenStorage.saveToken(response);
               return response;
             }
-          ),catchError(error => throwError(() => error) )
-      )
+          ), catchError( (error:HttpErrorResponse) => {
+            return throwError( () =>  this.handleErrorException(error));
+          }));
   }
 
   public logout(): Observable<any>
   {
     let logoutURL = this.fullUrl + "logout";
     return this.http.post(logoutURL,{}).pipe(
-      catchError(error => throwError(() => error))
+      
+      catchError(error => throwError(() => this.handleErrorException(error)))
     )
   }
+
+  private handleErrorException(error:HttpErrorResponse): string
+  {
+    var errorMessage = "";
+    switch (error.status)
+    {
+      case 401:
+        errorMessage = "Employee lacks valid authentication credentials please verify the email or password";
+        break;
+      case 404:
+        errorMessage = "Employee Not found";
+        break;
+      case 500:
+        errorMessage = "Unknown error was thrown";
+    }
+    return errorMessage;
+  }
+
+
 }

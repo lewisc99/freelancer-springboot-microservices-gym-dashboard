@@ -20,7 +20,6 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/employees")
-@CrossOrigin(origins = "http://localhost:4200/")
 @OpenAPIDefinition(info = @Info(title = "EmployeeController", version = "1", description = "This an Employee Controller to get all information about Employees"))
 public class EmployeeController {
 

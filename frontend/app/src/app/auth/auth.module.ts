@@ -7,8 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 const routes:Routes = [
   {path:"login", component:LoginComponent},
-  {path:"", redirectTo:'login',pathMatch:'full'},
-  {path:"**", redirectTo:'login',pathMatch:'full'}
+  {path:"", redirectTo:'login',pathMatch:'full'}
 ]
 
 @NgModule({
@@ -16,7 +15,7 @@ const routes:Routes = [
     LoginComponent
   ],
     imports: [
-        RouterModule.forChild(routes),
+        RouterModule.forRoot(routes),
         ReactiveFormsModule,
         BrowserModule
     ],

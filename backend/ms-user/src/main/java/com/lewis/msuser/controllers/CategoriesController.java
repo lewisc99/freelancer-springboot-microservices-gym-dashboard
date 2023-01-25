@@ -16,7 +16,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("v1/categories")
-@CrossOrigin(value = "http://localhost:4200")
 public class CategoriesController {
     @Autowired
     private CategoryService categoryService;
