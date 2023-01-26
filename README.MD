@@ -1,11 +1,20 @@
-﻿## 🖼 Academia Gym Corpus Dashboard Gestão de clientes <br/>
+## 🖼 Academia "Gym Corpus" Dashboard Gestão de clientes <br/>
+<hr>
+<br/>
+<h2>Description English</h2>
+<p>I'm developing this project as a Freelancer to a local Gym where you can manage Customers and Users
+Like changing the Status, if the User is in debit, or change the Plan Category, i learnt i lot as creating 
+an infrastructure adding Security with JWT, escalating Microservices, add TDD with Unit and Integration Tests</p>
+<hr>
+<h2>Descrição Português</h2>
+<p>Estou desenvolvendo este projeto como Freelancer para uma academia local onde você pode gerenciar clientes e usuários
+Como mudar o Status, se o Usuário está em débito, ou mudar a Categoria do Plano, aprendi  muito como criar
+uma Infraestrutura,  adicionar segurança com JWT, escalar microsserviços, realizar TDD com Testes unitários,
+Testes de Integração. </p>
 <hr>
 <br/>
 ## 🚀 Tech Usada<br/>
 <br/>
-
-
-
 - Spring Boot<br/>
 - Spring Cloud Microserviços <br/>
 - HTML and CSS typescript<br/>
