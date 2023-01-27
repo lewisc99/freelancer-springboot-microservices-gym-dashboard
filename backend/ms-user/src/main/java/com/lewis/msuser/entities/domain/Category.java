@@ -24,9 +24,9 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false,unique = true)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
+ //   @Type(type = "uuid-char")
     @ApiModelProperty(notes = "category Id type UUID")
     private UUID id;
     @ApiModelProperty(notes = "category Name is String", value = "String", name = "String" )
