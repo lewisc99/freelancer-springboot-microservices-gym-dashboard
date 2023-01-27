@@ -16,9 +16,7 @@ public class User {
     )
     @Column(name = "ID", updatable = false, nullable = false, unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-  //  @Type(type = "uuid-char")
-//    @GeneratedValue( generator = "uuid2" )
-//    @GenericGenerator( name = "uuid2", strategy = "uuid2" )
+    //  @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;
