@@ -39,6 +39,7 @@ public class UsersController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody UserModel userModel, HttpServletRequest request)
     {
+
         User user = mapper.map(userModel,User.class);
         userService.create(user);
 

@@ -17,9 +17,8 @@ public class Plan {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false,unique = true)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
     private UUID id;
 
     @DateTimeFormat(pattern="yyyy/dd/MM")
@@ -28,9 +27,6 @@ public class Plan {
     private Date finish;
     @ManyToOne
     private Category category;
-    @OneToOne(mappedBy = "plan")
-    @JsonIgnore
-    private  User user;
 
     private Status status;
 
@@ -65,13 +61,6 @@ public class Plan {
         this.category = category;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Status getStatus() {
         return status;
