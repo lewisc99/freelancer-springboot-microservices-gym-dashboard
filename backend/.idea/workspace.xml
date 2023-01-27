@@ -53,33 +53,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsUserApplication">
-    <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
-      <module name="ms-api-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msapigateway.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsAuthenticationApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplication" />
-      <module name="ms-authentication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msauthentication.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.All in ms-user">
     <configuration name="MsEurekaServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.mseurekaserver.MsEurekaServerApplication" />
       <module name="ms-eureka-server" />
@@ -114,13 +88,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsersControllerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UsersControllerTests.createReturnStatus204" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lewis.msuser.controllers.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msuser.controllers" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.controllers.UsersControllerTests" />
+      <option name="METHOD_NAME" value="createReturnStatus204" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="JUnit.All in ms-user" />
+        <item itemvalue="JUnit.UsersControllerTests" />
+        <item itemvalue="JUnit.UsersControllerTests.createReturnStatus204" />
+        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
-        <item itemvalue="Application.MsApiGatewayApplication" />
-        <item itemvalue="Application.MsAuthenticationApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -136,15 +141,6 @@
     <servers />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-user/src/main/java/com/lewis/msuser/controllers/UsersController.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.data.domain.Sort" memberName="orders" />

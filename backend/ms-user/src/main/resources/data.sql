@@ -36,5 +36,3 @@ INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Joe',50, '444
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Elon',50, '525424444','elon.musk@gmail.com','a2dcbe3c-46be-489f-a548-5edcbbdb1698');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('Kiba',53, '14545885888','kiba.musk@gmail.com','6698f239-646f-4d17-a44c-7192bc1f8542');
 INSERT INTO tb_user ( username, age, doc, email,PLAN_ID)  VALUES ('jorge',62, '0255545444','jorge@gmail.com','e79bc6a6-a0e0-4e40-bda7-72e040a5499');
-
-
