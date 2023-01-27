@@ -2,7 +2,6 @@ package com.lewis.msuser.controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lewis.msuser.MsUserApplication;
 import com.lewis.msuser.config.UserConvert;
-import com.lewis.msuser.entities.domain.Status;
 import com.lewis.msuser.entities.models.CategoryModel;
 import com.lewis.msuser.entities.models.PlanModel;
 import com.lewis.msuser.entities.models.UserModel;
@@ -15,22 +14,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.UUID;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Profile("test")
-@SpringBootTest(classes = {MsUserApplication.class}, properties = {"spring.jpa.defer-datasource-initialization=false"})
+@SpringBootTest(classes = {MsUserApplication.class}, properties = {"spring.jpa.defer-datasource-initialization=false",
+"spring.profiles.active=test"})
 @Sql(scripts = {"classpath:create-data-test.sql"},executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(scripts = {"classpath:delete-data-test.sql"}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 @Import(value = {ConfigBeans.class})
