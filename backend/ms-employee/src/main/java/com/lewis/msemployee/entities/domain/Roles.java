@@ -21,7 +21,6 @@ public class Roles {
     @Size(min=5, max = 30, message = "Name must have min 5 max 30")
     private String name;
 
-
     @ManyToMany(mappedBy = "roles")
     @JsonIgnore
     public List<Employee> employees = new ArrayList<>();

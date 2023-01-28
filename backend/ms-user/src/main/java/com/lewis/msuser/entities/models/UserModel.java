@@ -10,7 +10,7 @@ import java.util.UUID;
 public class UserModel {
 
     @Nullable
-    @Type(type = "uuid-char")
+    @Type(type = "BINARY(16)")
     public UUID id;
     @NotNull(message = "username cannot be null")
     @NotBlank(message = "username cannot be empty")

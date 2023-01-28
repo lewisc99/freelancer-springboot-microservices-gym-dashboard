@@ -1,6 +1,5 @@
 package com.lewis.msuser.entities.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.ColumnDefault;
@@ -8,10 +7,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
-
 
 @Entity
 @Table(name="tb_category")
@@ -24,9 +20,8 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false,unique = true)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
     @ApiModelProperty(notes = "category Id type UUID")
     private UUID id;
     @ApiModelProperty(notes = "category Name is String", value = "String", name = "String" )

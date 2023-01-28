@@ -27,7 +27,8 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest(classes = {MsUserApplication.class} )
+@SpringBootTest(classes = {MsUserApplication.class}, properties = {"spring.jpa.defer-datasource-initialization=false",
+        "spring.profiles.active=test"})
 @Import(ConfigBeans.class)
 public class UserServiceTests {
 

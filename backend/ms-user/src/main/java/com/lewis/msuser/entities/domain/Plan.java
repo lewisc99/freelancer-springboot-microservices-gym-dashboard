@@ -1,12 +1,9 @@
 package com.lewis.msuser.entities.domain;
-
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
@@ -20,9 +17,8 @@ public class Plan {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false,unique = true)
+    @Column(name = "ID", updatable = false, nullable = false,unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
     private UUID id;
 
     @DateTimeFormat(pattern="yyyy/dd/MM")
@@ -31,9 +27,6 @@ public class Plan {
     private Date finish;
     @ManyToOne
     private Category category;
-    @OneToOne(mappedBy = "plan")
-    @JsonIgnore
-    private  User user;
 
     private Status status;
 
@@ -68,13 +61,6 @@ public class Plan {
         this.category = category;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Status getStatus() {
         return status;

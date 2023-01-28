@@ -1,10 +1,6 @@
 package com.lewis.msuser.entities.domain;
-
-
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -18,9 +14,9 @@ public class User {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @Column(name = "ID", updatable = false, nullable = false, unique = true)
+    @Column(name = "ID", updatable = false, nullable = false, unique = true, columnDefinition = "BINARY(16)")
     @ColumnDefault("random_uuid()")
-    @Type(type = "uuid-char")
+    //  @Type(type = "uuid-char")
     public UUID id;
     public String username;
     public Integer age;

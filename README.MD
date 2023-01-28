@@ -1,4 +1,4 @@
-## 🖼 Academia "Gym Corpus" Dashboard Gestão de clientes <br/>
+﻿## 🖼 Academia "Gym Corpus" Dashboard Gestão de clientes <br/>
 <hr>
 <br/>
 <h2>Description English</h2>
