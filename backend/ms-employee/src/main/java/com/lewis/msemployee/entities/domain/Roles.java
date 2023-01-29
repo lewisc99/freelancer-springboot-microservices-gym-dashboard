@@ -48,6 +48,12 @@ public class Roles {
         this.name = name;
     }
 
+    @JsonIgnore
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 
-
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
 }

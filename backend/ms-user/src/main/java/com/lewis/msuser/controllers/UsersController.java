@@ -74,7 +74,7 @@ public class UsersController {
     }
 
     @ApiOperation(value="to Update an User",
-            notes = "you must add a valid Id and valid properties to update the Ids it's not require only the categoryId it is",
+            notes = "you must add valid Id and valid properties to update the Ids it's not require only the categoryId.",
             response = Void.class, code = 204
     )
     @PutMapping("{id}")
