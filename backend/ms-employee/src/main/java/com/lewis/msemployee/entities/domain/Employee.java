@@ -68,7 +68,6 @@ public class Employee {
     public Integer getAge() {
         return age;
     }
-
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -76,7 +75,6 @@ public class Employee {
     public String getDoc() {
         return doc;
     }
-
     public void setDoc(String doc) {
         this.doc = doc;
     }
@@ -88,11 +86,9 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
