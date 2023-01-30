@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/gym-project.iml" filepath="$PROJECT_DIR$/.idea/gym-project.iml" />
       <module fileurl="file://$PROJECT_DIR$/ms-employee/ms-employee.iml" filepath="$PROJECT_DIR$/ms-employee/ms-employee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/ms-user/ms-user.iml" filepath="$PROJECT_DIR$/backend/ms-user/ms-user.iml" />
     </modules>
   </component>
 </project>
