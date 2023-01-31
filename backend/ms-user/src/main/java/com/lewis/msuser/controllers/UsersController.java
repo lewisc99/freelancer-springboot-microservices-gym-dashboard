@@ -66,7 +66,7 @@ public class UsersController {
             response = UserDTO.class, code = 200
     )
     @GetMapping("{id}")
-    public ResponseEntity<UserDTO> getById( @PathVariable(required = true) String id)
+    public ResponseEntity<UserDTO> getById(@PathVariable(required = true) String id)
     {
         User user =  userService.findById(UUID.fromString(id));
         UserDTO userDTO = userConvert.toUserHATEOAS(user);
