@@ -15,7 +15,6 @@ public class Employee {
     @Id
     @Column(columnDefinition = "uuid",nullable = false)
     private UUID id;
-
     @NotNull(message = "username cannot be null")
     @NotBlank(message = "username cannot be empty")
     private String username;
@@ -34,7 +33,7 @@ public class Employee {
     @NotNull(message = "Password cannot be null")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "employee_role",
         joinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"), inverseJoinColumns =  @JoinColumn(name =  "role_id"))
     private List<Roles> roles =  new ArrayList<>();
