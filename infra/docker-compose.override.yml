@@ -1,1 +1,12 @@
 version: '3.4'
+
+services:
+  ms-eureka-server:
+    ports:
+      - '8761:8761'
+    container_name: ms-eureka-server
+    networks:
+      - gym-project-network
+
+networks:
+  gym-project-network:

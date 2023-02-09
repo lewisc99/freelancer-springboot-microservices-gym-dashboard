@@ -1,1 +1,8 @@
 version: '3.4'
+
+services:
+  ms-eureka-server:
+    build:
+      context: ../backend/ms-eureka-server
+      dockerfile: Dockerfile
+
