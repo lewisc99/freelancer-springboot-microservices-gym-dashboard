@@ -1,1 +1,30 @@
-<p>message works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="">
+                <h1 class="title">Send Email to User "{{username}}"</h1>
+            </div>
+            <div class="selected-config">
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+                <label>Predefined Message</label>
+            </div>
+            <div class="component-message-unpredefined">
+                <div class="title-message">
+                        <h2>New Message</h2>
+                </div>
+                <div class="form-group">
+                    <label for="subject" class="form-label">Subject</label>
+                    <input type="text" class="form-control" id="subject" />
+                </div>
+                <div class="form-group">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="message" rows="10" cols="10"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="submit">Send</button>
+                    <a [routerLink]="['/..']">Back to Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
