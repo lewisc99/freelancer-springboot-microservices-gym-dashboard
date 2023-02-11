@@ -1,28 +1,43 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <div class="">
+            <div class="head-title">
                 <h1 class="title">Send Email to User "{{username}}"</h1>
             </div>
             <div class="selected-config">
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
-                <label>Predefined Message</label>
+                <input type="checkbox" id="checkbox-choose" name="vehicle1" value="Bike"/>
+                <label for="checkbox-choose" id="label-checkbox">Predefined Messages</label>
             </div>
-            <div class="component-message-unpredefined">
+            <div  class="component-message-predefined">
+                <div class="prefined title">
+                    Messages
+                </div>
+                <div class="prefined form-group select">
+                    <select>
+                        <option>Option one</option>
+                        <option>Option Two</option>
+                    </select>
+                </div>
+                <div class="prefined form-group form-direct">
+                        <button class="submit">Send</button>
+                        <a [routerLink]="['/../users']">Back to Details</a>
+                </div>
+            </div>
+            <div class="component-message-unpredefined" style="display:none;">
                 <div class="title-message">
                         <h2>New Message</h2>
                 </div>
-                <div class="form-group">
+                <div class="form-group input">
                     <label for="subject" class="form-label">Subject</label>
                     <input type="text" class="form-control" id="subject" />
                 </div>
-                <div class="form-group">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="message" rows="10" cols="10"></textarea>
+                <div class="form-group input">
+                    <label for="message-text" class="form-label">Message</label>
+                    <textarea class="message" id="message-text"></textarea>
                 </div>
-                <div class="form-group">
+                <div class="form-group form-direct">
                     <button class="submit">Send</button>
-                    <a [routerLink]="['/..']">Back to Details</a>
+                    <a [routerLink]="['/../users']">Back to Details</a>
                 </div>
             </div>
         </div>
