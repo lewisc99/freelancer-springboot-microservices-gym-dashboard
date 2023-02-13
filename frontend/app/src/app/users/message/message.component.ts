@@ -8,6 +8,9 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MessageComponent implements OnInit {
 
+  
+  
+
   public username:string;
 
   constructor(private activatedRoute:ActivatedRoute) {}
