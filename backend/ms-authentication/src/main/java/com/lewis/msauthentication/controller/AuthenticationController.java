@@ -74,7 +74,7 @@ public class AuthenticationController {
 
     private static void setIssueAtAndExpirationToken(TokenResponseDTO tokenResponse) {
         LocalDateTime issuedAt = LocalDateTime.now();
-        LocalDateTime expiresAt = issuedAt.plusMinutes(3);
+        LocalDateTime expiresAt = issuedAt.plusMinutes(10);
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
         String  issuedAtString = issuedAt.format(dateTimeFormatter);
         String  expiresAtString = expiresAt.format(dateTimeFormatter);

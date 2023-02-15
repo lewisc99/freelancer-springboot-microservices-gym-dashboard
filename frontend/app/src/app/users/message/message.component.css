@@ -1,0 +1,204 @@
+div.container {
+    display: flex;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(56, 56, 56);
+}
+
+div.row {
+    display: flex;
+    height: inherit;
+    width: inherit;
+}
+
+div.col {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    width: inherit;
+}
+
+/* -------------------- */
+/* TITLE  */
+/* ------------------ */
+div.head-title {
+    display: flex;
+    width: 100%;
+    height: 50px;
+}
+div.head-title > h1 {
+    color: rgb(35, 35, 35);
+    margin-left:5%;
+    font-size: calc(10px + 2vw);
+}
+
+/* -------------------- */
+/* CHECKBOX  */
+/* ------------------ */
+div.selected-config {
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-bottom: 30px;
+    width: 45%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color:#d5d7d9;
+    padding-left: 2%;
+    justify-content: flex-start;
+}
+
+input#checkbox-choose {
+    margin-right: 10px;
+    width: calc(10px + 1vw);
+    height: calc(10px + 1vh)
+}
+label#label-checkbox {
+    font-size: calc(4px + 1vw);
+}
+
+
+/* -------------------- */
+/*component-message-unpredefined */
+/* ------------------ */
+div.component-message-unpredefined {
+    width: 45%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:#d5d7d9;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+div.title-message {
+    width: 100%;
+    height: 17%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.title-message > h2{
+    font-size: calc(10px + 1vw);
+}
+
+
+/* -------------------- */
+/*forms */
+/* ------------------ */
+
+div.form-group
+{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 5%;
+    width: 95%;
+    height: 25%;
+    justify-content: center;
+}
+
+div.form-group.input
+{
+    flex-direction: column;
+    font-size: calc(6px + 1vw);
+}
+
+div.form-group > label 
+{
+    margin-bottom: 1%;
+    font-size: calc(6px + 1vw);
+}
+
+div.form-group > input, textarea
+{
+   width: 80%;
+   background-color: #eaeaea;
+   border:none;
+}
+
+textarea {
+    resize: none;
+    height: 100%;
+}
+div.form-direct 
+{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+div.form-direct > button {
+    margin-right: calc(3px + 1vw);
+    width: 30%;
+    height: 40%;
+}
+
+button,a {
+    cursor: pointer;
+    font-size: calc(3px + 1vw);
+   text-decoration: none;
+}
+button {
+    background-color: #5a5a5a;
+    color: rgb(236, 236, 236);
+    border: none;
+}
+
+input:focus, textarea:focus
+{
+    outline-style: none;
+}
+a {
+    color: rgb(77, 89, 255);
+}
+input#subject:hover, textarea:hover
+{
+    border: 0.5px solid rgb(77, 89, 255);
+}
+button:hover {
+    background-color: #2b2b2b;
+}
+
+/* -------------------- */
+/*component-message-predefined" */
+/* ------------------ */
+div.component-message-predefined {
+    width: 45%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:#d5d7d9;
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+div.prefined {
+    display: flex;
+    width: 90%;
+    margin-left: 10%;
+    height: 30%;
+    justify-content: flex-start;
+}
+div.prefined.title
+{
+    align-items: center;
+}
+
+select {
+    width: 70%;
+    height: 70%;
+    background-color: rgba(100, 148, 237, 0);
+    color: #2b2b2b;
+}
+select * {
+      color: rgb(0, 0, 0);
+      background-color: #b7b7b7;
+}
+
+option:first {
+    background: none;
+}
+div.prefined > button.submit {
+    height: 70%;
+}
