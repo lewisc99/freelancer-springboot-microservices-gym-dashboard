@@ -8,16 +8,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="ms-employee" />
         <module name="ms-user" />
+        <module name="ms-eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ms-employee" target="11" />
+      <module name="ms-eureka-server" target="11" />
       <module name="ms-user" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ms-employee" options="-parameters" />
+      <module name="ms-eureka-server" options="-parameters" />
       <module name="ms-user" options="-parameters" />
     </option>
   </component>
