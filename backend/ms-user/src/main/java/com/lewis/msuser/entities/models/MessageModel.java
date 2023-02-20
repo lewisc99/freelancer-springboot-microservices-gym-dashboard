@@ -1,27 +1,24 @@
 package com.lewis.msuser.entities.models;
-import com.lewis.msuser.entities.domain.User;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 public class MessageModel {
 
-    private UUID id;
-    private User user;
+    @NotNull(message = "user cannot be null")
+    private UUID user;
+    @NotNull(message = "subject cannot be null")
     private String subject;
+
+    @NotNull(message = "text cannot be null")
+    @NotBlank(message = "text  cannot be empty")
     private String text;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public User getUser() {
+    public UUID getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UUID user) {
         this.user = user;
     }
 

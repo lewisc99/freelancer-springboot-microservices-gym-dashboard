@@ -66,7 +66,7 @@ export class UserService {
   
   saveMessage(message:Message): Observable<any>
   {
-    let URL = this.fullURL + "/message";
+    let URL = this.fullURL + "/" + message.user + "/message";
     return this.httpClient.post<Message>(URL,message).pipe
     (
       catchError(error => throwError(() => error))

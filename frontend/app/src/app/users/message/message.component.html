@@ -1,6 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <div class="alert-message-sent" *ngIf="messageSent">
+                Message Sent to User {{username}}
+            </div>
             <div class="head-title">
                 <h1 class="title">Send Email to User "{{username}}"</h1>
             </div>

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.ws.rs.QueryParam;
 import java.util.List;
 import java.util.UUID;
 
@@ -98,11 +99,14 @@ public class UsersController {
         return ResponseEntity.noContent().build();
     }
 
-    @PostMapping("/message")
-    public ResponseEntity<Void> saveMessage(@Valid MessageModel messageModel)
+    @PostMapping("{id}/message")
+    public ResponseEntity<Void> saveMessage(@RequestBody  @Valid MessageModel messageModel)
     {
+        User user = userService.findById(messageModel.getUser());
         Message message = mapper.map(messageModel, Message.class);
+        message.setUser(user);
         userService.saveMessage(message);
         return ResponseEntity.noContent().build();
     }
+
 }

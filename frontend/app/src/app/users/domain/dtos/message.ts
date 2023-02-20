@@ -1,6 +1,6 @@
 export class Message {
-    public id:number;
-    public userId:string;
+    public id:string;
+    public user:string;
     public  subject:string;
     public text:string;
 }

@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -53,7 +53,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsApiGatewayApplication">
+  <component name="RunManager" selected="Application.MsUserApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
