@@ -5,41 +5,64 @@
                 <h1 class="title">Send Email to User "{{username}}"</h1>
             </div>
             <div class="selected-config">
-                <input type="checkbox" id="checkbox-choose" name="vehicle1" value="Bike"/>
+                <input type="checkbox" id="checkbox-choose" name="checkbox-choose" [checked]="predefinedIsAvailable" (change)="onChangeCheckbox()"  />
                 <label for="checkbox-choose" id="label-checkbox">Predefined Messages</label>
             </div>
-            <div  class="component-message-predefined">
+            <div  class="component-message-predefined" *ngIf="predefinedIsAvailable">
                 <div class="prefined title">
                     Messages
                 </div>
                 <div class="prefined form-group select">
-                    <select>
-                        <option>Option one</option>
-                        <option>Option Two</option>
+                    <select #predefinedID>
+                        <option [value]="value.id" *ngFor="let value of listMessages" >{{value.subject}}</option>
                     </select>
                 </div>
                 <div class="prefined form-group form-direct">
-                        <button class="submit">Send</button>
+                        <button class="submit" (click)="onSubmit(true)">Send</button>
                         <a [routerLink]="['/../users']">Back to Details</a>
                 </div>
             </div>
-            <div class="component-message-unpredefined" style="display:none;">
+            <form  [formGroup]="formGroup">
+            <div class="component-message-unpredefined"  *ngIf="!predefinedIsAvailable" formGroupName="message">
                 <div class="title-message">
                         <h2>New Message</h2>
                 </div>
                 <div class="form-group input">
                     <label for="subject" class="form-label">Subject</label>
-                    <input type="text" class="form-control" id="subject" />
+                    <input type="text" class="form-control" id="subject" formControlName="subject" />
+                    <div *ngIf="subject?.invalid && (subject?.dirty || subject?.touched)" class="alert-form-control">
+                        <div *ngIf="subject?.errors?.required">
+                            You must add A Subject
+                        </div>
+                        <div *ngIf="subject?.errors?.minlength">
+                            Min Length is 5 characters
+                        </div>
+                        <div *ngIf="subject?.errors?.maxlength">
+                           Max Length is 50 characters
+                        </div>
+                     </div>
                 </div>
                 <div class="form-group input">
                     <label for="message-text" class="form-label">Message</label>
-                    <textarea class="message" id="message-text"></textarea>
+                    <textarea class="message" id="message-text" formControlName="text"></textarea>
+                    <div *ngIf="text?.invalid && (text?.dirty || subject?.touched)" class="alert-form-control">
+                        <div *ngIf="text?.errors?.required">
+                            You must add a text
+                        </div>
+                        <div *ngIf="text?.errors?.minlength">
+                            Min Length is 20 characters
+                        </div>
+                        <div *ngIf="text?.errors?.maxlength">
+                           Max Length is 200 characters
+                        </div>
+                     </div>
                 </div>
                 <div class="form-group form-direct">
-                    <button class="submit">Send</button>
+                    <button class="submit" (click)="onSubmit(false)">Send</button>
                     <a [routerLink]="['/../users']">Back to Details</a>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 </div>
