@@ -1,4 +1,5 @@
 package com.lewis.msuser.services.contracts;
+import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
@@ -12,4 +13,5 @@ public interface UserService {
      void  create(User user);
      void update(UserModel user);
      void delete(UUID id);
+     void saveMessage(Message message);
 }
