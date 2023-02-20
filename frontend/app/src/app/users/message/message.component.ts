@@ -80,8 +80,6 @@ export class MessageComponent implements OnInit {
         next: () => this.route.navigate(["/../users"]),
         error: (error:any) => alert(error.message)
       })
-      // 
-
     }
 
 
