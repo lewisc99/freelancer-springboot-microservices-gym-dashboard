@@ -76,8 +76,11 @@ export class MessageComponent implements OnInit {
       }
 
       console.log(message);
-
-      // this.route.navigate(["/../users"]);
+      this.UserService.saveMessage(message).subscribe({
+        next: () => this.route.navigate(["/../users"]),
+        error: (error:any) => alert(error.message)
+      })
+      // 
 
     }
 
