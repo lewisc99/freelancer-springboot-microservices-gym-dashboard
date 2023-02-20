@@ -1,9 +1,11 @@
 package com.lewis.msuser.controllers;
 
 import com.lewis.msuser.config.UserConvert;
+import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
+import com.lewis.msuser.entities.models.MessageModel;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.services.contracts.UserService;
@@ -96,6 +98,11 @@ public class UsersController {
         return ResponseEntity.noContent().build();
     }
 
-    
-
+    @PostMapping("/message")
+    public ResponseEntity<Void> saveMessage(@Valid MessageModel messageModel)
+    {
+        Message message = mapper.map(messageModel, Message.class);
+        userService.saveMessage(message);
+        return ResponseEntity.noContent().build();
+    }
 }
