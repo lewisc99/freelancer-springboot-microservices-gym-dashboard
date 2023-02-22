@@ -1,9 +1,11 @@
 package com.lewis.msuser.controllers;
 
 import com.lewis.msuser.config.UserConvert;
+import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
+import com.lewis.msuser.entities.models.MessageModel;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
 import com.lewis.msuser.services.contracts.UserService;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import javax.ws.rs.QueryParam;
 import java.util.List;
 import java.util.UUID;
 
@@ -93,6 +96,16 @@ public class UsersController {
     public ResponseEntity<Void> delete(@Valid  @PathVariable(required = true) String id)
     {
         userService.delete(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("{id}/message")
+    public ResponseEntity<Void> saveMessage(@RequestBody  @Valid MessageModel messageModel)
+    {
+        User user = userService.findById(messageModel.getUser());
+        Message message = mapper.map(messageModel, Message.class);
+        message.setUser(user);
+        userService.saveMessage(message);
         return ResponseEntity.noContent().build();
     }
 

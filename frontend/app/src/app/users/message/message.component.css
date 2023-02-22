@@ -202,3 +202,23 @@ option:first {
 div.prefined > button.submit {
     height: 70%;
 }
+
+.alert-form-control {
+    font-size: calc(1.4px + 1vw);
+    margin-top: 1.5px;
+    color: rgb(227, 95, 95);
+}
+
+div.alert-message-sent {
+    display: flex;
+    position: fixed;
+    width: 50%;
+    height: 100px;
+    background-color: #59c3b0;
+    border-radius: 3px;
+    transition: 0.2s;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    color: white;
+}

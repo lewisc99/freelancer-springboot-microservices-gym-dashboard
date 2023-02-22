@@ -1,8 +1,10 @@
 package com.lewis.msuser.services;
 
+import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
+import com.lewis.msuser.repositories.MessageRepository;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.CategoryService;
 import com.lewis.msuser.services.contracts.UserService;
@@ -21,6 +23,9 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Override
     public void create(User user)
@@ -67,4 +72,10 @@ public class UserServiceImpl implements UserService {
         oldUser.getPlan().getCategory().setId(userUpdate.getPlan().getCategory().getId());
         oldUser.getPlan().getCategory().setName(userUpdate.getPlan().getCategory().getName());
     }
+
+    @Override
+    public void saveMessage(Message message) {
+        messageRepository.save(message);
+    }
+
 }

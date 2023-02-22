@@ -4,6 +4,7 @@ import { environment } from '../../../../environments/environment.test';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { UsersDTO } from '../../domain/dtos/usersDTO';
 import { UserDTO } from '../../domain/dtos/userDTO';
+import { Message } from '../../domain/dtos/message';
 
 @Injectable({
   providedIn: 'root'
@@ -61,5 +62,15 @@ export class UserService {
     (
       catchError(error => throwError(() => error))
     )
+  }
+  
+  saveMessage(message:Message): Observable<any>
+  {
+    let URL = this.fullURL + "/" + message.user + "/message";
+    return this.httpClient.post<Message>(URL,message).pipe
+    (
+      catchError(error => throwError(() => error))
+    )
+
   }
 }
