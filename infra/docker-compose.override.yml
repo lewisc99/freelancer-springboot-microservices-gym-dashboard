@@ -7,7 +7,7 @@ services:
     container_name: ms-eureka-server
     networks:
       - gym-project-network
-    
+
   zookeeper:
     container_name: ms-zookeeper
     ports:
