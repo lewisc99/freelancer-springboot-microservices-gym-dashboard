@@ -5,3 +5,7 @@ services:
     build:
       context: ../backend/ms-eureka-server
       dockerfile: Dockerfile
+  zookeeper:
+    image: wurstmeister/zookeeper
+  kafka:
+    image: wurstmeister/kafka
