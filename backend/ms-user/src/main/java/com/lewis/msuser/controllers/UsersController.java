@@ -5,6 +5,7 @@ import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.dto.UserDTO;
 import com.lewis.msuser.entities.dto.UsersDTO;
+import com.lewis.msuser.entities.models.MailEvent;
 import com.lewis.msuser.entities.models.MessageModel;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
@@ -14,11 +15,12 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import javax.ws.rs.QueryParam;
+import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,6 +35,9 @@ public class UsersController {
     private UserService userService;
     @Autowired
     private ModelMapper mapper;
+
+    @Autowired
+    private KafkaTemplate<String, Serializable> jsonKafkaTemplate;
 
 
     @ApiOperation(value="create a new user",
@@ -106,6 +111,8 @@ public class UsersController {
         Message message = mapper.map(messageModel, Message.class);
         message.setUser(user);
         userService.saveMessage(message);
+        LocalDate today = LocalDate.now();
+        jsonKafkaTemplate.send("user-message-topic", new MailEvent(user.getEmail(), messageModel.getSubject(), messageModel.getText(), today));
         return ResponseEntity.noContent().build();
     }
 

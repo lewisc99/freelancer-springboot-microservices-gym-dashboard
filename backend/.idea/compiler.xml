@@ -9,6 +9,7 @@
         <module name="ms-eureka-server" />
         <module name="ms-api-gateway" />
         <module name="ms-authentication" />
+        <module name="ms-message-email" />
         <module name="ms-employee" />
         <module name="ms-user" />
       </profile>
@@ -19,6 +20,7 @@
       <module name="ms-authorization" target="11" />
       <module name="ms-employee" target="11" />
       <module name="ms-eureka-server" target="11" />
+      <module name="ms-message-email" target="11" />
       <module name="ms-user" target="11" />
     </bytecodeTargetLevel>
   </component>
@@ -29,6 +31,7 @@
       <module name="ms-authorization" options="-parameters" />
       <module name="ms-employee" options="-parameters" />
       <module name="ms-eureka-server" options="-parameters" />
+      <module name="ms-message-email" options="-parameters" />
       <module name="ms-user" options="-parameters" />
     </option>
   </component>

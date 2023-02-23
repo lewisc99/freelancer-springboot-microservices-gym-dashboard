@@ -1,13 +1,21 @@
 package com.lewis.msuser.entities.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class MailEvent {
+public class MailEvent implements Serializable {
 
     private String email;
     private String subject;
     private String text;
     private LocalDate date;
+
+    public MailEvent(String email, String subject, String text, LocalDate date) {
+        this.email = email;
+        this.subject = subject;
+        this.text = text;
+        this.date = date;
+    }
 
     public String getEmail() {
         return email;
