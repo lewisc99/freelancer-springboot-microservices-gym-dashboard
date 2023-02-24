@@ -10,6 +10,9 @@ public class MailEvent implements Serializable {
     private String text;
     private LocalDate date;
 
+    public MailEvent() {
+    }
+
     public MailEvent(String email, String subject, String text, LocalDate date) {
         this.email = email;
         this.subject = subject;
