@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3.7'
 
 services:
   ms-eureka-server:
@@ -7,7 +7,6 @@ services:
     container_name: ms-eureka-server
     networks:
       - gym-project-network
-
   zookeeper:
     container_name: ms-zookeeper
     ports:

@@ -1,9 +1,9 @@
-version: '3.4'
+version: '3.7'
 
 services:
   ms-eureka-server:
     build:
-      context: ../backend/ms-eureka-server
+      context: ../backend/ms-eureka-server/
       dockerfile: Dockerfile
   zookeeper:
     image: wurstmeister/zookeeper

@@ -1,6 +1,5 @@
 package com.lewis.msmessageemail.listener;
 
-
 import com.lewis.msmessageemail.entities.MailEvent;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.listener.adapter.ConsumerRecordMetadata;
