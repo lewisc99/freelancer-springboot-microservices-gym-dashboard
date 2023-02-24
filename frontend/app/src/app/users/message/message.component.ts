@@ -41,7 +41,7 @@ export class MessageComponent implements OnInit {
           subject: this.fb.control("",[Validators.required, Validators.minLength(5),Validators.maxLength(50)]),
           text: this.fb.control("",[Validators.required, Validators.minLength(20),Validators.maxLength(200)])
         })
-    })
+    });
   }
     
   get subject() {return this.formGroup.get("message.subject")}
@@ -76,7 +76,6 @@ export class MessageComponent implements OnInit {
         message.text = this.formGroup.value.message.text;
       }
 
-      console.log(message);
       this.UserService.saveMessage(message).subscribe({
         next: () =>
         {
