@@ -45,9 +45,12 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
         model.put("content", mailModel.getContent());
 
 
+
+        mailModel.setModel(model);
+
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
-        mimeMessageHelper.addInline("logo.png", new ClassPathResource("classpath:/gym.png"));
+        mimeMessageHelper.addInline("logo.png", new ClassPathResource("classpath:/gym.webp"));
 
         Template template = emailConfig.getTemplate("template-email.ftl");
         String html = FreeMarkerTemplateUtils.processTemplateIntoString(template,mailModel);

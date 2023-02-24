@@ -28,6 +28,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2K6UhZm1xqjyrOtlMxd22k4pbmG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -41,7 +44,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -53,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsMessageEmailApplication">
+  <component name="RunManager" selected="Application.MsApiGatewayApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -106,15 +109,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
-      <module name="ms-user" />
+    <configuration name="MsAuthenticationApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-authentication" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.*" />
+          <option name="PATTERN" value="com.lewis.msauthentication.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.lewis.msauthentication" />
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,8 +129,8 @@
         <item itemvalue="Application.MsMessageEmailApplication" />
         <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
+        <item itemvalue="JUnit.MsAuthenticationApplicationTests" />
         <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="Application.MsUserApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -139,6 +144,9 @@
       <updated>1673294647167</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.ftl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
