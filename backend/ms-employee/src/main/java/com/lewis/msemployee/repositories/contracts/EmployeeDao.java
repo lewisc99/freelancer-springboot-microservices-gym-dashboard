@@ -9,7 +9,7 @@ public interface EmployeeDao {
     void create(Employee employee);
     Employee  getById(UUID id);
     Employee getByEmail(String email);
-    List<Employee> getAll( String sortBy);
+    List<Employee> getAll(String sortBy);
 
     Boolean update(Employee employee);
 

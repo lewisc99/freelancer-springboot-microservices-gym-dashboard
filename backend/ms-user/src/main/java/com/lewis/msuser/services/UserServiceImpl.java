@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
          Optional<Category> category =  categoryRepository.findById(userModel.getPlan().getCategory().getId());
          if(category.isEmpty())
              throw new NullPointerException();
-         
+
          oldUser.getPlan().setCategory(category.get());
          userRepository.save(oldUser);
     }

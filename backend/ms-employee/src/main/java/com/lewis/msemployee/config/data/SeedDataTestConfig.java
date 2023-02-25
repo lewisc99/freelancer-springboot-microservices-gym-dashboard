@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -14,7 +13,7 @@ import java.util.UUID;
 @Profile("test")
 public class SeedDataTestConfig implements CommandLineRunner {
     @Autowired
-    private EmployeeService employeeDao;
+    private EmployeeService employeeService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -35,10 +34,10 @@ public class SeedDataTestConfig implements CommandLineRunner {
         employee4.setRoles(Arrays.asList(role2));
         employee5.setRoles(Arrays.asList(role1));
 
-        employeeDao.create(employee1);
-        employeeDao.create(employee2);
-        employeeDao.create(employee3);
-        employeeDao.create(employee4);
-        employeeDao.create(employee5);
+        employeeService.create(employee1);
+        employeeService.create(employee2);
+        employeeService.create(employee3);
+        employeeService.create(employee4);
+        employeeService.create(employee5);
     }
 }

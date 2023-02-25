@@ -56,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsEmployeeApplication">
+  <component name="RunManager" selected="Application.MsUserApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -109,17 +109,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsAuthenticationApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ms-authentication" />
+    <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
+      <module name="ms-user" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msauthentication.*" />
+          <option name="PATTERN" value="com.lewis.msuser.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.lewis.msauthentication" />
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msauthentication.MsAuthenticationApplicationTests" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -127,10 +125,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsApiGatewayApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsMessageEmailApplication" />
+        <item itemvalue="Application.MsUserApplication" />
+        <item itemvalue="Application.MsEmployeeApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
-        <item itemvalue="JUnit.MsAuthenticationApplicationTests" />
       </list>
     </recent_temporary>
   </component>
@@ -149,15 +147,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ftl" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-employee/src/main/java/com/lewis/msemployee/repositories/EmployeeDaoImpl.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.data.domain.Sort" memberName="orders" />
