@@ -24,6 +24,8 @@ public class MailListener {
     public void mailEvent(MailEvent mailEvent, ConsumerRecordMetadata metadata) throws MessagingException, TemplateException, IOException {
         System.out.println(mailEvent);
         MailModel  mailModel = new MailModel("luizdoidosonavide@gmail.com", mailEvent.getEmail(), mailEvent.getUsername(), mailEvent.getSubject(), mailEvent.getText(), new HashMap<>());
+        System.out.println();
+        System.out.println(mailModel);
         sendingEmailService.sendEmail(mailModel);
     }
 }

@@ -1,7 +1,5 @@
 package com.lewis.msmessageemail.service;
 
-
-import com.lewis.msmessageemail.entities.MailEvent;
 import com.lewis.msmessageemail.entities.MailModel;
 import com.lewis.msmessageemail.service.contract.SendingEmailService;
 import freemarker.template.Configuration;
@@ -40,11 +38,15 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
     @Override
     public void sendEmail(MailModel mailModel) throws MessagingException, IOException, TemplateException {
 
+
+        //content to template
         log.info("Sending Email to: " + mailModel.getTo());
         Map model = new HashMap();
         model.put("content", mailModel.getContent());
+        model.put("name", mailModel.getName());
         mailModel.setModel(model);
 
+        //adding image to template
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
         mimeMessageHelper.addInline("logo.png", new ClassPathResource("classpath:/gym.webp"));
@@ -52,6 +54,7 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
         Template template = emailConfig.getTemplate("template-email.ftl");
         String html = FreeMarkerTemplateUtils.processTemplateIntoString(template,mailModel);
 
+        //email properties
         mimeMessageHelper.setTo(mailModel.getTo());
         mimeMessageHelper.setText(html, true);
         mimeMessageHelper.setSubject(mailModel.getSubject());

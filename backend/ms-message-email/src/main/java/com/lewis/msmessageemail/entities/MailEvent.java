@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class MailEvent implements Serializable {
 
-    private  String username;
+    private String username;
     private String email;
     private String subject;
     private String text;
@@ -65,7 +65,8 @@ public class MailEvent implements Serializable {
     @Override
     public String toString() {
         return "MailEvent{" +
-                "email='" + email + '\'' +
+                "username='" + username + '\'' +
+                ", email='" + email + '\'' +
                 ", subject='" + subject + '\'' +
                 ", text='" + text + '\'' +
                 ", date=" + date +
