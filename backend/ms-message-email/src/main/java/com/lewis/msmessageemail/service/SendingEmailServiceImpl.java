@@ -43,9 +43,6 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
         log.info("Sending Email to: " + mailModel.getTo());
         Map model = new HashMap();
         model.put("content", mailModel.getContent());
-
-
-
         mailModel.setModel(model);
 
         MimeMessage message = emailSender.createMimeMessage();

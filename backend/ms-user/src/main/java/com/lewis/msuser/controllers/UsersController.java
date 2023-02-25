@@ -112,7 +112,7 @@ public class UsersController {
         message.setUser(user);
         userService.saveMessage(message);
         LocalDate today = LocalDate.now();
-        jsonKafkaTemplate.send("user-message-topic", new MailEvent(user.getEmail(), messageModel.getSubject(), messageModel.getText(), today));
+        jsonKafkaTemplate.send("user-message-topic", new MailEvent(user.getUsername(),user.getEmail(), messageModel.getSubject(), messageModel.getText(), today));
         return ResponseEntity.noContent().build();
     }
 

@@ -23,7 +23,7 @@ public class MailListener {
     "jsonKafkaListenerContainerFactory")
     public void mailEvent(MailEvent mailEvent, ConsumerRecordMetadata metadata) throws MessagingException, TemplateException, IOException {
         System.out.println(mailEvent);
-        MailModel  mailModel = new MailModel("luizdoidosonavide@gmail.com", mailEvent.getEmail(), mailEvent.getEmail(), mailEvent.getSubject(), mailEvent.getText(), new HashMap<>());
+        MailModel  mailModel = new MailModel("luizdoidosonavide@gmail.com", mailEvent.getEmail(), mailEvent.getUsername(), mailEvent.getSubject(), mailEvent.getText(), new HashMap<>());
         sendingEmailService.sendEmail(mailModel);
     }
 }

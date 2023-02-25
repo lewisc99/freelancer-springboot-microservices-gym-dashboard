@@ -2,10 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Sending Email with Freemarker HTML Template Example</title>
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <!-- use the font -->
@@ -20,17 +18,16 @@ font-size: 48px;
 
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
     <tr>
-        <td align="center" bgcolor="#78ab46" style="padding: 40px 0 30px 0;">
-            <img src="cid:logo.png" alt="https://www.techmagister.info" style="display: block;" />
+        <td align="center" bgcolor="#007bff" style="padding: 40px 0 30px 0;">
+            <img src="cid:logo.png" />
         </td>
     </tr>
     <tr>
         <td bgcolor="#eaeaea" style="padding: 40px 30px 40px 30px;">
             <p>Dear ${name},</p>
             <p>${content}</p>
-            <p>Sending Email using Spring Boot and Apache Freemarker</p>
             <#--<p>CLick here to verify your email <b>${token}</b></p>-->
-            <p>Thanks</p>
+            <p>Thanks Best Regards Gym Corpus</p>
         </td>
     </tr>
 </table>
