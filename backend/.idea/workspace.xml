@@ -56,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsApiGatewayApplication">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -126,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MsMessageEmailApplication" />
         <item itemvalue="Application.MsApiGatewayApplication" />
+        <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="Application.MsMessageEmailApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="JUnit.MsAuthenticationApplicationTests" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -153,8 +153,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/ms-employee/src/main/java/com/lewis/msemployee/repositories/EmployeeDaoImpl.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
+          <line>22</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

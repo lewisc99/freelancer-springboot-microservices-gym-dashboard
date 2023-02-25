@@ -23,9 +23,8 @@ public class Plan {
     private Date start;
     @DateTimeFormat(pattern="yyyy/dd/MM")
     private Date finish;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST, CascadeType.REFRESH})
     private Category category;
-
     private Status status;
 
     public UUID getId() {
