@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 @RefreshScope
 public class AdminAuthenticationFilter implements GatewayFilter {
 
+
+
     @Autowired
     private JwtUtil jwtUtil;
 

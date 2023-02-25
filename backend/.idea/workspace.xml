@@ -126,8 +126,8 @@
       <list>
         <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsMessageEmailApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
+        <item itemvalue="Application.MsMessageEmailApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
