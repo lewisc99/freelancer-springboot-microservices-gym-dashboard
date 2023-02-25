@@ -1,13 +1,11 @@
 package com.lewis.msemployee.controllers;
 import com.lewis.msemployee.config.dtos.DtoConverter;
 import com.lewis.msemployee.entities.domain.Employee;
-import com.lewis.msemployee.entities.domain.Roles;
 import com.lewis.msemployee.entities.dtos.EmployeeDto;
 import com.lewis.msemployee.entities.dtos.EmployeesDto;
 import com.lewis.msemployee.entities.models.EmployeeModel;
 import com.lewis.msemployee.entities.models.PageModel;
 import com.lewis.msemployee.services.contracts.EmployeeService;
-import com.lewis.msemployee.services.contracts.RoleService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
@@ -18,8 +16,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @RestController

@@ -25,6 +25,7 @@ export class TokenStorageService {
         this.hasRoleAdmin$.next(true);
     }
     this.isTokenValid$.next(true);
+    this.hasRoleAdmin$.next(false);
   }
 
   private autoLogout(token:Token)
