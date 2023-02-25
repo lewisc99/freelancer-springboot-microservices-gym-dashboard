@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -53,6 +55,11 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
 
         Template template = emailConfig.getTemplate("template-email.ftl");
         String html = FreeMarkerTemplateUtils.processTemplateIntoString(template,mailModel);
+
+        //adding file - image path or file
+        FileSystemResource fileSystemResource = new FileSystemResource(new File("D:\\arquivos\\programation\\workspace-java\\2023\\month-1\\1-gym-project\\backend\\ms-message-email\\src\\main\\resources\\static\\gym-corpus.JPG"));
+        mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
+
 
         //email properties
         mimeMessageHelper.setTo(mailModel.getTo());
