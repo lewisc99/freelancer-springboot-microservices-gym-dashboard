@@ -23,13 +23,10 @@ services:
     image: wurstmeister/zookeeper
   kafka:
     image: wurstmeister/kafka
-
 volumes:
   postgres_data:
   pgadmin_data:
   mysql_data:
-
-
 
 
 
