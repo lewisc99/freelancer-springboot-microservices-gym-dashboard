@@ -21,6 +21,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       - gym-project-network
+
   pgadmin:
     container_name: ms-container-pgadmin
     environment:
