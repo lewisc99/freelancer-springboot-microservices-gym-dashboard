@@ -76,19 +76,23 @@ services:
     networks:
       - gym-project-network
 
-  mysql-workbench:
-    container_name: mysql-workbench
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/config:/config
+  ms-user:
     ports:
-      - "3000:3000"
-    cap_add:
-      - IPC_LOCK
-    restart: unless-stopped
+      - "8002:8002"
+    container_name: ms-container-user
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/ms_user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=True
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Futebol#366
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    links:
+      - mysql
 
   zookeeper:
     container_name: ms-zookeeper
