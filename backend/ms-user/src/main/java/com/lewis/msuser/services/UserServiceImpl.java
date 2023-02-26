@@ -1,9 +1,11 @@
 package com.lewis.msuser.services;
 
+import com.lewis.msuser.entities.domain.Category;
 import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
+import com.lewis.msuser.repositories.CategoryRepository;
 import com.lewis.msuser.repositories.MessageRepository;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.CategoryService;
@@ -26,6 +28,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private MessageRepository messageRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
+
 
     @Override
     public void create(User user)
@@ -58,6 +64,11 @@ public class UserServiceImpl implements UserService {
     public void update(UserModel userModel) {
          User oldUser = findById(userModel.id);
          availablePropertiesToUpdate(oldUser, userModel);
+         Optional<Category> category =  categoryRepository.findById(userModel.getPlan().getCategory().getId());
+         if(category.isEmpty())
+             throw new NullPointerException();
+
+         oldUser.getPlan().setCategory(category.get());
          userRepository.save(oldUser);
     }
     public void availablePropertiesToUpdate(User oldUser, UserModel userUpdate)
@@ -67,10 +78,6 @@ public class UserServiceImpl implements UserService {
         oldUser.setAge(userUpdate.getAge());
         oldUser.setEmail(userUpdate.getEmail());
         oldUser.getPlan().setStart(userUpdate.getPlan().getStart());
-        oldUser.getPlan().setFinish(userUpdate.getPlan().getFinish());
-        oldUser.getPlan().setStatus(userUpdate.getPlan().getStatus());
-        oldUser.getPlan().getCategory().setId(userUpdate.getPlan().getCategory().getId());
-        oldUser.getPlan().getCategory().setName(userUpdate.getPlan().getCategory().getName());
     }
 
     @Override

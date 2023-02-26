@@ -6,21 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ms-eureka-server" />
+        <module name="ms-api-gateway" />
+        <module name="ms-authentication" />
+        <module name="ms-message-email" />
         <module name="ms-employee" />
         <module name="ms-user" />
-        <module name="ms-eureka-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ms-api-gateway" target="11" />
+      <module name="ms-authentication" target="11" />
       <module name="ms-employee" target="11" />
       <module name="ms-eureka-server" target="11" />
+      <module name="ms-message-email" target="11" />
       <module name="ms-user" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ms-api-gateway" options="-parameters" />
+      <module name="ms-authentication" options="-parameters" />
       <module name="ms-employee" options="-parameters" />
       <module name="ms-eureka-server" options="-parameters" />
+      <module name="ms-message-email" options="-parameters" />
       <module name="ms-user" options="-parameters" />
     </option>
   </component>

@@ -1,4 +1,5 @@
 package com.lewis.msemployee.services;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.lewis.msemployee.entities.domain.Employee;
@@ -31,6 +32,14 @@ public class EmployeeServiceImpl  implements EmployeeService {
     {
         try
         {
+            List<String> rolesName = new ArrayList<>();
+            for(Roles role : employee.getRoles())
+            {
+                rolesName.add(role.getName());
+            }
+            List<Roles> roles  = roleService.findRolesByName(rolesName);
+            employee.getRoles().clear();
+            employee.setRoles(roles);
             employeeDao.create(employee);
         }
         catch (Exception e )

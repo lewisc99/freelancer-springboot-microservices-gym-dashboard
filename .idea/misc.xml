@@ -6,6 +6,10 @@
         <option value="$PROJECT_DIR$/ms-employee/pom.xml" />
         <option value="$PROJECT_DIR$/backend/ms-user/pom.xml" />
         <option value="$PROJECT_DIR$/backend/ms-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/ms-employee/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/ms-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/ms-authentication/pom.xml" />
+        <option value="$PROJECT_DIR$/backend/ms-message-email/pom.xml" />
       </list>
     </option>
   </component>

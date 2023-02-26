@@ -3,8 +3,9 @@ package com.lewis.msauthentication.filters;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lewis.msauthentication.config.SecurityConstants;
+import com.lewis.msauthentication.config.properties.SecurityProperties;
 import com.lewis.msauthentication.entities.domain.Employee;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,10 +19,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private static SecurityProperties securityProperties;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager)
     {
@@ -54,8 +57,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     {
         String token = JWT.create()
                 .withSubject(((Employee) authResult.getPrincipal()).getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME ))
-                .sign(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()));
+                .withExpiresAt(new Date(System.currentTimeMillis() + securityProperties.getExpiration() ))
+                .sign(Algorithm.HMAC512(securityProperties.getKey().getBytes()));
 
         String body =  ((Employee) authResult.getPrincipal()).getUsername() + " " + token;
         response.getWriter().write(body);

@@ -19,10 +19,10 @@ export class MessageComponent implements OnInit {
   public messageSent:boolean;
   @ViewChild('predefinedID') predefinedId: ElementRef;
   public listMessages: Message[] = [
-    {user:this.userId,id:"1",subject: "Payment Required", text : "Dear Customer, You're Bill is expired Please Pay the Bill soon as possible to continue with the Service"},
-    {user:this.userId,id:"2",subject: "Bill Date to expired", text : "Dear Customer, you're Bill is almost expired Please pay the bill before expiration"},
-    {user:this.userId,id:"3",subject: "Discount in the Next Bill", text : "Dear Customer, you got a Discount in your next bill to validate the discount please Contact our customer's service, in the number 31991143417"},
-    {user:this.userId,id:"4",subject: "You're payment was aknowdge", text : "Dear customer, your payment is recognize in our system, please not consider any further Email"}
+    {user:this.userId,id:"1",subject: "Payment Required", text : "You're Bill is expired Please Pay the Bill soon as possible to continue with the Service"},
+    {user:this.userId,id:"2",subject: "Bill Date to expired", text : "you're Bill is almost expired Please pay the bill before expiration"},
+    {user:this.userId,id:"3",subject: "Discount in the Next Bill", text : "you got a Discount in your next bill to validate the discount please Contact our customer's service, in the number 31991143417"},
+    {user:this.userId,id:"4",subject: "You're payment was aknowdge", text : "your payment is recognize in our system, please not consider any further Email"}
   ];
 
   constructor(private activatedRoute:ActivatedRoute, private UserService: UserService, private fb:FormBuilder, private route:Router) {}
@@ -41,7 +41,7 @@ export class MessageComponent implements OnInit {
           subject: this.fb.control("",[Validators.required, Validators.minLength(5),Validators.maxLength(50)]),
           text: this.fb.control("",[Validators.required, Validators.minLength(20),Validators.maxLength(200)])
         })
-    })
+    });
   }
     
   get subject() {return this.formGroup.get("message.subject")}
@@ -76,7 +76,6 @@ export class MessageComponent implements OnInit {
         message.text = this.formGroup.value.message.text;
       }
 
-      console.log(message);
       this.UserService.saveMessage(message).subscribe({
         next: () =>
         {

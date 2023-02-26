@@ -36,7 +36,6 @@ public class EmployeeController {
     @PostMapping
     public ResponseEntity<Void> create(@Valid @RequestBody Employee employee)
     {
-        passwordEncoder(employee);
         UUID uuid = UUID.randomUUID();
         employee.setId(uuid);
         employeeService.create(employee);
@@ -125,6 +124,5 @@ public class EmployeeController {
         employeeService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
 
 }
