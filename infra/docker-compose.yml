@@ -17,6 +17,8 @@ services:
     build:
       context: ../backend/ms-authentication/
       dockerfile: Dockerfile
+  mysql:
+    image: mysql:5.7
   zookeeper:
     image: wurstmeister/zookeeper
   kafka:
@@ -25,7 +27,7 @@ services:
 volumes:
   postgres_data:
   pgadmin_data:
-
+  mysql_data:
 
 
 

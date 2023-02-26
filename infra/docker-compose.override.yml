@@ -62,6 +62,20 @@ services:
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
 
+  mysql:
+    ports:
+      - "3306:3306"
+    container_name: db-user
+    environment:
+      - MYSQL_ROOT_PASSWORD=Futebol#366
+      - MYSQL_DATABASE=ms_user
+      - MYSQLDB_USER=root
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - gym-project-network
+
   zookeeper:
     container_name: ms-zookeeper
     ports:
