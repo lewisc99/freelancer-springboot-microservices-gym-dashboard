@@ -1,17 +1,60 @@
 version: '3.7'
 
 services:
-  ms-eureka-server:
+  eureka-server:
     ports:
       - '8761:8761'
     container_name: ms-eureka-server
     networks:
       - gym-project-network
+
+  postgres:
+    container_name: db-employee
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=ms_employee
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - gym-project-network
+  pgadmin:
+    container_name: ms-container-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+    networks:
+      - gym-project-network
+
+  ms-employee:
+    ports:
+      - "8001:8001"
+    container_name: ms-container-employee
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/ms_employee
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    links:
+      - postgres
+
   zookeeper:
     container_name: ms-zookeeper
     ports:
       - "2181:2181"
-
   kafka:
     container_name: ms-kafka
     ports:

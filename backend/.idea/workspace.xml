@@ -56,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsApiGatewayApplication">
+  <component name="RunManager" selected="Application.MsEmployeeApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -83,12 +83,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsMessageEmailApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msmessageemail.MsMessageEmailApplication" />
-      <module name="ms-message-email" />
+    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
+      <module name="ms-employee" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msmessageemail.*" />
+          <option name="PATTERN" value="com.lewis.msemployee.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -96,12 +96,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsUserApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msuser.MsUserApplication" />
-      <module name="ms-user" />
+    <configuration name="MsEurekaServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lewis.mseurekaserver.MsEurekaServerApplication" />
+      <module name="ms-eureka-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lewis.msuser.*" />
+          <option name="PATTERN" value="com.lewis.mseurekaserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MsEmployeeApplication" />
+        <item itemvalue="Application.MsEurekaServerApplication" />
         <item itemvalue="Application.MsApiGatewayApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="JUnit.All in ms-authentication" />
-        <item itemvalue="Application.MsUserApplication" />
-        <item itemvalue="Application.MsMessageEmailApplication" />
       </list>
     </recent_temporary>
   </component>
