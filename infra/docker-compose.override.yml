@@ -85,6 +85,7 @@ services:
     depends_on:
       - eureka-server
       - mysql
+      - kafka
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/ms_user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=True
       - SPRING_DATASOURCE_USERNAME=root
@@ -93,6 +94,17 @@ services:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
     links:
       - mysql
+
+  ms-message-email:
+    ports:
+      - "8006:8006"
+    container_name: ms-container-message-email
+    networks:
+      - gym-project-network
+    depends_on:
+      - kafka
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
 
   zookeeper:
     container_name: ms-zookeeper
