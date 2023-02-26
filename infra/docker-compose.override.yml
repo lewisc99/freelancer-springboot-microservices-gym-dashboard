@@ -21,7 +21,6 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       - gym-project-network
-
   pgadmin:
     container_name: ms-container-pgadmin
     environment:
@@ -51,6 +50,17 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
     links:
       - postgres
+
+  ms-authentication:
+    ports:
+      - "8005:8005"
+    container_name: ms-container-authentication
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
 
   zookeeper:
     container_name: ms-zookeeper
