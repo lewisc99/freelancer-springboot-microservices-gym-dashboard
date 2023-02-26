@@ -56,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsUserApplication">
+  <component name="RunManager" selected="Application.MsApiGatewayApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -76,19 +76,6 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.lewis.msauthentication.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsEmployeeApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lewis.msemployee.MsEmployeeApplication" />
-      <module name="ms-employee" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lewis.msemployee.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,13 +109,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="All in ms-authentication" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ms-authentication" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsApiGatewayApplication" />
-        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsAuthenticationApplication" />
+        <item itemvalue="JUnit.All in ms-authentication" />
+        <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsMessageEmailApplication" />
-        <item itemvalue="Application.MsEmployeeApplication" />
       </list>
     </recent_temporary>
   </component>

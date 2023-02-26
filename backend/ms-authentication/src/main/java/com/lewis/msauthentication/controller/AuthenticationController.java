@@ -1,5 +1,6 @@
 package com.lewis.msauthentication.controller;
 
+import com.lewis.msauthentication.config.properties.SecurityProperties;
 import com.lewis.msauthentication.config.util.jwtUtil;
 import com.lewis.msauthentication.entities.dtos.TokenResponseDTO;
 import com.lewis.msauthentication.entities.models.LoginModel;
@@ -14,12 +15,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -30,10 +29,12 @@ public class AuthenticationController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    private  SecurityProperties securityProperties;
+
+    @Autowired
+    protected jwtUtil jwtUtil;
+    @Autowired
     private MyEmployeeDetailsService userDetailsService;
-
-
-
 
     @ApiOperation(value="Login Employees in the dashboard",
             notes = "it's only avaiable to use Employee credentials",
@@ -72,9 +73,9 @@ public class AuthenticationController {
         return tokenResponse;
     }
 
-    private static void setIssueAtAndExpirationToken(TokenResponseDTO tokenResponse) {
+    private  void setIssueAtAndExpirationToken(TokenResponseDTO tokenResponse) {
         LocalDateTime issuedAt = LocalDateTime.now();
-        LocalDateTime expiresAt = issuedAt.plusMinutes(10);
+        LocalDateTime expiresAt = issuedAt.plusMinutes(securityProperties.getExpiration());
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM-dd-yyyy HH:mm:ss");
         String  issuedAtString = issuedAt.format(dateTimeFormatter);
         String  expiresAtString = expiresAt.format(dateTimeFormatter);

@@ -13,7 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.servlet.http.HttpServletResponse;
-import static com.lewis.msauthentication.config.SecurityConstants.AUTH_WHITELIST;
+import static com.lewis.msauthentication.config.properties.SecurityConstants.AUTH_WHITELIST;
 
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
