@@ -11,10 +11,6 @@ public class configBeans {
     @Bean
     @Autowired
     public BCryptPasswordEncoder passwordEncoder()
-    {
-
-        return new BCryptPasswordEncoder();
-
-    }
+    { return new BCryptPasswordEncoder(); }
 
 }
