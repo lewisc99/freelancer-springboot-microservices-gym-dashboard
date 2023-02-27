@@ -4,5 +4,5 @@ RUN apt-get upgrade -y
 RUN apt-get install -y maven
 
 COPY ./ ./
-RUN mvn clean test package
+RUN mvn clean package
 CMD ["java","-jar","target/ms-user.jar"]
