@@ -30,12 +30,18 @@ public class UserServiceImpl implements UserService {
     private MessageRepository messageRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
 
     @Override
     public void create(User user)
     {
+       UUID categoryId  = user.getPlan().getCategory().getId();
+       Optional<Category> category =  categoryService.findById(categoryId);
+       if (category.isEmpty())
+           throw new NullPointerException();
+
+        user.getPlan().setCategory(category.get());
         userRepository.save(user);
     }
 
@@ -64,7 +70,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserModel userModel) {
          User oldUser = findById(userModel.id);
          availablePropertiesToUpdate(oldUser, userModel);
-         Optional<Category> category =  categoryRepository.findById(userModel.getPlan().getCategory().getId());
+         Optional<Category> category =  categoryService.findById(userModel.getPlan().getCategory().getId());
          if(category.isEmpty())
              throw new NullPointerException();
 

@@ -106,6 +106,17 @@ services:
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
 
+  ms-api-gateway:
+    ports:
+      - "8765:8765"
+    container_name: ms-container-api-gateway
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+
   zookeeper:
     container_name: ms-zookeeper
     ports:
