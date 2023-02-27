@@ -83,6 +83,8 @@ public class UserServiceImpl implements UserService {
         oldUser.setAge(userUpdate.getAge());
         oldUser.setEmail(userUpdate.getEmail());
         oldUser.getPlan().setStart(userUpdate.getPlan().getStart());
+        oldUser.getPlan().setFinish(userUpdate.getPlan().getFinish());
+        oldUser.getPlan().setStatus(userUpdate.getPlan().getStatus());
     }
 
     @Override
