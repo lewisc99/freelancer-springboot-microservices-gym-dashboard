@@ -103,6 +103,9 @@ services:
       - gym-project-network
     depends_on:
       - kafka
+      - zookeeper
+    links:
+      - kafka
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
 
@@ -124,11 +127,11 @@ services:
     networks:
       - gym-project-network
   kafka:
-    container_name: ms-kafka
+    container_name: kafka
     ports:
       - "9092:9092"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     networks:
       - gym-project-network
