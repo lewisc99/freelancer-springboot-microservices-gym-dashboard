@@ -28,7 +28,14 @@ public class RolesAuthenticationFilter implements GatewayFilter {
 
         if(bearer != null)
         {
-            String jwt = bearer.get(0).substring(7);
+            String jwt;
+            try {
+                 jwt = bearer.get(0).substring(7);
+            }
+            catch (IndexOutOfBoundsException exception)
+            {
+                return onError(exchange, "No authorization header", HttpStatus.UNAUTHORIZED);
+            }
 
             Map<String, List<String>> claims =
                     jwtUtil.validateTokenAndRetrieveSubject(jwt);

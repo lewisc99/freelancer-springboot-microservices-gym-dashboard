@@ -56,7 +56,7 @@
       <recent name="com.lewis.msapigateway.config" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MsUserApplication">
+  <component name="RunManager" selected="Application.MsApiGatewayApplication">
     <configuration name="MsApiGatewayApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.lewis.msapigateway.MsApiGatewayApplication" />
       <module name="ms-api-gateway" />
@@ -125,9 +125,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MsApiGatewayApplication" />
+        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsUserApplication" />
         <item itemvalue="Application.MsEmployeeApplication" />
-        <item itemvalue="Application.MsAuthenticationApplication" />
         <item itemvalue="Application.MsEurekaServerApplication" />
       </list>
     </recent_temporary>
@@ -147,6 +147,15 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ftl" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ms-api-gateway/src/main/java/com/lewis/msapigateway/filters/RolesAuthenticationFilter.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.data.domain.Sort" memberName="orders" />

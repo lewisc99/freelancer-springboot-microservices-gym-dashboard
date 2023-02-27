@@ -42,7 +42,7 @@ export class UserUpdateComponent implements OnInit{
         this.user = result;
         this.addFormsGroup();
       },
-      error: error => console.log(error)
+      error: error => alert(error)
     })
   }
 
@@ -76,7 +76,7 @@ export class UserUpdateComponent implements OnInit{
     this.categoryService.getAll().subscribe(
       {
         next: response => this.categories = response,
-        error: error => console.log(error)
+        error: error => alert(error)
       }
     )
   } 
@@ -104,7 +104,7 @@ export class UserUpdateComponent implements OnInit{
 
       this.userService.update(userForm).subscribe({
         next: () => this.route.navigate(["..","users"]),
-        error: error => console.log(error)
+        error: error => alert(error)
       });
    }
    this.userGroup.markAllAsTouched();

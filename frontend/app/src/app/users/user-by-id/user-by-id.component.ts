@@ -21,7 +21,7 @@ export class UserByIdComponent implements OnInit{
             let id =  param.get("id")!;
             this.getById(id);
           },
-          error: error => console.log(error)
+          error: error => alert(error)
         }
       )
   }
@@ -30,7 +30,7 @@ export class UserByIdComponent implements OnInit{
   {
     this.userService.getById(id).subscribe({
       next: (result: UserDTO) => this.user = result,
-      error: error => console.log(error)
+      error: error => alert(error)
     });
   }
 

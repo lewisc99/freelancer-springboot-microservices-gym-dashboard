@@ -5,7 +5,6 @@ import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
-import com.lewis.msuser.repositories.CategoryRepository;
 import com.lewis.msuser.repositories.MessageRepository;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.CategoryService;
