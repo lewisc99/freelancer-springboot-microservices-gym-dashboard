@@ -147,15 +147,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.ftl" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ms-api-gateway/src/main/java/com/lewis/msapigateway/filters/RolesAuthenticationFilter.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.data.domain.Sort" memberName="orders" />

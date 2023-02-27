@@ -19,9 +19,9 @@ export class UserService {
   create(user: UserDTO): Observable<any>
   {
       return this.httpClient.post<UserDTO>(this.fullURL, user).pipe(
-        map( response => response),
-        catchError(error => throwError(() => this.handleErrorException(error)))
-      )
+        catchError( (error:HttpErrorResponse) => {
+          return throwError( () =>  this.handleErrorException(error));
+        }));
   }
 
   getAll(sortBy?:string) :Observable<UsersDTO>
@@ -31,36 +31,36 @@ export class UserService {
     return this.httpClient.get<UsersDTO>(getAllUrl).pipe(
       map(
          (response:UsersDTO) => response
-      ), catchError( error => throwError(() => this.handleErrorException(error)))
-    )
+      ),
+      catchError( (error:HttpErrorResponse) => {
+        return throwError( () =>  this.handleErrorException(error));
+      }));
   }
 
-  getById(id:string) : Observable<UserDTO>
+  public getById(id:string) : Observable<UserDTO>
   {
     let getByIdURL = this.fullURL  + "/" + id;
-    return this.httpClient.get<UserDTO>(getByIdURL).pipe
-    (
+    return this.httpClient.get<UserDTO>(getByIdURL).pipe(
       map(
           (response:UserDTO) => response
       ),
-      catchError( error => throwError(() => this.handleErrorException(error)))
-    )
+      catchError( (error:HttpErrorResponse) => {
+        return throwError( () =>  this.handleErrorException(error));
+      }));
   }
 
   update(user:UserDTO) : Observable<any>
   {
     let getBydIdURL = this.fullURL + "/" + user.id;
-    return this.httpClient.put<UserDTO>(getBydIdURL, user).pipe
-    (
-      catchError(error => throwError(() => this.handleErrorException(error)))
+    return this.httpClient.put<UserDTO>(getBydIdURL, user).pipe(
+        catchError( error => throwError(() => this.handleErrorException(error)))
     )
   }
 
   delete(id:string) : Observable<any>
   {
     let getByIdURL = this.fullURL + "/" + id;
-    return this.httpClient.delete(getByIdURL).pipe
-    (
+    return this.httpClient.delete(getByIdURL).pipe(
       catchError(error => throwError(() => this.handleErrorException(error)))
     )
   }
@@ -68,9 +68,8 @@ export class UserService {
   saveMessage(message:Message): Observable<any>
   {
     let URL = this.fullURL + "/" + message.user + "/message";
-    return this.httpClient.post<Message>(URL,message).pipe
-    (
-      catchError(error => throwError(() => this.handleErrorException(error)))
+    return this.httpClient.post<Message>(URL,message).pipe(
+      catchError( error => throwError(() => this.handleErrorException(error)))
     )
 
   }
