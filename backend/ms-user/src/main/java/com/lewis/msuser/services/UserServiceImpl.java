@@ -5,7 +5,6 @@ import com.lewis.msuser.entities.domain.Message;
 import com.lewis.msuser.entities.domain.User;
 import com.lewis.msuser.entities.models.PageModel;
 import com.lewis.msuser.entities.models.UserModel;
-import com.lewis.msuser.repositories.CategoryRepository;
 import com.lewis.msuser.repositories.MessageRepository;
 import com.lewis.msuser.repositories.UserRepository;
 import com.lewis.msuser.services.contracts.CategoryService;
@@ -30,12 +29,18 @@ public class UserServiceImpl implements UserService {
     private MessageRepository messageRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private CategoryService categoryService;
 
 
     @Override
     public void create(User user)
     {
+       UUID categoryId  = user.getPlan().getCategory().getId();
+       Optional<Category> category =  categoryService.findById(categoryId);
+       if (category.isEmpty())
+           throw new NullPointerException();
+
+        user.getPlan().setCategory(category.get());
         userRepository.save(user);
     }
 
@@ -64,7 +69,7 @@ public class UserServiceImpl implements UserService {
     public void update(UserModel userModel) {
          User oldUser = findById(userModel.id);
          availablePropertiesToUpdate(oldUser, userModel);
-         Optional<Category> category =  categoryRepository.findById(userModel.getPlan().getCategory().getId());
+         Optional<Category> category =  categoryService.findById(userModel.getPlan().getCategory().getId());
          if(category.isEmpty())
              throw new NullPointerException();
 
@@ -78,6 +83,8 @@ public class UserServiceImpl implements UserService {
         oldUser.setAge(userUpdate.getAge());
         oldUser.setEmail(userUpdate.getEmail());
         oldUser.getPlan().setStart(userUpdate.getPlan().getStart());
+        oldUser.getPlan().setFinish(userUpdate.getPlan().getFinish());
+        oldUser.getPlan().setStatus(userUpdate.getPlan().getStatus());
     }
 
     @Override

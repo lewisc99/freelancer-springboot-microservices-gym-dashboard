@@ -6,6 +6,7 @@ import { Observable, catchError, map, throwError } from 'rxjs';
 import { EmployeeDto } from '../domain/dtos/EmployeeDto';
 import { EmployeeModel } from '../domain/models/employee.model';
 import { Employee } from '../domain/entities/employee';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class EmployeeService {
 
   private fullUrl = environment.employees_URL;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router:Router) { }
 
     public create(employee:Employee): Observable<any>
     {
@@ -70,6 +71,11 @@ export class EmployeeService {
       var errorMessage = "";
       switch (error.status)
       {
+        case 401:
+          errorMessage = "Token Expired, Please LogIn Again";
+          this.router.navigate(['/..','login']);
+          break;
+
         case 404:
           errorMessage = "Employee Not found";
           break;

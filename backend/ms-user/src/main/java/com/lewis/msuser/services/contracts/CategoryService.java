@@ -7,6 +7,5 @@ import java.util.UUID;
 
 public interface CategoryService {
     List<Category> findAll();
-
     Optional<Category> findById(UUID id);
 }

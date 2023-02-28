@@ -1,24 +1,147 @@
 version: '3.7'
 
 services:
-  ms-eureka-server:
+  eureka-server:
     ports:
       - '8761:8761'
     container_name: ms-eureka-server
     networks:
       - gym-project-network
+
+  postgres:
+    container_name: db-employee
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=ms_employee
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - gym-project-network
+  pgadmin:
+    container_name: ms-container-pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@aspnetrun.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+    networks:
+      - gym-project-network
+
+  ms-employee:
+    ports:
+      - "8001:8001"
+    container_name: ms-container-employee
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/ms_employee
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+    links:
+      - postgres
+
+  ms-authentication:
+    ports:
+      - "8005:8005"
+    container_name: ms-container-authentication
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+
+  mysql:
+    ports:
+      - "3306:3306"
+    container_name: db-user
+    environment:
+      - MYSQL_ROOT_PASSWORD=Futebol#366
+      - MYSQL_DATABASE=ms_user
+      - MYSQLDB_USER=root
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - gym-project-network
+
+  ms-user:
+    ports:
+      - "8002:8002"
+    container_name: ms-container-user
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+      - mysql
+      - kafka
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/ms_user?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=True
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Futebol#366
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+    links:
+      - mysql
+      - kafka
+
+  ms-message-email:
+    ports:
+      - "8006:8006"
+    container_name: ms-container-message-email
+    networks:
+      - gym-project-network
+    depends_on:
+      - kafka
+    links:
+      - kafka
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+
+  ms-api-gateway:
+    ports:
+      - "8765:8765"
+    container_name: ms-container-api-gateway
+    networks:
+      - gym-project-network
+    depends_on:
+      - eureka-server
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
+
   zookeeper:
     container_name: ms-zookeeper
     ports:
       - "2181:2181"
-
+    networks:
+      - gym-project-network
   kafka:
-    container_name: ms-kafka
+    container_name: kafka
     ports:
       - "9092:9092"
     environment:
-      KAFKA_ADVERTISED_HOST_NAME: localhost
+#     KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ADVERTISED_HOST_NAME: kafka
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    networks:
+      - gym-project-network
+  web:
+    container_name: ms-container-web
+    ports:
+      - "4200:80"
+    networks:
+      - gym-project-network
 
 networks:
   gym-project-network:

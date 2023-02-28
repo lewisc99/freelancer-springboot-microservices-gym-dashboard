@@ -38,7 +38,7 @@ export class UserListComponent implements OnInit{
          { 
           next: response => {this.usersDTO = response
           console.log(this.usersDTO)},
-          error: error => error}
+          error: error => alert(error)}
        )
   }
 
@@ -61,7 +61,7 @@ export class UserListComponent implements OnInit{
     
     this.userService.delete(this.userIdToDelete).subscribe({
       next: () => this.getAll(),
-      error: error => console.log(error)
+      error: error => alert(error)
     })
   }
 

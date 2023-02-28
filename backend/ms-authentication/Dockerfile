@@ -5,4 +5,4 @@ RUN apt-get install -y maven
 
 COPY ./ ./
 RUN mvn clean test package
-CMD ["java","-jar","target/ms-api-gateway.jar"]
+CMD ["java","-jar","target/ms-authentication.jar"]

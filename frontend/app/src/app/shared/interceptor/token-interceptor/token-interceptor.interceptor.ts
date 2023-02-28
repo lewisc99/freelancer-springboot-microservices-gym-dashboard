@@ -7,23 +7,31 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from '../../../auth/services/token-storage/token-storage.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private tokenStorage:TokenStorageService) {}
+  constructor(private tokenStorage:TokenStorageService, private router:Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const token:string  = this.tokenStorage.getToken();
     
-    request = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
+    if (token == "")
+    {
+       return next.handle(request);
+    }
+    else
+    {
 
-    return next.handle(request);
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      return next.handle(request);
+    }
   }
 }

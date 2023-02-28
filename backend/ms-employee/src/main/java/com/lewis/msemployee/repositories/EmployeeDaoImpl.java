@@ -21,6 +21,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public void create(Employee employee)
     {
+
             Session session = entityManager.unwrap(Session.class);
             session.save(employee);
     }

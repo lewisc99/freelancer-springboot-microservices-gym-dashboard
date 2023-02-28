@@ -4,5 +4,5 @@ RUN apt-get upgrade -y
 RUN apt-get install -y maven
 
 COPY ./ ./
-RUN mvn clean test package
-CMD ["java","-jar","target/ms-api-gateway.jar"]
+RUN mvn clean package
+CMD ["java","-jar","target/ms-message-email.jar"]

@@ -47,7 +47,7 @@ export class UserCreateComponent implements OnInit{
       this.categoryService.getAll().subscribe(
         {
           next: response => this.categories = response,
-          error: error => console.log(error)
+          error: error => alert(error)
         }
       )
   }
@@ -81,7 +81,7 @@ export class UserCreateComponent implements OnInit{
   
       this.userService.create(userForm).subscribe({
         next: () => this.route.navigate(["..","users"]),
-        error: error => console.log(error)
+        error: error => alert(error)
       })
      }
        this.userGroup.markAllAsTouched();

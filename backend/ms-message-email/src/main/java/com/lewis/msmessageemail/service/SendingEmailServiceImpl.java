@@ -57,8 +57,8 @@ public class SendingEmailServiceImpl  implements SendingEmailService {
         String html = FreeMarkerTemplateUtils.processTemplateIntoString(template,mailModel);
 
         //adding file - image path or file
-        FileSystemResource fileSystemResource = new FileSystemResource(new File("D:\\arquivos\\programation\\workspace-java\\2023\\month-1\\1-gym-project\\backend\\ms-message-email\\src\\main\\resources\\static\\gym-corpus.JPG"));
-        mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
+//        FileSystemResource fileSystemResource = new FileSystemResource(new File("D:\\arquivos\\programation\\workspace-java\\2023\\month-1\\1-gym-project\\backend\\ms-message-email\\src\\main\\resources\\static\\gym-corpus.JPG"));
+//        mimeMessageHelper.addAttachment(fileSystemResource.getFilename(), fileSystemResource);
 
 
         //email properties
