@@ -38,7 +38,6 @@ public class EmployeeServiceImpl  implements EmployeeService {
                 rolesName.add(role.getName());
             }
             List<Roles> roles  = roleService.findRolesByName(rolesName);
-            employee.getRoles().clear();
             employee.setRoles(roles);
             employeeDao.create(employee);
         }

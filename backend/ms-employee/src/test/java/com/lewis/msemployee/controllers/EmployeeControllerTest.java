@@ -110,6 +110,7 @@ public class EmployeeControllerTest {
     @DisplayName("create a valid Employee Http Request")
     public void createAValidEmployeeHttpRequest() throws Exception
     {
+        employee.getRoles().get(0).setName("admin");
         mockMvc.perform(MockMvcRequestBuilders.post("/v1/employees")
                         .contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(employee)))
                 .andExpect(status().isCreated());
@@ -300,12 +301,12 @@ public class EmployeeControllerTest {
         roles.add("admin");
         roles.add("coach");
 
-        EmployeeModel employeeModel = new EmployeeModel("",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
+        EmployeeModel employeeModel = new EmployeeModel("Le",employee.getAge(), employee.getDoc(),employee.getEmail(), roles  );
         mockMvc.perform(MockMvcRequestBuilders.put("/v1/employees/{id}", "3413346b-feb3-44c8-8e3d-234dc6235852")
                 .contentType(APPLICATION_JSON_UTF8)
                 .content(objectMapper.writeValueAsString(employeeModel)))
                 .andExpect(status().isBadRequest())
-                .andExpect(jsonPath("$.errors[0]", is("username cannot be empty")));
+                .andExpect(jsonPath("$.errors[0]", is("username must have min size 5 and Max size 20")));
     }
 
     @Test
