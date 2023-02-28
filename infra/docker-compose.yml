@@ -35,10 +35,15 @@ services:
     image: wurstmeister/zookeeper
   kafka:
     image: wurstmeister/kafka
+  web:
+    build:
+      context: ../frontend/app/
+      dockerfile: Dockerfile
 volumes:
   postgres_data:
   pgadmin_data:
   mysql_data:
+  node_modules:
 
 
 
