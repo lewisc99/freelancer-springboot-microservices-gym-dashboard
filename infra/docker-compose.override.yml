@@ -137,14 +137,11 @@ services:
     networks:
       - gym-project-network
   web:
-    container_name: container-web
-    command: sh -c "npm start"
+    container_name: ms-container-web
     ports:
-      - "4200:4200"
-    working_dir: /home/node/app
-    volumes:
-      - ./:/home/node/app
-      - node_modules:/home/node/app/node_modules
+      - "4200:80"
+    networks:
+      - gym-project-network
 
 networks:
   gym-project-network:

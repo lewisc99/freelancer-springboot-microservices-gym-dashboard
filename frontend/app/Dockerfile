@@ -3,6 +3,10 @@
 FROM node:18.12.1 as node
 WORKDIR /app
 COPY . .
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y nodejs \
+    npm   
+
 RUN npm install
 RUN npm run build --prod
 # Stage 2
