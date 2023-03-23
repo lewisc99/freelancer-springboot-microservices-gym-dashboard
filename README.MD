@@ -2,15 +2,31 @@
 <hr>
 <br/>
 <h2>Description English</h2>
-<p>I'm developing this project as a Freelancer to a local Gym where you can manage Customers and Users
-Like changing the Status, if the User is in debit, or change the Plan Category, i learnt i lot as creating 
-an infrastructure adding Security with JWT, escalating Microservices, add TDD with Unit and Integration Tests</p>
+<p>This Freelancer project for a local gym where you can manage clients and users
+where you can easily change users' debt status as well as plan category.
+  My expertise in creating a secure infrastructure with JWT,
+scale microservices and apply TDD with unit and integration testing
+  ensure the system is robust and reliable.</p>
 <hr>
 <h2>Descrição Português</h2>
-<p>Estou desenvolvendo este projeto como Freelancer para uma academia local onde você pode gerenciar clientes e usuários
-Como mudar o Status, se o Usuário está em débito, ou mudar a Categoria do Plano, aprendi  muito como criar
-uma Infraestrutura,  adicionar segurança com JWT, escalar microsserviços, realizar TDD com Testes unitários,
-Testes de Integração. </p>
+<p>Este projeto como Freelancer para uma academia local onde você pode gerenciar clientes e usuários
+onde você pode facilmente mudar o status dos usuários em débito, bem como a categoria do plano.
+ Minha expertise em criar uma infraestrutura segura com JWT, 
+escalar microsserviços e aplicar TDD com testes unitários e de integração
+ garantem que o sistema seja robusto e confiável.</p>
+<hr>
+<br/>
+<h2>How to Run</h1>
+<p>in the Root file go to the terminal and add "docker-compose up" (you need to have Docker and Java install you your machine)
+then will generate the docker containers and you'll need to create an Employee in the container DB 
+db-employee, (you can use the dashboard to postgreSQL PgAdmin) and configure the server then will automatically
+will create the database tables after that you'll need to create a new Employee you can use this SQL below</p>
+<p> 
+INSERT INTO public.tb_employee(
+   id,username, age, doc, email, password)
+   VALUES ('31c4bed2-4b31-417e-b77e-bd88a4f96ae8','felipe', 22, '299229292223', 'felipe.santos@gmail.com', 'Secret@123');
+</p>
+<p>After that Just follow the video gift below showing all the project structure, Enjoy :)</p>
 <hr>
 <br/>
 ## 🚀 Tech Usada<br/>
@@ -39,7 +55,10 @@ Testes de Integração. </p>
 
 
 ## 🖼 Screenshot APPLICATION SCREENS <br/>
-<p>Whole application click below to the run video</p><img src="images/gym-corpus.gif">
+<p>Whole application - And How to RUN -  click below to the run video</p><img src="images/gym-project.gif">
+<br/>
+<br/>
+<p>Infrastructure Frontend</p><img src="images/figma.JPG">
 <br/>
 <br/>
 <p>Login Page</p><img src="images/login-page.JPG">
