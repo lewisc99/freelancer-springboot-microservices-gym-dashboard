@@ -58,6 +58,9 @@ INSERT INTO public.tb_employee(
 <p>Whole application - And How to RUN -  click below to the run video</p><img src="images/gym-project.gif">
 <br/>
 <br/>
+<p>Infrastructure Whole Application</p><img src="images/structure.png">
+<br/>
+<br/>
 <p>Infrastructure Frontend</p><img src="images/figma.JPG">
 <br/>
 <br/>
