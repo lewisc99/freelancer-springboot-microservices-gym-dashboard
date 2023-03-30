@@ -7,7 +7,7 @@ services:
     container_name: ms-eureka-server
     networks:
       - gym-project-network
-
+#  --------------------------------------------------------------------------------------
   postgres:
     container_name: db-employee
     environment:
@@ -21,6 +21,7 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     networks:
       - gym-project-network
+#  --------------------------------------------------------------------------------------
   pgadmin:
     container_name: ms-container-pgadmin
     environment:
@@ -33,7 +34,7 @@ services:
       - pgadmin_data:/root/.pgadmin
     networks:
       - gym-project-network
-
+#  --------------------------------------------------------------------------------------
   ms-employee:
     ports:
       - "8001:8001"
@@ -50,7 +51,7 @@ services:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
     links:
       - postgres
-
+#  --------------------------------------------------------------------------------------
   ms-authentication:
     ports:
       - "8005:8005"
@@ -61,7 +62,7 @@ services:
       - eureka-server
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
-
+#  --------------------------------------------------------------------------------------
   mysql:
     ports:
       - "3306:3306"
@@ -75,7 +76,7 @@ services:
       - mysql_data:/var/lib/mysql
     networks:
       - gym-project-network
-
+#  --------------------------------------------------------------------------------------
   ms-user:
     ports:
       - "8002:8002"
@@ -95,7 +96,7 @@ services:
     links:
       - mysql
       - kafka
-
+#  --------------------------------------------------------------------------------------
   ms-message-email:
     ports:
       - "8006:8006"
@@ -108,7 +109,7 @@ services:
       - kafka
     environment:
       - SPRING_KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-
+#  --------------------------------------------------------------------------------------
   ms-api-gateway:
     ports:
       - "8765:8765"
@@ -119,13 +120,14 @@ services:
       - eureka-server
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka
-
+#  --------------------------------------------------------------------------------------
   zookeeper:
     container_name: ms-zookeeper
     ports:
       - "2181:2181"
     networks:
       - gym-project-network
+#  --------------------------------------------------------------------------------------
   kafka:
     container_name: kafka
     ports:
@@ -136,12 +138,13 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     networks:
       - gym-project-network
+#  --------------------------------------------------------------------------------------
   web:
     container_name: ms-container-web
     ports:
       - "4200:80"
     networks:
       - gym-project-network
-
+#  --------------------------------------------------------------------------------------
 networks:
   gym-project-network:

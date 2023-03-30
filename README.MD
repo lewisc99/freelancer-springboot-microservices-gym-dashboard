@@ -91,7 +91,23 @@ INSERT INTO public.tb_employee(
 <p>User Delete</p><img src="images/user-delete.JPG">
 <br/>
 <br/>
-
+<p>CI/CD</p><img src="images/ci-cd.JPG">
+<br/>
+<br/>
+<br/>
+<p>Microservices </p><img src="images/docker.JPG">
+<br/>
+<br/>
+<p>Eureka </p><img src="images/eureka.JPG">
+<br/>
+<br/>
+<br/>
+<p>Documentation Swagger Employee </p><img src="images/swagger-employee.JPG">
+<br/>
+<br/>
+<p>Documentation Swagger User </p><img src="images/swagger-user.JPG">
+<br/>
+<br/>
 <hr>
 
 ## Linkedin Below - Linkedin ABaixo
